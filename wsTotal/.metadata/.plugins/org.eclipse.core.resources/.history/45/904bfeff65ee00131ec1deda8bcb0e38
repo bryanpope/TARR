@@ -1,0 +1,8 @@
+package com.badlogic.androidgames.mrnom;
+
+public class TiledMapImage 
+{
+	String source;
+	int width;
+	int height;
+}

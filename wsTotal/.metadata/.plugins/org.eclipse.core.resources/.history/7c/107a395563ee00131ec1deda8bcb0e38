@@ -1,0 +1,13 @@
+package com.badlogic.androidgames.mrnom;
+
+public enum Direction 
+{
+	NORTH,
+	NORTHEAST,
+	EAST,
+	SOUTHEAST,
+	SOUTH,
+	SOUTHWEST,
+	WEST,
+	NORTHWEST
+}
