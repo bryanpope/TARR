@@ -2,7 +2,7 @@ package com.badlogic.androidgames.mrnom;
 
 public class Pathfinding
 {
-	public boolean IAmAPathAndILikeCheese(tiles, start, goal, passableTiles)
+	public boolean IAmAPathAndILikeCheese(tiles, Node start, Node goal, passableTiles)
 	{
 		//Create closed list
 		closedList = new Array();
@@ -64,7 +64,7 @@ public class Pathfinding
 		return (currNode.col == goalNode.col) && (currNode.row == goalNode.row);
 	}
 
-	public int orderNodes(a, b)
+	public int orderNodes(int a, int b)
 	{
 		if(a.fCost < b.fCost)
 		{
@@ -88,7 +88,7 @@ public class Pathfinding
 		return retval;
 	}
 
-	public boolean checkPassableTile(row, col, tiles, passableTiles)
+	public boolean checkPassableTile(int row, int col, tiles, passableTiles)
 	{
 		int numCols = tiles[0].length;
 		int numRows = tiles.length;
@@ -114,7 +114,7 @@ public class Pathfinding
 		return false;
 	}
 
-	public boolean isNodeClosed(row, col, closedList)
+	public boolean isNodeClosed(int row, int col, closedList)
 	{
 		for(int i = 0; i < closedList.length; ++i)
 		{
@@ -126,7 +126,7 @@ public class Pathfinding
 		return false;
 	}
 
-	public Node getChildFromOpen(row, col, openList)
+	public Node getChildFromOpen(int row, int col, openList)
 	{
 		for(int i = 0; i < openList.length; ++i)
 		{
@@ -140,7 +140,7 @@ public class Pathfinding
 		return newNode;
 	}
 
-	public void addChild(row, col, currentNode, target, openList, closedList)
+	public void addChild(int row, int col, Node currentNode, Node target, openList, closedList)
 	{
 		if(checkPassableTile(row, col, tiles, passableTiles))
 		{
@@ -172,7 +172,7 @@ public class Pathfinding
 		
 	}
 
-	public int getHeuristic(start, end)
+	public int getHeuristic(Node start, Node end)
 	{
 		return (Math.abs(start.x - end.x) + Math.abs(start.y - end.y));
 	}
@@ -191,4 +191,126 @@ public class Pathfinding
 	{
 		return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
 	}
+	
+	public boolean BresenhamsLOSCheck(int x1, int y1, int x2, int y2)
+	{
+		var deltaX = x2 - x1;
+		var deltaY = y2 - y1;
+
+		//determine which octant we are in
+		if(deltaX >= 0 && deltaY >= 0)
+		{
+			if(deltaX < deltaY)
+			{
+				var slope = Math.abs(deltaX / deltaY);
+		
+				var error : Number = 0;
+				var currX = x1;
+				
+				for(var currY:Number = y1; currY <= y2; ++currY)
+				{
+					//check tile
+					if(CheckWallTile(Math.floor(currX / 32),
+									 Math.floor(currY / 32)))
+					{
+						return false;
+					}
+					
+					error += slope;
+					if(error >= 0.5)
+					{
+						currX++;
+						error -= 1.0;
+					}
+				}
+				
+				return true;
+			}
+			else
+			{
+				var slope = Math.abs(deltaY / deltaX);
+		
+				var error : Number = 0;
+				var currY = y1;
+				
+				for(var currX:Number = x1; currX <= x2; ++currX)
+				{
+					//check tile
+					if(CheckWallTile(Math.floor(currX / 32),
+									 Math.floor(currY / 32)))
+					{
+						return false;
+					}
+					
+					error += slope;
+					if(error >= 0.5)
+					{
+						currY++;
+						error -= 1.0;
+					}
+				}
+				
+				return true;
+			}
+		}
+		
+		else if(deltaX < 0 && deltaY >= 0)
+		{
+			if(-deltaX < deltaY)
+			{
+				var slope = Math.abs(-deltaX / deltaY);
+		
+				var error : Number = 0;
+				var currX = x1;
+				
+				for(var currY:Number = y1; currY <= y2; ++currY)
+				{
+					//check tile
+					if(CheckWallTile(Math.floor(currX / 32),
+									 Math.floor(currY / 32)))
+					{
+						return false;
+					}
+					
+					error += slope;
+					if(error >= 0.5)
+					{
+						currX--;
+						error -= 1.0;
+					}
+				}
+				
+				return true;
+			}
+			else
+			{
+				var slope = Math.abs(deltaY / -deltaX);
+		
+				var error : Number = 0;
+				var currY = y1;
+				
+				
+				for(var currX:Number = x1; currX >= x2; --currX)
+				{
+					//check tile
+					if(CheckWallTile(Math.floor(currX / 32),
+									 Math.floor(currY / 32)))
+					{
+						return false;
+					}
+				
+					error += slope;
+					if(error >= 0.5)
+					{
+						currY++;
+						error -= 1.0;
+					}
+				}
+				
+				return true;
+			}
+		}
+		return true;
+	}
+	
 }
