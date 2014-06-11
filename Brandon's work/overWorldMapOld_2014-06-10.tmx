@@ -1357,6 +1357,9 @@
    <tile gid="17"/>
   </data>
  </layer>
+ <imagelayer name="Map" width="50" height="27" visible="0">
+  <image source="map.png"/>
+ </imagelayer>
  <layer name="Objects" width="50" height="27">
   <data>
    <tile gid="0"/>
