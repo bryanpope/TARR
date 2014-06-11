@@ -5,10 +5,10 @@ import java.util.List;
 
 public class TiledMapLayer 
 {
-	String name;
-	int width;
-	int height;
-	List< Integer > data;
+	String name;  //name of the layer
+	int width;  //the number of tiles wide for the layer
+	int height;  //the number of tiles high for the layer
+	List< Integer > data;  //the index of each tile.
 	
 	public TiledMapLayer ()
 	{

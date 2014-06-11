@@ -4,8 +4,8 @@ import com.framework.Pixmap;
 
 public class TiledMapImage
 {
-	String source;
-    Pixmap pmImage;
-	int width;
-	int height;
+	String source;  //the filename of the image
+    Pixmap pmImage; //tileset image
+	int width;  //the number of pixels wide of the tilesheet
+	int height;  //the number of pixels high of the tilesheet
 }

@@ -38,8 +38,38 @@ public class WorldMap extends Screen
     {
     }
 
+    @Override
     public void present(float deltaTime)
     {
+        Graphics g = game.getGraphics();
+
+        //g.drawPixmap(Assets.background, 0, 0);
+        drawWorld(Assets.tmOverWorld);
+    }
+
+    private void drawWorld(TiledMap world)
+    {
+        Graphics g = game.getGraphics();
+
+        int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
+        int mapsize = (world.width * world.height);
+
+        for (int i = 0; i < world.layers.size(); i++)
+        {
+            for (int index = 0; index < mapsize; index++)
+            {
+                for (int j = 0; j < tilesheetsize; j++ )
+                {
+                    if (world.layers.get(i).data.get(index) == ((j*world.tileset.tileWidth)/world.tileset.tileWidth))
+                    {
+                        g.drawPixmap(world.tileset.get(j),0,0);
+                    }
+                }
+            }
+
+
+        }
+
     }
 
     @Override

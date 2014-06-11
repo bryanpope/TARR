@@ -11,14 +11,14 @@ public class TiledMap extends DefaultHandler2
 {
 	String version;
 	TiledMapOrientation orientation;
-	int width;
-	int height;
-	int tileWidth;
-	int tileHeight;
-	TiledMapTileset tileset;
+	int width;  //number of tiles wide for the TiledMap
+	int height;  //number of tiles high for the TiledMap
+	int tileWidth;  //the number of pixels per Tile wide
+	int tileHeight;  //the number of pixels per Tile high
+	TiledMapTileset tileset;  //the tilesheet
 	TiledMapImage image;
-	List< TiledMapLayer > layers;
-	List< Integer > data;
+	List< TiledMapLayer > layers;  //the number of layers
+	List< Integer > data;  //so for private use only
 	
 	TiledMap ()
 	{
