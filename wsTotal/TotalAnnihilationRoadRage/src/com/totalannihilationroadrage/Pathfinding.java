@@ -63,8 +63,7 @@ public class Pathfinding
 		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
 	}
 
-    //So far this function is never used
-	/*public int orderNodes(Node a, Node b)
+	public int orderNodes(Node a, Node b)
 	{
 		if(a.fCost < b.fCost)
 		{
@@ -78,7 +77,7 @@ public class Pathfinding
 		{
 			return 0;
 		}
-	}*/
+	}
 
 	public boolean checkPassableTile(int row, int col, List<Integer> tiles, List<Integer> passableTiles)
 	{
@@ -153,9 +152,6 @@ public class Pathfinding
 			    }
 			}
 		}
-
-		//openList.push(addedChild);
-		
 	}
 
 	public int getHeuristic(Node start, Node end)
