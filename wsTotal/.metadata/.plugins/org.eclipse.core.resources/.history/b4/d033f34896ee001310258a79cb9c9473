@@ -1,0 +1,18 @@
+
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TacticalCombatWorld 
+{
+	int rounds;
+	List< List<Integer> > tilesCombat = new List< List<Integer> >();
+	
+	
+	public boolean isRoadHazard (int row, int col, TiledMap map)
+	{
+		
+		return true;
+	}
+	
+}

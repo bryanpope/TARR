@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+E:\android\wsTotal\.metadata\.plugins\org.eclipse.jdt.core
+2818271893.index
+4220640692.index
+2417614316.index
+1284074322.index

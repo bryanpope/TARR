@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/TotalAnnihilationRoadRage.iml" filepath="$PROJECT_DIR$/TotalAnnihilationRoadRage/TotalAnnihilationRoadRage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcompat_v7/appcompat_v7.iml" filepath="$PROJECT_DIR$/appcompat_v7/appcompat_v7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wsTotal.iml" filepath="$PROJECT_DIR$/wsTotal.iml" />
+    </modules>
+  </component>
+</project>
+

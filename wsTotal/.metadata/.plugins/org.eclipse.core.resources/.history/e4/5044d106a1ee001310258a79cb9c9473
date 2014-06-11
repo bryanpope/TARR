@@ -1,0 +1,25 @@
+package com.totalannihilationroadrage;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TacticalCombatWorld 
+{
+	int roundsPlayer;
+	int roundsEnemy;
+	List< TacticalCombatVehicle > tcvsPlayer;
+	List< TacticalCombatVehicle > tcvsEnemy;
+	
+	TacticalCombatWorld ()
+	{
+		tcvsPlayer = new ArrayList< TacticalCombatVehicle >();
+		tcvsEnemy = new ArrayList< TacticalCombatVehicle >();
+	}
+	
+	public boolean isRoadHazard (int row, int col, TiledMap map)
+	{
+		
+		return true;
+	}
+	
+}

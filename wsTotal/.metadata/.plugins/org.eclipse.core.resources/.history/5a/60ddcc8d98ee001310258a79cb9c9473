@@ -1,0 +1,14 @@
+package com.totalannihilationroadrage;
+
+public class TacticalCombatWorld 
+{
+	int rounds;
+	
+	
+	public boolean isRoadHazard (int row, int col, TiledMap map)
+	{
+		
+		return true;
+	}
+	
+}

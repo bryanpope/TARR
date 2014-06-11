@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="unspecified" >
+        <source path="E:\android\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets" >
+            <file
+                name="background.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\background.png" />
+            <file
+                name="bitten.ogg"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\bitten.ogg" />
+            <file
+                name="bobargb8888.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\bobargb8888.png" />
+            <file
+                name="bobrgb888.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\bobrgb888.png" />
+            <file
+                name="buttons.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\buttons.png" />
+            <file
+                name="click.ogg"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\click.ogg" />
+            <file
+                name="eat.ogg"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\eat.ogg" />
+            <file
+                name="gameover.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\gameover.png" />
+            <file
+                name="headdown.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\headdown.png" />
+            <file
+                name="headleft.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\headleft.png" />
+            <file
+                name="headright.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\headright.png" />
+            <file
+                name="headup.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\headup.png" />
+            <file
+                name="help1.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\help1.png" />
+            <file
+                name="help2.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\help2.png" />
+            <file
+                name="help3.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\help3.png" />
+            <file
+                name="logo.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\logo.png" />
+            <file
+                name="mainmenu.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\mainmenu.png" />
+            <file
+                name="music.ogg"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\music.ogg" />
+            <file
+                name="numbers.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\numbers.png" />
+            <file
+                name="overWorldMap.tmx"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\overWorldMap.tmx" />
+            <file
+                name="pausemenu.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\pausemenu.png" />
+            <file
+                name="ready.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\ready.png" />
+            <file
+                name="stain1.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\stain1.png" />
+            <file
+                name="stain2.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\stain2.png" />
+            <file
+                name="stain3.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\stain3.png" />
+            <file
+                name="tail.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\tail.png" />
+            <file
+                name="test.tmx"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\test.tmx" />
+            <file
+                name="tilesheet.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\tilesheet.png" />
+            <file
+                name="hedgehogApocalypse.png"
+                path="E:\android\wsTotal\TotalAnnihilationRoadRage\assets\hedgehogApocalypse.png" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="E:\android\wsTotal\TotalAnnihilationRoadRage\build-types\debug\assets" />
+    </dataSet>
+
+</merger>
