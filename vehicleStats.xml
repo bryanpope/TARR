@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vehicleStats>
+  <vehicle type="Motorcycle" size="S" mass="1" structure="3" maxspeed="100" maneuverability="4" braking="2" accereration="2" missilefactorleft="2" missilefactorright="2" missilefactorfront="2" missilefactorback="2" missileprotectionfactorleft="0" missileprotectionfactorright="0" missileprotectionfactorfront="2" missileprotectionfactorback="0" tires="2" boardingfactorleft="1" boardingfactorright="1" boardingfactorfront="0" boardingfactorback="1" crewcapacityinterior="2" crewcapacityexterior="0" fuel="1" carryingcapacity="5" basecost="73" />
+  <vehicle type="Sidecar" size="S" mass="1" structure="3" maxspeed="100" maneuverability="4" braking="2" accereration="2" missilefactorleft="2" missilefactorright="2" missilefactorfront="2" missilefactorback="2" missileprotectionfactorleft="0" missileprotectionfactorright="0" missileprotectionfactorfront="2" missileprotectionfactorback="0" tires="2" boardingfactorleft="1" boardingfactorright="1" boardingfactorfront="0" boardingfactorback="1" crewcapacityinterior="2" crewcapacityexterior="0" fuel="1" carryingcapacity="5" basecost="73" />
+</vehicleStats>
