@@ -2,16 +2,6 @@ package com.totalannihilationroadrage;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
-
-
-Did it work?
-
-
-
- */
-
-
 
 public class Pathfinding
 {
