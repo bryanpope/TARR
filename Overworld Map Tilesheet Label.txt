@@ -1,0 +1,12 @@
+1-7 - Road
+8 - Tree
+9-15 - Grass
+16 - Dirt
+17/18 - Water
+19 - Ice
+20 - Unpassable
+21 - Oilfield
+22 - Town
+23 - City
+24 - Mountain
+25-28 - Road
