@@ -1,8 +1,0 @@
-package com.badlogic.androidgames.mrnom;
-
-public enum VehicleSize 
-{
-	SMALL,
-	MEDIUM,
-	LARGE
-}
