@@ -80,9 +80,9 @@ public class Pathfinding
 		}
 	}*/
 
-	/*public boolean checkPassableTile(int row, int col, List<Integer> tiles, List<Integer> passableTiles)
+	public boolean checkPassableTile(int row, int col, List<Integer> tiles, List<Integer> passableTiles)
 	{
-		int numCols = tiles.get(0);
+		/*int numCols = tiles.get(0);
 		int numRows = tiles.size();
 		
 		if(row >= numRows || row < 0)
@@ -101,10 +101,10 @@ public class Pathfinding
 			{
 				return true;
 			}
-		}
+		}*/
 		
 		return false;
-	}*/
+	}
 
 	public boolean isNodeClosed(int row, int col, List<Node> closedList)
 	{
