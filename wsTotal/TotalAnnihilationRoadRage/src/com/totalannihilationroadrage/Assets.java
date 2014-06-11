@@ -33,4 +33,22 @@ public class Assets
     public static Pixmap pmOverWorld;
     public static TiledMap tmHighway;
     public static Pixmap pmHighway;
+
+    public static Pixmap upArrow;
+    public static Pixmap downArrow;
+    public static Pixmap leftArrow;
+    public static Pixmap rightArrow;
+
+    public static Pixmap skip;
+
+    public static Pixmap transferUp;
+    public static Pixmap transferDown;
+
+    public static Pixmap cannotMove;
+    public static Pixmap forward;
+    public static Pixmap leftAngle;
+    public static Pixmap leftTurn;
+    public static Pixmap rightAngle;
+    public static Pixmap rightTurn;
+    public static Pixmap speedUp;
 }
