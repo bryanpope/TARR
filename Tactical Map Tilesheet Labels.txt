@@ -1,0 +1,6 @@
+1-5 - Road
+6 - Decoration
+7-13 - Road
+14 - Dirt/Decoration/Whatever we want it to be
+15 - Grass
+16 - Tree
