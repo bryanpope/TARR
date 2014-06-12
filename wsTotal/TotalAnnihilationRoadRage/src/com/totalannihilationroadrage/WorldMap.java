@@ -55,20 +55,24 @@ public class WorldMap extends Screen
         int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         int mapsize = (world.width * world.height);
+        int  destX, destY;
+        int srcX, srcY;
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
-            int dest_x = 0;
-            int dest_y = 0;
+        //int i = 0;
+            destX = destY = 0;
             for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
             {
-                int t_element = world.layers.get(i).data.get(index);
-                g.drawPixmap(world.image.pmImage, dest_x * 64, dest_y * 64, (t_element/tilesheetcol*world.tileset.tileWidth),(t_element%tilesheetcol*world.tileset.tileHeight),world.tileset.tileWidth,world.tileset.tileHeight);
-                dest_x++;
-                if (dest_x > world.width)
+                int t_element = world.layers.get(i).data.get(index) - 1;
+                srcY = (t_element/tilesheetcol*world.tileset.tileWidth);
+                srcX = (t_element%tilesheetcol*world.tileset.tileHeight);
+                g.drawPixmap(world.image.pmImage, destX * world.tileset.tileWidth, destY * world.tileset.tileHeight, srcX, srcY, world.tileset.tileWidth, world.tileset.tileHeight);
+                destX++;
+                if (destX > world.width)
                 {
-                    dest_x = 0;
-                    dest_y++;
+                    destX = 0;
+                    destY++;
                 }
 
             }
