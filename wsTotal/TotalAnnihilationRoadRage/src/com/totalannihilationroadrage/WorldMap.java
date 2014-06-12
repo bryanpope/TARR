@@ -63,9 +63,8 @@ public class WorldMap extends Screen
             for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
             {
                 int t_element = world.layers.get(i).data.get(index);
-                g.drawPixmap(world.image.pmImage, dest_x, dest_y, (t_element/tilesheetcol*world.tileset.tileWidth),(t_element%tilesheetcol*world.tileset.tileHeight),world.tileset.tileWidth,world.tileset.tileHeight);
+                g.drawPixmap(world.image.pmImage, dest_x * 64, dest_y * 64, (t_element/tilesheetcol*world.tileset.tileWidth),(t_element%tilesheetcol*world.tileset.tileHeight),world.tileset.tileWidth,world.tileset.tileHeight);
                 dest_x++;
-
                 if (dest_x > world.width)
                 {
                     dest_x = 0;

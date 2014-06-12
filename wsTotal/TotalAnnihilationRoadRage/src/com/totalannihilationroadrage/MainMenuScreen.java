@@ -27,7 +27,7 @@ public class MainMenuScreen extends Screen {
                         Assets.click.play(1);
                 }
                 if(inBounds(event, 64, 220, 192, 42) ) {
-                    game.setScreen(new GameScreen(game));
+                    game.setScreen(new WorldMap(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
