@@ -51,20 +51,27 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
+
         int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
+        int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         int mapsize = (world.width * world.height);
 
-        for (int i = 0; i < world.layers.size(); i++)
+        for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
-            for (int index = 0; index < mapsize; index++)
+            int dest_x = 0;
+            int dest_y = 0;
+            for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
             {
-                for (int j = 0; j < tilesheetsize; j++ )
+                int t_element = world.layers.get(i).data.get(index);
+                g.drawPixmap(world.image.pmImage, dest_x, dest_y, (t_element/tilesheetcol*world.tileset.tileWidth),(t_element%tilesheetcol*world.tileset.tileHeight),world.tileset.tileWidth,world.tileset.tileHeight);
+                dest_x++;
+
+                if (dest_x > world.width)
                 {
-                    if (world.layers.get(i).data.get(index) == ((j*world.tileset.tileWidth)/world.tileset.tileWidth))
-                    {
-                        g.drawPixmap(world.tileset.get(j),0,0);
-                    }
+                    dest_x = 0;
+                    dest_y++;
                 }
+
             }
 
 
