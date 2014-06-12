@@ -69,7 +69,7 @@ public class WorldMap extends Screen
                 srcX = (t_element%tilesheetcol*world.tileset.tileHeight);
                 g.drawPixmap(world.image.pmImage, destX * world.tileset.tileWidth, destY * world.tileset.tileHeight, srcX, srcY, world.tileset.tileWidth, world.tileset.tileHeight);
                 destX++;
-                if (destX > world.width)
+                if (destX >= world.width)
                 {
                     destX = 0;
                     destY++;
