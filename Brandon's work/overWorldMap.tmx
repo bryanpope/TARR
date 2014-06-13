@@ -1357,9 +1357,6 @@
    <tile gid="2"/>
   </data>
  </layer>
- <imagelayer name="Image Layer 1" width="50" height="27" visible="0">
-  <image source="../../../../Desktop/Untitled-7.png"/>
- </imagelayer>
  <layer name="Objects" width="50" height="27">
   <data>
    <tile gid="0"/>
