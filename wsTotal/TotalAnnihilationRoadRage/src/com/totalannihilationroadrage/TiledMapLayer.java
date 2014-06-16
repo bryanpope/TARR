@@ -24,6 +24,10 @@ public class TiledMapLayer
     {
         int tile = getTile(row, col);
 
+        if (tile == 16)
+        {
+            return false;
+        }
         return true;
     }
 }

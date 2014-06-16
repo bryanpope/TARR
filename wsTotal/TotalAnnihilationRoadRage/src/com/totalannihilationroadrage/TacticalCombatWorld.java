@@ -12,7 +12,7 @@ public class TacticalCombatWorld
     private int roundsEnemy;
     private List< TacticalCombatVehicle > tcvsPlayer;
     private List< TacticalCombatVehicle > tcvsEnemy;
-    private TiledMap tmBattleGround;
+    public TiledMap tmBattleGround;
 
     private boolean fields[][] = new boolean[100][30];
     private Random random = new Random();

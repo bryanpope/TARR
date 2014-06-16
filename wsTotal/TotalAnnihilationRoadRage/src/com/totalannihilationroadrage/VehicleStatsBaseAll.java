@@ -161,7 +161,7 @@ public class VehicleStatsBaseAll extends DefaultHandler2
                     continue;
                 }
 			}
-			return;
+			vehicles.add(aVehicle);
 		}
 	}
 	
