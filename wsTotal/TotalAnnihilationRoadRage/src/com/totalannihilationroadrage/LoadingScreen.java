@@ -51,7 +51,7 @@ public class LoadingScreen extends Screen {
         Assets.tmHighway.image.pmImage = Assets.pmHighway;
 
         Assets.vehicleStats = new VehicleStatsBaseAll();
-        //game.getTMXParse().setHandler();
+        game.getTMXParse().setHandler(Assets.vehicleStats);
 
         game.setScreen(new MainMenuScreen(game));
     }

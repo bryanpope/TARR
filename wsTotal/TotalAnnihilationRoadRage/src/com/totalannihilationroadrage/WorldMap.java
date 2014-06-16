@@ -26,7 +26,7 @@ public class WorldMap extends Screen
         Paused
     }
 
-    GameState state = GameState.Ready;
+    GameState state = GameState.Running;
     World world;
    // Pathfinding pathfinding;
 

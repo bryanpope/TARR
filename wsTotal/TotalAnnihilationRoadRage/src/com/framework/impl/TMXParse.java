@@ -11,6 +11,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
+import org.xml.sax.ext.DefaultHandler2;
 
 import com.totalannihilationroadrage.TiledMap;
 
@@ -20,14 +21,14 @@ public class TMXParse
 	SAXParserFactory spf;
 	SAXParser sp;
 	XMLReader xmlr;
-    TiledMap handler;
+    DefaultHandler2 handler;
     
     public TMXParse (AssetManager am)
     {
     	assetManager = am;
     }
     
-    public void setHandler (TiledMap hr)
+    public void setHandler (DefaultHandler2 hr)
     {
     	handler = hr;
     }
