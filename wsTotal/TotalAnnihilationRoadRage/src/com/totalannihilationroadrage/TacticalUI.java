@@ -69,14 +69,13 @@ public class TacticalUI
         }
     }
 
-    public void drawCrewDeployment()
+    private void drawUIPhaseCrewTransfer(int posX, int posY)
     {
-        //draw images related to crew deployment
         Graphics g = game.getGraphics();
-        //							srcx, srcy, x, y, width, height
-        g.drawPixmap(Assets.transferUp, 40, 240, 0, 0, 20, 20);
-        g.drawPixmap(Assets.transferDown, 0, 260, 0, 0, 20, 20);
-        g.drawPixmap(Assets.skip, 40, 260, 0, 0, 20, 20);
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
+
+        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 0, 224, 32, 32);    //transfer crew down
+        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 96, 224, 32, 32);    //transfer crew up
     }
 
     public void updateFire(List<TouchEvent> touchEvents)
@@ -101,9 +100,15 @@ public class TacticalUI
         }
     }
 
-    public void drawFire()
+    private void drawUIPhaseFire(int posX, int posY)
     {
-        //draw images related to fire
+        Graphics g = game.getGraphics();
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
+
+        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 32, 160, 32, 32);    //up arrow
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 64, 160, 32, 32);    //right arrow
+        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 96, 128, 32, 32);   //down arrow
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 0, 160, 32, 32);    //left arrow
     }
 
     public void updateMove(List<TouchEvent> touchEvents)
@@ -172,25 +177,18 @@ public class TacticalUI
         }
     }
 
-    public void drawMove()
+    private void drawUIPhaseMovement (int posX, int posY)
     {
-        //draw images related to moving functions
         Graphics g = game.getGraphics();
-        //							srcx, srcy, x, y, width, height
-        g.drawPixmap(Assets.upArrow, 0, 200, 0, 0, 20, 20);
-        g.drawPixmap(Assets.downArrow, 20, 180, 0, 0, 20, 20);
-        g.drawPixmap(Assets.leftArrow, 40, 180, 0, 0, 20, 20);
-        g.drawPixmap(Assets.rightArrow, 20, 200, 0, 0, 20, 20);
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
 
-        g.drawPixmap(Assets.skip, 40, 260, 0, 0, 20, 20);
-
-        g.drawPixmap(Assets.cannotMove, 20, 260, 0, 0, 20, 20);
-        g.drawPixmap(Assets.forward, 20, 240, 0, 0, 20, 20);
-        g.drawPixmap(Assets.leftAngle, 40, 220, 0, 0, 20, 20);
-        g.drawPixmap(Assets.leftTurn, 40, 200, 0, 0, 20, 20);
-        g.drawPixmap(Assets.rightAngle, 20, 220, 0, 0, 20, 20);
-        g.drawPixmap(Assets.rightTurn, 0, 220, 0, 0, 20, 20);
-        g.drawPixmap(Assets.speedUp, 0, 240, 0, 0, 20, 20);
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 32, 224, 32, 32);            //break
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 96, 192, 32, 32);            //accelerate
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY - 32, 64, 192, 32, 32);       //left turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY + 32, 32, 192, 32, 32);       //right turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY, 0, 256, 32, 32);            //move straight
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY + 32, 0, 192, 32, 32);       // move right
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY - 32, 96, 160, 32, 32);      //move left
     }
 
     TacticalState tacticalState = TacticalState.MovementState;
@@ -213,19 +211,19 @@ public class TacticalUI
         }
     }
 
-    public void drawTacticalUI()
+    public void drawTacticalUI(int posX, int posY)
     {
         if(tacticalState == TacticalState.MovementState)
         {
-            drawMove();
+            drawUIPhaseMovement(posX, posY);
         }
         if(tacticalState == TacticalState.CrewState)
         {
-            drawCrewDeployment();
+            drawUIPhaseCrewTransfer(posX, posY);
         }
         if(tacticalState == TacticalState.FireState)
         {
-            drawFire();
+            drawUIPhaseFire(posX, posY);
         }
     }
 }
