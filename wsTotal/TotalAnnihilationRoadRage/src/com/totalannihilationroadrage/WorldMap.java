@@ -28,7 +28,7 @@ public class WorldMap extends Screen
 
     GameState state = GameState.Ready;
     World world;
-   // Pathfinding pathfinding;
+    Pathfinding pathfinding;
 
     public WorldMap(Game game)
     {
@@ -59,9 +59,9 @@ public class WorldMap extends Screen
         int mapsize = (world.width * world.height);
         int destX, destY;
         int srcX, srcY;
-       // Node start = new Node(3, 3, 0, 0, null);
-       // Node end = new Node(25, 25, 0, 0, null);
-        //pathfinding.IAmAPathAndILikeCheese(world.tileset, start, end, world.tileset);
+        Node start = new Node(3, 3, 0, 0, null);
+        Node end = new Node(25, 25, 0, 0, null);
+        //pathfinding.IAmAPathAndILikeCheese(world, start, end, world);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {

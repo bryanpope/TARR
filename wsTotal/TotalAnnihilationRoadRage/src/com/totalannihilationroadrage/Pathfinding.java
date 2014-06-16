@@ -58,6 +58,8 @@ public class Pathfinding
             Collections.sort(openList);
             //Assign currentNode to the last element in the List
             currentNode = openList.remove(index);
+            System.out.println("Assigned currentNode to the last element in the List");
+
 		}
         return currentNode;
 	}
