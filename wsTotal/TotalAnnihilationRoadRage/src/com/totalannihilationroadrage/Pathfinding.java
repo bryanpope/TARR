@@ -2,13 +2,16 @@ package com.totalannihilationroadrage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
+    int index = 0;
 
-	public void IAmAPathAndILikeCheese(List<Integer> tiles, Node start, Node goal, List<Integer> passableTiles)
+	public Node IAmAPathAndILikeCheese(List<Integer> tiles, Node start, Node goal, List<Integer> passableTiles)
 	{
 
 		Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
@@ -52,31 +55,16 @@ public class Pathfinding
             //Put currentNode in the closedList
             closedList.add(currentNode);
             //Sort the openList
-
+            Collections.sort(openList);
             //Assign currentNode to the last element in the List
-            //currentNode =
+            currentNode = openList.remove(index);
 		}
+        return currentNode;
 	}
 
 	public boolean catchMeIfYouCan(Node currentNode, Node goalNode)
 	{
 		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
-	}
-
-	public int orderNodes(Node a, Node b)
-	{
-		if(a.fCost < b.fCost)
-		{
-			return 1;
-		}
-		else if(a.fCost > b.fCost)
-		{
-			return -1;
-		}
-		else
-		{
-			return 0;
-		}
 	}
 
 	public boolean checkPassableTile(int row, int col, List<Integer> tiles, List<Integer> passableTiles)
