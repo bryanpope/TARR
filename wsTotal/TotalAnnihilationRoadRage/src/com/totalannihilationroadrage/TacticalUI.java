@@ -199,7 +199,6 @@ public class TacticalUI
         if(tacticalState == TacticalState.MovementState)
         {
             updateMove(touchEvents);
-
         }
         if(tacticalState == TacticalState.CrewState)
         {
