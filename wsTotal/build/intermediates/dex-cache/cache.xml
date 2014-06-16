@@ -2,22 +2,22 @@
 <pre-dex-items>
 
     <item
-        dex="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v7-appcompat-e6cab1362d0c4e3694514fc8725b4a7dff48c887.jar"
-        jar="C:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\libs\android-support-v7-appcompat.jar"
+        dex="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v7-appcompat-3394e2b615a7cbed3f5b91a0d9b1f3e94b3443a9.jar"
+        jar="E:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\libs\android-support-v7-appcompat.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="21297ae2bf22a0ce81c9b59992cf0693eec45d5b"/>
     <item
-        dex="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\classes-8abf4b138d054d18ab2467083dfae10db3f4dd65.jar"
-        jar="C:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="4d1fbab9c81711beca95516299c02795838c2100"/>
-    <item
-        dex="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v4-ed1491e35e366cca34a3d0607d06594b6c59ce0b.jar"
-        jar="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\libs\android-support-v4.jar"
+        dex="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v4-0c8603187236a2f7040692d0d302b6187a419d02.jar"
+        jar="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\libs\android-support-v4.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="ded9acc6a9792b8f1afc470f0c9cd36d178914cd"/>
+    <item
+        dex="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\classes-ec9a99ccb4ec9a000bd3aaf4c8dbe6e7e7e35f04.jar"
+        jar="E:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="5e9c83f21e69c0fb11cb428929d31930794d6cf7"/>
 
 </pre-dex-items>

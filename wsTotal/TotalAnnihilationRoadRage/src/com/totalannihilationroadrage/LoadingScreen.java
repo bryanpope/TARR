@@ -50,6 +50,9 @@ public class LoadingScreen extends Screen {
         Assets.pmHighway = g.newPixmap(Assets.tmHighway.image.source, PixmapFormat.ARGB8888);
         Assets.tmHighway.image.pmImage = Assets.pmHighway;
 
+        Assets.vehicleStats = new VehicleStatsBaseAll();
+        //game.getTMXParse().setHandler();
+
         game.setScreen(new MainMenuScreen(game));
     }
     
