@@ -36,6 +36,8 @@ public class Assets
 
     public static VehicleStatsBaseAll vehicleStats;
 
+    public static Pixmap roadTileSheet;
+
     public static Pixmap upArrow;
     public static Pixmap downArrow;
     public static Pixmap leftArrow;

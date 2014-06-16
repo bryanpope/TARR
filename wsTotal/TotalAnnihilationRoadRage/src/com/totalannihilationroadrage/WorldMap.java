@@ -87,6 +87,40 @@ public class WorldMap extends Screen
 
     }
 
+    private void drawUIPhaseMovement (int posX, int posY)
+    {
+        Graphics g = game.getGraphics();
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
+
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 32, 224, 32, 32);            //break
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 96, 192, 32, 32);            //accelerate
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY - 32, 64, 192, 32, 32);       //left turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY + 32, 32, 192, 32, 32);       //right turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY, 0, 256, 32, 32);            //move straight
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY + 32, 0, 192, 32, 32);       // move right
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY - 32, 96, 160, 32, 32);      //move left
+    }
+
+    private void drawUIPhaseFire(int posX, int posY)
+    {
+        Graphics g = game.getGraphics();
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
+
+        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 32, 160, 32, 32);    //up arrow
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 64, 160, 32, 32);    //right arrow
+        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 96, 128, 32, 32);   //down arrow
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 0, 160, 32, 32);    //left arrow
+    }
+
+    private void drawUIPhaseCrewTransfer(int posX, int posY)
+    {
+        Graphics g = game.getGraphics();
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
+
+        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 0, 224, 32, 32);    //transfer crew down
+        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 96, 224, 32, 32);    //transfer crew up
+    }
+
     @Override
     public void pause() {
         if(state == GameState.Running)
