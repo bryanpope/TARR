@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/E:/android/wsTotal/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml -->
+    <!-- From: file:/C:/android/TARR/wsTotal/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <attr name="actionBarDivider" format="reference" />
@@ -535,12 +535,12 @@
     <string name="abc_searchview_description_voice">Voice search</string>
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
-    <!-- From: file:/E:/android/wsTotal/TotalAnnihilationRoadRage/res/values/strings.xml -->
+    <!-- From: file:/C:/android/TARR/wsTotal/TotalAnnihilationRoadRage/res/values/strings.xml -->
     <eat-comment />
 
     <string name="app_name">Total Annihilation Road Rage</string>
     <string name="hello_world">Hello world!</string>
-    <!-- From: file:/E:/android/wsTotal/TotalAnnihilationRoadRage/res/values/styles.xml -->
+    <!-- From: file:/C:/android/TARR/wsTotal/TotalAnnihilationRoadRage/res/values/styles.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
@@ -554,7 +554,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- From: file:/E:/android/wsTotal/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml -->
+    <!-- From: file:/C:/android/TARR/wsTotal/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <style name="TextAppearance.AppCompat.Base.CompactMenu.Dialog" parent="android:TextAppearance.Medium">
