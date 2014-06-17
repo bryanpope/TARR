@@ -10,8 +10,8 @@ public class TacticalCombatWorld
 {
 	private int roundsPlayer;
     private int roundsEnemy;
-    private List< TacticalCombatVehicle > tcvsPlayer;
-    private List< TacticalCombatVehicle > tcvsEnemy;
+    public List< TacticalCombatVehicle > tcvsPlayer;
+    public List< TacticalCombatVehicle > tcvsEnemy;
     public TiledMap tmBattleGround;
 
     private boolean fields[][] = new boolean[100][30];

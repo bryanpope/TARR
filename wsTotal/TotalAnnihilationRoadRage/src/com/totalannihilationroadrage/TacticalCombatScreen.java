@@ -38,6 +38,8 @@ public class TacticalCombatScreen extends Screen
 		Graphics g = game.getGraphics();
 		//g.drawPixmap(Assets.background, 0, 0);
 		drawTacticalMap(tcWorld.tmBattleGround);
+        drawVehicles(tcWorld.tcvsPlayer, tcWorld.tmBattleGround);
+        drawVehicles(tcWorld.tcvsEnemy, tcWorld.tmBattleGround);
 	}
 
 	private void drawTacticalMap(TiledMap tMap)
@@ -81,10 +83,10 @@ public class TacticalCombatScreen extends Screen
 		{
 			destX = vehicles.get(i).xPos * tMap.tileset.tileWidth;
 			destY = vehicles.get(i).yPos * tMap.tileset.tileHeight;
-			int t_element = tMap.layers.get(i).data.get(index) - 1;
+			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-			g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
+			g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
 		}
 	}
 
