@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="40" height="15" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
-  <image source="../Images/roads_20110324/roads/roadTilesheetMaybe.copy.png" width="128" height="128"/>
+  <image source="../Images/roads_20110324/roads/roadTilesheetMaybe.png" width="128" height="128"/>
  </tileset>
  <layer name="Background" width="40" height="15">
   <data>
