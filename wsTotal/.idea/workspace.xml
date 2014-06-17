@@ -17,141 +17,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.totalannihilationroadrage" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457e598a-178c-4a9d-a854-8cb52a77d87f" name="Default" comment="Start work on displaying of tactical map">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/build/generated/source/buildConfig/debug/com/totalannihilationroadrage/BuildConfig.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/build/generated/source/buildConfig/debug/com/totalannihilationroadrage/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/debug/android/support/v7/appcompat/BuildConfig.java" afterPath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/debug/android/support/v7/appcompat/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/release/android/support/v7/appcompat/BuildConfig.java" afterPath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/release/android/support/v7/appcompat/BuildConfig.java" />
+    <list default="true" id="457e598a-178c-4a9d-a854-8cb52a77d87f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapLayer.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapLayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v11/abc_action_bar_decor.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v11/abc_action_bar_decor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_include.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_include.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_overlay.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_overlay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_home.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_tab.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_tab.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_tabbar.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_tabbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_title_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_title_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_view_list_nav_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_view_list_nav_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_menu_item_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_menu_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_menu_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_mode_bar.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_mode_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_mode_close_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_mode_close_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v14/abc_activity_chooser_view.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v14/abc_activity_chooser_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view_include.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view_include.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view_list_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_activity_chooser_view_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_expanded_menu_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_expanded_menu_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_fade_in.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_fade_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_fade_out.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_fade_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_ic_clear.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_ic_clear.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_ic_clear_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_ic_clear_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_item_background_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_item_background_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_item_background_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_item_background_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_checkbox.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_checkbox.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_icon.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_icon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_radio.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_list_menu_item_radio.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_background_transition_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_background_transition_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_background_transition_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_background_transition_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_list_selector_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_popup_menu_item_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_popup_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_search_dropdown_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_search_dropdown_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_search_dropdown_item_icons_2line.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_search_dropdown_item_icons_2line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_search_dropdown_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_search_dropdown_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/color/abc_search_url_text_holo.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/color/abc_search_url_text_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_search_view.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_search_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_simple_decor.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_simple_decor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v11/abc_simple_decor.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v11/abc_simple_decor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_in_bottom.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_in_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_in_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_in_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_out_bottom.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_out_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_out_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/anim/abc_slide_out_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_spinner_ab_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_spinner_ab_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_spinner_ab_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_spinner_ab_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_tab_indicator_ab_holo.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_tab_indicator_ab_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/assets/overWorldMap.tmx" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/assets/overWorldMap.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/support_simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/support_simple_spinner_dropdown_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-af/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-af/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-am/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-am/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ar/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ar/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-bg/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-bg/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ca/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ca/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-cs/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-cs/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-da/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-da/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-de/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-de/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-el/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-el/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-en-rGB/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-en-rGB/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-en-rIN/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-en-rIN/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-es/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-es/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-es-rUS/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-es-rUS/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-et-rEE/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-et-rEE/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fa/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fa/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fi/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fi/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fr/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fr/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fr-rCA/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-fr-rCA/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hi/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hi/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hr/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hr/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hu/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hu/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hy-rAM/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-hy-rAM/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-in/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-in/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-it/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-it/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-iw/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-iw/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ja/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ja/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ka-rGE/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ka-rGE/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-km-rKH/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-km-rKH/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ko/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ko/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-land/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-land/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-large-v14/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-large-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-large-v4/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-large-v4/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-lo-rLA/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-lo-rLA/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-lt/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-lt/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-lv/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-lv/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-mn-rMN/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-mn-rMN/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ms-rMY/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ms-rMY/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-nb/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-nb/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-nl/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-nl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-pl/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-pl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-pt/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-pt/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-pt-rPT/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-pt-rPT/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ro/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ro/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ru/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-ru/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sk/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sk/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sl/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sr/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sr/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sv/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sv/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sw/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sw/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sw600dp-v13/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-sw600dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-th/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-th/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-tl/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-tl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-tr/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-tr/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-uk/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-uk/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-v11/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-v14/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-vi/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-vi/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w360dp-v13/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w360dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w480dp-v13/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w480dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w500dp-v13/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w500dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w600dp-v13/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w600dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w720dp-v13/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-w720dp-v13/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-xlarge-v4/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-xlarge-v4/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rCN/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rCN/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rHK/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rHK/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rTW/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rTW/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zu/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zu/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wsTotal.iws" />
@@ -178,8 +49,8 @@
       <file leaf-file-name="VehicleStatsBaseAll.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="3349">
-              <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3094">
+              <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -188,38 +59,68 @@
       <file leaf-file-name="TacticalCombatWorld.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1360">
-              <caret line="71" column="44" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TacticalCombatScreen.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TacticalCombatScreen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4792833" vertical-offset="898" max-vertical-offset="1921">
-              <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1955">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Assets.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java">
+      <file leaf-file-name="TacticalCombatVehicle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1054">
-              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TiledMapTileset.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapTileset.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="289">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="323">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VehicleStatsCurrent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsCurrent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="255">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VehicleStatsBase.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="476">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VehicleType.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1224">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingScreen.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.99491525" vertical-offset="365" max-vertical-offset="1343">
+              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -235,8 +136,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Bryan the Godlike" />
         <option value="Bryan the God" />
+        <option value="Bryan the Godlike" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -1299,14 +1200,15 @@
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/World.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatObstacleType.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapLayer.java" />
-        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapImage.java" />
-        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java" />
-        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/framework/impl/AndroidGame.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java" />
+        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java" />
+        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java" />
+        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" />
+        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java" />
       </list>
     </option>
   </component>
@@ -1342,7 +1244,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1361,9 +1262,72 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsTotal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsTotal" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TotalAnnihilationRoadRage" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsTotal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsTotal" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TotalAnnihilationRoadRage" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="totalannihilationroadrage" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsTotal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsTotal" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TotalAnnihilationRoadRage" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1563,7 +1527,11 @@
       <created>1402603855150</created>
       <updated>1402603855150</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Start work on displaying of tactical map">
+      <created>1402931108355</created>
+      <updated>1402931108355</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1573,7 +1541,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1586,7 +1554,7 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22801302" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16041666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995657" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1618,7 +1586,8 @@
     <MESSAGE value="overworld map is being shown-ish" />
     <MESSAGE value="Overworld map is really being properly drawn." />
     <MESSAGE value="Start work on displaying of tactical map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start work on displaying of tactical map" />
+    <MESSAGE value="now has code for loading base vehicle stats and displaying them on tactical map" />
+    <option name="LAST_COMMIT_MESSAGE" value="now has code for loading base vehicle stats and displaying them on tactical map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1626,20 +1595,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapTileset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="289">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatTerrainType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="408">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatObstacleType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="238">
@@ -1794,13 +1749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2474804" vertical-offset="0" max-vertical-offset="893">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/framework/Pixmap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07614782" vertical-offset="0" max-vertical-offset="893">
@@ -1812,27 +1760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07614782" vertical-offset="0" max-vertical-offset="893">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsCurrent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03807391" vertical-offset="0" max-vertical-offset="893">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03807391" vertical-offset="0" max-vertical-offset="1224">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3807391" vertical-offset="0" max-vertical-offset="893">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1878,63 +1805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapTileset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="354" max-vertical-offset="1037">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07467057" vertical-offset="255" max-vertical-offset="1717">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7262079" vertical-offset="201" max-vertical-offset="1275">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5475842" vertical-offset="0" max-vertical-offset="683">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04978038" vertical-offset="2040" max-vertical-offset="4403">
-          <caret line="130" column="23" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3060">
-          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/World.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.522694" vertical-offset="0" max-vertical-offset="1598">
           <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1942,7 +1816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04978038" vertical-offset="0" max-vertical-offset="683">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1950,7 +1823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67203516" vertical-offset="0" max-vertical-offset="1666">
           <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1958,7 +1830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.0658858" vertical-offset="0" max-vertical-offset="1904">
           <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1974,22 +1845,122 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67203516" vertical-offset="0" max-vertical-offset="1445">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/Assets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5431131" vertical-offset="144" max-vertical-offset="1071">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapTileset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03807391" vertical-offset="0" max-vertical-offset="893">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19036955" vertical-offset="1785" max-vertical-offset="4165">
+          <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsCurrent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TiledMapLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34266517" vertical-offset="0" max-vertical-offset="893">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1360">
-          <caret line="71" column="44" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53303474" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3225083" vertical-offset="0" max-vertical-offset="4403">
+          <caret line="130" column="23" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4792833" vertical-offset="898" max-vertical-offset="1921">
-          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1955">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/VehicleStatsBaseAll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3094">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68533033" vertical-offset="0" max-vertical-offset="1394">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/LoadingScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.99491525" vertical-offset="365" max-vertical-offset="1343">
+          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
           <folding />
         </state>
       </provider>
