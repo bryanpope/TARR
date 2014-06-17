@@ -4,6 +4,7 @@ package com.totalannihilationroadrage;
  * Created by Lord_Oni on 6/11/2014.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Color;
@@ -28,7 +29,7 @@ public class WorldMap extends Screen
 
     GameState state = GameState.Running;
     World world;
-   // Pathfinding pathfinding;
+    Pathfinding pathfinding;
 
     public WorldMap(Game game)
     {
@@ -59,9 +60,13 @@ public class WorldMap extends Screen
         int mapsize = (world.width * world.height);
         int destX, destY;
         int srcX, srcY;
-       // Node start = new Node(3, 3, 0, 0, null);
-       // Node end = new Node(25, 25, 0, 0, null);
-        //pathfinding.IAmAPathAndILikeCheese(world.tileset, start, end, world.tileset);
+        List<Integer> pass = new ArrayList<Integer>();
+        pass.add(16);
+        Node start = new Node(3, 3, 0, 0, null);
+        Node end = new Node(25, 25, 0, 0, null);
+        List<Integer> tiles = world.layers.get(0).data;
+        pathfinding = new Pathfinding();
+        pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
