@@ -7,6 +7,7 @@ package com.totalannihilationroadrage;
 import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Screen;
+import com.totalannihilationroadrage.Pathfinding;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class TacticalCombatScreen extends Screen
 
 	GameState state = GameState.Ready;
 	TacticalCombatWorld tcWorld;
+    //Pathfinding pathfinding;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
@@ -51,6 +53,9 @@ public class TacticalCombatScreen extends Screen
 		//int mapsize = tMap.width * tMap.height;
 		int destX, destY;
 		int srcX, srcY;
+        /*Node start = new Node(3, 3, 0, 0, null);
+        Node end = new Node(25, 25, 0, 0, null);
+        pathfinding.IAmAPathAndILikeCheese(tMap.layers, start, end, tMap.layers);*/
 
 		for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
 		{

@@ -11,7 +11,7 @@ public class Pathfinding
     List<Node> openList = new ArrayList<Node>();
     int index = 0;
 
-	public Node IAmAPathAndILikeCheese(List<Integer> tiles, Node start, Node goal, List<Integer> passableTiles)
+	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List passableTiles)
 	{
 
 		Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
@@ -119,7 +119,7 @@ public class Pathfinding
 		return null;
 	}
 
-	public void addChild(int row, int col, List<Integer> tiles, List<Integer> passableTiles, Node currentNode, Node target, List<Node> openList, List<Node> closedList)
+	public void addChild(int row, int col, List tiles, List<Integer> passableTiles, Node currentNode, Node target, List<Node> openList, List<Node> closedList)
 	{
 		if(checkPassableTile(row, col, tiles, passableTiles))
 		{

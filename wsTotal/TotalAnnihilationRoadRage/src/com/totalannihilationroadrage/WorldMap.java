@@ -10,7 +10,6 @@ import android.graphics.Color;
 
 import com.framework.Game;
 import com.framework.Graphics;
-import com.totalannihilationroadrage.Pathfinding;
 import com.framework.Input.TouchEvent;
 import com.framework.Pixmap;
 import com.framework.Screen;
@@ -61,7 +60,7 @@ public class WorldMap extends Screen
         int srcX, srcY;
         Node start = new Node(3, 3, 0, 0, null);
         Node end = new Node(25, 25, 0, 0, null);
-        //pathfinding.IAmAPathAndILikeCheese(world, start, end, world);
+        //pathfinding.IAmAPathAndILikeCheese(world.layers.get(0).data, start, end, world.layers.get(0).data);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
