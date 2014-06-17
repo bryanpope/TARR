@@ -46,7 +46,7 @@ public class TacticalUI
     int tileWidth = 32;
     int tileHeight = 32;
 
-    public void updateCrewDeploymentUI(List<TouchEvent> touchEvents)
+    public void updateCrewDeploymentUI(List<TouchEvent> touchEvents, int posX, int posY)
     {
         //update the crew deployment
         int len = touchEvents.size();
@@ -60,11 +60,11 @@ public class TacticalUI
             }
             if(event.type == TouchEvent.TOUCH_UP)
             {
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX, posY - 32, tileWidth, tileHeight))
                 {
                     //transfer up image is selected
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX, posY + 32, tileWidth, tileHeight))
                 {
                     //transfer down image is selected
                 }
@@ -80,7 +80,7 @@ public class TacticalUI
         g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 96, 224, tileWidth, tileHeight);    //transfer crew up
     }
 
-    public void updateFire(List<TouchEvent> touchEvents)
+    public void updateFire(List<TouchEvent> touchEvents, int posX, int posY)
     {
         //update the fire attack
         int len = touchEvents.size();
@@ -94,9 +94,21 @@ public class TacticalUI
             }
             if(event.type == TouchEvent.TOUCH_UP)
             {
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX, posY - 32, tileWidth, tileHeight))
                 {
-                    //attack is selected
+                    //attack up is selected
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + 32, posY, tileWidth, tileHeight))
+                {
+                    //attack right is selected
+                }
+                if(inBoundaryCheck(event.x, event.y, posX, posY + 32, tileWidth, tileHeight))
+                {
+                    //attack down is selected
+                }
+                if(inBoundaryCheck(event.x, event.y, posX - 32, posY, tileWidth, tileHeight))
+                {
+                    //attack left is selected
                 }
             }
         }
@@ -112,23 +124,19 @@ public class TacticalUI
         g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 0, 160, tileWidth, tileHeight);    //left arrow
     }
 
-    public void helperFunction(int boxX, int boxY, int boxWidth, int boxHeight, List<TouchEvent> touchEvents)
+    public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
     {
-        boolean isInBounds;
-        int len = touchEvents.size();
-        for(int i = 0; i < len; i++)
+        if(touchXPos >= boxX + boxWidth && touchXPos <= boxX + boxWidth
+           && touchYPos >= boxY + boxHeight &&  touchYPos <= boxY + boxHeight)
         {
-            TouchEvent event = touchEvents.get(i);
-            if(event.x >= boxWidth && event.x >= boxX && event.y >= boxHeight && event.y >= boxY)
-            {
-                isInBounds = true;
-            }
-            else
-                isInBounds = false;
+            return true;
         }
+        else
+            return false;
+
     }
 
-    public void updateMove(List<TouchEvent> touchEvents)
+    public void updateMove(List<TouchEvent> touchEvents, int posX, int posY)
     {
         //update the moving
         int len = touchEvents.size();
@@ -142,55 +150,37 @@ public class TacticalUI
             }
             if(event.type == TouchEvent.TOUCH_UP)
             {
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX - 32, posY, tileWidth, tileHeight))
                 {
-                    //Right arrow is selected
-                    //helperFunction();
+                    //break
+
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX + 32, posY, tileWidth, tileHeight))
                 {
-                    //Down arrow is selected
+                    //accelerate
+
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX + 32, posY - 32, tileWidth, tileHeight))
                 {
-                    //Left arrow is selected
+                    //Left turn
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX + 32, posY + 32, tileWidth, tileHeight))
                 {
-                    //Top arrow is selected
+                    //right turn
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX + 64, posY, tileWidth, tileHeight))
                 {
-                    //Skip is selected
+                    //Move straight
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX + 64, posY + 32, tileWidth, tileHeight))
                 {
-                    //cannot move is selected
+                    //Move right
                 }
-                if (event.x < 0 && event.y > 0)
+                if(inBoundaryCheck(event.x, event.y, posX + 64, posY - 32, tileWidth, tileHeight))
                 {
-                    //Forward is selected
+                    //Move left
                 }
-                if (event.x < 0 && event.y > 0)
-                {
-                    //Left angle is selected
-                }
-                if (event.x < 0 && event.y > 0)
-                {
-                    //Left turn is selected
-                }
-                if (event.x < 0 && event.y > 0)
-                {
-                    //Right angle is selected
-                }
-                if (event.x < 0 && event.y > 0)
-                {
-                    //Right turn is selected
-                }
-                if (event.x < 0 && event.y > 0)
-                {
-                    //speed up is selected
-                }
+
             }
         }
     }
@@ -212,19 +202,19 @@ public class TacticalUI
     TacticalState tacticalState = TacticalState.MovementState;
 
 
-    public void updateTacticalUI(float deltaTime, List<TouchEvent> touchEvents)
+    public void updateTacticalUI(float deltaTime, List<TouchEvent> touchEvents, int posX, int posY)
     {
         if(tacticalState == TacticalState.MovementState)
         {
-            updateMove(touchEvents);
+            updateMove(touchEvents, posX, posY);
         }
         if(tacticalState == TacticalState.CrewState)
         {
-            updateCrewDeploymentUI(touchEvents);
+            updateCrewDeploymentUI(touchEvents, posX, posY);
         }
         if(tacticalState == TacticalState.FireState)
         {
-            updateFire(touchEvents);
+            updateFire(touchEvents, posX, posY);
         }
     }
 
