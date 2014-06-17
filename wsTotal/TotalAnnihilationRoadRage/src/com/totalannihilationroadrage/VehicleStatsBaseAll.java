@@ -1,5 +1,7 @@
 package com.totalannihilationroadrage;
 
+import com.framework.Pixmap;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.DefaultHandler2;
@@ -12,6 +14,8 @@ public class VehicleStatsBaseAll extends DefaultHandler2
 	List< VehicleStatsBase > vehicles;
 	private List< Integer > data;
     private VehicleStatsBase aVehicle;
+    public Pixmap tileSheetVehicles;
+    final public int INDEX_START_CAR_TILES = 33;
 
     VehicleStatsBaseAll()
 	{
