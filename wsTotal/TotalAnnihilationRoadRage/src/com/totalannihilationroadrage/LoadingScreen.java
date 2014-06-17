@@ -35,7 +35,9 @@ public class LoadingScreen extends Screen {
         Assets.eat = game.getAudio().newSound("eat.ogg");
         Assets.bitten = game.getAudio().newSound("bitten.ogg");
         Settings.load(game.getFileIO());
-        
+
+        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
+
         Assets.tmOverWorld = new TiledMap();
         game.getTMXParse().setHandler(Assets.tmOverWorld);
         game.getTMXParse().load("overWorldMap.tmx");

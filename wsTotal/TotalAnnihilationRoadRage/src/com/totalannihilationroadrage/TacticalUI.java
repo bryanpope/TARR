@@ -43,6 +43,9 @@ public class TacticalUI
     int move;
     int accelerate;
 
+    int tileWidth = 32;
+    int tileHeight = 32;
+
     public void updateCrewDeploymentUI(List<TouchEvent> touchEvents)
     {
         //update the crew deployment
@@ -72,10 +75,9 @@ public class TacticalUI
     private void drawUIPhaseCrewTransfer(int posX, int posY)
     {
         Graphics g = game.getGraphics();
-        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
 
-        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 0, 224, 32, 32);    //transfer crew down
-        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 96, 224, 32, 32);    //transfer crew up
+        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 0, 224, tileWidth, tileHeight);    //transfer crew down
+        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 96, 224, tileWidth, tileHeight);    //transfer crew up
     }
 
     public void updateFire(List<TouchEvent> touchEvents)
@@ -103,12 +105,27 @@ public class TacticalUI
     private void drawUIPhaseFire(int posX, int posY)
     {
         Graphics g = game.getGraphics();
-        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
 
-        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 32, 160, 32, 32);    //up arrow
-        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 64, 160, 32, 32);    //right arrow
-        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 96, 128, 32, 32);   //down arrow
-        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 0, 160, 32, 32);    //left arrow
+        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 32, 160, tileWidth, tileHeight);    //up arrow
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 64, 160, tileWidth, tileHeight);    //right arrow
+        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 96, 128, tileWidth, tileHeight);   //down arrow
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 0, 160, tileWidth, tileHeight);    //left arrow
+    }
+
+    public void helperFunction(int boxX, int boxY, int boxWidth, int boxHeight, List<TouchEvent> touchEvents)
+    {
+        boolean isInBounds;
+        int len = touchEvents.size();
+        for(int i = 0; i < len; i++)
+        {
+            TouchEvent event = touchEvents.get(i);
+            if(event.x >= boxWidth && event.x >= boxX && event.y >= boxHeight && event.y >= boxY)
+            {
+                isInBounds = true;
+            }
+            else
+                isInBounds = false;
+        }
     }
 
     public void updateMove(List<TouchEvent> touchEvents)
@@ -128,6 +145,7 @@ public class TacticalUI
                 if (event.x < 0 && event.y > 0)
                 {
                     //Right arrow is selected
+                    //helperFunction();
                 }
                 if (event.x < 0 && event.y > 0)
                 {
@@ -180,15 +198,15 @@ public class TacticalUI
     private void drawUIPhaseMovement (int posX, int posY)
     {
         Graphics g = game.getGraphics();
-        Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", Graphics.PixmapFormat.ARGB8888);
 
-        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 32, 224, 32, 32);            //break
-        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 96, 192, 32, 32);            //accelerate
-        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY - 32, 64, 192, 32, 32);       //left turn
-        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY + 32, 32, 192, 32, 32);       //right turn
-        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY, 0, 256, 32, 32);            //move straight
-        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY + 32, 0, 192, 32, 32);       // move right
-        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY - 32, 96, 160, 32, 32);      //move left
+
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 32, 224, tileWidth, tileHeight);            //break
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 96, 192, tileWidth, tileHeight);            //accelerate
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY - 32, 64, 192, tileWidth, tileHeight);       //left turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY + 32, 32, 192, tileWidth, tileHeight);       //right turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY, 0, 256, tileWidth, tileHeight);            //move straight
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY + 32, 0, 192, tileWidth, tileHeight);       // move right
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY - 32, 96, 160, tileWidth, tileHeight);      //move left
     }
 
     TacticalState tacticalState = TacticalState.MovementState;
