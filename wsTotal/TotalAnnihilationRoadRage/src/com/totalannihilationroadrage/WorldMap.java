@@ -89,8 +89,8 @@ public class WorldMap extends Screen
         }
 
         /*
-            The following is debug code to test Pathfinding
-            It will draw red squares from the start node to the end node
+            The following is debug code to test Pathfinding.
+            It will draw red squares from the start node to the end node.
         */
         while(node != null)
         {
