@@ -54,7 +54,7 @@ public class LoadingScreen extends Screen {
 
         Assets.vehicleStats = new VehicleStatsBaseAll();
         game.getTMXParse().setHandler(Assets.vehicleStats);
-        game.getTMXParse().load("Road.tmx");
+        game.getTMXParse().load("vehicleStats.xml");
         Assets.vehicleStats.tileSheetVehicles = Assets.roadTileSheet;
 
         game.setScreen(new MainMenuScreen(game));
