@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Color;
-
 import com.framework.Game;
 import com.framework.Graphics;
+
 import com.totalannihilationroadrage.Pathfinding;
 import com.totalannihilationroadrage.Node;
 import com.framework.Input.TouchEvent;
@@ -63,11 +63,12 @@ public class WorldMap extends Screen
         int srcX, srcY;
         List<Integer> pass = new ArrayList<Integer>();
         pass.add(16);
-        Node start = new Node(3, 3, 0, 0, null);
-        Node end = new Node(6, 6, 0, 0, null);
+        Node node;
+        Node start = new Node(15, 1, 0, 0, null);
+        Node end = new Node(23, 8, 0, 0, null);
         List<Integer> tiles = world.layers.get(0).data;
         pathfinding = new Pathfinding();
-        pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);
+        node = pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
@@ -76,21 +77,27 @@ public class WorldMap extends Screen
             for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
             {
                 int t_element = world.layers.get(i).data.get(index) - 1;
-                srcY = (t_element/tilesheetcol*world.tileset.tileWidth);
-                srcX = (t_element%tilesheetcol*world.tileset.tileHeight);
+                srcY = (t_element / tilesheetcol * world.tileset.tileWidth);
+                srcX = (t_element % tilesheetcol * world.tileset.tileHeight);
                 g.drawPixmap(world.image.pmImage, destX * world.tileset.tileWidth, destY * world.tileset.tileHeight, srcX, srcY, world.tileset.tileWidth, world.tileset.tileHeight);
                 destX++;
-                if (destX >= world.width)
-                {
+                if (destX >= world.width) {
                     destX = 0;
                     destY++;
                 }
-
             }
-
-
         }
 
+        /*
+            The following is debug code to test Pathfinding.
+            It will draw red squares from the start node to the end node.
+        */
+        while(node != null)
+        {
+            g.drawRect(node.col * world.tileset.tileWidth, node.row * world.tileset.tileHeight, world.tileset.tileWidth, world.tileset.tileHeight, Color.RED);
+            //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
+            node = node.parentNode;
+        }
     }
 
     @Override

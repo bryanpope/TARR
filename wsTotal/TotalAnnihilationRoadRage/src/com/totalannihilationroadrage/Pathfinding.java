@@ -57,7 +57,7 @@ public class Pathfinding
             Collections.sort(openList);
             //Assign currentNode to the last element in the List
             currentNode = openList.remove(openList.size() - 1);
-            System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
+            //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
 		}
 
         return currentNode;
