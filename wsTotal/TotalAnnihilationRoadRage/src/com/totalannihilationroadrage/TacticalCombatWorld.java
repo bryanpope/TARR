@@ -28,11 +28,11 @@ public class TacticalCombatWorld
 	
     private void deployVehicles ()
     {
-        for (int x = 0; x < 100; ++x)
+        for (int y = 0; y < 30; ++y)
         {
-            for (int y = 0; y < 30; ++y)
+            for (int x = 0; x < 100; ++x)
             {
-                fields[x][y] = tmBattleGround.layers.get(0).isPassable (x, y);
+                fields[x][y] = tmBattleGround.layers.get(0).isPassable (y, x);
             }
         }
 
@@ -50,7 +50,7 @@ public class TacticalCombatWorld
             deployY = random.nextInt(30);
             while (true)
             {
-                if (fields[deployX][deployY] == false)
+                if (fields[deployX][deployY])
                 {
                     break;
                 }
@@ -65,7 +65,7 @@ public class TacticalCombatWorld
                     }
                 }
             }
-            fields[deployX][deployY] = true;
+            fields[deployX][deployY] = false;
             side.get(i).xPos = deployX;
             side.get(i).yPos = deployY;
         }

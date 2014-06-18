@@ -43,7 +43,7 @@ public class MainMenuScreen extends Screen {
                 if(inBounds(event, 64, 220 + 84, 192, 42) )
                 {
                     //game.setScreen(new HelpScreen(game));
-                    game.setScreen(new HelpScreen(game));
+                    startTacticalCombat();
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;

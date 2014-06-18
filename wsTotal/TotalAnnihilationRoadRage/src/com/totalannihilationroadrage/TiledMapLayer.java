@@ -17,6 +17,11 @@ public class TiledMapLayer
 	
 	public int getTile (int row, int col)
 	{
+        int test = data.size();
+        if (((row * width) + col) >= test)
+        {
+            System.out.print("Something bad!");
+        }
 		return data.get((row * width) + col);
 	}
 

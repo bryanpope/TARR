@@ -65,7 +65,7 @@ public class TacticalCombatScreen extends Screen
 				int t_element = tMap.layers.get(i).data.get(index) - 1;
 				srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 				srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-				g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
+				g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth + 1, tMap.tileset.tileHeight);
 				destX++;
 				if (destX >= tMap.width)
 				{
@@ -91,9 +91,26 @@ public class TacticalCombatScreen extends Screen
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-			g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
+			g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
+
+            drawUIPhaseMovement(destX, destY);
 		}
 	}
+
+    private void drawUIPhaseMovement (int posX, int posY)
+    {
+        Graphics g = game.getGraphics();
+        int tileWidth = 32;
+        int tileHeight = 32;
+
+        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 32, 224, tileWidth, tileHeight);            //break
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 96, 192, tileWidth, tileHeight);            //accelerate
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY - 32, 64, 192, tileWidth, tileHeight);       //left turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY + 32, 32, 192, tileWidth, tileHeight);       //right turn
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY, 0, 256, tileWidth, tileHeight);            //move straight
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY + 32, 0, 192, tileWidth, tileHeight);       // move right
+        g.drawPixmap(Assets.roadTileSheet,posX + 64, posY - 32, 96, 160, tileWidth, tileHeight);      //move left
+    }
 
 	@Override
 	public void pause()
