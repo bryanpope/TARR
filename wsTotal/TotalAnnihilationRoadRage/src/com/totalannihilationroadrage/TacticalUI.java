@@ -41,7 +41,7 @@ public class TacticalUI
     int turnRight;
     int moveRight;
     int move;
-    int accelerate;
+    int accelerate = 5;
 
     int tileWidth = 32;
     int tileHeight = 32;
@@ -153,12 +153,12 @@ public class TacticalUI
                 if(inBoundaryCheck(event.x, event.y, posX - 32, posY, tileWidth, tileHeight))
                 {
                     //break
-
+                    accelerate -= 5;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + 32, posY, tileWidth, tileHeight))
                 {
                     //accelerate
-
+                    accelerate += 5;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + 32, posY - 32, tileWidth, tileHeight))
                 {
@@ -171,14 +171,19 @@ public class TacticalUI
                 if(inBoundaryCheck(event.x, event.y, posX + 64, posY, tileWidth, tileHeight))
                 {
                     //Move straight
+                    posX += 32;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + 64, posY + 32, tileWidth, tileHeight))
                 {
                     //Move right
+                    posX += 32;
+                    posY += 32;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + 64, posY - 32, tileWidth, tileHeight))
                 {
                     //Move left
+                    posX += 32;
+                    posY -= 32;
                 }
 
             }

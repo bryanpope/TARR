@@ -41,6 +41,8 @@ public enum VehicleType
 
         if (vehicleTypeName.equals("Sports Car Hardtop")) { return SPORTS_CAR_HARDTOP; }
 
+        if (vehicleTypeName.equals("Station Wagon")) { return STATION_WAGON; }
+
         if (vehicleTypeName.equals("Limousine")) { return LIMOUSINE; }
 
         if (vehicleTypeName.equals("Van")) { return VAN; }
