@@ -16,6 +16,7 @@ public class VehicleStatsBaseAll extends DefaultHandler2
     private VehicleStatsBase aVehicle;
     public Pixmap tileSheetVehicles;
     final public int INDEX_START_CAR_TILES = 33;
+    private String test, testA;
 
     VehicleStatsBaseAll()
 	{
@@ -29,6 +30,7 @@ public class VehicleStatsBaseAll extends DefaultHandler2
             aVehicle = new VehicleStatsBase();
 			for (int i = 0; i < attributes.getLength(); i++)
 			{
+                test = attributes.getLocalName(i);
 				if (attributes.getLocalName(i).equals("type"))
 				{
 					aVehicle.type = VehicleType.getVehicleType(attributes.getValue(i));
@@ -69,23 +71,21 @@ public class VehicleStatsBaseAll extends DefaultHandler2
                     aVehicle.acceleration = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
-                if (attributes.getLocalName(i).equals("acceleration"))
-                {
-                    aVehicle.acceleration = Integer.valueOf(attributes.getValue(i));
-                    continue;
-                }
                 if (attributes.getLocalName(i).equals("missilefactorleft"))
                 {
+                    testA = attributes.getValue(i);
                     aVehicle.missileFactor.left = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missilefactorright"))
                 {
+                    testA = attributes.getValue(i);
                     aVehicle.missileFactor.right = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missilefactorfront"))
                 {
+                    testA = attributes.getValue(i);
                     aVehicle.missileFactor.front = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
