@@ -12,6 +12,7 @@ import android.graphics.Color;
 import com.framework.Game;
 import com.framework.Graphics;
 import com.totalannihilationroadrage.Pathfinding;
+import com.totalannihilationroadrage.Node;
 import com.framework.Input.TouchEvent;
 import com.framework.Pixmap;
 import com.framework.Screen;
@@ -63,7 +64,7 @@ public class WorldMap extends Screen
         List<Integer> pass = new ArrayList<Integer>();
         pass.add(16);
         Node start = new Node(3, 3, 0, 0, null);
-        Node end = new Node(25, 25, 0, 0, null);
+        Node end = new Node(6, 6, 0, 0, null);
         List<Integer> tiles = world.layers.get(0).data;
         pathfinding = new Pathfinding();
         pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);

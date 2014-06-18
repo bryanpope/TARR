@@ -9,7 +9,6 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    int index = 0;
 
 	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List passableTiles)
 	{
@@ -21,46 +20,46 @@ public class Pathfinding
 			int row = currentNode.row;
 			int col = currentNode.col + 1;
 			
-			addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+			addChild(row, col, tiles, passableTiles, currentNode, goal);
 
 			//left child
 			col -= 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 			
 			//top child
 			col++;
 			row--;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 
 			//bottom child
 			row += 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 
 			//bottom right
 			col++;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 
 			//bottom left
 			col -= 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 
             //top left
 			row -= 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 
 			//top right
 			col += 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal, openList, closedList);
+            addChild(row, col, tiles, passableTiles, currentNode, goal);
 
             //Put currentNode in the closedList
             closedList.add(currentNode);
             //Sort the openList
             Collections.sort(openList);
             //Assign currentNode to the last element in the List
-            currentNode = openList.remove(index);
-            System.out.println("Assigned currentNode to the last element in the List");
-
+            currentNode = openList.remove(openList.size() - 1);
+            //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
 		}
+
         return currentNode;
 	}
 
@@ -69,7 +68,7 @@ public class Pathfinding
 		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
 	}
 
-	public boolean checkPassableTile(int row, int col, List<Integer> tiles, List<Integer> passableTiles)
+	public boolean checkPassableTile(int row, int col, List tiles, List passableTiles)
 	{
 		/*int numCols = tiles.get(0);
 		int numRows = tiles.size();
@@ -92,10 +91,10 @@ public class Pathfinding
 			}
 		}*/
 		
-		return false;
+		return true;
 	}
 
-	public boolean isNodeClosed(int row, int col, List<Node> closedList)
+	public boolean isNodeClosed(int row, int col)
 	{
 		for(int i = 0; i < closedList.size(); ++i)
 		{
@@ -119,11 +118,11 @@ public class Pathfinding
 		return null;
 	}
 
-	public void addChild(int row, int col, List tiles, List<Integer> passableTiles, Node currentNode, Node target, List<Node> openList, List<Node> closedList)
+	public void addChild(int row, int col, List tiles, List passableTiles, Node currentNode, Node target)
 	{
 		if(checkPassableTile(row, col, tiles, passableTiles))
 		{
-			if(!isNodeClosed(row, col, closedList))
+			if(!isNodeClosed(row, col))
 			{
 			    int g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
 			    int f = g + getDistance(row, col, target);
