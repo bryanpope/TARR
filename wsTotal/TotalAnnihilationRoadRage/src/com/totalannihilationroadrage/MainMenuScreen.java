@@ -1,6 +1,8 @@
 package com.totalannihilationroadrage;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.framework.Game;
 import com.framework.Graphics;
@@ -48,6 +50,43 @@ public class MainMenuScreen extends Screen {
                 }
             }
         }
+    }
+
+    private void startTacticalCombat ()
+    {
+        TacticalCombatWorld tcWorld;
+        List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
+        List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
+
+        for (int i = 0; i < 10; ++i)
+        {
+            tcvPlayer.add(setupVehicle(true));
+            tcvEnemy.add(setupVehicle(true));
+        }
+
+        tcWorld = new TacticalCombatWorld(Assets.tmHighway, tcvPlayer, tcvEnemy);
+        game.setScreen(new TacticalCombatScreen(game, tcWorld));
+    }
+
+    private TacticalCombatVehicle setupVehicle (boolean isPlayer)
+    {
+        Random random = new Random();
+        GangMembers aGangE = new GangMembers();
+        aGangE.armsmasters = random.nextInt(10) + 1;
+        aGangE.bodyguards = random.nextInt(10) + 1;
+        aGangE.commandos = random.nextInt(10) + 1;
+        aGangE.dragoons = random.nextInt(10) + 1;
+        aGangE.escorts = random.nextInt(10) + 1;
+        GangMembers aGangI = new GangMembers();
+        aGangI.armsmasters = random.nextInt(10) + 1;
+        aGangI.bodyguards = random.nextInt(10) + 1;
+        aGangI.commandos = random.nextInt(10) + 1;
+        aGangI.dragoons = random.nextInt(10) + 1;
+        aGangI.escorts = random.nextInt(10) + 1;
+        VehicleStatsCurrent aVehicle = new VehicleStatsCurrent(Assets.vehicleStats.vehicles.get(random.nextInt(19)));
+        TacticalCombatVehicle aTacticalVehicle = new TacticalCombatVehicle(aVehicle, aGangE, aGangI, true);
+
+        return aTacticalVehicle;
     }
     
     private boolean inBounds(TouchEvent event, int x, int y, int width, int height) {

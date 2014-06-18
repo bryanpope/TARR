@@ -17,19 +17,15 @@ public class TacticalCombatWorld
     private boolean fields[][] = new boolean[100][30];
     private Random random = new Random();
 
-	TacticalCombatWorld ()
+	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
-		//tcvsPlayer = new ArrayList< TacticalCombatVehicle >();
-		//tcvsEnemy = new ArrayList< TacticalCombatVehicle >();
+        tcvsPlayer = tcvsP;
+        tcvsEnemy = tcvsE;
+        tmBattleGround = tmBG;
+
+        deployVehicles();
 	}
 	
-	public void init (List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE, TiledMap tmBG)
-	{
-		tcvsPlayer = tcvsP;
-		tcvsEnemy = tcvsE;
-        tmBattleGround = tmBG;
-	}
-
     private void deployVehicles ()
     {
         for (int x = 0; x < 100; ++x)

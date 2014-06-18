@@ -19,4 +19,11 @@ public class VehicleStatsBase
 	int fuel;
 	int carryingCapacity;
 	int baseCost;
+
+    VehicleStatsBase ()
+    {
+        missileFactor = new Sides();
+        missileProtectionFactor = new Sides();
+        boardingFactor = new Sides();
+    }
 }

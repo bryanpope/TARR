@@ -48,7 +48,7 @@ public class LoadingScreen extends Screen {
 
         Assets.tmHighway = new TiledMap();
         game.getTMXParse().setHandler(Assets.tmHighway);
-        game.getTMXParse().load("test.tmx");
+        game.getTMXParse().load("Road.tmx");
         Assets.pmHighway = g.newPixmap(Assets.tmHighway.image.source, PixmapFormat.ARGB8888);
         Assets.tmHighway.image.pmImage = Assets.pmHighway;
 
