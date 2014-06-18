@@ -127,7 +127,7 @@ public class TacticalUI
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
     {
         //logic
-        if(touchXPos >= boxX + boxWidth && touchYPos >= boxY + boxHeight)
+        if(touchXPos >= boxX + boxWidth && touchXPos <= boxX + boxWidth && touchYPos >= boxY + boxHeight && touchYPos <= boxY + boxHeight)
         {
             return true;
         }

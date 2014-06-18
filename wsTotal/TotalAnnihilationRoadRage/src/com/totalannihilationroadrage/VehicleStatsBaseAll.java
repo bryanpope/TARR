@@ -76,42 +76,42 @@ public class VehicleStatsBaseAll extends DefaultHandler2
                 }
                 if (attributes.getLocalName(i).equals("missilefactorleft"))
                 {
-                    aVehicle.missileFactor.left = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileFactor.left = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missilefactorright"))
                 {
-                    aVehicle.missileFactor.right = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileFactor.right = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missilefactorfront"))
                 {
-                    aVehicle.missileFactor.front = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileFactor.front = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missilefactorback"))
                 {
-                    aVehicle.missileFactor.back = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileFactor.back = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missileprotectionfactorleft"))
                 {
-                    aVehicle.missileProtectionFactor.left = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileProtectionFactor.left = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missileprotectionfactorright"))
                 {
-                    aVehicle.missileProtectionFactor.right = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileProtectionFactor.right = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missileprotectionfactorfront"))
                 {
-                    aVehicle.missileProtectionFactor.front = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileProtectionFactor.front = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("missileprotectionfactorback"))
                 {
-                    aVehicle.missileProtectionFactor.back = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.missileProtectionFactor.back = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("tires"))
@@ -121,22 +121,22 @@ public class VehicleStatsBaseAll extends DefaultHandler2
                 }
                 if (attributes.getLocalName(i).equals("boardingfactorleft"))
                 {
-                    aVehicle.boardingFactor.left = Integer.valueOf(attributes.getValue(i));
+                   // aVehicle.boardingFactor.left = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("boardingfactorright"))
                 {
-                    aVehicle.boardingFactor.right = Integer.valueOf(attributes.getValue(i));
+                   // aVehicle.boardingFactor.right = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("boardingfactorfront"))
                 {
-                    aVehicle.boardingFactor.front = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.boardingFactor.front = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("boardingfactorback"))
                 {
-                    aVehicle.boardingFactor.back = Integer.valueOf(attributes.getValue(i));
+                    //aVehicle.boardingFactor.back = Integer.valueOf(attributes.getValue(i));
                     continue;
                 }
                 if (attributes.getLocalName(i).equals("crewcapacityinterior"))
