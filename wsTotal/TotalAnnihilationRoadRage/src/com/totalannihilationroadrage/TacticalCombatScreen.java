@@ -127,27 +127,32 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
+
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
-        srcX = (index % numColumns) * tileHeight;
-        srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
+
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
+
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
-        ++index;
+
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
-        index +=2;
-        srcX = (index % numColumns) * tileHeight;
-        srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
+
 
         /*g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, 32, 224, tileWidth, tileHeight);            //break
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, 96, 192, tileWidth, tileHeight);            //accelerate
