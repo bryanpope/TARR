@@ -9,47 +9,48 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
+    TiledMap world = new TiledMap();
 
-	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List passableTiles)
+	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List impassable)
 	{
 
 		Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
-		
+
 		while(!catchMeIfYouCan(currentNode, goal))
 		{
 			int row = currentNode.row;
 			int col = currentNode.col + 1;
 			
-			addChild(row, col, tiles, passableTiles, currentNode, goal);
+			addChild(row, col, tiles, currentNode, goal, impassable);
 
 			//left child
 			col -= 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 			
 			//top child
 			col++;
 			row--;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 
 			//bottom child
 			row += 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 
 			//bottom right
 			col++;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 
 			//bottom left
 			col -= 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 
             //top left
 			row -= 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 
 			//top right
 			col += 2;
-            addChild(row, col, tiles, passableTiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, impassable);
 
             //Put currentNode in the closedList
             closedList.add(currentNode);
@@ -68,31 +69,24 @@ public class Pathfinding
 		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
 	}
 
-	public boolean checkPassableTile(int row, int col, List tiles, List passableTiles)
+	public boolean checkPassableTile(int row, int col, List tiles, List impassable)
 	{
-		/*int numCols = tiles.get(0);
-		int numRows = tiles.size();
-		
-		if(row >= numRows || row < 0)
-		{
-			return false;
-		}
-		
-		if(col >= numCols || col < 0)
-		{
-			return false;
-		}
-		
-		for(int i = 0; i < passableTiles.size(); ++i)
-		{
-			if(tiles[row][col] == passableTiles.get(i))
-			{
-				return true;
-			}
-		}*/
-		
-		return true;
-	}
+       /* int numCols = world.width;
+        int numRows = world.height;
+
+        if(row >= numRows || row < 0)
+        {
+            return false;
+        }
+
+        if(col >= numCols || col < 0)
+        {
+            return false;
+        }*/
+
+        return true;
+
+    }
 
 	public boolean isNodeClosed(int row, int col)
 	{
@@ -118,9 +112,9 @@ public class Pathfinding
 		return null;
 	}
 
-	public void addChild(int row, int col, List tiles, List passableTiles, Node currentNode, Node target)
+	public void addChild(int row, int col, List tiles, Node currentNode, Node target, List impassable)
 	{
-		if(checkPassableTile(row, col, tiles, passableTiles))
+		if(checkPassableTile(row, col, tiles, impassable))
 		{
 			if(!isNodeClosed(row, col))
 			{

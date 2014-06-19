@@ -61,14 +61,14 @@ public class WorldMap extends Screen
         int mapsize = (world.width * world.height);
         int destX, destY;
         int srcX, srcY;
-        List<Integer> pass = new ArrayList<Integer>();
-        pass.add(16);
+        List<Integer> impassable = new ArrayList<Integer>();
+        impassable.add(22);
         Node node;
-        Node start = new Node(15, 1, 0, 0, null);
-        Node end = new Node(23, 8, 0, 0, null);
+        Node start = new Node(6, 1, 0, 0, null);
+        Node end = new Node(16, 15, 0, 0, null);
         List<Integer> tiles = world.layers.get(0).data;
         pathfinding = new Pathfinding();
-        node = pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);
+        node = pathfinding.IAmAPathAndILikeCheese(tiles, start, end, impassable);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {

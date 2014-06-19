@@ -4,11 +4,14 @@ package com.totalannihilationroadrage;
  * Created by Lord_Oni on 6/11/2014.
  */
 
+import android.graphics.Color;
+
 import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Screen;
 import com.totalannihilationroadrage.Pathfinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TacticalCombatScreen extends Screen
@@ -22,7 +25,7 @@ public class TacticalCombatScreen extends Screen
 
 	GameState state = GameState.Ready;
 	TacticalCombatWorld tcWorld;
-    //Pathfinding pathfinding;
+    Pathfinding pathfinding;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
@@ -54,9 +57,14 @@ public class TacticalCombatScreen extends Screen
 		//int mapsize = tMap.width * tMap.height;
 		int destX, destY;
 		int srcX, srcY;
-        /*Node start = new Node(3, 3, 0, 0, null);
-        Node end = new Node(25, 25, 0, 0, null);
-        pathfinding.IAmAPathAndILikeCheese(tMap.layers, start, end, tMap.layers);*/
+        List<Integer> pass = new ArrayList<Integer>();
+        pass.add(16);
+        Node node;
+        Node start = new Node(15, 1, 0, 0, null);
+        Node end = new Node(23, 8, 0, 0, null);
+        List<Integer> tiles = tMap.layers.get(0).data;
+        pathfinding = new Pathfinding();
+        node = pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);
 
 		for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
 		{
@@ -75,6 +83,16 @@ public class TacticalCombatScreen extends Screen
 				}
 			}
 		}
+        /*
+            The following is debug code to test Pathfinding.
+            It will draw red squares from the start node to the end node.
+        */
+        while(node != null)
+        {
+            g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
+            //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
+            node = node.parentNode;
+        }
 	}
 
 	private void drawVehicles(List< TacticalCombatVehicle > vehicles, TiledMap tMap)

@@ -29,7 +29,7 @@ public class TiledMapLayer
     {
         int tile = getTile(row, col);
 
-        if (tile == 16)
+        if (tile == 2)
         {
             return false;
         }
