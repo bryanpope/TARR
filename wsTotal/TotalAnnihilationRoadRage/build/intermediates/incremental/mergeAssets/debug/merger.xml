@@ -2,104 +2,128 @@
 <merger version="2" >
 
     <dataSet config="unspecified" >
-        <source path="C:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\assets" />
+        <source path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\assets" />
     </dataSet>
     <dataSet config="main" >
-        <source path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets" >
+        <source path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets" >
             <file
                 name="background.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\background.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\background.png" />
             <file
                 name="bitten.ogg"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\bitten.ogg" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\bitten.ogg" />
             <file
                 name="bobargb8888.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\bobargb8888.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\bobargb8888.png" />
             <file
                 name="bobrgb888.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\bobrgb888.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\bobrgb888.png" />
             <file
                 name="buttons.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\buttons.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\buttons.png" />
             <file
                 name="click.ogg"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\click.ogg" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\click.ogg" />
             <file
                 name="eat.ogg"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\eat.ogg" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\eat.ogg" />
             <file
                 name="gameover.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\gameover.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\gameover.png" />
             <file
                 name="headdown.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headdown.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headdown.png" />
             <file
                 name="headleft.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headleft.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headleft.png" />
             <file
                 name="headright.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headright.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headright.png" />
             <file
                 name="headup.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headup.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\headup.png" />
             <file
                 name="hedgehogApocalypse.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\hedgehogApocalypse.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\hedgehogApocalypse.png" />
             <file
                 name="help1.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\help1.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\help1.png" />
             <file
                 name="help2.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\help2.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\help2.png" />
             <file
                 name="help3.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\help3.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\help3.png" />
             <file
                 name="logo.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\logo.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\logo.png" />
             <file
                 name="mainmenu.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\mainmenu.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\mainmenu.png" />
             <file
                 name="music.ogg"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\music.ogg" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\music.ogg" />
+            <file
+                name="newTilesheet.png"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\newTilesheet.png" />
             <file
                 name="numbers.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\numbers.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\numbers.png" />
             <file
                 name="overWorldMap.tmx"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\overWorldMap.tmx" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\overWorldMap.tmx" />
             <file
                 name="pausemenu.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\pausemenu.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\pausemenu.png" />
             <file
                 name="ready.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\ready.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\ready.png" />
             <file
                 name="Road.tmx"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Road.tmx" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Road.tmx" />
             <file
                 name="Road2.tmx"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Road2.tmx" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Road2.tmx" />
+            <file
+                name="roadMap.tmx"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\roadMap.tmx" />
+            <file
+                name="roadTileSheet.png"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\roadTileSheet.png" />
             <file
                 name="stain1.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\stain1.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\stain1.png" />
             <file
                 name="stain2.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\stain2.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\stain2.png" />
             <file
                 name="stain3.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\stain3.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\stain3.png" />
             <file
                 name="tail.png"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\tail.png" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\tail.png" />
             <file
                 name="test.tmx"
-                path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\assets\test.tmx" />
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\test.tmx" />
+            <file
+                name="Titlescreen1920x1080.png"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Titlescreen1920x1080.png" />
+            <file
+                name="Titlescreen800x480.png"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Titlescreen800x480.png" />
+            <file
+                name="Titlescreen800x600.png"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\Titlescreen800x600.png" />
+            <file
+                name="vehicleStats.xml"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\vehicleStats.xml" />
+            <file
+                name="buttons2.png"
+                path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\assets\buttons2.png" />
         </source>
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build-types\debug\assets" />
+        <source path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\build-types\debug\assets" />
     </dataSet>
 
 </merger>

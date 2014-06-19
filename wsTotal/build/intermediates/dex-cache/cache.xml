@@ -2,22 +2,22 @@
 <pre-dex-items>
 
     <item
-        dex="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v7-appcompat-3394e2b615a7cbed3f5b91a0d9b1f3e94b3443a9.jar"
-        jar="E:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\libs\android-support-v7-appcompat.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="21297ae2bf22a0ce81c9b59992cf0693eec45d5b"/>
-    <item
-        dex="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v4-0c8603187236a2f7040692d0d302b6187a419d02.jar"
-        jar="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\libs\android-support-v4.jar"
+        dex="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v4-2370fb7767778790c1ac6d5145b5092d539e8160.jar"
+        jar="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\libs\android-support-v4.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="ded9acc6a9792b8f1afc470f0c9cd36d178914cd"/>
     <item
-        dex="E:\android\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\classes-ec9a99ccb4ec9a000bd3aaf4c8dbe6e7e7e35f04.jar"
-        jar="E:\android\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\classes.jar"
+        dex="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\classes-872da75a7e12bbcaac61245338bf0d95dd630219.jar"
+        jar="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="5e9c83f21e69c0fb11cb428929d31930794d6cf7"/>
+        sha1="7c9c971e606ab1757c9677ed1038b2980a71811b"/>
+    <item
+        dex="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\TotalAnnihilationRoadRage\build\intermediates\pre-dexed\debug\android-support-v7-appcompat-751de8b1fa90d106ea7800a4aa90fb6d51b256af.jar"
+        jar="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\build\intermediates\exploded-aar\wsTotal\appcompat_v7\unspecified\libs\android-support-v7-appcompat.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="21297ae2bf22a0ce81c9b59992cf0693eec45d5b"/>
 
 </pre-dex-items>
