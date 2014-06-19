@@ -29,9 +29,9 @@ public class Assets
     public static Sound eat;
     public static Sound bitten;
     
-    public static TiledMap tmOverWorld;
+    public static OverworldTiledMap tmOverWorld;
     public static Pixmap pmOverWorld;
-    public static TiledMap tmHighway;
+    public static TacticalCombatTiledMap tmHighway;
     public static Pixmap pmHighway;
 
     public static VehicleStatsBaseAll vehicleStats;

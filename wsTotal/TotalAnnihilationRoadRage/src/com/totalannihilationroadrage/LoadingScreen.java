@@ -39,7 +39,7 @@ public class LoadingScreen extends Screen {
 
         Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", PixmapFormat.ARGB8888);
 
-        Assets.tmOverWorld = new TiledMap();
+        Assets.tmOverWorld = new OverworldTiledMap();
         game.getTMXParse().setHandler(Assets.tmOverWorld);
         game.getTMXParse().load("overWorldMap.tmx");
         Assets.pmOverWorld = g.newPixmap(Assets.tmOverWorld.image.source, PixmapFormat.ARGB8888);
@@ -47,7 +47,7 @@ public class LoadingScreen extends Screen {
 
         int test = Assets.tmOverWorld.layers.get(0).getTile(5, 5);
 
-        Assets.tmHighway = new TiledMap();
+        Assets.tmHighway = new TacticalCombatTiledMap();
         game.getTMXParse().setHandler(Assets.tmHighway);
         game.getTMXParse().load("roadMap.tmx");
         Assets.pmHighway = g.newPixmap(Assets.tmHighway.image.source, PixmapFormat.ARGB8888);

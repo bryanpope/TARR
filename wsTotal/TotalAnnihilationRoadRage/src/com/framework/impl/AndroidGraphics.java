@@ -106,10 +106,10 @@ public class AndroidGraphics implements Graphics {
         dstRect.right = x + srcWidth;
         dstRect.bottom = y + srcHeight;
 
-        int wS = srcRect.width();
+        /*int wS = srcRect.width();
         int hS = srcRect.height();
         int wD = dstRect.width();
-        int hD = dstRect.height();
+        int hD = dstRect.height();*/
 
         canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, srcRect, dstRect, null);
     }
