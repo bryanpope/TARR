@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\assets" />
+        <source path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="C:\Users\Brandon\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\build-types\release\assets" />
+        <source path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\build-types\release\assets" />
     </dataSet>
 
 </merger>

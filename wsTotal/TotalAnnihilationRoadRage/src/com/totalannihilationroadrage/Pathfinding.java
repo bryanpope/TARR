@@ -9,7 +9,8 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    //TiledMap world = new TiledMap();
+    TiledMap world = new TiledMap();
+    int j = 0;
 
 	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List impassable)
 	{
@@ -18,9 +19,11 @@ public class Pathfinding
 
 		while(!catchMeIfYouCan(currentNode, goal))
 		{
-			int row = currentNode.row;
-			int col = currentNode.col + 1;
-			
+            int row = currentNode.row;
+            int col = currentNode.col;
+
+            //right child
+            col++;
 			addChild(row, col, tiles, currentNode, goal, impassable);
 
 			//left child
@@ -59,6 +62,9 @@ public class Pathfinding
             //Assign currentNode to the last element in the List
             currentNode = openList.remove(openList.size() - 1);
             //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
+
+
+            j++;
 		}
 
         return currentNode;
@@ -69,7 +75,7 @@ public class Pathfinding
 		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
 	}
 
-	public boolean checkPassableTile(int row, int col, List tiles, List impassable)
+	public boolean checkPassableTile(double row, double col, List tiles, List impassable)
 	{
        /* int numCols = world.width;
         int numRows = world.height;
@@ -88,7 +94,7 @@ public class Pathfinding
 
     }
 
-	public boolean isNodeClosed(int row, int col)
+	public boolean isNodeClosed(double row, double col)
 	{
 		for(int i = 0; i < closedList.size(); ++i)
 		{
@@ -100,7 +106,7 @@ public class Pathfinding
 		return false;
 	}
 
-	public Node getChildFromOpen(int row, int col, List<Node> openList)
+	public Node getChildFromOpen(double row, double col, List<Node> openList)
 	{
 		for(int i = 0; i < openList.size(); ++i)
 		{
@@ -118,8 +124,8 @@ public class Pathfinding
 		{
 			if(!isNodeClosed(row, col))
 			{
-			    int g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
-			    int f = g + getDistance(row, col, target);
+                int g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
+                int f = g + getDistance(row, col, target);
 			    Node child = getChildFromOpen(row, col, openList);
 			   
 			    if(child == null)
@@ -135,16 +141,6 @@ public class Pathfinding
 			    }
 			}
 		}
-	}
-
-	public int getHeuristic(Node start, Node end)
-	{
-		return (Math.abs(start.col - end.col) + Math.abs(start.row - end.row));
-	}
-
-	public int getManhattan(int row, int col, Node goal)
-	{
-		return Math.abs(goal.row - row) + Math.abs(goal.col - col);
 	}
 
 	public int getDistance(int row, int col, Node goal)
