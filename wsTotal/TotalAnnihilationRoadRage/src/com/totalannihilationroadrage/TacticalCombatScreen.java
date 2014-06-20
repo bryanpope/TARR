@@ -8,6 +8,7 @@ import android.graphics.Color;
 
 import com.framework.Game;
 import com.framework.Graphics;
+import com.framework.Input;
 import com.framework.Screen;
 import com.totalannihilationroadrage.Pathfinding;
 
@@ -94,6 +95,18 @@ public class TacticalCombatScreen extends Screen
         }
 	}
 
+    public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
+    {
+        //logic
+        if(touchXPos >= boxX + boxWidth && touchXPos <= boxX + boxWidth && touchYPos >= boxY + boxHeight && touchYPos <= boxY + boxHeight)
+        {
+            return true;
+        }
+        else
+            return false;
+
+    }
+
 	private void drawVehicles(List< TacticalCombatVehicle > vehicles, TiledMap tMap)
 	{
 		Graphics g = game.getGraphics();
@@ -163,6 +176,64 @@ public class TacticalCombatScreen extends Screen
         */
     }
 
+    public void updateMove(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    {
+        //update the moving
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int accelerate = 5;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if(inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight))
+                {
+                    //Move straight
+                    posX += tileWidth;
+                }
+                if(inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight))
+                {
+                    //Move left
+                    posX += tileWidth;
+                    posY -= tileHeight;
+                }
+                if(inBoundaryCheck(event.x, event.y,posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight))
+                {
+                    //Move right
+                    posX += tileWidth;
+                    posY += tileHeight;
+                }
+                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
+                {
+                    //Left turn
+                }
+                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
+                {
+                    //right turn
+                }
+                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
+                {
+                    //accelerate
+                    accelerate += 5;
+                }
+                if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
+                {
+                    //break
+                    accelerate -= 5;
+                }
+            }
+        }
+    }
+
     private void drawUIPhaseFire(int posX, int posY)
     {
         Graphics g = game.getGraphics();
@@ -196,6 +267,44 @@ public class TacticalCombatScreen extends Screen
         */
     }
 
+    private void updateFire(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    {
+        //update the fire attack
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
+                {
+                    //attack up is selected
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
+                {
+                    //attack right is selected
+                }
+                if(inBoundaryCheck(event.x, event.y, posX,  posY + tileHeight, tileWidth, tileHeight))
+                {
+                    //attack down is selected
+                }
+                if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
+                {
+                    //attack left is selected
+                }
+            }
+        }
+    }
+
     private void drawUIPhaseCrewTransfer(int posX, int posY)
     {
         Graphics g = game.getGraphics();
@@ -220,6 +329,40 @@ public class TacticalCombatScreen extends Screen
         g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 0, 224, tileWidth, tileHeight);    //transfer crew down
         g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 96, 224, tileWidth, tileHeight);    //transfer crew up
         */
+    }
+
+    private void updateCrewDeploymentUI(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    {
+        //update the crew deployment
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
+                {
+                    //transfer up image is selected
+                }
+                if(inBoundaryCheck(event.x, event.y, posX, posY + tileHeight, tileWidth, tileHeight))
+                {
+                    //transfer down image is selected
+                }
+                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
+                {
+                    //skip image is selected
+                }
+            }
+        }
     }
 
     @Override
