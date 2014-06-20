@@ -28,26 +28,28 @@ public class MainMenuScreen extends Screen {
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                 }
-                if(inBounds(event, 64, 220, 192, 42) ) {
+                if(inBounds(event, 861, 466, 393, 100) ) {
                     game.setScreen(new WorldMap(game));
-                    if(Settings.soundEnabled)
-                        Assets.click.play(1);
+                   // if(Settings.soundEnabled)
+                        //Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, 64, 220 + 42, 192, 42) ) {
-                    game.setScreen(new HighscoreScreen(game));
-                    if(Settings.soundEnabled)
-                        Assets.click.play(1);
-                    return;
-                }
-                if(inBounds(event, 64, 220 + 84, 192, 42) )
+                /*
+                if(inBounds(event, 861, 466 + 68, 393, 92) ) {
+                    //game.setScreen(new HighscoreScreen(game));
+                    //if(Settings.soundEnabled)
+                       // Assets.click.play(1);
+                   // return;
+                }*/
+                if(inBounds(event, 861, 466 + 136, 393, 200) )
                 {
                     //game.setScreen(new HelpScreen(game));
                     startTacticalCombat();
-                    if(Settings.soundEnabled)
-                        Assets.click.play(1);
+                   // if(Settings.soundEnabled)
+                        //Assets.click.play(1);
                     return;
                 }
+
             }
         }
     }
@@ -101,12 +103,14 @@ public class MainMenuScreen extends Screen {
         Graphics g = game.getGraphics();
         
         g.drawPixmap(Assets.background, 0, 0);
-        g.drawPixmap(Assets.logo, 32, 20);
-        g.drawPixmap(Assets.mainMenu, 64, 220);
+//        g.drawPixmap(Assets.logo, 32, 20);
+        g.drawPixmap(Assets.mainMenu, 780, 466);
+        /*
         if(Settings.soundEnabled)
             g.drawPixmap(Assets.buttons, 0, 416, 0, 0, 64, 64);
         else
             g.drawPixmap(Assets.buttons, 0, 416, 64, 0, 64, 64);
+            */
     }
 
     public void pause() {        
