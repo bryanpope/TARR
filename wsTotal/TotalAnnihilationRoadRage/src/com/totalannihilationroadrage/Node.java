@@ -4,11 +4,11 @@ class Node implements Comparable<Node>
 {
     public int row;
     public int col;
-    public int gCost;
-    public int fCost;
+    public double gCost;
+    public double fCost;
     public Node parentNode = null;
 
-    public Node (int row, int col, int gCost, int fCost, Node parentNode)
+    public Node (int row, int col, double gCost, double fCost, Node parentNode)
     {
         this.row = row;
         this.col = col;

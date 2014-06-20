@@ -66,9 +66,8 @@ public class WorldMap extends Screen
         Node node;
         Node start = new Node(6, 1, 0, 0, null);
         Node end = new Node(16, 15, 0, 0, null);
-        List<Integer> tiles = world.layers.get(0).data;
         pathfinding = new Pathfinding();
-        node = pathfinding.IAmAPathAndILikeCheese(tiles, start, end, impassable);
+        node = pathfinding.IAmAPathAndILikeCheese(world, start, end, impassable);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {

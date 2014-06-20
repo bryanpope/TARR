@@ -9,10 +9,10 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    TiledMap world = new TiledMap();
+    //TiledMap world = new TiledMap();
     int j = 0;
 
-	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List impassable)
+	public Node IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal, List impassable)
 	{
 
 		Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
@@ -75,7 +75,7 @@ public class Pathfinding
 		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
 	}
 
-	public boolean checkPassableTile(double row, double col, List tiles, List impassable)
+	public boolean checkPassableTile(double row, double col, TiledMap tiles, List impassable)
 	{
        /* int numCols = world.width;
         int numRows = world.height;
@@ -118,14 +118,14 @@ public class Pathfinding
 		return null;
 	}
 
-	public void addChild(int row, int col, List tiles, Node currentNode, Node target, List impassable)
+	public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node target, List impassable)
 	{
 		if(checkPassableTile(row, col, tiles, impassable))
 		{
 			if(!isNodeClosed(row, col))
 			{
-                int g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
-                int f = g + getDistance(row, col, target);
+                double g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
+                double f = g + getDistance(row, col, target);
 			    Node child = getChildFromOpen(row, col, openList);
 			   
 			    if(child == null)
@@ -143,14 +143,14 @@ public class Pathfinding
 		}
 	}
 
-	public int getDistance(int row, int col, Node goal)
+	public double getDistance(int row, int col, Node goal)
 	{
-		return (int)Math.sqrt((goal.row - row) * (goal.row - row) + (goal.col - col) * (goal.col - col));
+		return Math.sqrt((goal.row - row) * (goal.row - row) + (goal.col - col) * (goal.col - col));
 	}
 
-	public int getDistanceFromParent(int row, int col, Node parent)
+	public double getDistanceFromParent(int row, int col, Node parent)
 	{
-		return (int)Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
+		return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
 	}
 	
 	/*public boolean BresenhamsLOSCheck(int x1, int y1, int x2, int y2)

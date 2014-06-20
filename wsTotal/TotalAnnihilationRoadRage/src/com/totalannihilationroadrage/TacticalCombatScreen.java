@@ -62,9 +62,8 @@ public class TacticalCombatScreen extends Screen
         Node node;
         Node start = new Node(15, 1, 0, 0, null);
         Node end = new Node(23, 8, 0, 0, null);
-        List<Integer> tiles = tMap.layers.get(0).data;
         pathfinding = new Pathfinding();
-        node = pathfinding.IAmAPathAndILikeCheese(tiles, start, end, pass);
+        node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end, pass);
 
 		for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
 		{
