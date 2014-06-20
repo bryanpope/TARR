@@ -8,12 +8,8 @@ import android.graphics.Bitmap.Config;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
-import android.widget.TextView;
 
 import com.framework.Audio;
 import com.framework.FileIO;
@@ -31,8 +27,6 @@ public abstract class AndroidGame extends Activity implements Game {
     Screen screen;
     WakeLock wakeLock;
     TMXParse tmxParse;
-    GestureDetector myG;
-    TextView gestureEvent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,13 +55,8 @@ public abstract class AndroidGame extends Activity implements Game {
         audio = new AndroidAudio(this);
         input = new AndroidInput(this, renderView, scaleX, scaleY);
         screen = getStartScreen();
-        
-        tmxParse = new TMXParse (getAssets());
-
-        //myG = new GestureDetector(this,this);
-
         setContentView(renderView);
-        //gestureEvent = (TextView)findViewById(renderView.id.GestureEvent);
+        tmxParse = new TMXParse (getAssets());
 
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGame");
@@ -127,59 +116,4 @@ public abstract class AndroidGame extends Activity implements Game {
         return screen;
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        // TODO Auto-generated method stub
-        return gestureDetector.onTouchEvent(event);
-    }
-
-    SimpleOnGestureListener simpleOnGestureListener
-            = new SimpleOnGestureListener()
-    {
-
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                               float velocityY) {
-            String swipe = "";
-            float sensitivity = 50;
-
-            // TODO Auto-generated method stub
-            if((e1.getX() - e2.getX()) > sensitivity){
-                swipe += "Swipe Left\n";
-            }else if((e2.getX() - e1.getX()) > sensitivity){
-                swipe += "Swipe Right\n";
-            }else{
-                swipe += "\n";
-            }
-
-            if((e1.getY() - e2.getY()) > sensitivity){
-                swipe += "Swipe Up\n";
-            }else if((e2.getY() - e1.getY()) > sensitivity){
-                swipe += "Swipe Down\n";
-            }else{
-                swipe += "\n";
-            }
-
-            gestureEvent.setText(swipe);
-
-            return super.onFling(e1, e2, velocityX, velocityY);
-        }
-
-        @Override
-        public void onLongPress(MotionEvent e) {
-            // TODO Auto-generated method stub
-            gestureEvent.setText("onLongPress: \n" + e.toString());
-            super.onLongPress(e);
-        }
-
-        @Override
-        public boolean onSingleTapConfirmed(MotionEvent e) {
-            // TODO Auto-generated method stub
-            gestureEvent.setText("onSingleTapConfirmed: \n" + e.toString());
-            return super.onSingleTapConfirmed(e);
-        }
-    };
-
-    GestureDetector gestureDetector
-            = new GestureDetector(simpleOnGestureListener);
 }

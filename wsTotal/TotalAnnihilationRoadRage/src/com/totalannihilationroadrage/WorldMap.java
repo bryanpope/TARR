@@ -32,6 +32,12 @@ public class WorldMap extends Screen
     World world;
     Pathfinding pathfinding;
 
+    public static int camera_toprow = 5;
+    public static int camera_leftcol = 3;
+    public static int camera_offsetx = 0;
+    public static int camera_offsety = 0;
+
+
     public WorldMap(Game game)
     {
         super(game);
@@ -40,6 +46,7 @@ public class WorldMap extends Screen
 
     public void update(float deltaTime)
     {
+
     }
 
     @Override
@@ -68,24 +75,47 @@ public class WorldMap extends Screen
         pathfinding = new Pathfinding();
         node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
 
+        int numRows = g.getHeight() / world.tileHeight;
+        int numCols = g.getWidth() / world.tileWidth;
+
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
-        //int i = 0;
+
             destX = destY = 0;
             for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
             {
-                int t_element = world.layers.get(i).data.get(index) - 1;
-                srcY = (t_element / tilesheetcol * world.tileset.tileWidth);
-                srcX = (t_element % tilesheetcol * world.tileset.tileHeight);
-                g.drawPixmap(world.image.pmImage, destX * world.tileset.tileWidth, destY * world.tileset.tileHeight, srcX, srcY, world.tileset.tileWidth, world.tileset.tileHeight);
-                destX++;
-                if (destX >= world.width) {
-                    destX = 0;
-                    destY++;
+                for (int row = camera_toprow; (row - camera_toprow) < numRows; ++row)
+                {
+                    for (int col = camera_leftcol; (col - camera_leftcol) < numCols; ++col)
+                    {
+                        destX = ((col - camera_leftcol) * world.tileWidth) + camera_offsetx;
+                        destY = ((row - camera_toprow) * world.tileHeight) + camera_offsety;
+                        int t_element = world.layers.get(i).getTile(row,col);
+                        srcX = (t_element % tilesheetcol * world.tileset.tileHeight);
+                        srcY = (t_element / tilesheetcol * world.tileset.tileWidth);
+                        g.drawPixmap(world.image.pmImage, destX, destY, srcX, srcY, world.tileset.tileWidth, world.tileset.tileHeight);
+                    }
                 }
             }
         }
 
+        /*for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
+		{
+			destX = destY = 0;
+			for (int index = 0; index < tMap.layers.get(i).data.size(); index++) //indexes through the tiledmap
+			{
+				int t_element = tMap.layers.get(i).data.get(index) - 1;
+				srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
+				srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
+				g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
+				destX++;
+				if (destX >= tMap.width)
+				{
+					destX = 0;
+					destY++;
+				}
+			}
+		}*/
         /*
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
