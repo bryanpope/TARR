@@ -15,7 +15,6 @@ public class OverworldTiledMap extends TiledMap
 
     private boolean isBlockTile (int tileVal)
     {
-        --tileVal;
         switch (tileVal)
         {
             case 1:

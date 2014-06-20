@@ -66,7 +66,7 @@ public class Pathfinding
             j++;
 		}
 
-        //removeRedundant(currentNode, tiles);
+        removeRedundant(currentNode, tiles);
 
         return currentNode;
 	}
