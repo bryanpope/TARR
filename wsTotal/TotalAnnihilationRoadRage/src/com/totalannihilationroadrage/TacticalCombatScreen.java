@@ -27,6 +27,7 @@ public class TacticalCombatScreen extends Screen
 	GameState state = GameState.Ready;
 	TacticalCombatWorld tcWorld;
     Pathfinding pathfinding;
+    private int currColumn = 0;     // For scrolling purposes, the start column in the tile map to display from
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
@@ -55,29 +56,34 @@ public class TacticalCombatScreen extends Screen
 
 	   // int tilesheetsize = (tMap.image.width / tMap.tileset.tileWidth) * (tMap.image.height / tMap.tileset.tileHeight);
 		int tileSheetCol = tMap.image.width / tMap.tileset.tileWidth;
+        int screenColWidth = g.getWidth() / tMap.tileWidth;
+        int maxLeftCol = tileSheetCol - screenColWidth;    // we can never start displaying from a column larger than this to fill the screen width
+        int rightmostDisplayedCol = currColumn + screenColWidth;
 		//int mapsize = tMap.width * tMap.height;
 		int destX, destY;
 		int srcX, srcY;
         Node node;
         Node start = new Node(15, 1, 0, 0, null);
         Node end = new Node(23, 8, 0, 0, null);
-        pathfinding = new Pathfinding();
-        node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
+        //pathfinding = new Pathfinding();
+        //node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 
 		for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
 		{
 			destX = destY = 0;
-			for (int index = 0; index < tMap.layers.get(i).data.size(); index++) //indexes through the tiledmap
+			for (int index = currColumn; index < tMap.layers.get(i).data.size(); index++) //indexes through the tiledmap
 			{
 				int t_element = tMap.layers.get(i).data.get(index) - 1;
 				srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 				srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
 				g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
 				destX++;
-				if (destX >= tMap.width)
+				//if (destX >= tMap.width)
+                if (destX >= screenColWidth)
 				{
 					destX = 0;
 					destY++;
+                    index += currColumn + (tMap.width - screenColWidth);
 				}
 			}
 		}
@@ -85,12 +91,12 @@ public class TacticalCombatScreen extends Screen
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
         */
-        while(node != null)
+        /*while(node != null)
         {
             g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
             //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
             node = node.parentNode;
-        }
+        }*/
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
