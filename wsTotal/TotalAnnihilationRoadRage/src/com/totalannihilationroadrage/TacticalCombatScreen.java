@@ -59,8 +59,8 @@ public class TacticalCombatScreen extends Screen
 		int destX, destY;
 		int srcX, srcY;
         Node node;
-        Node start = new Node(15, 1, 0, 0, null);
-        Node end = new Node(23, 8, 0, 0, null);
+        Node start = new Node(1, 1, 0, 0, null);
+        Node end = new Node(6, 8, 0, 0, null);
         pathfinding = new Pathfinding();
         node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 
