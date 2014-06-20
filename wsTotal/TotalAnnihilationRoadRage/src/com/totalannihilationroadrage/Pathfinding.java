@@ -63,9 +63,10 @@ public class Pathfinding
             currentNode = openList.remove(openList.size() - 1);
             //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
 
-
             j++;
 		}
+
+        //removeRedundant(currentNode, tiles);
 
         return currentNode;
 	}
@@ -133,116 +134,139 @@ public class Pathfinding
 	{
 		return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
 	}
-	
-	/*public boolean BresenhamsLOSCheck(int x1, int y1, int x2, int y2)
-	{
-		int deltaX = x2 - x1;
-		int deltaY = y2 - y1;
 
-		if(deltaX >= 0 && deltaY >= 0)
-		{
-			if(deltaX < deltaY)
-			{
-				int slope = Math.abs(deltaX / deltaY);
-		
-				int error = 0;
-				int currX = x1;
-				
-				for(int currY = y1; currY <= y2; ++currY)
-				{
-					if(checkPassableTile(currX / 32, currY / 32))
-					{
-						return false;
-					}
-					
-					error += slope;
-					if(error >= 0.5)
-					{
-						currX++;
-						error -= 1.0;
-					}
-				}
-				
-				return true;
-			}
-			else
-			{
-				int slope = Math.abs(deltaY / deltaX);
-		
-				int error = 0;
-				int currY = y1;
-				
-				for(int currX = x1; currX <= x2; ++currX)
-				{
-					if(checkPassableTile(Math.floor(currX / 32), Math.floor(currY / 32)))
-					{
-						return false;
-					}
-					
-					error += slope;
-					if(error >= 0.5)
-					{
-						currY++;
-						error -= 1.0;
-					}
-				}
-				
-				return true;
-			}
-		}
-		
-		else if(deltaX < 0 && deltaY >= 0)
-		{
-			if(-deltaX < deltaY)
-			{
-				int slope = Math.abs(-deltaX / deltaY);
-		
-				int error = 0;
-				int currX = x1;
-				
-				for(int currY = y1; currY <= y2; ++currY)
-				{
-					if(checkPassableTile(Math.floor(currX / 32), Math.floor(currY / 32)))
-					{
-						return false;
-					}
-					
-					error += slope;
-					if(error >= 0.5)
-					{
-						currX--;
-						error -= 1.0;
-					}
-				}
-				
-				return true;
-			}
-			else
-			{
-				int slope = Math.abs(deltaY / -deltaX);
-		
-				int error = 0;
-				int currY = y1;
-				
-				
-				for(int currX = x1; currX >= x2; --currX)
-				{
-					if(checkPassableTile(Math.floor(currX / 32), Math.floor(currY / 32)))
-					{
-						return false;
-					}
-				
-					error += slope;
-					if(error >= 0.5)
-					{
-						currY++;
-						error -= 1.0;
-					}
-				}
-				
-				return true;
-			}
-		}
-		return true;
-	}*/
+    public boolean LOSCheck(Node start, Node goal, TiledMap tiles)
+    {
+        double deltaX = goal.col - start.col;
+        double deltaY = goal.row - start.row;
+
+        //determine which octant we are in
+        if(deltaX >= 0 && deltaY >= 0)
+        {
+            if(deltaX < deltaY)
+            {
+                double slope = Math.abs(deltaX / deltaY);
+
+                double error = 0;
+                double currX = start.col;
+
+                for(int currY = start.row; currY <= goal.row; ++currY)
+                {
+                    //check tile
+                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    {
+                        return false;
+                    }
+
+                    error += slope;
+                    if(error >= 0.5)
+                    {
+                        currX++;
+                        error -= 1.0;
+                    }
+                }
+
+                return true;
+            }
+            else
+            {
+                double slope = Math.abs(deltaY / deltaX);
+
+                double error = 0;
+                double currY = start.row;
+
+                for(int currX = start.col; currX <= goal.col; ++currX)
+                {
+                    //check tile
+                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    {
+                        return false;
+                    }
+
+                    error += slope;
+                    if(error >= 0.5)
+                    {
+                        currY++;
+                        error -= 1.0;
+                    }
+                }
+
+                return true;
+            }
+        }
+
+        else if(deltaX < 0 && deltaY >= 0)
+        {
+            if(-deltaX < deltaY)
+            {
+                double slope = Math.abs(-deltaX / deltaY);
+
+                double error = 0;
+                double currX = start.col;
+
+                for(int currY = start.row; currY <= goal.row; ++currY)
+                {
+                    //check tile
+                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    {
+                        return false;
+                    }
+
+                    error += slope;
+                    if(error >= 0.5)
+                    {
+                        currX--;
+                        error -= 1.0;
+                    }
+                }
+
+                return true;
+            }
+            else
+            {
+                double slope = Math.abs(deltaY / -deltaX);
+
+                double error = 0;
+                double currY = start.row;
+
+
+                for(int currX = start.col; currX >= goal.col; --currX)
+                {
+                    //check tile
+                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    {
+                        return false;
+                    }
+
+                    error += slope;
+                    if(error >= 0.5)
+                    {
+                        currY++;
+                        error -= 1.0;
+                    }
+                }
+
+                return true;
+            }
+        }
+        return true;
+    }
+
+    public void removeRedundant(Node path, TiledMap tiles)
+    {
+        Node currNode = path.parentNode;
+        //while there is a line of sight  from start to current node, set path parent to node and go to next node
+        while (currNode.parentNode != null)
+        {
+            if(LOSCheck(path, currNode, tiles))
+            {
+                path.parentNode = currNode;
+            }
+            currNode = currNode.parentNode;
+        }
+        if (path.parentNode.parentNode != null)
+        {
+            removeRedundant(path.parentNode, tiles);
+        }
+    }
 }

@@ -63,8 +63,8 @@ public class WorldMap extends Screen
         int srcX, srcY;
 
         Node node;
-        Node start = new Node(6, 1, 0, 0, null);
-        Node end = new Node(16, 15, 0, 0, null);
+        Node start = new Node(9, 22, 0, 0, null);
+        Node end = new Node(16, 29, 0, 0, null);
         pathfinding = new Pathfinding();
         node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
 
