@@ -23,11 +23,6 @@ public class MainMenuScreen extends Screen {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-                if(inBounds(event, 0, g.getHeight() - 64, 64, 64)) {
-                    Settings.soundEnabled = !Settings.soundEnabled;
-                    if(Settings.soundEnabled)
-                        Assets.click.play(1);
-                }
                 if(inBounds(event, 861, 466, 393, 100) ) {
                     game.setScreen(new WorldMap(game));
                    // if(Settings.soundEnabled)
