@@ -2,1669 +2,1669 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res" >
+        <source path="C:\android\TARR\wsTotal\appcompat_v7\res" >
             <file
                 name="abc_fade_in"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\anim\abc_fade_in.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\anim\abc_fade_in.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="abc_fade_out"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\anim\abc_fade_out.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\anim\abc_fade_out.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="abc_slide_in_bottom"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_in_bottom.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_in_bottom.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="abc_slide_in_top"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_in_top.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_in_top.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="abc_slide_out_bottom"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_out_bottom.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_out_bottom.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="abc_slide_out_top"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_out_top.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\anim\abc_slide_out_top.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="abc_search_url_text_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\color\abc_search_url_text_holo.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\color\abc_search_url_text_holo.xml"
                 qualifiers=""
                 type="color" />
             <file
                 name="abc_ic_clear"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_ic_clear.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_ic_clear.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_ic_clear_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_ic_clear_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_ic_clear_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_item_background_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_item_background_holo_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_item_background_holo_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_item_background_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_item_background_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_item_background_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_list_selector_background_transition_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_background_transition_holo_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_background_transition_holo_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_list_selector_background_transition_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_background_transition_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_background_transition_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_list_selector_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_holo_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_holo_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_list_selector_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_list_selector_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_search_dropdown_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_search_dropdown_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_search_dropdown_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_search_dropdown_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_search_dropdown_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_search_dropdown_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_spinner_ab_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_spinner_ab_holo_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_spinner_ab_holo_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_spinner_ab_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_spinner_ab_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_spinner_ab_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_tab_indicator_ab_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_tab_indicator_ab_holo.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_tab_indicator_ab_holo.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_textfield_searchview_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_holo_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_holo_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_textfield_searchview_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_textfield_searchview_right_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_right_holo_dark.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_right_holo_dark.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_textfield_searchview_right_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_right_holo_light.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable\abc_textfield_searchview_right_holo_light.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_solid_dark_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_solid_light_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_transparent_dark_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_bottom_transparent_light_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_share_pack_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_share_pack_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_share_pack_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_share_pack_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_solid_dark_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_solid_light_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_solid_dark_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_solid_light_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_transparent_dark_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_stacked_transparent_light_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_transparent_dark_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ab_transparent_light_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_bottom_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_bottom_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_bottom_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_bottom_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_top_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_top_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_top_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_cab_background_top_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_ab_back_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_ab_back_holo_dark.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_ab_back_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_ab_back_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_cab_done_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_cab_done_holo_dark.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_cab_done_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_cab_done_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_disabled"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_disabled.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_disabled.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_normal"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_normal.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_normal.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_search_api_disabled_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_search_api_disabled_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_clear_search_api_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_commit_search_api_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_commit_search_api_holo_dark.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_commit_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_commit_search_api_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_go.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_go.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_go_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_go_search_api_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_share_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_share_holo_dark.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_share_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_menu_share_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_search.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_search_api_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_voice_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_voice_search.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_voice_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_ic_voice_search_api_holo_light.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_divider_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_divider_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_divider_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_divider_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_focused_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_longpressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_longpressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_longpressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_pressed_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_pressed_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_selector_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_selector_disabled_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_selector_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_list_selector_disabled_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_dropdown_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_dropdown_panel_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_dropdown_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_dropdown_panel_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_hardkey_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_hardkey_panel_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_hardkey_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_menu_hardkey_panel_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_default_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_default_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_disabled_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_disabled_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_focused_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_focused_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_focused_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_focused_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_pressed_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_spinner_ab_pressed_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_selected_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_selected_focused_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_selected_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_selected_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_selected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_selected_pressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_unselected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_unselected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_tab_unselected_pressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_default_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_default_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_default_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_default_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_selected_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_right_selected_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_selected_holo_dark.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-hdpi\abc_textfield_search_selected_holo_light.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_solid_dark_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_solid_light_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_transparent_dark_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_bottom_transparent_light_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_share_pack_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_share_pack_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_share_pack_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_share_pack_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_solid_dark_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_solid_light_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_solid_dark_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_solid_light_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_transparent_dark_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_stacked_transparent_light_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_transparent_dark_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ab_transparent_light_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_bottom_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_bottom_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_bottom_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_bottom_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_top_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_top_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_top_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_cab_background_top_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_ab_back_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_ab_back_holo_dark.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_ab_back_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_ab_back_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_cab_done_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_cab_done_holo_dark.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_cab_done_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_cab_done_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_disabled"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_disabled.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_disabled.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_normal"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_normal.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_normal.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_search_api_disabled_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_search_api_disabled_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_clear_search_api_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_commit_search_api_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_commit_search_api_holo_dark.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_commit_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_commit_search_api_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_go.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_go.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_go_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_go_search_api_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_share_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_share_holo_dark.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_share_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_menu_share_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_search.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_search_api_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_voice_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_voice_search.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_voice_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_ic_voice_search_api_holo_light.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_divider_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_divider_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_divider_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_divider_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_focused_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_longpressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_longpressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_longpressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_pressed_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_pressed_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_selector_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_selector_disabled_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_selector_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_list_selector_disabled_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_dropdown_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_dropdown_panel_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_dropdown_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_dropdown_panel_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_hardkey_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_hardkey_panel_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_hardkey_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_menu_hardkey_panel_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_default_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_default_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_disabled_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_disabled_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_focused_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_focused_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_focused_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_focused_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_pressed_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_spinner_ab_pressed_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_selected_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_selected_focused_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_selected_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_selected_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_selected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_selected_pressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_unselected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_unselected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_tab_unselected_pressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_default_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_default_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_default_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_default_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_selected_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_right_selected_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_selected_holo_dark.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-mdpi\abc_textfield_search_selected_holo_light.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_solid_dark_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_solid_light_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_transparent_dark_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_bottom_transparent_light_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_share_pack_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_share_pack_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_share_pack_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_share_pack_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_solid_dark_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_solid_light_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_solid_dark_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_solid_light_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_transparent_dark_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_stacked_transparent_light_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_transparent_dark_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ab_transparent_light_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_bottom_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_bottom_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_bottom_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_bottom_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_top_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_top_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_top_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_cab_background_top_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_ab_back_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_ab_back_holo_dark.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_ab_back_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_ab_back_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_cab_done_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_cab_done_holo_dark.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_cab_done_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_cab_done_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_disabled"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_disabled.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_disabled.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_normal"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_normal.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_normal.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_search_api_disabled_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_search_api_disabled_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_clear_search_api_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_commit_search_api_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_commit_search_api_holo_dark.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_commit_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_commit_search_api_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_go.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_go.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_go_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_go_search_api_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_share_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_share_holo_dark.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_share_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_menu_share_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_search.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_search_api_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_voice_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_voice_search.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_voice_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_ic_voice_search_api_holo_light.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_divider_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_divider_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_divider_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_divider_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_focused_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_longpressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_longpressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_longpressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_pressed_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_pressed_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_selector_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_selector_disabled_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_selector_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_list_selector_disabled_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_dropdown_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_dropdown_panel_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_dropdown_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_dropdown_panel_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_hardkey_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_hardkey_panel_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_hardkey_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_menu_hardkey_panel_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_default_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_default_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_disabled_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_disabled_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_focused_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_focused_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_focused_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_focused_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_pressed_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_spinner_ab_pressed_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_selected_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_selected_focused_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_selected_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_selected_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_selected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_selected_pressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_unselected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_unselected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_tab_unselected_pressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_default_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_default_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_default_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_default_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_selected_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_right_selected_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_selected_holo_dark.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xhdpi\abc_textfield_search_selected_holo_light.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_solid_dark_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_solid_light_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_transparent_dark_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_bottom_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_bottom_transparent_light_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_share_pack_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_share_pack_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_share_pack_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_share_pack_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_share_pack_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_solid_dark_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_solid_light_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_solid_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_solid_dark_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_solid_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_solid_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_solid_light_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_transparent_dark_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_stacked_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_stacked_transparent_light_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_dark_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_transparent_dark_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_transparent_dark_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ab_transparent_light_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_transparent_light_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ab_transparent_light_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_bottom_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_bottom_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_bottom_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_bottom_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_bottom_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_top_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_top_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_cab_background_top_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_top_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_cab_background_top_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_ab_back_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_ab_back_holo_dark.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_ab_back_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_ab_back_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_ab_back_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_cab_done_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_cab_done_holo_dark.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_cab_done_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_cab_done_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_cab_done_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_disabled"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_disabled.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_disabled.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_normal"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_normal.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_normal.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_search_api_disabled_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_search_api_disabled_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_clear_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_clear_search_api_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_commit_search_api_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_commit_search_api_holo_dark.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_commit_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_commit_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_commit_search_api_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_go.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_go.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_go_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_go_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_go_search_api_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_moreoverflow_normal_holo_dark.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_moreoverflow_normal_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_moreoverflow_normal_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_share_holo_dark.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_share_holo_dark.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_menu_share_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_share_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_menu_share_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_search.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_search_api_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_voice_search.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_voice_search.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_ic_voice_search_api_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_voice_search_api_holo_light.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_ic_voice_search_api_holo_light.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_divider_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_divider_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_divider_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_divider_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_divider_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_focused_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_longpressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_longpressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_longpressed_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_pressed_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_pressed_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_selector_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_selector_disabled_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_list_selector_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_selector_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_list_selector_disabled_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_dropdown_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_dropdown_panel_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_dropdown_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_dropdown_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_dropdown_panel_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_hardkey_panel_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_hardkey_panel_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_menu_hardkey_panel_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_hardkey_panel_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_menu_hardkey_panel_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_default_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_default_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_disabled_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_disabled_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_disabled_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_disabled_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_disabled_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_focused_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_focused_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_focused_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_focused_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_focused_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_pressed_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_pressed_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_spinner_ab_pressed_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_pressed_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_spinner_ab_pressed_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_focused_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_selected_focused_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_selected_focused_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_selected_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_selected_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_selected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_selected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_selected_pressed_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_tab_unselected_pressed_holo"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_unselected_pressed_holo.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_tab_unselected_pressed_holo.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_default_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_default_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_default_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_default_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_default_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_default_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_default_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_selected_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_right_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_right_selected_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_dark"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_selected_holo_dark.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_selected_holo_dark.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_textfield_search_selected_holo_light"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_selected_holo_light.9.png"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\drawable-xxhdpi\abc_textfield_search_selected_holo_light.9.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="abc_action_bar_decor"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_decor.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_decor.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_decor_include"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_decor_include.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_decor_include.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_decor_overlay"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_decor_overlay.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_decor_overlay.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_home"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_home.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_home.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_tab"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_tab.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_tab.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_tabbar"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_tabbar.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_tabbar.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_title_item"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_title_item.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_title_item.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_view_list_nav_layout"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_view_list_nav_layout.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_bar_view_list_nav_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_menu_item_layout"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_menu_item_layout.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_menu_item_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_menu_layout"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_menu_layout.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_menu_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_mode_bar"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_mode_bar.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_mode_bar.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_mode_close_item"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_action_mode_close_item.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_action_mode_close_item.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_activity_chooser_view"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_activity_chooser_view.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_activity_chooser_view.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_activity_chooser_view_include"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_activity_chooser_view_include.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_activity_chooser_view_include.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_activity_chooser_view_list_item"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_activity_chooser_view_list_item.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_activity_chooser_view_list_item.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_expanded_menu_layout"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_expanded_menu_layout.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_expanded_menu_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_list_menu_item_checkbox"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_checkbox.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_checkbox.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_list_menu_item_icon"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_icon.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_icon.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_list_menu_item_layout"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_layout.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_list_menu_item_radio"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_radio.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_list_menu_item_radio.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_popup_menu_item_layout"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_popup_menu_item_layout.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_popup_menu_item_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_search_dropdown_item_icons_2line"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_search_dropdown_item_icons_2line.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_search_dropdown_item_icons_2line.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_search_view"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_search_view.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_search_view.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_simple_decor"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\abc_simple_decor.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\abc_simple_decor.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="support_simple_spinner_dropdown_item"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout\support_simple_spinner_dropdown_item.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout\support_simple_spinner_dropdown_item.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="abc_action_bar_decor"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout-v11\abc_action_bar_decor.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout-v11\abc_action_bar_decor.xml"
                 qualifiers="v11"
                 type="layout" />
             <file
                 name="abc_simple_decor"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout-v11\abc_simple_decor.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout-v11\abc_simple_decor.xml"
                 qualifiers="v11"
                 type="layout" />
             <file
                 name="abc_activity_chooser_view"
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\layout-v14\abc_activity_chooser_view.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\layout-v14\abc_activity_chooser_view.xml"
                 qualifiers="v14"
                 type="layout" />
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\attrs.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\attrs.xml"
                 qualifiers="" >
                 <declare-styleable name="Theme" >
 
@@ -2426,7 +2426,7 @@
                     format="reference" />
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\bools.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\bools.xml"
                 qualifiers="" >
                 <bool name="abc_action_bar_embed_tabs_pre_jb" >
 false
@@ -2442,7 +2442,7 @@ true
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\colors.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\colors.xml"
                 qualifiers="" >
                 <color name="abc_search_url_text_normal" >#7fa87f
                 </color>
@@ -2452,7 +2452,7 @@ true
                 </color>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\config.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\config.xml"
                 qualifiers="" >
                 <dimen name="abc_config_prefDialogWidth" >320dp
                 </dimen>
@@ -2465,7 +2465,7 @@ false
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\dimens.xml"
                 qualifiers="" >
                 <item
                     name="dialog_fixed_height_minor"
@@ -2531,7 +2531,7 @@ false
                 </dimen>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\ids.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\ids.xml"
                 qualifiers="" >
                 <item
                     name="action_menu_presenter"
@@ -2553,7 +2553,7 @@ false
                     type="id"/>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\strings.xml"
                 qualifiers="" >
                 <string name="abc_action_bar_home_description" >Navigate home
                 </string>
@@ -2583,7 +2583,7 @@ false
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\styles.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\styles.xml"
                 qualifiers="" >
 
                 <style
@@ -2876,7 +2876,7 @@ false
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\styles_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\styles_base.xml"
                 qualifiers="" >
 
                 <style
@@ -3585,7 +3585,7 @@ true
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\themes.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\themes.xml"
                 qualifiers="" >
 
                 <style
@@ -3864,7 +3864,7 @@ true
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values\themes_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values\themes_base.xml"
                 qualifiers="" >
 
                 <style
@@ -4324,7 +4324,7 @@ true
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-af\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-af\strings.xml"
                 qualifiers="af" >
                 <string
                     name="abc_searchview_description_query"
@@ -4380,7 +4380,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-am\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-am\strings.xml"
                 qualifiers="am" >
                 <string
                     name="abc_searchview_description_submit"
@@ -4436,7 +4436,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ar\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ar\strings.xml"
                 qualifiers="ar" >
                 <string
                     name="abc_searchview_description_clear"
@@ -4492,7 +4492,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-bg\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-bg\strings.xml"
                 qualifiers="bg" >
                 <string
                     name="abc_searchview_description_search"
@@ -4548,7 +4548,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ca\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ca\strings.xml"
                 qualifiers="ca" >
                 <string
                     name="abc_activitychooserview_choose_application"
@@ -4604,7 +4604,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-cs\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-cs\strings.xml"
                 qualifiers="cs" >
                 <string
                     name="abc_shareactionprovider_share_with_application"
@@ -4660,7 +4660,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-da\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-da\strings.xml"
                 qualifiers="da" >
                 <string
                     name="abc_activitychooserview_choose_application"
@@ -4716,7 +4716,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-de\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-de\strings.xml"
                 qualifiers="de" >
                 <string
                     name="abc_searchview_description_voice"
@@ -4772,7 +4772,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-el\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-el\strings.xml"
                 qualifiers="el" >
                 <string
                     name="abc_searchview_description_voice"
@@ -4828,7 +4828,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-en-rGB\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-en-rGB\strings.xml"
                 qualifiers="en-rGB" >
                 <string
                     name="abc_searchview_description_voice"
@@ -4884,7 +4884,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-en-rIN\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-en-rIN\strings.xml"
                 qualifiers="en-rIN" >
                 <string
                     name="abc_action_bar_home_description"
@@ -4940,7 +4940,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-es\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-es\strings.xml"
                 qualifiers="es" >
                 <string
                     name="abc_searchview_description_search"
@@ -4996,7 +4996,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-es-rUS\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-es-rUS\strings.xml"
                 qualifiers="es-rUS" >
                 <string
                     name="abc_action_bar_home_description"
@@ -5052,7 +5052,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-et-rEE\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-et-rEE\strings.xml"
                 qualifiers="et-rEE" >
                 <string
                     name="abc_searchview_description_clear"
@@ -5108,7 +5108,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-fa\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-fa\strings.xml"
                 qualifiers="fa" >
                 <string
                     name="abc_shareactionprovider_share_with"
@@ -5164,7 +5164,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-fi\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-fi\strings.xml"
                 qualifiers="fi" >
                 <string
                     name="abc_action_mode_done"
@@ -5220,7 +5220,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-fr\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-fr\strings.xml"
                 qualifiers="fr" >
                 <string
                     name="abc_activity_chooser_view_see_all"
@@ -5276,7 +5276,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-fr-rCA\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-fr-rCA\strings.xml"
                 qualifiers="fr-rCA" >
                 <string
                     name="abc_action_bar_home_description"
@@ -5332,7 +5332,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-hi\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-hi\strings.xml"
                 qualifiers="hi" >
                 <string
                     name="abc_action_mode_done"
@@ -5388,7 +5388,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-hr\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-hr\strings.xml"
                 qualifiers="hr" >
                 <string
                     name="abc_action_mode_done"
@@ -5444,7 +5444,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-hu\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-hu\strings.xml"
                 qualifiers="hu" >
                 <string
                     name="abc_searchview_description_submit"
@@ -5500,7 +5500,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-hy-rAM\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-hy-rAM\strings.xml"
                 qualifiers="hy-rAM" >
                 <string
                     name="abc_searchview_description_submit"
@@ -5556,7 +5556,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-in\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-in\strings.xml"
                 qualifiers="in" >
                 <string
                     name="abc_action_bar_home_description"
@@ -5612,7 +5612,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-it\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-it\strings.xml"
                 qualifiers="it" >
                 <string
                     name="abc_activitychooserview_choose_application"
@@ -5668,7 +5668,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-iw\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-iw\strings.xml"
                 qualifiers="iw" >
                 <string
                     name="abc_searchview_description_clear"
@@ -5724,7 +5724,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ja\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ja\strings.xml"
                 qualifiers="ja" >
                 <string
                     name="abc_activitychooserview_choose_application"
@@ -5780,7 +5780,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ka-rGE\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ka-rGE\strings.xml"
                 qualifiers="ka-rGE" >
                 <string
                     name="abc_searchview_description_submit"
@@ -5836,7 +5836,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-km-rKH\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-km-rKH\strings.xml"
                 qualifiers="km-rKH" >
                 <string
                     name="abc_action_menu_overflow_description"
@@ -5892,7 +5892,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ko\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ko\strings.xml"
                 qualifiers="ko" >
                 <string
                     name="abc_action_menu_overflow_description"
@@ -5948,7 +5948,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-land\bools.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-land\bools.xml"
                 qualifiers="land" >
                 <bool name="abc_split_action_bar_is_narrow" >
 false
@@ -5958,14 +5958,14 @@ true
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-land\config.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-land\config.xml"
                 qualifiers="land" >
                 <bool name="abc_config_allowActionMenuItemTextWithIcon" >
 true
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-land\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-land\dimens.xml"
                 qualifiers="land" >
                 <dimen name="abc_action_bar_progress_bar_size" >32dp
                 </dimen>
@@ -5983,7 +5983,7 @@ true
                 </dimen>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-large\bools.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-large\bools.xml"
                 qualifiers="large-v4" >
                 <bool name="abc_action_bar_embed_tabs_pre_jb" >
 true
@@ -5993,7 +5993,7 @@ false
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-large\config.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-large\config.xml"
                 qualifiers="large-v4" >
                 <dimen name="abc_config_prefDialogWidth" >440dp
                 </dimen>
@@ -6003,7 +6003,7 @@ true
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-large\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-large\dimens.xml"
                 qualifiers="large-v4" >
                 <item
                     name="dialog_fixed_height_major"
@@ -6036,7 +6036,7 @@ true
                 </item>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-large\themes_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-large\themes_base.xml"
                 qualifiers="large-v4" >
 
                 <style
@@ -6048,7 +6048,7 @@ true
                     parent="Theme.Base.AppCompat.Dialog.Light.FixedSize" />
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-large-v14\themes_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-large-v14\themes_base.xml"
                 qualifiers="large-v14" >
 
                 <style
@@ -6060,7 +6060,7 @@ true
                     parent="Theme.Base.AppCompat.DialogWhenLarge.Base" />
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-lo-rLA\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-lo-rLA\strings.xml"
                 qualifiers="lo-rLA" >
                 <string
                     name="abc_searchview_description_submit"
@@ -6116,7 +6116,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-lt\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-lt\strings.xml"
                 qualifiers="lt" >
                 <string
                     name="abc_searchview_description_clear"
@@ -6172,7 +6172,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-lv\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-lv\strings.xml"
                 qualifiers="lv" >
                 <string
                     name="abc_activity_chooser_view_see_all"
@@ -6228,7 +6228,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-mn-rMN\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-mn-rMN\strings.xml"
                 qualifiers="mn-rMN" >
                 <string
                     name="abc_searchview_description_search"
@@ -6284,7 +6284,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ms-rMY\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ms-rMY\strings.xml"
                 qualifiers="ms-rMY" >
                 <string
                     name="abc_activitychooserview_choose_application"
@@ -6340,7 +6340,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-nb\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-nb\strings.xml"
                 qualifiers="nb" >
                 <string
                     name="abc_action_menu_overflow_description"
@@ -6396,7 +6396,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-nl\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-nl\strings.xml"
                 qualifiers="nl" >
                 <string
                     name="abc_action_menu_overflow_description"
@@ -6452,7 +6452,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-pl\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-pl\strings.xml"
                 qualifiers="pl" >
                 <string
                     name="abc_shareactionprovider_share_with_application"
@@ -6508,7 +6508,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-pt\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-pt\strings.xml"
                 qualifiers="pt" >
                 <string
                     name="abc_searchview_description_clear"
@@ -6564,7 +6564,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-pt-rPT\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-pt-rPT\strings.xml"
                 qualifiers="pt-rPT" >
                 <string
                     name="abc_searchview_description_submit"
@@ -6620,7 +6620,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ro\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ro\strings.xml"
                 qualifiers="ro" >
                 <string
                     name="abc_action_menu_overflow_description"
@@ -6676,7 +6676,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-ru\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-ru\strings.xml"
                 qualifiers="ru" >
                 <string
                     name="abc_searchview_description_query"
@@ -6732,7 +6732,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sk\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sk\strings.xml"
                 qualifiers="sk" >
                 <string
                     name="abc_searchview_description_search"
@@ -6788,7 +6788,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sl\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sl\strings.xml"
                 qualifiers="sl" >
                 <string
                     name="abc_action_bar_up_description"
@@ -6844,7 +6844,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sr\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sr\strings.xml"
                 qualifiers="sr" >
                 <string
                     name="abc_action_bar_home_description"
@@ -6900,7 +6900,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sv\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sv\strings.xml"
                 qualifiers="sv" >
                 <string
                     name="abc_shareactionprovider_share_with"
@@ -6956,7 +6956,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sw\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sw\strings.xml"
                 qualifiers="sw" >
                 <string
                     name="abc_searchview_description_search"
@@ -7012,13 +7012,13 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sw600dp\config.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sw600dp\config.xml"
                 qualifiers="sw600dp-v13" >
                 <dimen name="abc_config_prefDialogWidth" >580dp
                 </dimen>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-sw600dp\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-sw600dp\dimens.xml"
                 qualifiers="sw600dp-v13" >
                 <dimen name="abc_action_bar_default_height" >56dip
                 </dimen>
@@ -7039,7 +7039,7 @@ true
                 </dimen>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-th\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-th\strings.xml"
                 qualifiers="th" >
                 <string
                     name="abc_searchview_description_voice"
@@ -7095,7 +7095,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-tl\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-tl\strings.xml"
                 qualifiers="tl" >
                 <string
                     name="abc_shareactionprovider_share_with_application"
@@ -7151,7 +7151,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-tr\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-tr\strings.xml"
                 qualifiers="tr" >
                 <string
                     name="abc_activitychooserview_choose_application"
@@ -7207,7 +7207,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-uk\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-uk\strings.xml"
                 qualifiers="uk" >
                 <string
                     name="abc_searchview_description_query"
@@ -7263,7 +7263,7 @@ true
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-v11\styles_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-v11\styles_base.xml"
                 qualifiers="v11" >
 
                 <style
@@ -7287,7 +7287,7 @@ true
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-v11\themes_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-v11\themes_base.xml"
                 qualifiers="v11" >
 
                 <style
@@ -7415,7 +7415,7 @@ true
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-v14\styles_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-v14\styles_base.xml"
                 qualifiers="v14" >
 
                 <style
@@ -7677,7 +7677,7 @@ middle
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-v14\themes_base.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-v14\themes_base.xml"
                 qualifiers="v14" >
 
                 <style
@@ -7984,7 +7984,7 @@ middle
                 </style>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-vi\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-vi\strings.xml"
                 qualifiers="vi" >
                 <string
                     name="abc_searchview_description_submit"
@@ -8040,14 +8040,14 @@ middle
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-w360dp\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-w360dp\dimens.xml"
                 qualifiers="w360dp-v13" >
                 <integer name="abc_max_action_buttons" >
 3
                 </integer>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-w480dp\bools.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-w480dp\bools.xml"
                 qualifiers="w480dp-v13" >
                 <bool name="abc_split_action_bar_is_narrow" >
 false
@@ -8057,21 +8057,21 @@ true
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-w480dp\config.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-w480dp\config.xml"
                 qualifiers="w480dp-v13" >
                 <bool name="abc_config_allowActionMenuItemTextWithIcon" >
 true
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-w500dp\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-w500dp\dimens.xml"
                 qualifiers="w500dp-v13" >
                 <integer name="abc_max_action_buttons" >
 4
                 </integer>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-w600dp\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-w600dp\dimens.xml"
                 qualifiers="w600dp-v13" >
                 <dimen name="abc_action_bar_subtitle_top_margin" >-3dp
                 </dimen>
@@ -8096,21 +8096,21 @@ true
                 </dimen>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-w720dp\bools.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-w720dp\bools.xml"
                 qualifiers="w720dp-v13" >
                 <bool name="abc_action_bar_expanded_action_views_exclusive" >
 false
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-xlarge\bools.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-xlarge\bools.xml"
                 qualifiers="xlarge-v4" >
                 <bool name="abc_action_bar_expanded_action_views_exclusive" >
 false
                 </bool>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-xlarge\dimens.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-xlarge\dimens.xml"
                 qualifiers="xlarge-v4" >
                 <dimen name="abc_action_bar_subtitle_text_size" >14dp
                 </dimen>
@@ -8160,7 +8160,7 @@ false
                 </item>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-zh-rCN\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-zh-rCN\strings.xml"
                 qualifiers="zh-rCN" >
                 <string
                     name="abc_searchview_description_submit"
@@ -8216,7 +8216,7 @@ false
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-zh-rHK\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-zh-rHK\strings.xml"
                 qualifiers="zh-rHK" >
                 <string
                     name="abc_searchview_description_clear"
@@ -8272,7 +8272,7 @@ false
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-zh-rTW\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-zh-rTW\strings.xml"
                 qualifiers="zh-rTW" >
                 <string
                     name="abc_searchview_description_submit"
@@ -8328,7 +8328,7 @@ false
                 </string>
             </file>
             <file
-                path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\res\values-zu\strings.xml"
+                path="C:\android\TARR\wsTotal\appcompat_v7\res\values-zu\strings.xml"
                 qualifiers="zu" >
                 <string
                     name="abc_searchview_description_submit"
@@ -8384,11 +8384,11 @@ false
                 </string>
             </file>
         </source>
-        <source path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\build\generated\res\rs\debug" />
-        <source path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\build\generated\res\generated\debug" />
+        <source path="C:\android\TARR\wsTotal\appcompat_v7\build\generated\res\rs\debug" />
+        <source path="C:\android\TARR\wsTotal\appcompat_v7\build\generated\res\generated\debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\Andrew\AndroidStudioProjects\TARR\wsTotal\appcompat_v7\build-types\debug\res" />
+        <source path="C:\android\TARR\wsTotal\appcompat_v7\build-types\debug\res" />
     </dataSet>
 
 </merger>

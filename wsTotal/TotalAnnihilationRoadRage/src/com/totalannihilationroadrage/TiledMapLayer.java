@@ -22,7 +22,7 @@ public class TiledMapLayer
         {
             System.out.print("Something bad!");
         }
-		return data.get((row * width) + col);
+		return data.get((row * width) + col) - 1;
 	}
 
     public boolean isPassable (int row, int col)
