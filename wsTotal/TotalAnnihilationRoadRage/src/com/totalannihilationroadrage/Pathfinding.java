@@ -153,7 +153,7 @@ public class Pathfinding
                 for(int currY = start.row; currY <= goal.row; ++currY)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
@@ -178,7 +178,7 @@ public class Pathfinding
                 for(int currX = start.col; currX <= goal.col; ++currX)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
@@ -207,7 +207,7 @@ public class Pathfinding
                 for(int currY = start.row; currY <= goal.row; ++currY)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
@@ -233,7 +233,7 @@ public class Pathfinding
                 for(int currX = start.col; currX >= goal.col; --currX)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / 32), (int)Math.floor(currY / 32)))
+                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
