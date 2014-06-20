@@ -30,4 +30,4 @@
                android:scaleType="fitCenter"
                android:src="?attr/actionModeCloseDrawable"/>
 </LinearLayout>
-<!-- From: file:/C:/Users/Andrew/AndroidStudioProjects/TARR/wsTotal/appcompat_v7/res/layout/abc_action_mode_close_item.xml -->
+<!-- From: file:/C:/android/TARR/wsTotal/appcompat_v7/res/layout/abc_action_mode_close_item.xml -->
