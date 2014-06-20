@@ -32,6 +32,8 @@ public class TacticalCombatScreen extends Screen
     private int cameraLeftCol = 0;
     private int cameraOffsetX = 0;
     private int cameraOffsetY = 0;
+    private int touchX = 0;
+    private int touchY = 0;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
@@ -41,6 +43,27 @@ public class TacticalCombatScreen extends Screen
 
 	public void update(float deltaTime)
 	{
+        Graphics g = game.getGraphics();
+        List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
+        game.getInput().getKeyEvents();
+
+        int len = touchEvents.size();
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+                touchX = event.x;
+                touchY = event.y;
+            }
+
+            if(event.type == Input.TouchEvent.TOUCH_DRAGGED)
+            {
+                int dispX = touchX - event.x;
+                int dispY = touchY - event.y;
+
+            }
+        }
 	}
 
 	@Override
@@ -64,10 +87,10 @@ public class TacticalCombatScreen extends Screen
 		int destX, destY;
 		int srcX, srcY;
         Node node;
-        Node start = new Node(1, 1, 0, 0, null);
-        Node end = new Node(6, 8, 0, 0, null);
-        pathfinding = new Pathfinding();
-        node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
+        //Node start = new Node(1, 1, 0, 0, null);
+        //Node end = new Node(6, 8, 0, 0, null);
+        //pathfinding = new Pathfinding();
+        //node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 
         int numRows = g.getHeight() / tMap.tileHeight;
         int numCols = g.getWidth() / tMap.tileWidth;
@@ -110,12 +133,12 @@ public class TacticalCombatScreen extends Screen
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
         */
-        while(node != null)
+        /*while(node != null)
         {
             g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
             //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
             node = node.parentNode;
-        }
+        }*/
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
