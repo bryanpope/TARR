@@ -28,6 +28,11 @@ public class TacticalCombatScreen extends Screen
 	TacticalCombatWorld tcWorld;
     Pathfinding pathfinding;
 
+    private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
+    private int cameraLeftCol = 0;
+    private int cameraOffsetX = 0;
+    private int cameraOffsetY = 0;
+
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
 		super(game);
@@ -64,7 +69,27 @@ public class TacticalCombatScreen extends Screen
         pathfinding = new Pathfinding();
         node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 
-		for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
+        int numRows = g.getHeight() / tMap.tileHeight;
+        int numCols = g.getWidth() / tMap.tileWidth;
+        int indexTile;
+
+        for (int i = 0; i < tMap.layers.size(); i++)
+        {
+            for (int row = cameraTopRow; (row - cameraTopRow) < numRows; ++row)
+            {
+                for (int col = cameraLeftCol; (col - cameraLeftCol) < numCols; ++col)
+                {
+                    destX = ((col - cameraLeftCol) * tMap.tileWidth) + cameraOffsetX;
+                    destY = ((row - cameraTopRow) * tMap.tileHeight) + cameraOffsetY;
+                    indexTile = tMap.layers.get(i).getTile(row, col);
+                    srcX = (indexTile % tileSheetCol) * tMap.tileWidth;
+                    srcY = (indexTile / tileSheetCol) * tMap.tileWidth;
+                    g.drawPixmap(tMap.image.pmImage, destX, destY, srcX, srcY, tMap.tileWidth, tMap.tileHeight);
+                }
+            }
+        }
+
+		/*for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
 		{
 			destX = destY = 0;
 			for (int index = 0; index < tMap.layers.get(i).data.size(); index++) //indexes through the tiledmap
@@ -80,7 +105,7 @@ public class TacticalCombatScreen extends Screen
 					destY++;
 				}
 			}
-		}
+		}*/
         /*
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
