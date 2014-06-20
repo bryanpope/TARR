@@ -7,7 +7,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.ext.DefaultHandler2;
 
-public class TiledMap extends DefaultHandler2
+abstract public class TiledMap extends DefaultHandler2
 {
 	String version;
 	TiledMapOrientation orientation;
@@ -26,8 +26,10 @@ public class TiledMap extends DefaultHandler2
 		image = new TiledMapImage();
 		layers = new ArrayList< TiledMapLayer >();
 	}
-	
-	void populateWithXMLFields (String localName, Attributes attributes)
+
+    abstract boolean isPassable (int row, int col);
+
+    void populateWithXMLFields (String localName, Attributes attributes)
 	{
 		if (localName.equals("map"))
 		{

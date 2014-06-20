@@ -9,7 +9,7 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    TiledMap world = new TiledMap();
+    //TiledMap world = new TiledMap();
 
 	public Node IAmAPathAndILikeCheese(List tiles, Node start, Node goal, List impassable)
 	{
