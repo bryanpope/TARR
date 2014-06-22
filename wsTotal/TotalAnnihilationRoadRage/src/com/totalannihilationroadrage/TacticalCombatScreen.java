@@ -30,10 +30,13 @@ public class TacticalCombatScreen extends Screen
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
-    private int cameraOffsetX = 0;
-    private int cameraOffsetY = 0;
-    private int touchX = 0;
-    private int touchY = 0;
+    private int cameraX = 0;
+    private int cameraY = 0;
+    private int tileOffsetX = 0;
+    private int tileOffsetY = 0;
+    private float previousTouchX = 0;
+    private float previousTouchY = 0;
+    private int pointerId;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
@@ -46,23 +49,68 @@ public class TacticalCombatScreen extends Screen
         Graphics g = game.getGraphics();
         List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
         game.getInput().getKeyEvents();
+        int numRows = g.getHeight() / tcWorld.tmBattleGround.tileHeight;
+        int numCols = g.getWidth() / tcWorld.tmBattleGround.tileWidth;
+        int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
+        int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
+        float x, y;
 
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
         {
             Input.TouchEvent event = touchEvents.get(i);
+            x = event.x;
+            y = event.y;
             if(event.type == Input.TouchEvent.TOUCH_DOWN)
             {
-                touchX = event.x;
-                touchY = event.y;
+                previousTouchX = x;
+                previousTouchY = y;
+                pointerId = event.pointer;
             }
 
             if(event.type == Input.TouchEvent.TOUCH_DRAGGED)
             {
-                int dispX = touchX - event.x;
-                int dispY = touchY - event.y;
+                if (event.pointer != pointerId)
+                {
+                    continue;
+                }
 
+                float dispX = x - previousTouchX;
+                float dispY = y - previousTouchY;
+
+                cameraX -= Math.round(dispX);
+                if (cameraX < 0)
+                {
+                    cameraX = 0;
+                }
+                if (cameraX > maxCameraX)
+                {
+                    cameraX = maxCameraX;
+                }
+
+                cameraY -= Math.round(dispY);
+                if (cameraY < 0)
+                {
+                    cameraY = 0;
+                }
+                if (cameraY > maxCameraY)
+                {
+                    cameraY = maxCameraY;
+                }
+
+                cameraLeftCol = cameraX / tcWorld.tmBattleGround.tileWidth;
+                tileOffsetX = -(cameraX % tcWorld.tmBattleGround.tileWidth);
+                cameraTopRow = cameraY / tcWorld.tmBattleGround.tileHeight;
+                tileOffsetY = -(cameraY % tcWorld.tmBattleGround.tileWidth);
+
+                /*cameraTopRow += cameraOffsetY / tcWorld.tmBattleGround.tileHeight;
+                cameraOffsetY %= tcWorld.tmBattleGround.tileHeight;
+
+                cameraLeftCol += cameraOffsetX / tcWorld.tmBattleGround.tileWidth;
+                cameraOffsetX %= tcWorld.tmBattleGround.tileWidth;*/
             }
+            previousTouchX = x;
+            previousTouchY = y;
         }
 	}
 
@@ -102,8 +150,8 @@ public class TacticalCombatScreen extends Screen
             {
                 for (int col = cameraLeftCol; (col - cameraLeftCol) < numCols; ++col)
                 {
-                    destX = ((col - cameraLeftCol) * tMap.tileWidth) + cameraOffsetX;
-                    destY = ((row - cameraTopRow) * tMap.tileHeight) + cameraOffsetY;
+                    destX = ((col - cameraLeftCol) * tMap.tileWidth) + tileOffsetX;
+                    destY = ((row - cameraTopRow) * tMap.tileHeight) + tileOffsetY;
                     indexTile = tMap.layers.get(i).getTile(row, col);
                     srcX = (indexTile % tileSheetCol) * tMap.tileWidth;
                     srcY = (indexTile / tileSheetCol) * tMap.tileWidth;
