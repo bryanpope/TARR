@@ -1,8 +1,5 @@
 package com.totalannihilationroadrage;
 
-/**
- * Created by Lord_Oni on 6/11/2014.
- */
 
 import android.graphics.Color;
 
@@ -24,7 +21,7 @@ public class TacticalCombatScreen extends Screen
 		Paused
 	}
 
-	GameState state = GameState.Ready;
+	GameState state = GameState.Running;
 	TacticalCombatWorld tcWorld;
     Pathfinding pathfinding;
 
@@ -34,6 +31,8 @@ public class TacticalCombatScreen extends Screen
     private int cameraY = 0;
     private int tileOffsetX = 0;
     private int tileOffsetY = 0;
+    private int numRows = 0;
+    private int numCols = 0;
     private float previousTouchX = 0;
     private float previousTouchY = 0;
     private int pointerId;
@@ -42,6 +41,8 @@ public class TacticalCombatScreen extends Screen
 	{
 		super(game);
 		tcWorld = tacticalCombatWorld;
+        numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
+        numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
 	}
 
 	public void update(float deltaTime)
@@ -49,8 +50,6 @@ public class TacticalCombatScreen extends Screen
         Graphics g = game.getGraphics();
         List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
         game.getInput().getKeyEvents();
-        int numRows = g.getHeight() / tcWorld.tmBattleGround.tileHeight;
-        int numCols = g.getWidth() / tcWorld.tmBattleGround.tileWidth;
         int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
         int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
         float x, y;
@@ -103,6 +102,15 @@ public class TacticalCombatScreen extends Screen
                 cameraTopRow = cameraY / tcWorld.tmBattleGround.tileHeight;
                 tileOffsetY = -(cameraY % tcWorld.tmBattleGround.tileWidth);
 
+                numRows = g.getHeight() / tcWorld.tmBattleGround.tileHeight;
+                numRows += (tileOffsetY < 0) ? 1 : 0;
+                //numRows = (int)Math.ceil(g.getHeight() / (double)tcWorld.tmBattleGround.tileHeight);
+                //numRows += ((tcWorld.tmBattleGround.height - numRows) >= numRows) ? 1 : 0;
+                numCols = g.getWidth() / tcWorld.tmBattleGround.tileWidth;
+                numCols += (tileOffsetX < 0) ? 1 : 0;
+                //numCols = (int)Math.ceil(g.getWidth() / (double)tcWorld.tmBattleGround.tileWidth);
+                //numCols += ((tcWorld.tmBattleGround.width - numCols) >= numCols) ? 1 : 0;
+
                 /*cameraTopRow += cameraOffsetY / tcWorld.tmBattleGround.tileHeight;
                 cameraOffsetY %= tcWorld.tmBattleGround.tileHeight;
 
@@ -140,8 +148,8 @@ public class TacticalCombatScreen extends Screen
         //pathfinding = new Pathfinding();
         //node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 
-        int numRows = g.getHeight() / tMap.tileHeight;
-        int numCols = g.getWidth() / tMap.tileWidth;
+        //int numRows = g.getHeight() / tMap.tileHeight;
+        //int numCols = g.getWidth() / tMap.tileWidth;
         int indexTile;
 
         for (int i = 0; i < tMap.layers.size(); i++)
@@ -152,6 +160,10 @@ public class TacticalCombatScreen extends Screen
                 {
                     destX = ((col - cameraLeftCol) * tMap.tileWidth) + tileOffsetX;
                     destY = ((row - cameraTopRow) * tMap.tileHeight) + tileOffsetY;
+                    if (((row * tMap.layers.get(i).width) + col) >= tMap.layers.get(i).data.size())
+                    {
+                        System.out.print("Out of range!");
+                    }
                     indexTile = tMap.layers.get(i).getTile(row, col);
                     srcX = (indexTile % tileSheetCol) * tMap.tileWidth;
                     srcY = (indexTile / tileSheetCol) * tMap.tileWidth;
@@ -211,8 +223,8 @@ public class TacticalCombatScreen extends Screen
 
 		for (int i = 0; i < vehicles.size(); ++i)
 		{
-			destX = vehicles.get(i).xPos * tMap.tileset.tileWidth;
-			destY = vehicles.get(i).yPos * tMap.tileset.tileHeight;
+			destX = (vehicles.get(i).xPos * tMap.tileset.tileWidth) - cameraX;
+			destY = (vehicles.get(i).yPos * tMap.tileset.tileHeight) - cameraY;
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
