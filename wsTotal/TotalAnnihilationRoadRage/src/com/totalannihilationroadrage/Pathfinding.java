@@ -12,47 +12,47 @@ public class Pathfinding
     //TiledMap world = new TiledMap();
     int j = 0;
 
-	public Node IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
-	{
+    public Node IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
+    {
 
-		Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
+        Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
 
-		while(!catchMeIfYouCan(currentNode, goal))
-		{
+        while (!catchMeIfYouCan(currentNode, goal))
+        {
             int row = currentNode.row;
             int col = currentNode.col;
 
             //right child
             col++;
-			addChild(row, col, tiles, currentNode, goal);
-
-			//left child
-			col -= 2;
-            addChild(row, col, tiles, currentNode, goal);
-			
-			//top child
-			col++;
-			row--;
             addChild(row, col, tiles, currentNode, goal);
 
-			//bottom child
-			row += 2;
+            //left child
+            col -= 2;
             addChild(row, col, tiles, currentNode, goal);
 
-			//bottom right
-			col++;
+            //top child
+            col++;
+            row--;
             addChild(row, col, tiles, currentNode, goal);
 
-			//bottom left
-			col -= 2;
+            //bottom child
+            row += 2;
+            addChild(row, col, tiles, currentNode, goal);
+
+            //bottom right
+            col++;
+            addChild(row, col, tiles, currentNode, goal);
+
+            //bottom left
+            col -= 2;
             addChild(row, col, tiles, currentNode, goal);
 
             //top left
-			row -= 2;
+            row -= 2;
             addChild(row, col, tiles, currentNode, goal);
 
-			//top right
-			col += 2;
+            //top right
+            col += 2;
             addChild(row, col, tiles, currentNode, goal);
 
             //Put currentNode in the closedList
@@ -64,76 +64,77 @@ public class Pathfinding
             //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
 
             j++;
-		}
+        }
 
+        checkWithinShotRange(currentNode, goal, 10);
         removeRedundant(currentNode, tiles);
 
         return currentNode;
-	}
+    }
 
-	public boolean catchMeIfYouCan(Node currentNode, Node goalNode)
-	{
-		return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
-	}
+    public boolean catchMeIfYouCan(Node currentNode, Node goalNode)
+    {
+        return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
+    }
 
-	public boolean isNodeClosed(double row, double col)
-	{
-		for(int i = 0; i < closedList.size(); ++i)
-		{
-			if(closedList.get(i).col == col && closedList.get(i).row == row)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+    public boolean isNodeClosed(double row, double col)
+    {
+        for (int i = 0; i < closedList.size(); ++i)
+        {
+            if (closedList.get(i).col == col && closedList.get(i).row == row)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	public Node getChildFromOpen(double row, double col, List<Node> openList)
-	{
-		for(int i = 0; i < openList.size(); ++i)
-		{
-			if(openList.get(i).col == col && openList.get(i).row == row)
-			{
-				return openList.get(i);
-			}
-		}
-		return null;
-	}
+    public Node getChildFromOpen(double row, double col, List<Node> openList)
+    {
+        for (int i = 0; i < openList.size(); ++i)
+        {
+            if (openList.get(i).col == col && openList.get(i).row == row)
+            {
+                return openList.get(i);
+            }
+        }
+        return null;
+    }
 
-	public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node target)
-	{
-		if(tiles.isPassable(row, col))
-		{
-			if(!isNodeClosed(row, col))
-			{
+    public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node target)
+    {
+        if (tiles.isPassable(row, col))
+        {
+            if (!isNodeClosed(row, col))
+            {
                 double g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
                 double f = g + getDistance(row, col, target);
-			    Node child = getChildFromOpen(row, col, openList);
-			   
-			    if(child == null)
-			    {
+                Node child = getChildFromOpen(row, col, openList);
+
+                if (child == null)
+                {
                     child = new Node(row, col, g, f, currentNode);
                     openList.add(child);
-			    }
-			    else if(child.gCost > g)
-			    {
-			        child.fCost = f;
-			        child.gCost = g;
-			        child.parentNode = currentNode;
-			    }
-			}
-		}
-	}
+                }
+                else if (child.gCost > g)
+                {
+                    child.fCost = f;
+                    child.gCost = g;
+                    child.parentNode = currentNode;
+                }
+            }
+        }
+    }
 
-	public double getDistance(int row, int col, Node goal)
-	{
-		return Math.sqrt((goal.row - row) * (goal.row - row) + (goal.col - col) * (goal.col - col));
-	}
+    public double getDistance(int row, int col, Node goal)
+    {
+        return Math.sqrt((goal.row - row) * (goal.row - row) + (goal.col - col) * (goal.col - col));
+    }
 
-	public double getDistanceFromParent(int row, int col, Node parent)
-	{
-		return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
-	}
+    public double getDistanceFromParent(int row, int col, Node parent)
+    {
+        return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
+    }
 
     public boolean LOSCheck(Node start, Node goal, TiledMap tiles)
     {
@@ -141,25 +142,25 @@ public class Pathfinding
         double deltaY = goal.row - start.row;
 
         //determine which octant we are in
-        if(deltaX >= 0 && deltaY >= 0)
+        if (deltaX >= 0 && deltaY >= 0)
         {
-            if(deltaX < deltaY)
+            if (deltaX < deltaY)
             {
                 double slope = Math.abs(deltaX / deltaY);
 
                 double error = 0;
                 double currX = start.col;
 
-                for(int currY = start.row; currY <= goal.row; ++currY)
+                for (int currY = start.row; currY <= goal.row; ++currY)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
+                    if (tiles.isPassable((int) Math.floor(currX / tiles.tileHeight), (int) Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
 
                     error += slope;
-                    if(error >= 0.5)
+                    if (error >= 0.5)
                     {
                         currX++;
                         error -= 1.0;
@@ -175,16 +176,16 @@ public class Pathfinding
                 double error = 0;
                 double currY = start.row;
 
-                for(int currX = start.col; currX <= goal.col; ++currX)
+                for (int currX = start.col; currX <= goal.col; ++currX)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
+                    if (tiles.isPassable((int) Math.floor(currX / tiles.tileHeight), (int) Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
 
                     error += slope;
-                    if(error >= 0.5)
+                    if (error >= 0.5)
                     {
                         currY++;
                         error -= 1.0;
@@ -193,27 +194,25 @@ public class Pathfinding
 
                 return true;
             }
-        }
-
-        else if(deltaX < 0 && deltaY >= 0)
+        } else if (deltaX < 0 && deltaY >= 0)
         {
-            if(-deltaX < deltaY)
+            if (-deltaX < deltaY)
             {
                 double slope = Math.abs(-deltaX / deltaY);
 
                 double error = 0;
                 double currX = start.col;
 
-                for(int currY = start.row; currY <= goal.row; ++currY)
+                for (int currY = start.row; currY <= goal.row; ++currY)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
+                    if (tiles.isPassable((int) Math.floor(currX / tiles.tileHeight), (int) Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
 
                     error += slope;
-                    if(error >= 0.5)
+                    if (error >= 0.5)
                     {
                         currX--;
                         error -= 1.0;
@@ -230,16 +229,16 @@ public class Pathfinding
                 double currY = start.row;
 
 
-                for(int currX = start.col; currX >= goal.col; --currX)
+                for (int currX = start.col; currX >= goal.col; --currX)
                 {
                     //check tile
-                    if(tiles.isPassable((int)Math.floor(currX / tiles.tileHeight), (int)Math.floor(currY / tiles.tileHeight)))
+                    if (tiles.isPassable((int) Math.floor(currX / tiles.tileHeight), (int) Math.floor(currY / tiles.tileHeight)))
                     {
                         return false;
                     }
 
                     error += slope;
-                    if(error >= 0.5)
+                    if (error >= 0.5)
                     {
                         currY++;
                         error -= 1.0;
@@ -258,7 +257,7 @@ public class Pathfinding
         //while there is a line of sight  from start to current node, set path parent to node and go to next node
         while (currNode.parentNode != null)
         {
-            if(LOSCheck(path, currNode, tiles))
+            if (LOSCheck(path, currNode, tiles))
             {
                 path.parentNode = currNode;
             }
@@ -267,6 +266,41 @@ public class Pathfinding
         if (path.parentNode.parentNode != null)
         {
             removeRedundant(path.parentNode, tiles);
+        }
+    }
+
+    public boolean checkWithinShotRange(Node currNode, Node goal, int weaponRange)
+    {
+        if(weaponRange == 10)
+        {
+            if(currNode.fCost <= 10)
+            {
+                System.out.println("Gun within range");
+                return true;
+            }
+            else
+            {
+                System.out.println("Gun not in range");
+                return false;
+            }
+        }
+
+        if(weaponRange == 5)
+        {
+            if(currNode.fCost <= 5)
+            {
+                System.out.println("Xbow within range");
+                return true;
+            }
+            else
+            {
+                System.out.println("Xbow not in range");
+                return false;
+            }
+        }
+        else
+        {
+            return false;
         }
     }
 }
