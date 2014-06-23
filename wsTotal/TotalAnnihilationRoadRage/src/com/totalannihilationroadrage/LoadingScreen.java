@@ -14,6 +14,7 @@ public class LoadingScreen extends Screen {
         Graphics g = game.getGraphics();
         Assets.background = g.newPixmap("Titlescreen1920x1080.png", PixmapFormat.RGB565);
         Assets.mainMenu = g.newPixmap("buttons2.png", PixmapFormat.ARGB4444);
+        Assets.overWorldUI = g.newPixmap("OverworldUI.png", PixmapFormat.ARGB4444);
         //Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
        // Assets.buttons = g.newPixmap("buttons.png", PixmapFormat.ARGB4444);
         //Assets.help1 = g.newPixmap("help1.png", PixmapFormat.ARGB4444);
