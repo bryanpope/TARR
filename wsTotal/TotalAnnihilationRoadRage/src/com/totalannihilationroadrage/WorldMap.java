@@ -8,9 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Color;
+import android.text.method.Touch;
+import android.view.MotionEvent;
+
 import com.framework.Game;
 import com.framework.Graphics;
 
+import com.framework.Input;
+import com.framework.impl.MultiTouchHandler;
 import com.totalannihilationroadrage.Pathfinding;
 import com.totalannihilationroadrage.Node;
 import com.framework.Input.TouchEvent;
@@ -29,24 +34,109 @@ public class WorldMap extends Screen
     }
 
     GameState state = GameState.Running;
-    World world;
+    TiledMap world;
     Pathfinding pathfinding;
 
-    public static int camera_toprow = 5;
-    public static int camera_leftcol = 3;
-    public static int camera_offsetx = 0;
-    public static int camera_offsety = 0;
+    public int camera_toprow = 0;
+    public int camera_leftcol = 0;
+    public int cameraX;
+    public int cameraY;
+    public int camera_offsetx = 0;
+    public int camera_offsety = 0;
+
+    public float mLastTouchx = 0;
+    public float mLastTouchy = 0;
+
+    public int pointerId;
+    public int numRows = 0;
+    public int numCols = 0;
 
 
-    public WorldMap(Game game)
+
+    public WorldMap(Game game, TiledMap TiledMap)
     {
         super(game);
-        world = new World();
+        world = TiledMap;
+        //world = new World();
+        numRows = (game.getGraphics().getHeight()/ world.tileHeight) + 1;
+        numCols = (game.getGraphics().getWidth() / world.tileWidth) + 1;
     }
 
     public void update(float deltaTime)
     {
+        Graphics g = game.getGraphics();
+        List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+        game.getInput().getKeyEvents();
+        int maxCameraX = (world.width * world.tileWidth) - g.getWidth();
+        int maxCameraY = (world.height * world.tileHeight) - g.getHeight();
+        float x, y;
 
+        int len = touchEvents.size();
+        for(int i = 0; i < len; i++)
+        {
+            TouchEvent event = touchEvents.get(i);
+            x = game.getInput().getTouchX(i);
+            y = game.getInput().getTouchY(i);
+
+            if (event.type == TouchEvent.TOUCH_DOWN)
+            {
+
+
+                // Remember where we started
+                mLastTouchx = x;
+                mLastTouchy = y;
+            }
+
+            if (event.type == TouchEvent.TOUCH_UP)
+            {
+
+            }
+
+            if(event.type == TouchEvent.TOUCH_DRAGGED)
+            {
+                x = game.getInput().getTouchX(i);
+                y = game.getInput().getTouchY(i);
+
+                // Calculate the distance moved
+                final float dx = x - mLastTouchx;
+                final float dy = y - mLastTouchy;
+
+                // Move the object
+                cameraX -= Math.round(dx);
+                if (cameraX < 0)
+                {
+                    cameraX = 0;
+                }
+                if (cameraX > maxCameraX)
+                {
+                    cameraX = maxCameraX;
+                }
+
+                cameraY -= Math.round(dy);
+                if (cameraY < 0)
+                {
+                    cameraY = 0;
+                }
+                if (cameraY > maxCameraY)
+                {
+                    cameraY = maxCameraY;
+                }
+
+                camera_leftcol = cameraX / world.tileWidth;
+                camera_offsetx = -(cameraX % world.tileWidth);
+                camera_toprow = cameraY /world.tileHeight;
+                camera_offsety = -(cameraY % world.tileWidth);
+
+                numRows = g.getHeight() / world.tileHeight;
+                numRows += (camera_offsety < 0) ? 1 : 0;
+
+                numCols = g.getWidth() / world.tileWidth;
+                numCols += (camera_offsetx < 0) ? 1 : 0;
+            }
+
+            mLastTouchx = x;
+            mLastTouchy = y;
+        }
     }
 
     @Override
@@ -63,9 +153,9 @@ public class WorldMap extends Screen
         Graphics g = game.getGraphics();
 
 
-        int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
+        //int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
-        int mapsize = (world.width * world.height);
+        //int mapsize = (world.width * world.height);
         int destX, destY;
         int srcX, srcY;
 
@@ -75,26 +165,21 @@ public class WorldMap extends Screen
         pathfinding = new Pathfinding();
         node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
 
-        int numRows = g.getHeight() / world.tileHeight;
-        int numCols = g.getWidth() / world.tileWidth;
+        //int numRows = g.getHeight() / world.tileHeight;
+        //int numCols = g.getWidth() / world.tileWidth;
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
-
-            destX = destY = 0;
-            for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
+            for (int row = camera_toprow; (row - camera_toprow) < numRows; ++row)
             {
-                for (int row = camera_toprow; (row - camera_toprow) < numRows; ++row)
+                for (int col = camera_leftcol; (col - camera_leftcol) < numCols; ++col)
                 {
-                    for (int col = camera_leftcol; (col - camera_leftcol) < numCols; ++col)
-                    {
-                        destX = ((col - camera_leftcol) * world.tileWidth) + camera_offsetx;
-                        destY = ((row - camera_toprow) * world.tileHeight) + camera_offsety;
-                        int t_element = world.layers.get(i).getTile(row,col);
-                        srcX = (t_element % tilesheetcol * world.tileset.tileHeight);
-                        srcY = (t_element / tilesheetcol * world.tileset.tileWidth);
-                        g.drawPixmap(world.image.pmImage, destX, destY, srcX, srcY, world.tileset.tileWidth, world.tileset.tileHeight);
-                    }
+                    destX = ((col - camera_leftcol) * world.tileWidth) + camera_offsetx;
+                    destY = ((row - camera_toprow) * world.tileHeight) + camera_offsety;
+                    int t_element = world.layers.get(i).getTile(row,col);
+                    srcX = (t_element % tilesheetcol * world.tileWidth);
+                    srcY = (t_element / tilesheetcol * world.tileWidth);
+                    g.drawPixmap(world.image.pmImage, destX, destY, srcX, srcY, world.tileWidth, world.tileHeight);
                 }
             }
         }
@@ -129,14 +214,10 @@ public class WorldMap extends Screen
     }
 
     @Override
-    public void pause() {
+    public void pause()
+    {
         if(state == GameState.Running)
             state = GameState.Paused;
-
-        if(world.gameOver) {
-            Settings.addScore(world.score);
-            Settings.save(game.getFileIO());
-        }
     }
 
     @Override
