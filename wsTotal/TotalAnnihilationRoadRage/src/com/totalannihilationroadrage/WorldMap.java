@@ -102,6 +102,7 @@ public class WorldMap extends Screen
                 final float dy = y - mLastTouchy;
 
                 // Move the object
+                // check boundaries on X and Y
                 cameraX -= Math.round(dx);
                 if (cameraX < 0)
                 {
