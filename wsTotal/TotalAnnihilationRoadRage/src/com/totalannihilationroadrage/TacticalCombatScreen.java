@@ -54,6 +54,7 @@ public class TacticalCombatScreen extends Screen
         int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
         int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
         float x, y;
+        TacticalCombatVehicle tempVehicle;
 
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
@@ -70,7 +71,11 @@ public class TacticalCombatScreen extends Screen
 
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
-                selectedVehicle = isVehicleTouched(event);
+                tempVehicle = isVehicleTouched(event);
+                if (tempVehicle != null)
+                {
+                    selectedVehicle = tempVehicle;
+                }
             }
 
             if(event.type == Input.TouchEvent.TOUCH_DRAGGED)
@@ -305,7 +310,7 @@ public class TacticalCombatScreen extends Screen
         {
             x = (tcWorld.tcvsPlayer.get(j).xPos * tcWorld.tmBattleGround.tileWidth) - cameraX;
             y = (tcWorld.tcvsPlayer.get(j).yPos * tcWorld.tmBattleGround.tileHeight) - cameraY;
-            if(inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight))
+            if(event.isTapEvent && inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight))
             {
                 return tcWorld.tcvsPlayer.get(j);
             }

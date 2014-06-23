@@ -75,8 +75,10 @@ public class WorldMap extends Screen
         for(int i = 0; i < len; i++)
         {
             TouchEvent event = touchEvents.get(i);
-            x = game.getInput().getTouchX(i);
-            y = game.getInput().getTouchY(i);
+            //x = game.getInput().getTouchX(i);
+            //y = game.getInput().getTouchY(i);
+            x = event.x;
+            y = event.y;
 
             if (event.type == TouchEvent.TOUCH_DOWN)
             {
@@ -94,8 +96,8 @@ public class WorldMap extends Screen
 
             if(event.type == TouchEvent.TOUCH_DRAGGED)
             {
-                x = game.getInput().getTouchX(i);
-                y = game.getInput().getTouchY(i);
+                //x = game.getInput().getTouchX(i);
+                //y = game.getInput().getTouchY(i);
 
                 // Calculate the distance moved
                 final float dx = x - mLastTouchx;
@@ -146,6 +148,7 @@ public class WorldMap extends Screen
         Graphics g = game.getGraphics();
 
         //g.drawPixmap(Assets.background, 0, 0);
+        g.clear(0);
         drawWorld(Assets.tmOverWorld);
     }
 
@@ -160,11 +163,11 @@ public class WorldMap extends Screen
         int destX, destY;
         int srcX, srcY;
 
-        Node node;
-        Node start = new Node(9, 22, 0, 0, null);
-        Node end = new Node(16, 29, 0, 0, null);
-        pathfinding = new Pathfinding();
-        node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
+        //Node node;
+        //Node start = new Node(9, 22, 0, 0, null);
+        //Node end = new Node(16, 29, 0, 0, null);
+        //pathfinding = new Pathfinding();
+        //node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
 
         //int numRows = g.getHeight() / world.tileHeight;
         //int numCols = g.getWidth() / world.tileWidth;
@@ -206,12 +209,12 @@ public class WorldMap extends Screen
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
         */
-        while(node != null)
+        /*while(node != null)
         {
             g.drawRect(node.col * world.tileset.tileWidth, node.row * world.tileset.tileHeight, world.tileset.tileWidth, world.tileset.tileHeight, Color.RED);
             //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
             node = node.parentNode;
-        }
+        }*/
     }
 
     @Override

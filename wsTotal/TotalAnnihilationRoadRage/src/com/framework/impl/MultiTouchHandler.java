@@ -16,6 +16,7 @@ public class MultiTouchHandler implements TouchHandler {
     private static final int MAX_TOUCHPOINTS = 10;
 	
     boolean[] isTouched = new boolean[MAX_TOUCHPOINTS];
+    boolean[] isTapEvent = new boolean[MAX_TOUCHPOINTS];
     int[] touchX = new int[MAX_TOUCHPOINTS];
     int[] touchY = new int[MAX_TOUCHPOINTS];
     int[] id = new int[MAX_TOUCHPOINTS];
@@ -64,6 +65,7 @@ public class MultiTouchHandler implements TouchHandler {
                     touchEvent.pointer = pointerId;
                     touchEvent.x = touchX[i] = (int) (event.getX(i) * scaleX);
                     touchEvent.y = touchY[i] = (int) (event.getY(i) * scaleY);
+                    touchEvent.isTapEvent =  isTapEvent[i] = true;
                     isTouched[i] = true;
                     id[i] = pointerId;
                     touchEventsBuffer.add(touchEvent);
@@ -88,6 +90,7 @@ public class MultiTouchHandler implements TouchHandler {
                     touchEvent.pointer = pointerId;
                     touchEvent.x = touchX[i] = (int) (event.getX(i) * scaleX);
                     touchEvent.y = touchY[i] = (int) (event.getY(i) * scaleY);
+                    touchEvent.isTapEvent =  isTapEvent[i] = false;
                     isTouched[i] = true;
                     id[i] = pointerId;
                     touchEventsBuffer.add(touchEvent);
