@@ -16,6 +16,8 @@ public class Pathfinding
     {
 
         Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
+        closedList.clear();
+        openList.clear();
 
         while (!catchMeIfYouCan(currentNode, goal))
         {
@@ -62,12 +64,10 @@ public class Pathfinding
             //Assign currentNode to the last element in the List
             currentNode = openList.remove(openList.size() - 1);
             //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
-
-            j++;
         }
 
-        checkWithinShotRange(currentNode, goal, 10);
-        removeRedundant(currentNode, tiles);
+        //checkWithinShotRange(currentNode, goal, 10);
+        //removeRedundant(currentNode, tiles);
 
         return currentNode;
     }
@@ -103,24 +103,27 @@ public class Pathfinding
 
     public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node target)
     {
-        if (tiles.isPassable(row, col))
+        if(row >= 0 && col >= 0)
         {
-            if (!isNodeClosed(row, col))
+            if (tiles.isPassable(row, col))
             {
-                double g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
-                double f = g + getDistance(row, col, target);
-                Node child = getChildFromOpen(row, col, openList);
+                if (!isNodeClosed(row, col))
+                {
+                    double g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
+                    double f = g + getDistance(row, col, target);
+                    Node child = getChildFromOpen(row, col, openList);
 
-                if (child == null)
-                {
-                    child = new Node(row, col, g, f, currentNode);
-                    openList.add(child);
-                }
-                else if (child.gCost > g)
-                {
-                    child.fCost = f;
-                    child.gCost = g;
-                    child.parentNode = currentNode;
+                    if (child == null)
+                    {
+                        child = new Node(row, col, g, f, currentNode);
+                        openList.add(child);
+                    }
+                    else if (child.gCost > g)
+                    {
+                        child.fCost = f;
+                        child.gCost = g;
+                        child.parentNode = currentNode;
+                    }
                 }
             }
         }
