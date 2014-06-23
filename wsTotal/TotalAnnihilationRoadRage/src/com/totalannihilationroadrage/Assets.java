@@ -19,6 +19,7 @@ public class Assets
     public static VehicleStatsBaseAll vehicleStats;
 
     public static Pixmap roadTileSheet;
+    public static Pixmap overWorldUI;
 
     public static Pixmap upArrow;
     public static Pixmap downArrow;

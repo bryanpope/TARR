@@ -51,7 +51,28 @@ public class WorldMap extends Screen
     public int numRows = 0;
     public int numCols = 0;
 
+    private void drawOverWorldUI(int posX, int posY)
+    {
+        Graphics g = game.getGraphics();
 
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int index = 0;
+        int numColumns = 3;
+        int srcX, srcY;
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.overWorldUI, posX, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);            //Loot
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.overWorldUI, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);           //People
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.overWorldUI, posX, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
+    }
 
     public WorldMap(Game game, TiledMap TiledMap)
     {
@@ -148,6 +169,8 @@ public class WorldMap extends Screen
         //g.drawPixmap(Assets.background, 0, 0);
         drawWorld(Assets.tmOverWorld);
     }
+
+
 
     private void drawWorld(TiledMap world)
     {
