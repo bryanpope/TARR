@@ -20,6 +20,9 @@ public interface Graphics {
 
     public void drawPixmap(Pixmap pixmap, int x, int y);
 
+    public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY,
+                           int srcWidth, int srcHeight, float angle);
+
     public int getWidth();
 
     public int getHeight();

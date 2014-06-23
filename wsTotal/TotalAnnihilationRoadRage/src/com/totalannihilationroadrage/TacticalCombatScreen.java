@@ -1,8 +1,5 @@
 package com.totalannihilationroadrage;
 
-/**
- * Created by Lord_Oni on 6/11/2014.
- */
 
 import android.graphics.Color;
 
@@ -24,21 +21,29 @@ public class TacticalCombatScreen extends Screen
 		Paused
 	}
 
-	GameState state = GameState.Ready;
+	GameState state = GameState.Running;
 	TacticalCombatWorld tcWorld;
     Pathfinding pathfinding;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
-    private int cameraOffsetX = 0;
-    private int cameraOffsetY = 0;
-    private int touchX = 0;
-    private int touchY = 0;
+    private int cameraX = 0;
+    private int cameraY = 0;
+    private int tileOffsetX = 0;
+    private int tileOffsetY = 0;
+    private int numRows = 0;
+    private int numCols = 0;
+    private float previousTouchX = 0;
+    private float previousTouchY = 0;
+    private int pointerId;
+    private TacticalCombatVehicle selectedVehicle = null;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
 	{
 		super(game);
 		tcWorld = tacticalCombatWorld;
+        numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
+        numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
 	}
 
 	public void update(float deltaTime)
@@ -46,23 +51,81 @@ public class TacticalCombatScreen extends Screen
         Graphics g = game.getGraphics();
         List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
         game.getInput().getKeyEvents();
+        int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
+        int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
+        float x, y;
 
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
         {
             Input.TouchEvent event = touchEvents.get(i);
+            x = event.x;
+            y = event.y;
             if(event.type == Input.TouchEvent.TOUCH_DOWN)
             {
-                touchX = event.x;
-                touchY = event.y;
+                previousTouchX = x;
+                previousTouchY = y;
+                pointerId = event.pointer;
+            }
+
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                selectedVehicle = isVehicleTouched(event);
             }
 
             if(event.type == Input.TouchEvent.TOUCH_DRAGGED)
             {
-                int dispX = touchX - event.x;
-                int dispY = touchY - event.y;
+                if (event.pointer != pointerId)
+                {
+                    continue;
+                }
 
+                float dispX = x - previousTouchX;
+                float dispY = y - previousTouchY;
+
+                cameraX -= Math.round(dispX);
+                if (cameraX < 0)
+                {
+                    cameraX = 0;
+                }
+                if (cameraX > maxCameraX)
+                {
+                    cameraX = maxCameraX;
+                }
+
+                cameraY -= Math.round(dispY);
+                if (cameraY < 0)
+                {
+                    cameraY = 0;
+                }
+                if (cameraY > maxCameraY)
+                {
+                    cameraY = maxCameraY;
+                }
+
+                cameraLeftCol = cameraX / tcWorld.tmBattleGround.tileWidth;
+                tileOffsetX = -(cameraX % tcWorld.tmBattleGround.tileWidth);
+                cameraTopRow = cameraY / tcWorld.tmBattleGround.tileHeight;
+                tileOffsetY = -(cameraY % tcWorld.tmBattleGround.tileWidth);
+
+                numRows = g.getHeight() / tcWorld.tmBattleGround.tileHeight;
+                numRows += (tileOffsetY < 0) ? 1 : 0;
+                //numRows = (int)Math.ceil(g.getHeight() / (double)tcWorld.tmBattleGround.tileHeight);
+                //numRows += ((tcWorld.tmBattleGround.height - numRows) >= numRows) ? 1 : 0;
+
+                numCols = g.getWidth() / tcWorld.tmBattleGround.tileWidth;
+                numCols += (tileOffsetX < 0) ? 1 : 0;
+                //numCols = (int)Math.ceil(g.getWidth() / (double)tcWorld.tmBattleGround.tileWidth);
+                //numCols += ((tcWorld.tmBattleGround.width - numCols) >= numCols) ? 1 : 0;
+
+                /*cameraTopRow += cameraOffsetY / tcWorld.tmBattleGround.tileHeight;
+                cameraOffsetY %= tcWorld.tmBattleGround.tileHeight;
+
+                cameraLeftCol += cameraOffsetX / tcWorld.tmBattleGround.tileWidth;
+                cameraOffsetX %= tcWorld.tmBattleGround.tileWidth;*/
             }
+            previousTouchX = x;
+            previousTouchY = y;
         }
 	}
 
@@ -75,6 +138,11 @@ public class TacticalCombatScreen extends Screen
 		drawTacticalMap(tcWorld.tmBattleGround);
         drawVehicles(tcWorld.tcvsPlayer, tcWorld.tmBattleGround);
         drawVehicles(tcWorld.tcvsEnemy, tcWorld.tmBattleGround);
+
+        if (selectedVehicle != null)
+        {
+            drawUIPhaseMovement((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+        }
 	}
 
 	private void drawTacticalMap(TiledMap tMap)
@@ -92,8 +160,8 @@ public class TacticalCombatScreen extends Screen
         //pathfinding = new Pathfinding();
         //node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 
-        int numRows = g.getHeight() / tMap.tileHeight;
-        int numCols = g.getWidth() / tMap.tileWidth;
+        //int numRows = g.getHeight() / tMap.tileHeight;
+        //int numCols = g.getWidth() / tMap.tileWidth;
         int indexTile;
 
         for (int i = 0; i < tMap.layers.size(); i++)
@@ -102,8 +170,12 @@ public class TacticalCombatScreen extends Screen
             {
                 for (int col = cameraLeftCol; (col - cameraLeftCol) < numCols; ++col)
                 {
-                    destX = ((col - cameraLeftCol) * tMap.tileWidth) + cameraOffsetX;
-                    destY = ((row - cameraTopRow) * tMap.tileHeight) + cameraOffsetY;
+                    destX = ((col - cameraLeftCol) * tMap.tileWidth) + tileOffsetX;
+                    destY = ((row - cameraTopRow) * tMap.tileHeight) + tileOffsetY;
+                    if (((row * tMap.layers.get(i).width) + col) >= tMap.layers.get(i).data.size())
+                    {
+                        System.out.print("Out of range!");
+                    }
                     indexTile = tMap.layers.get(i).getTile(row, col);
                     srcX = (indexTile % tileSheetCol) * tMap.tileWidth;
                     srcY = (indexTile / tileSheetCol) * tMap.tileWidth;
@@ -144,7 +216,8 @@ public class TacticalCombatScreen extends Screen
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
     {
         //logic
-        if(touchXPos >= boxX + boxWidth && touchXPos <= boxX + boxWidth && touchYPos >= boxY + boxHeight && touchYPos <= boxY + boxHeight)
+        if((touchXPos >= boxX) && (touchXPos <= boxX + boxWidth) &&
+                (touchYPos >= boxY) && (touchYPos <= boxY + boxHeight))
         {
             return true;
         }
@@ -163,14 +236,14 @@ public class TacticalCombatScreen extends Screen
 
 		for (int i = 0; i < vehicles.size(); ++i)
 		{
-			destX = vehicles.get(i).xPos * tMap.tileset.tileWidth;
-			destY = vehicles.get(i).yPos * tMap.tileset.tileHeight;
+			destX = (vehicles.get(i).xPos * tMap.tileset.tileWidth) - cameraX;
+			destY = (vehicles.get(i).yPos * tMap.tileset.tileHeight) - cameraY;
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
 			g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
 
-            drawUIPhaseMovement(destX, destY);
+            //drawUIPhaseMovement(destX, destY);
 		}
 	}
 
@@ -220,6 +293,24 @@ public class TacticalCombatScreen extends Screen
         g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + 32, 0, 192, tileWidth, tileHeight);       // move right
         g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - 32, 96, 160, tileWidth, tileHeight);      //move left
         */
+    }
+
+    public TacticalCombatVehicle isVehicleTouched(Input.TouchEvent event)
+    {
+        //int tileWidth = 128;
+        //int tileHeight = 128;
+        int x, y;
+
+        for(int j = 0; j < tcWorld.tcvsPlayer.size(); ++j)
+        {
+            x = (tcWorld.tcvsPlayer.get(j).xPos * tcWorld.tmBattleGround.tileWidth) - cameraX;
+            y = (tcWorld.tcvsPlayer.get(j).yPos * tcWorld.tmBattleGround.tileHeight) - cameraY;
+            if(inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight))
+            {
+                return tcWorld.tcvsPlayer.get(j);
+            }
+        }
+        return null;
     }
 
     public void updateMove(List<Input.TouchEvent> touchEvents, int posX, int posY)
