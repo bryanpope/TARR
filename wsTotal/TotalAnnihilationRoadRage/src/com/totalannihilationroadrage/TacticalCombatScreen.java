@@ -260,6 +260,7 @@ public class TacticalCombatScreen extends Screen
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
 			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
+            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.YELLOW);
             g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getAngle(vehicles.get(i).facing));
 
             //drawUIPhaseMovement(destX, destY);
