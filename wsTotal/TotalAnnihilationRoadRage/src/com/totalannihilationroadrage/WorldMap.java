@@ -33,6 +33,61 @@ public class WorldMap extends Screen
         Paused
     }
 
+    enum Loot
+    {
+        Fuel,
+        Food,
+        Ammo,
+        Guns,
+        Tires,
+        Medical_Supplies,
+        Antitoxins
+    }
+
+    enum Vehicles
+    {
+        Motorcycle,
+        Sidecar,
+        Compact_Convertible,
+        Compact_HardTop,
+        Midsize_Convertible,
+        Midsize_HardTop,
+        Sports_Car_Convertible,
+        Sports_Car_HardTop,
+        StationWagon,
+        Limousine,
+        Van,
+        Pickup_truck,
+        Offroad_Convertible,
+        Offroad_HardTop,
+        Bus,
+        Tractor,
+        Construction_Vehicle,
+        Flatbed_Truck,
+        Trailer_Truck
+    }
+
+    enum People
+    {
+        Crony_Doctor,
+        Crony_DrillSergeant,
+        Crony_Politician,
+        Agents,
+        Healers,
+        FG_Soldiers,
+        FG_Hoodlums,
+        FG_HomeGuards,
+        FG_Civilians,
+        FG_Cannibals,
+        Resident_Police,
+        Resident_Bureaucrats,
+        Resident_Terrorists,
+        Resident_Neutrals,
+        Resident_Mutants,
+        RG_Terrorists,
+        RG_Cannibals
+    }
+
     GameState state = GameState.Running;
     TiledMap world;
     Pathfinding pathfinding;
@@ -47,9 +102,13 @@ public class WorldMap extends Screen
     public float mLastTouchx = 0;
     public float mLastTouchy = 0;
 
-    public int pointerId;
     public int numRows = 0;
     public int numCols = 0;
+
+    public int AvatarX = 3;
+    public int AvatarY = 8;
+
+
 
     private void drawOverWorldUI(int posX, int posY)
     {
@@ -171,14 +230,12 @@ public class WorldMap extends Screen
         //g.drawPixmap(Assets.background, 0, 0);
         g.clear(0);
         drawWorld(Assets.tmOverWorld);
+        drawAvatar();
     }
-
-
 
     private void drawWorld(TiledMap world)
     {
         Graphics g = game.getGraphics();
-
 
         //int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
@@ -191,9 +248,6 @@ public class WorldMap extends Screen
         //Node end = new Node(16, 29, 0, 0, null);
         //pathfinding = new Pathfinding();
         //node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
-
-        //int numRows = g.getHeight() / world.tileHeight;
-        //int numCols = g.getWidth() / world.tileWidth;
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
@@ -210,24 +264,6 @@ public class WorldMap extends Screen
                 }
             }
         }
-
-        /*for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
-		{
-			destX = destY = 0;
-			for (int index = 0; index < tMap.layers.get(i).data.size(); index++) //indexes through the tiledmap
-			{
-				int t_element = tMap.layers.get(i).data.get(index) - 1;
-				srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
-				srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-				g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
-				destX++;
-				if (destX >= tMap.width)
-				{
-					destX = 0;
-					destY++;
-				}
-			}
-		}*/
         /*
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
@@ -239,6 +275,14 @@ public class WorldMap extends Screen
             node = node.parentNode;
         }*/
     }
+
+    private void drawAvatar()
+    {
+        Graphics g = game.getGraphics();
+
+        g.drawPixmap(world.image.pmImage, AvatarX, AvatarY, 1, 1, world.tileWidth, world.tileHeight);
+    }
+
 
     @Override
     public void pause()
