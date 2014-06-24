@@ -353,9 +353,9 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight))
                 {
                     //Move straight
-                   System.out.println("moved straight");
+
+                    System.out.println("moved straight");
                 }
-                /*
                 if(inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight))
                 {
                     //Move left
@@ -364,27 +364,30 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y,posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight))
                 {
                     //Move right
-
+                    System.out.println("moved right");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //Left turn
+                    System.out.println("left turn");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
                 {
                     //right turn
+                    System.out.println("right turn");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //accelerate
-
+                    System.out.println("accelerate");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //break
+                    System.out.println("break");
 
                 }
-                */
+
             }
         }
     }
@@ -443,18 +446,22 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //attack up is selected
+                    System.out.println("attack up");
                 }
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack right is selected
+                    System.out.println("attack right");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX,  posY + tileHeight, tileWidth, tileHeight))
                 {
                     //attack down is selected
+                    System.out.println("attack down");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack left is selected
+                    System.out.println("attack left");
                 }
             }
         }
@@ -507,14 +514,17 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //transfer up image is selected
+                    System.out.println("transfer up");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX, posY + tileHeight, tileWidth, tileHeight))
                 {
                     //transfer down image is selected
+                    System.out.println("transfer down");
                 }
-                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
+                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //skip image is selected
+                    System.out.println("skip");
                 }
             }
         }
