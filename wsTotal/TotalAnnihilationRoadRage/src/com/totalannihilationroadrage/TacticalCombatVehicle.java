@@ -18,6 +18,7 @@ public class TacticalCombatVehicle
     boolean isRight = false;
     boolean isLeft = false;
 
+
     TacticalCombatVehicle (VehicleStatsCurrent v, GangMembers i, GangMembers e, boolean isPlayer)
     {
         vehicle = v;

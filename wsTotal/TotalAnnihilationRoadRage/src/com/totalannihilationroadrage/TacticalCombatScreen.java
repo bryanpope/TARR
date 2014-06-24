@@ -22,7 +22,7 @@ public class TacticalCombatScreen extends Screen
 	}
 
     enum PhaseStates
-    {
+    {//phase states
         notActive,
         Moving,
         Attack,
