@@ -28,7 +28,6 @@ public class TacticalCombatScreen extends Screen
         Attack,
         CrewTransfer
     }
-
 	GameState state = GameState.Running;
     PhaseStates pState = PhaseStates.notActive;
 
@@ -66,6 +65,12 @@ public class TacticalCombatScreen extends Screen
         float x, y;
 
         int len = touchEvents.size();
+
+        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
+        {
+            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+        }
+
         for(int i = 0; i < len; i++)
         {
             Input.TouchEvent event = touchEvents.get(i);
@@ -139,10 +144,6 @@ public class TacticalCombatScreen extends Screen
             }
             previousTouchX = x;
             previousTouchY = y;
-        }
-        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
-        {
-            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
         }
 	}
 
