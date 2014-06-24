@@ -139,17 +139,17 @@ public class AndroidGraphics implements Graphics {
         {
             if (angle < -180)
             {
-                canvas.rotate(angle + 540, x + (srcWidth * 2), y + (srcHeight * 2));
+                canvas.rotate(angle + 540, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
             }
             else
             {
-                canvas.rotate(angle + 180, x + (srcWidth * 2), y + (srcHeight * 2));
+                canvas.rotate(angle + 180, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
             }
-            canvas.scale(-1.0f, 1.0f, x + (srcWidth * 2), y + (srcHeight * 2));
+            canvas.scale(-1.0f, 1.0f, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
         }
         else
         {
-            canvas.rotate(angle, x + (srcWidth * 2), y + (srcHeight * 2));
+            canvas.rotate(angle, x + (int)(srcWidth * 0.5), y + (int)(srcWidth * 0.5));
         }
         canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, srcRect, dstRect, null);
         canvas.restore();
