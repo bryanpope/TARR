@@ -76,7 +76,7 @@ public class TacticalCombatWorld
         }
     }
 
-    public void moveEnemy()
+    public List<Node> generatePath()
     {
         int randomEnemyTarget;
         Node path;
@@ -94,7 +94,7 @@ public class TacticalCombatWorld
         enemyNodeList.add(enemyNode);
         enemyTargetList.add(enemyTarget);
 
-        path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, testTarget);
+        path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, enemyTarget);
 
         while(path != null)
         {
@@ -103,10 +103,17 @@ public class TacticalCombatWorld
         }
         Collections.reverse(pathList);
 
-        tcvsEnemy.get(i).xPos = pathList.get(j).col;
-        tcvsEnemy.get(i).yPos = pathList.get(j).row;
-        if(j < pathList.size())
+        return pathList;
+    }
+
+    public void moveEnemy(List<Node> pathList)
+    {
+        int i = 0;
+
+        if(j < pathList.size() - 1)
         {
+            tcvsEnemy.get(i).xPos = pathList.get(j).col;
+            tcvsEnemy.get(i).yPos = pathList.get(j).row;
             j++;
         }
     }

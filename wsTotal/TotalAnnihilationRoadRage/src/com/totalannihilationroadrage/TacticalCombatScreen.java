@@ -35,9 +35,7 @@ public class TacticalCombatScreen extends Screen
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
     Pathfinding pathfinding = new Pathfinding();
-    Node node;
-    Node start = new Node(1, 1, 0, 0, null);
-    Node end = new Node(6, 8, 0, 0, null);
+    List<Node> pathList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -59,8 +57,7 @@ public class TacticalCombatScreen extends Screen
         tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
-
-        node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
+        pathList = tcWorld.generatePath();
 	}
 
 	public void update(float deltaTime)
@@ -169,7 +166,7 @@ public class TacticalCombatScreen extends Screen
             pState = PhaseStates.Moving;
         }
 
-        //tcWorld.moveEnemy();
+        tcWorld.moveEnemy(pathList);
 	}
 
     private void drawTacticalMap()
@@ -211,12 +208,12 @@ public class TacticalCombatScreen extends Screen
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
         */
-        while(node != null)
+        /*while(node != null)
         {
             g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
             //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
             node = node.parentNode;
-        }
+        }*/
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
