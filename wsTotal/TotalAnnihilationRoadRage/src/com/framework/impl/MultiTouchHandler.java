@@ -14,9 +14,11 @@ import com.framework.Pool.PoolObjectFactory;
 @TargetApi(5)
 public class MultiTouchHandler implements TouchHandler {
     private static final int MAX_TOUCHPOINTS = 10;
+
+    private static final int TOLERANCE_NOT_DRAGGED = 10;
 	
     boolean[] isTouched = new boolean[MAX_TOUCHPOINTS];
-    boolean[] isTapEvent = new boolean[MAX_TOUCHPOINTS];
+    boolean[] wasDragged = new boolean[MAX_TOUCHPOINTS];
     int[] touchX = new int[MAX_TOUCHPOINTS];
     int[] touchY = new int[MAX_TOUCHPOINTS];
     int[] id = new int[MAX_TOUCHPOINTS];
@@ -65,7 +67,7 @@ public class MultiTouchHandler implements TouchHandler {
                     touchEvent.pointer = pointerId;
                     touchEvent.x = touchX[i] = (int) (event.getX(i) * scaleX);
                     touchEvent.y = touchY[i] = (int) (event.getY(i) * scaleY);
-                    touchEvent.isTapEvent =  isTapEvent[i] = true;
+                    touchEvent.wasDragged =  wasDragged[i] = false;
                     isTouched[i] = true;
                     id[i] = pointerId;
                     touchEventsBuffer.add(touchEvent);
@@ -88,9 +90,9 @@ public class MultiTouchHandler implements TouchHandler {
                     touchEvent = touchEventPool.newObject();
                     touchEvent.type = TouchEvent.TOUCH_DRAGGED;
                     touchEvent.pointer = pointerId;
+                    touchEvent.wasDragged =  wasDragged[i] = isDragged((int)(event.getX(i) * scaleX), (int)(event.getY(i) * scaleY), touchEvent.x, touchEvent.y);
                     touchEvent.x = touchX[i] = (int) (event.getX(i) * scaleX);
                     touchEvent.y = touchY[i] = (int) (event.getY(i) * scaleY);
-                    touchEvent.isTapEvent =  isTapEvent[i] = false;
                     isTouched[i] = true;
                     id[i] = pointerId;
                     touchEventsBuffer.add(touchEvent);
@@ -99,6 +101,22 @@ public class MultiTouchHandler implements TouchHandler {
             }
             return true;
         }
+    }
+
+    private boolean isDragged (int currX, int currY, int lastX, int lastY)
+    {
+        return !(fuzzyEquals(currX, lastX) && fuzzyEquals(currY, lastY));
+    }
+
+    private boolean fuzzyEquals (int valOne, int valTwo)
+    {
+        int diff = Math.abs(valOne - valTwo);
+
+        if (diff <= TOLERANCE_NOT_DRAGGED)
+        {
+            return true;
+        }
+        return false;
     }
 
     public boolean isTouchDown(int pointer) {

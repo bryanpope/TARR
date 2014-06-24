@@ -134,12 +134,25 @@ public class AndroidGraphics implements Graphics {
         dstRect.right = x + srcWidth;
         dstRect.bottom = y + srcHeight;
 
-        matrix.reset();
-        matrix.postRotate(angle);
-        Bitmap oldBitmap = ((AndroidPixmap) pixmap).bitmap;
-        Bitmap tempBitmap = Bitmap.createBitmap(oldBitmap, 0, 0, oldBitmap.getWidth(), oldBitmap.getHeight(), matrix, true);
-
-        canvas.drawBitmap(tempBitmap, srcRect, dstRect, null);
+        canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        if (angle < 0)
+        {
+            if (angle < -180)
+            {
+                canvas.rotate(angle + 540, x + (srcWidth * 2), y + (srcHeight * 2));
+            }
+            else
+            {
+                canvas.rotate(angle + 180, x + (srcWidth * 2), y + (srcHeight * 2));
+            }
+            canvas.scale(-1.0f, 1.0f, x + (srcWidth * 2), y + (srcHeight * 2));
+        }
+        else
+        {
+            canvas.rotate(angle, x + (srcWidth * 2), y + (srcHeight * 2));
+        }
+        canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, srcRect, dstRect, null);
+        canvas.restore();
     }
 
     public int getWidth() {

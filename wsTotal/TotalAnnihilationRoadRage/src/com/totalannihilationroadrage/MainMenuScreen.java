@@ -58,7 +58,9 @@ public class MainMenuScreen extends Screen {
         for (int i = 0; i < 10; ++i)
         {
             tcvPlayer.add(setupVehicle(true));
+            tcvPlayer.get(i).facing = Direction.SOUTHWEST;
             tcvEnemy.add(setupVehicle(true));
+            tcvEnemy.get(i).facing = Direction.SOUTHEAST;
         }
 
         tcWorld = new TacticalCombatWorld(Assets.tmHighway, tcvPlayer, tcvEnemy);

@@ -34,7 +34,7 @@ public class TacticalCombatWorld
         {
             for (int x = 0; x < 40; ++x)
             {
-                fields[x][y] = tmBattleGround.layers.get(0).isPassable (y, x);
+                fields[x][y] = tmBattleGround.isPassable(y, x);
             }
         }
 

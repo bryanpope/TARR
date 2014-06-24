@@ -32,7 +32,7 @@ public interface Input {
         public int type;
         public int x, y;
         public int pointer;
-        public boolean isTapEvent;
+        public boolean wasDragged;
 
         public String toString() {
             StringBuilder builder = new StringBuilder();

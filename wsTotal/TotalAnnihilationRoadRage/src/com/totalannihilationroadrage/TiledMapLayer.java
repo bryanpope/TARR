@@ -25,7 +25,7 @@ public class TiledMapLayer
 		return data.get((row * width) + col) - 1;
 	}
 
-    public boolean isPassable (int row, int col)
+    /*public boolean isPassable (int row, int col)
     {
         int tile = getTile(row, col);
 
@@ -35,4 +35,5 @@ public class TiledMapLayer
         }
         return true;
     }
+    */
 }
