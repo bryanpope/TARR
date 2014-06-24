@@ -157,8 +157,8 @@ public class TacticalCombatScreen extends Screen
 		//g.drawPixmap(Assets.background, 0, 0);
         g.clear(0);
 		drawTacticalMap();
-        drawVehicles(tcWorld.tcvsPlayer, tcWorld.tmBattleGround);
-        drawVehicles(tcWorld.tcvsEnemy, tcWorld.tmBattleGround);
+        drawVehicles(tcWorld.tcvsPlayer, tcWorld.tmBattleGround, false);
+        drawVehicles(tcWorld.tcvsEnemy, tcWorld.tmBattleGround, true);
 
         if (selectedVehicle != null)
         {
@@ -229,7 +229,7 @@ public class TacticalCombatScreen extends Screen
 
     }
 
-	private void drawVehicles(List< TacticalCombatVehicle > vehicles, TiledMap tMap)
+	private void drawVehicles(List< TacticalCombatVehicle > vehicles, TiledMap tMap, boolean isEnemy)
 	{
 		Graphics g = game.getGraphics();
 
@@ -244,7 +244,7 @@ public class TacticalCombatScreen extends Screen
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.YELLOW);
+            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : Color.YELLOW);
 			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
             g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getAngle(vehicles.get(i).facing));
 
