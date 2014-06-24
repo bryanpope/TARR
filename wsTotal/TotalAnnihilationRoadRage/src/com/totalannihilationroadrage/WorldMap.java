@@ -6,6 +6,8 @@ package com.totalannihilationroadrage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.EnumMap;
 
 import android.graphics.Color;
 import android.text.method.Touch;
@@ -33,7 +35,7 @@ public class WorldMap extends Screen
         Paused
     }
 
-    enum Loot
+    enum Inventory
     {
         Fuel,
         Food,
@@ -41,11 +43,7 @@ public class WorldMap extends Screen
         Guns,
         Tires,
         Medical_Supplies,
-        Antitoxins
-    }
-
-    enum Vehicles
-    {
+        Antitoxins,
         Motorcycle,
         Sidecar,
         Compact_Convertible,
@@ -88,6 +86,8 @@ public class WorldMap extends Screen
         RG_Cannibals
     }
 
+    int [] Have_Inventory = new int[Inventory.values().length];
+
     GameState state = GameState.Running;
     TiledMap world;
     Pathfinding pathfinding;
@@ -107,6 +107,92 @@ public class WorldMap extends Screen
 
     public int AvatarX = 3;
     public int AvatarY = 8;
+
+
+    private void AutoLoot()
+    {
+        Random rand = new Random();
+
+        int AL = rand.nextInt(2) + 1;
+
+        switch (AL)
+        {
+            case '1': randomLoot();
+                break;
+
+            case '2': //randomPeople();
+                break;
+        }
+    }
+
+    private void randomLoot()
+    {
+        Random rand = new Random();
+
+        int RL = rand.nextInt(26) + 1;
+        int quantity = 0;
+        switch(RL)
+        {
+            case 0:
+            case 2:
+            {
+                quantity = rand.nextInt(200) + 1;
+                break;
+            }
+
+            case 1:
+            {
+                quantity = rand.nextInt(900) + 1;
+                break;
+            }
+
+            case 3:
+            case 4:
+            case 6:
+            {
+                quantity = rand.nextInt(30) + 1;
+                break;
+            }
+
+            case 5:
+            {
+                quantity = rand.nextInt(75) + 1;
+                break;
+            }
+
+            case 7:
+            case 8:
+            {
+                quantity = rand.nextInt(4) + 1;
+                break;
+            }
+
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            {
+                quantity = rand.nextInt(2);
+                break;
+            }
+        }
+
+        Have_Inventory[RL] += quantity;
+    }
 
 
 
