@@ -10,6 +10,13 @@ public class TacticalCombatVehicle
 	int speedCurrent;
 	Direction facing;
 	int maneuverability;
+    boolean isAccelerated = true;
+    boolean isBraked = true;
+    boolean isTurnedLeft = true;
+    boolean isTurnedRight = true;
+    boolean isStraight = true;
+    boolean isRight = false;
+    boolean isLeft = false;
 
     TacticalCombatVehicle (VehicleStatsCurrent v, GangMembers i, GangMembers e, boolean isPlayer)
     {

@@ -73,6 +73,11 @@ public class TacticalCombatScreen extends Screen
         float x, y;
 
         int len = touchEvents.size();
+        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
+        {
+            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+        }
+
         for(int i = 0; i < len; i++)
         {
             Input.TouchEvent event = touchEvents.get(i);
@@ -146,10 +151,6 @@ public class TacticalCombatScreen extends Screen
             }
             previousTouchX = x;
             previousTouchY = y;
-        }
-        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
-        {
-            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
         }
 	}
 
@@ -266,32 +267,52 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
+        if(selectedVehicle.isStraight)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
+        }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
+        if(selectedVehicle.isLeft)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
+        }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
+        if(selectedVehicle.isRight)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
+        }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
+        if(selectedVehicle.isTurnedLeft)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
+        }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
+        if(selectedVehicle.isTurnedRight)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
+        }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
+        if(selectedVehicle.isAccelerated)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
+        }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
-
+        if(selectedVehicle.isBraked)
+        {
+            g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
+        }
 
         /*g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, 32, 224, tileWidth, tileHeight);            //break
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, 96, 192, tileWidth, tileHeight);            //accelerate
@@ -344,14 +365,13 @@ public class TacticalCombatScreen extends Screen
                     //Move straight
 
                     System.out.println("moved straight");
+                    selectedVehicle.isStraight = true;
                 }
-                if(inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight))
-                {
+                if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
                     //Move left
                     System.out.println("moved left");
                 }
-                if(inBoundaryCheck(event.x, event.y,posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight))
-                {
+                if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
                     //Move right
                     System.out.println("moved right");
                 }
@@ -359,22 +379,35 @@ public class TacticalCombatScreen extends Screen
                 {
                     //Left turn
                     System.out.println("left turn");
+                    selectedVehicle.isTurnedRight = false;
+                    selectedVehicle.isTurnedLeft = true;
+                    selectedVehicle.isStraight = false;
+                    selectedVehicle.isLeft = true;
+                    selectedVehicle.isRight = false;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
                 {
                     //right turn
                     System.out.println("right turn");
+                    selectedVehicle.isTurnedRight = true;
+                    selectedVehicle.isTurnedLeft = false;
+                    selectedVehicle.isStraight = false;
+                    selectedVehicle.isLeft = false;
+                    selectedVehicle.isRight = true;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //accelerate
                     System.out.println("accelerate");
+                    selectedVehicle.isAccelerated = true;
+                    selectedVehicle.isBraked = false;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //break
                     System.out.println("break");
-
+                    selectedVehicle.isBraked = true;
+                    selectedVehicle.isAccelerated = false;
                 }
 
             }
