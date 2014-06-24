@@ -5,6 +5,7 @@ import android.graphics.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Collections;
 
 public class TacticalCombatWorld 
 {
@@ -13,11 +14,13 @@ public class TacticalCombatWorld
     public List< TacticalCombatVehicle > tcvsPlayer;
     public List< TacticalCombatVehicle > tcvsEnemy;
     public TiledMap tmBattleGround;
+    Node testTarget = new Node(2, 2, 0, 0, null);
 
     private boolean fields[][] = new boolean[40][15];
     private Random random = new Random();
     private Random randomTarget = new Random();
     Pathfinding pathfinding = new Pathfinding();
+    private int j = 0;
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
@@ -79,29 +82,32 @@ public class TacticalCombatWorld
         Node path;
         Node enemyNode;
         Node enemyTarget;
+
         List<Node> enemyNodeList = new ArrayList<Node>();
         List<Node> enemyTargetList = new ArrayList<Node>();
+        List<Node> pathList = new ArrayList<Node>();
+        int i = 0;
 
-        for(int i = 0; i < 1; ++i)
+        enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
+        randomEnemyTarget = randomTarget.nextInt(tcvsPlayer.size());
+        enemyTarget = new Node(tcvsPlayer.get(randomEnemyTarget).yPos, tcvsPlayer.get(randomEnemyTarget).xPos, 0, 0, null);
+        enemyNodeList.add(enemyNode);
+        enemyTargetList.add(enemyTarget);
+
+        path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, testTarget);
+
+        while(path != null)
         {
-            enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
-            randomEnemyTarget = randomTarget.nextInt(tcvsPlayer.size());
-            enemyTarget = new Node(tcvsPlayer.get(randomEnemyTarget).yPos, tcvsPlayer.get(randomEnemyTarget).xPos, 0, 0, null);
-
-            path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, enemyTarget);
-            enemyNodeList.add(enemyNode);
-            enemyTargetList.add(enemyTarget);
-
-            /*while(path != null)
-            {
-                tmBattleGround.drawRect(path.col * tmBattleGround.tileset.tileWidth, path.row * tmBattleGround.tileset.tileHeight, tmBattleGround.tileset.tileWidth, tmBattleGround.tileset.tileHeight, Color.RED);
-                //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
-                path = path.parentNode;
-            }*/
-            /*tcvsEnemy.get(i).xPos = path.col;
-            tcvsEnemy.get(i).yPos = path.row;*/
+            pathList.add(path);
+            path = path.parentNode;
         }
+        Collections.reverse(pathList);
 
+        tcvsEnemy.get(i).xPos = pathList.get(j).col;
+        tcvsEnemy.get(i).yPos = pathList.get(j).row;
+        if(j < pathList.size())
+        {
+            j++;
+        }
     }
-	
 }

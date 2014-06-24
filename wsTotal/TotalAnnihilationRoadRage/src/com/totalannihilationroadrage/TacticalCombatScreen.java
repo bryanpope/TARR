@@ -28,11 +28,16 @@ public class TacticalCombatScreen extends Screen
         Attack,
         CrewTransfer
     }
+
 	GameState state = GameState.Running;
     PhaseStates pState = PhaseStates.notActive;
 
 	TacticalCombatWorld tcWorld;
-    Pathfinding pathfinding;
+    TiledMap tMap;
+    Pathfinding pathfinding = new Pathfinding();
+    Node node;
+    Node start = new Node(1, 1, 0, 0, null);
+    Node end = new Node(6, 8, 0, 0, null);
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -47,12 +52,15 @@ public class TacticalCombatScreen extends Screen
     private int pointerId;
     private TacticalCombatVehicle selectedVehicle = null;
 
-	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld)
+	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld, TiledMap tacticalMap)
 	{
 		super(game);
 		tcWorld = tacticalCombatWorld;
+        tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
+
+        node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
 	}
 
 	public void update(float deltaTime)
@@ -65,12 +73,6 @@ public class TacticalCombatScreen extends Screen
         float x, y;
 
         int len = touchEvents.size();
-
-        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
-        {
-            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
-        }
-
         for(int i = 0; i < len; i++)
         {
             Input.TouchEvent event = touchEvents.get(i);
@@ -145,6 +147,10 @@ public class TacticalCombatScreen extends Screen
             previousTouchX = x;
             previousTouchY = y;
         }
+        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
+        {
+            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+        }
 	}
 
 	@Override
@@ -153,7 +159,7 @@ public class TacticalCombatScreen extends Screen
 		Graphics g = game.getGraphics();
 		//g.drawPixmap(Assets.background, 0, 0);
         g.clear(0);
-		drawTacticalMap(tcWorld.tmBattleGround);
+		drawTacticalMap();
         drawVehicles(tcWorld.tcvsPlayer, tcWorld.tmBattleGround);
         drawVehicles(tcWorld.tcvsEnemy, tcWorld.tmBattleGround);
 
@@ -162,9 +168,11 @@ public class TacticalCombatScreen extends Screen
             drawUIPhaseMovement((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
             pState = PhaseStates.Moving;
         }
+
+        //tcWorld.moveEnemy();
 	}
 
-    private void drawTacticalMap(TiledMap tMap)
+    private void drawTacticalMap()
 	{
 		Graphics g = game.getGraphics();
 
@@ -173,11 +181,7 @@ public class TacticalCombatScreen extends Screen
 		//int mapsize = tMap.width * tMap.height;
 		int destX, destY;
 		int srcX, srcY;
-        Node node;
-        //Node start = new Node(1, 1, 0, 0, null);
-        //Node end = new Node(6, 8, 0, 0, null);
-        //pathfinding = new Pathfinding();
-        //node = pathfinding.IAmAPathAndILikeCheese(tMap, start, end);
+
 
         //int numRows = g.getHeight() / tMap.tileHeight;
         //int numCols = g.getWidth() / tMap.tileWidth;
@@ -203,33 +207,16 @@ public class TacticalCombatScreen extends Screen
             }
         }
 
-		/*for (int i = 0; i < tMap.layers.size(); i++)  //picks the layer
-		{
-			destX = destY = 0;
-			for (int index = 0; index < tMap.layers.get(i).data.size(); index++) //indexes through the tiledmap
-			{
-				int t_element = tMap.layers.get(i).data.get(index) - 1;
-				srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
-				srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-				g.drawPixmap(tMap.image.pmImage, destX * tMap.tileset.tileWidth, destY * tMap.tileset.tileHeight, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
-				destX++;
-				if (destX >= tMap.width)
-				{
-					destX = 0;
-					destY++;
-				}
-			}
-		}*/
         /*
             The following is debug code to test Pathfinding.
             It will draw red squares from the start node to the end node.
         */
-        /*while(node != null)
+        while(node != null)
         {
             g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
             //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
             node = node.parentNode;
-        }*/
+        }
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
@@ -260,8 +247,8 @@ public class TacticalCombatScreen extends Screen
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
             g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.YELLOW);
+			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
             g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getAngle(vehicles.get(i).facing));
 
             //drawUIPhaseMovement(destX, destY);

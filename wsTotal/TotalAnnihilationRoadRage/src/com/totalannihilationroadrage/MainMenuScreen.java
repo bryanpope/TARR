@@ -64,7 +64,7 @@ public class MainMenuScreen extends Screen {
         }
 
         tcWorld = new TacticalCombatWorld(Assets.tmHighway, tcvPlayer, tcvEnemy);
-        game.setScreen(new TacticalCombatScreen(game, tcWorld));
+        game.setScreen(new TacticalCombatScreen(game, tcWorld, tcWorld.tmBattleGround));
     }
 
     private TacticalCombatVehicle setupVehicle (boolean isPlayer)
