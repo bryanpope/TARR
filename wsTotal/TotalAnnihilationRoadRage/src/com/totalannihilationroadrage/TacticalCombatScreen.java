@@ -1,15 +1,20 @@
 package com.totalannihilationroadrage;
 
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
 
 import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Input;
 import com.framework.Screen;
+import com.framework.impl.AndroidPixmap;
 import com.totalannihilationroadrage.Pathfinding;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.List;
 
 public class TacticalCombatScreen extends Screen
@@ -161,7 +166,7 @@ public class TacticalCombatScreen extends Screen
 
         if (selectedVehicle != null)
         {
-            drawUIPhaseMovement((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+            drawUIPhaseMovement((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
             pState = PhaseStates.Moving;
         }
 
@@ -251,7 +256,25 @@ public class TacticalCombatScreen extends Screen
 		}
 	}
 
-    private void drawUIPhaseMovement (int posX, int posY)
+    private void drawBmap(Canvas c, Bitmap bMap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight)
+    {
+        Rect srcRect = new Rect();
+        Rect dstRect = new Rect();
+
+        srcRect.left = srcX;
+        srcRect.top = srcY;
+        srcRect.right = srcX + srcWidth;
+        srcRect.bottom = srcY + srcHeight;
+
+        dstRect.left = x;
+        dstRect.top = y;
+        dstRect.right = x + srcWidth;
+        dstRect.bottom = y + srcHeight;
+
+        c.drawBitmap(bMap, srcRect, dstRect, null);
+    }
+
+    private void drawUIPhaseMovement (int posX, int posY, Direction facing)
     {
         Graphics g = game.getGraphics();
         int tileWidth = 128;
@@ -260,17 +283,23 @@ public class TacticalCombatScreen extends Screen
         int numColumns = 4;
         int srcX, srcY;
 
+        Bitmap bUI = Bitmap.createBitmap(tileWidth * 4, tileHeight * 3, Bitmap.Config.ARGB_8888);
+        Canvas cUI = new Canvas(bUI);
+
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isStraight)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
             g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap , tileWidth * 2, 0, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isLeft)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
             g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
         }
 
@@ -278,6 +307,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isRight)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
             g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
         }
 
@@ -285,6 +315,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isTurnedLeft)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
             g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
         }
 
@@ -292,6 +323,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isTurnedRight)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
             g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
         }
 
@@ -299,6 +331,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isAccelerated)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
             g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
         }
 
@@ -306,6 +339,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.isBraked)
         {
+            //g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
             g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
         }
 

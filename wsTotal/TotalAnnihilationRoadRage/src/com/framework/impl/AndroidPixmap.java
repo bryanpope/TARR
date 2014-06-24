@@ -6,7 +6,7 @@ import com.framework.Graphics.PixmapFormat;
 import com.framework.Pixmap;
 
 public class AndroidPixmap implements Pixmap {
-    Bitmap bitmap;
+    public Bitmap bitmap;
     PixmapFormat format;
     
     public AndroidPixmap(Bitmap bitmap, PixmapFormat format) {
