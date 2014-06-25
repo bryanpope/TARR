@@ -87,6 +87,9 @@ public class WorldMap extends Screen
     }
 
     int [] Have_Inventory = new int[Inventory.values().length];
+    int [][] CityArray;
+    int CityArray_row = 0;
+    int CityArray_col = 0;
 
     GameState state = GameState.Running;
     TiledMap world;
@@ -346,6 +349,13 @@ public class WorldMap extends Screen
                     int t_element = world.layers.get(i).getTile(row,col);
                     srcX = (t_element % tilesheetcol * world.tileWidth);
                     srcY = (t_element / tilesheetcol * world.tileWidth);
+                    if (t_element == 22)
+                    {
+                        CityArray[CityArray_row][CityArray_col] = srcX;
+                        CityArray[CityArray_row][CityArray_col + 1] = srcY;
+                    }
+
+                    CityArray_row += 1;
                     g.drawPixmap(world.image.pmImage, destX, destY, srcX, srcY, world.tileWidth, world.tileHeight);
                 }
             }
@@ -366,7 +376,11 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        g.drawPixmap(world.image.pmImage, AvatarX, AvatarY, 1, 1, world.tileWidth, world.tileHeight);
+        Random rand = new Random();
+
+        int Rand_pos = rand.nextInt(CityArray_row - 1);
+
+        g.drawPixmap(world.image.pmImage, CityArray[Rand_pos][CityArray_col], CityArray[Rand_pos][CityArray_col + 1], 1, 1, world.tileWidth, world.tileHeight);
     }
 
 
