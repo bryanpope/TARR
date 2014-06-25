@@ -8,15 +8,14 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    //TiledMap world = new TiledMap();
     int j = 0;
 
     public Node IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
     {
 
         Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
-        closedList.clear();
-        openList.clear();
+       // closedList.clear();
+        //openList.clear();
 
         while (!catchMeIfYouCan(currentNode, goal))
         {

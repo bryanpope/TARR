@@ -13,7 +13,7 @@ public class TacticalCombatWorld
     private int roundsEnemy;
     public List< TacticalCombatVehicle > tcvsPlayer;
     public List< TacticalCombatVehicle > tcvsEnemy;
-    public List<List<Node>> pathListContainer = new ArrayList<List<Node>>();
+    public List<List> pathListContainer = new ArrayList<List>();
     public TiledMap tmBattleGround;
     Node testTarget = new Node(2, 2, 0, 0, null);
 
@@ -77,7 +77,7 @@ public class TacticalCombatWorld
         }
     }
 
-    public List<List<Node>> generatePaths()
+    public List<List> generatePaths()
     {
         int randomEnemyTarget;
         Node path;
@@ -87,7 +87,7 @@ public class TacticalCombatWorld
         List<Node> enemyNodeList = new ArrayList<Node>();
         List<Node> enemyTargetList = new ArrayList<Node>();
 
-        for(int i = 0; i < tcvsEnemy.size(); ++i)
+        for(int i = 0; i < 1 ; ++i)
         {
             List<Node> pathList = new ArrayList<Node>();
             enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
@@ -110,13 +110,13 @@ public class TacticalCombatWorld
         return pathListContainer;
     }
 
-    public void moveEnemy(List<List<Node>> plContainer)
+    public void moveEnemy(List<List> plContainer)
     {
         /*if(!checkWithinShotRange(pathListContainer, 1))
         {*/
             if (enemyListCounter < tcvsEnemy.size())
             {
-               /* tcvsEnemy.get(enemyListCounter).xPos = plContainer.get(pathListCounter).;
+                /*tcvsEnemy.get(enemyListCounter).xPos = plContainer.get(pathListCounter).;
                 tcvsEnemy.get(enemyListCounter).yPos = plContainer.get(pathListCounter);*/
                 enemyListCounter++;
                 pathListCounter++;
