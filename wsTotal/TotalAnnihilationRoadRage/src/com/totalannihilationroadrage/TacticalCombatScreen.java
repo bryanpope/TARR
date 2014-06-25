@@ -4,6 +4,7 @@ package com.totalannihilationroadrage;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 
 import com.framework.Game;
@@ -75,7 +76,7 @@ public class TacticalCombatScreen extends Screen
         float x, y;
         if((selectedVehicle != null) && (pState == PhaseStates.Moving))
         {
-            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
         }
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
@@ -378,13 +379,22 @@ public class TacticalCombatScreen extends Screen
         return null;
     }
 
-    public void updateMove(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    public void updateMove(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing)
     {
+        Graphics g = game.getGraphics();
+        Canvas c = g.getCanvas();
         //update the moving
         int tileWidth = 128;
         int tileHeight = 128;
 
         int len = touchEvents.size();
+
+        Matrix matrix = new Matrix();
+        //matrix.postRotate(135, posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5));
+        matrix.postRotate(135);
+        float[] vector = new float[3];
+        //c.save(Canvas.MATRIX_SAVE_FLAG);
+        //g.rotateCanvas(posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5), Direction.getAngle(facing));
 
         for(int i = 0; i < len; i++)
         {
@@ -396,6 +406,10 @@ public class TacticalCombatScreen extends Screen
             }
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
+                vector[0] = event.x;
+                vector[1] = event.y;
+                vector[2] = 1;
+                matrix.mapVectors(vector);
                 if(selectedVehicle.isStraight)
                 {
                     if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
@@ -488,6 +502,7 @@ public class TacticalCombatScreen extends Screen
 
             }
         }
+        //c.restore();
     }
 
     private void drawUIPhaseFire(int posX, int posY)

@@ -1,6 +1,7 @@
 package com.framework;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 
 public interface Graphics {
     public static enum PixmapFormat {
@@ -28,7 +29,11 @@ public interface Graphics {
     public void drawPixmap(Bitmap bitmap, int x, int y, int srcX, int srcY,
                            int srcWidth, int srcHeight, int centreX, int centreY, float angle);
 
+    public void rotateCanvas (int centreX, int centreY, float angle);
+
     public int getWidth();
 
     public int getHeight();
+
+    public Canvas getCanvas();
 }
