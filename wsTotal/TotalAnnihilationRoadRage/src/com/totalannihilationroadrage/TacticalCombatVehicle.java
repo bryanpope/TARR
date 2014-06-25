@@ -37,7 +37,26 @@ public class TacticalCombatVehicle
             speedCurrent += 10;
             accelerate++;
         }
+    }
 
+    boolean allowAcceleration()
+    {
+        if(!isBraked && accelerate < 1)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    boolean allowBreaking()
+    {
+        if(!isAccelerated && brake < 1)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
     void brake()
@@ -48,6 +67,16 @@ public class TacticalCombatVehicle
             brake++;
         }
 
+    }
+
+    boolean allowTurning()
+    {
+        if(maneuverability > 0)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
     void currentManeuverability()
@@ -64,5 +93,19 @@ public class TacticalCombatVehicle
                 maneuverability = vehicle.statsBase.maneuverability;
             }
         }
+    }
+
+    void resetValues()
+    {
+        brake = 0;
+        accelerate = 0;
+        speedCurrent = 30;
+        boolean isAccelerated = true;
+        boolean isBraked = true;
+        boolean isTurnedLeft = true;
+        boolean isTurnedRight = true;
+        boolean isStraight = true;
+        boolean isRight = false;
+        boolean isLeft = false;
     }
 }
