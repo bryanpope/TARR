@@ -124,23 +124,22 @@ public class TacticalCombatWorld
         //}
     }
 
-    public boolean checkWithinShotRange(List<List> pathList, int weaponRange)
+    public boolean checkWithinShotRange(Node start, Node goal, double weaponRange)
     {
-       /*if(getDistanceFromGoal(pathList.get(pathListCounter).) <= weaponRange)
+       if(getDistanceFromGoal(start, goal) <= weaponRange)
        {
            System.out.println("Within range");
            return true;
        }
         else
        {
-           System.out.println("Not within range");*/
+           System.out.println("Not within range");
            return false;
-      // }
+       }
     }
 
-    public double getDistanceFromGoal(List<Node> pathList)
+    public double getDistanceFromGoal(Node start, Node goal)
     {
-        return Math.sqrt((pathList.get(pathList.size() - 1).row - tcvsEnemy.get(enemyListCounter).yPos) * (pathList.get(pathList.size() - 1).row - tcvsEnemy.get(enemyListCounter).yPos)
-                        + ((pathList.get(pathList.size() - 1).col - tcvsEnemy.get(enemyListCounter).xPos) * ((pathList.get(pathList.size() - 1).col - tcvsEnemy.get(enemyListCounter).xPos))));
+        return Math.sqrt((goal.row - start.row) * (goal.row - start.row) + (goal.col - start.col) * (goal.col - start.col));
     }
 }
