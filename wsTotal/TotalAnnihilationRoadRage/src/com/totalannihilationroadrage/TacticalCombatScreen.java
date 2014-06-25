@@ -390,23 +390,36 @@ public class TacticalCombatScreen extends Screen
             }
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
-                if(inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight))
+                if(selectedVehicle.isStraight)
                 {
-                    //Move straight
+                    if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
+                        //Move straight
 
-                    System.out.println("moved straight");
-                    selectedVehicle.isStraight = true;
+                        System.out.println("moved straight");
+                        selectedVehicle.isStraight = true;
+                        selectedVehicle.xPos += 1;
+                    }
                 }
-                if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
-                    //Move left
-                    System.out.println("moved left");
-                }
-                if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
-                    //Move right
-                    System.out.println("moved right");
-                }
-                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
+                if(selectedVehicle.isLeft)
                 {
+                    if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
+                        //Move left
+                        System.out.println("moved left");
+                        selectedVehicle.xPos += 1;
+                        selectedVehicle.yPos -= 1;
+                    }
+                }
+                if(selectedVehicle.isRight)
+                {
+                    if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
+                        //Move right
+                        System.out.println("moved right");
+                        selectedVehicle.xPos += 1;
+                        selectedVehicle.yPos += 1;
+                    }
+                }
+
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight)) {
                     //Left turn
                     System.out.println("left turn");
                     selectedVehicle.isTurnedRight = false;
@@ -415,6 +428,7 @@ public class TacticalCombatScreen extends Screen
                     selectedVehicle.isLeft = true;
                     selectedVehicle.isRight = false;
                 }
+
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
                 {
                     //right turn
@@ -431,6 +445,7 @@ public class TacticalCombatScreen extends Screen
                     System.out.println("accelerate");
                     selectedVehicle.isAccelerated = true;
                     selectedVehicle.isBraked = false;
+                    selectedVehicle.accelerate();
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
@@ -438,6 +453,7 @@ public class TacticalCombatScreen extends Screen
                     System.out.println("break");
                     selectedVehicle.isBraked = true;
                     selectedVehicle.isAccelerated = false;
+                    selectedVehicle.brake();
                 }
 
             }
