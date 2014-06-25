@@ -398,6 +398,8 @@ public class TacticalCombatScreen extends Screen
                         System.out.println("moved straight");
                         selectedVehicle.isStraight = true;
                         selectedVehicle.xPos += 1;
+                        touchEvents.remove(i);
+                        break;
                     }
                 }
                 if(selectedVehicle.isLeft)
@@ -407,6 +409,8 @@ public class TacticalCombatScreen extends Screen
                         System.out.println("moved left");
                         selectedVehicle.xPos += 1;
                         selectedVehicle.yPos -= 1;
+                        touchEvents.remove(i);
+                        break;
                     }
                 }
                 if(selectedVehicle.isRight)
@@ -416,6 +420,8 @@ public class TacticalCombatScreen extends Screen
                         System.out.println("moved right");
                         selectedVehicle.xPos += 1;
                         selectedVehicle.yPos += 1;
+                        touchEvents.remove(i);
+                        break;
                     }
                 }
 
@@ -427,6 +433,8 @@ public class TacticalCombatScreen extends Screen
                     selectedVehicle.isStraight = false;
                     selectedVehicle.isLeft = true;
                     selectedVehicle.isRight = false;
+                    touchEvents.remove(i);
+                    break;
                 }
 
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
@@ -438,6 +446,8 @@ public class TacticalCombatScreen extends Screen
                     selectedVehicle.isStraight = false;
                     selectedVehicle.isLeft = false;
                     selectedVehicle.isRight = true;
+                    touchEvents.remove(i);
+                    break;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
@@ -446,6 +456,8 @@ public class TacticalCombatScreen extends Screen
                     selectedVehicle.isAccelerated = true;
                     selectedVehicle.isBraked = false;
                     selectedVehicle.accelerate();
+                    touchEvents.remove(i);
+                    break;
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
@@ -454,6 +466,8 @@ public class TacticalCombatScreen extends Screen
                     selectedVehicle.isBraked = true;
                     selectedVehicle.isAccelerated = false;
                     selectedVehicle.brake();
+                    touchEvents.remove(i);
+                    break;
                 }
 
             }
