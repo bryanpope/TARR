@@ -40,7 +40,7 @@ public class TacticalCombatScreen extends Screen
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
     Pathfinding pathfinding = new Pathfinding();
-    List<Node> pathList;
+    List<List<Node>> pathList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -62,7 +62,7 @@ public class TacticalCombatScreen extends Screen
         tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
-        pathList = tcWorld.generatePath();
+        //pathList = tcWorld.generatePaths();
 	}
 
 	public void update(float deltaTime)
@@ -170,7 +170,7 @@ public class TacticalCombatScreen extends Screen
             pState = PhaseStates.Moving;
         }
 
-        tcWorld.moveEnemy(pathList);
+        //tcWorld.moveEnemy(pathList);
 	}
 
     private void drawTacticalMap()

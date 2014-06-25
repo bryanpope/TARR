@@ -271,38 +271,5 @@ public class Pathfinding
         }
     }
 
-    public boolean checkWithinShotRange(Node currNode, Node goal, int weaponRange)
-    {
-        if(weaponRange == 10)
-        {
-            if(currNode.fCost <= 10)
-            {
-                System.out.println("Gun within range");
-                return true;
-            }
-            else
-            {
-                System.out.println("Gun not in range");
-                return false;
-            }
-        }
 
-        if(weaponRange == 5)
-        {
-            if(currNode.fCost <= 5)
-            {
-                System.out.println("Xbow within range");
-                return true;
-            }
-            else
-            {
-                System.out.println("Xbow not in range");
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

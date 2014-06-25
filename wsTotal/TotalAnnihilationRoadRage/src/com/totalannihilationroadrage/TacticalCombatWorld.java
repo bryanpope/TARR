@@ -13,6 +13,7 @@ public class TacticalCombatWorld
     private int roundsEnemy;
     public List< TacticalCombatVehicle > tcvsPlayer;
     public List< TacticalCombatVehicle > tcvsEnemy;
+    public List<List<Node>> pathListContainer = new ArrayList<List<Node>>();
     public TiledMap tmBattleGround;
     Node testTarget = new Node(2, 2, 0, 0, null);
 
@@ -20,14 +21,14 @@ public class TacticalCombatWorld
     private Random random = new Random();
     private Random randomTarget = new Random();
     Pathfinding pathfinding = new Pathfinding();
-    private int j = 0;
+    private int pathListCounter = 0;
+    private int enemyListCounter = 0;
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
         tcvsPlayer = tcvsP;
         tcvsEnemy = tcvsE;
         tmBattleGround = tmBG;
-
         deployVehicles();
 	}
 	
@@ -76,7 +77,7 @@ public class TacticalCombatWorld
         }
     }
 
-    public List<Node> generatePath()
+    public List<List<Node>> generatePaths()
     {
         int randomEnemyTarget;
         Node path;
@@ -85,36 +86,61 @@ public class TacticalCombatWorld
 
         List<Node> enemyNodeList = new ArrayList<Node>();
         List<Node> enemyTargetList = new ArrayList<Node>();
-        List<Node> pathList = new ArrayList<Node>();
-        int i = 0;
 
-        enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
-        randomEnemyTarget = randomTarget.nextInt(tcvsPlayer.size());
-        enemyTarget = new Node(tcvsPlayer.get(randomEnemyTarget).yPos, tcvsPlayer.get(randomEnemyTarget).xPos, 0, 0, null);
-        enemyNodeList.add(enemyNode);
-        enemyTargetList.add(enemyTarget);
-
-        path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, enemyTarget);
-
-        while(path != null)
+        for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
-            pathList.add(path);
-            path = path.parentNode;
-        }
-        Collections.reverse(pathList);
+            List<Node> pathList = new ArrayList<Node>();
+            enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
+            randomEnemyTarget = randomTarget.nextInt(tcvsPlayer.size());
+            enemyTarget = new Node(tcvsPlayer.get(randomEnemyTarget).yPos, tcvsPlayer.get(randomEnemyTarget).xPos, 0, 0, null);
+            enemyNodeList.add(enemyNode);
+            enemyTargetList.add(enemyTarget);
 
-        return pathList;
+            path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, enemyTarget);
+            while(path != null)
+            {
+                pathList.add(path);
+                path = path.parentNode;
+            }
+            Collections.reverse(pathList);
+
+            pathListContainer.add(pathList);
+        }
+
+        return pathListContainer;
     }
 
-    public void moveEnemy(List<Node> pathList)
+    public void moveEnemy(List<List<Node>> plContainer)
     {
-        int i = 0;
+        /*if(!checkWithinShotRange(pathListContainer, 1))
+        {*/
+            if (enemyListCounter < tcvsEnemy.size())
+            {
+               /* tcvsEnemy.get(enemyListCounter).xPos = plContainer.get(pathListCounter).;
+                tcvsEnemy.get(enemyListCounter).yPos = plContainer.get(pathListCounter);*/
+                enemyListCounter++;
+                pathListCounter++;
+            }
+        //}
+    }
 
-        if(j < pathList.size() - 1)
-        {
-            tcvsEnemy.get(i).xPos = pathList.get(j).col;
-            tcvsEnemy.get(i).yPos = pathList.get(j).row;
-            j++;
-        }
+    public boolean checkWithinShotRange(List<List> pathList, int weaponRange)
+    {
+       /*if(getDistanceFromGoal(pathList.get(pathListCounter).) <= weaponRange)
+       {
+           System.out.println("Within range");
+           return true;
+       }
+        else
+       {
+           System.out.println("Not within range");*/
+           return false;
+      // }
+    }
+
+    public double getDistanceFromGoal(List<Node> pathList)
+    {
+        return Math.sqrt((pathList.get(pathList.size() - 1).row - tcvsEnemy.get(enemyListCounter).yPos) * (pathList.get(pathList.size() - 1).row - tcvsEnemy.get(enemyListCounter).yPos)
+                        + ((pathList.get(pathList.size() - 1).col - tcvsEnemy.get(enemyListCounter).xPos) * ((pathList.get(pathList.size() - 1).col - tcvsEnemy.get(enemyListCounter).xPos))));
     }
 }
