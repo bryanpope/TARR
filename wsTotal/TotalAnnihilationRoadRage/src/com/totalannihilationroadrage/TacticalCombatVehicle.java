@@ -7,6 +7,7 @@ public class TacticalCombatVehicle
 	GangMembers exterior;
 	int xPos;
 	int yPos;
+    int turningCounter;
 	int speedCurrent;
 	Direction facing;
     int brake;
@@ -75,7 +76,7 @@ public class TacticalCombatVehicle
 
     boolean allowTurning()
     {
-        if(maneuverability > 0)
+        if(maneuverability > turningCounter)
         {
             return true;
         }
@@ -106,6 +107,7 @@ public class TacticalCombatVehicle
         brake = 0;
         accelerate = 0;
         speedCurrent = 30;
+        maneuverability = vehicle.statsBase.maneuverability;
         boolean isAccelerated = true;
         boolean isBraked = true;
         boolean isTurnedLeft = true;
@@ -118,10 +120,13 @@ public class TacticalCombatVehicle
     void turnLeft()
     {
         facing = Direction.turnLeft(facing);
+        turningCounter++;
     }
 
     void turnRight()
     {
         facing = Direction.turnRight(facing);
+        turningCounter++;
     }
+
 }

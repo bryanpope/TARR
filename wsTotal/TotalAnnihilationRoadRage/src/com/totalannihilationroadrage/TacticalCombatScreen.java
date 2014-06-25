@@ -312,18 +312,24 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isTurnedLeft)
+        if(selectedVehicle.allowTurning())
         {
-            //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
-            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, 0, srcX, srcY, tileWidth, tileHeight);
+            if (selectedVehicle.isTurnedLeft)
+            {
+                //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
+                drawBmap(cUI, ((AndroidPixmap) Assets.roadTileSheet).bitmap, tileWidth * 2, 0, srcX, srcY, tileWidth, tileHeight);
+            }
         }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isTurnedRight)
+        if(selectedVehicle.allowTurning())
         {
-            //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
-            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight * 2, srcX, srcY, tileWidth, tileHeight);
+            if (selectedVehicle.isTurnedRight)
+            {
+                //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
+                drawBmap(cUI, ((AndroidPixmap) Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight * 2, srcX, srcY, tileWidth, tileHeight);
+            }
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -424,33 +430,40 @@ public class TacticalCombatScreen extends Screen
                     }
                 }
 
-                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight)) {
-                    //Left turn
-                    dir = Direction.turnLeft(dir);
-                    selectedVehicle.turnLeft();
-                    System.out.println("left turn " + dir);
-                    selectedVehicle.isTurnedRight = false;
-                    selectedVehicle.isTurnedLeft = true;
-                    selectedVehicle.isStraight = false;
-                    selectedVehicle.isLeft = true;
-                    selectedVehicle.isRight = false;
-                    touchEvents.remove(i);
-                    break;
+                if(selectedVehicle.allowTurning())
+                {
+                    if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
+                    {
+                        //Left turn
+                        dir = Direction.turnLeft(dir);
+                        selectedVehicle.turnLeft();
+                        System.out.println("left turn " + dir);
+                        selectedVehicle.isTurnedRight = false;
+                        selectedVehicle.isTurnedLeft = true;
+                        selectedVehicle.isStraight = false;
+                        selectedVehicle.isLeft = true;
+                        selectedVehicle.isRight = false;
+                        touchEvents.remove(i);
+                        break;
+                    }
                 }
 
-                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
+                if(selectedVehicle.allowTurning())
                 {
-                    //right turn
-                    dir = Direction.turnRight(dir);
-                    selectedVehicle.turnRight();
-                    System.out.println("right turn " + dir);
-                    selectedVehicle.isTurnedRight = true;
-                    selectedVehicle.isTurnedLeft = false;
-                    selectedVehicle.isStraight = false;
-                    selectedVehicle.isLeft = false;
-                    selectedVehicle.isRight = true;
-                    touchEvents.remove(i);
-                    break;
+                    if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
+                    {
+                        //right turn
+                        dir = Direction.turnRight(dir);
+                        selectedVehicle.turnRight();
+                        System.out.println("right turn " + dir);
+                        selectedVehicle.isTurnedRight = true;
+                        selectedVehicle.isTurnedLeft = false;
+                        selectedVehicle.isStraight = false;
+                        selectedVehicle.isLeft = false;
+                        selectedVehicle.isRight = true;
+                        touchEvents.remove(i);
+                        break;
+                    }
                 }
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
