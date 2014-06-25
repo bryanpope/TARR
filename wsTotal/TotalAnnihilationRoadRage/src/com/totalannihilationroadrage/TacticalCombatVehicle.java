@@ -114,4 +114,14 @@ public class TacticalCombatVehicle
         boolean isRight = false;
         boolean isLeft = false;
     }
+
+    void turnLeft()
+    {
+        facing = Direction.turnLeft(facing);
+    }
+
+    void turnRight()
+    {
+        facing = Direction.turnRight(facing);
+    }
 }

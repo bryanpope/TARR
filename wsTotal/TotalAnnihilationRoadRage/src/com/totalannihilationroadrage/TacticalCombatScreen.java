@@ -427,6 +427,7 @@ public class TacticalCombatScreen extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight)) {
                     //Left turn
                     dir = Direction.turnLeft(dir);
+                    selectedVehicle.turnLeft();
                     System.out.println("left turn " + dir);
                     selectedVehicle.isTurnedRight = false;
                     selectedVehicle.isTurnedLeft = true;
@@ -441,6 +442,7 @@ public class TacticalCombatScreen extends Screen
                 {
                     //right turn
                     dir = Direction.turnRight(dir);
+                    selectedVehicle.turnRight();
                     System.out.println("right turn " + dir);
                     selectedVehicle.isTurnedRight = true;
                     selectedVehicle.isTurnedLeft = false;
