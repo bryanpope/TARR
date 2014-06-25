@@ -155,6 +155,43 @@ public class AndroidGraphics implements Graphics {
         canvas.restore();
     }
 
+    public void drawPixmap(Bitmap bitmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight, int centreX, int centreY, float angle)
+    {
+        srcRect.left = srcX;
+        srcRect.top = srcY;
+        srcRect.right = srcX + srcWidth;
+        srcRect.bottom = srcY + srcHeight;
+
+        dstRect.left = x;
+        dstRect.top = y;
+        dstRect.right = x + srcWidth;
+        dstRect.bottom = y + srcHeight;
+
+        canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        if (angle < 0)
+        {
+            if (angle < -180)
+            {
+                //canvas.rotate(angle + 540, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
+                canvas.rotate(angle + 540, centreX, centreY);
+            }
+            else
+            {
+                //canvas.rotate(angle + 180, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
+                canvas.rotate(angle + 180, centreX, centreY);
+            }
+            //canvas.scale(-1.0f, 1.0f, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
+            canvas.scale(-1.0f, 1.0f, centreX, centreY);
+        }
+        else
+        {
+            //canvas.rotate(angle, x + (int)(srcWidth * 0.5), y + (int)(srcWidth * 0.5));
+            canvas.rotate(angle, centreX, centreY);
+        }
+        canvas.drawBitmap(bitmap, srcRect, dstRect, null);
+        canvas.restore();
+    }
+
     public int getWidth() {
         return frameBuffer.getWidth();
     }

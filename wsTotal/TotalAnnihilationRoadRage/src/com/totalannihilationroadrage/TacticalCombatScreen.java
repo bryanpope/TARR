@@ -291,8 +291,7 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isStraight)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
-            g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
-            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap , tileWidth * 2, 0, srcX, srcY, tileWidth, tileHeight);
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 3, tileHeight, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -300,7 +299,7 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isLeft)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
-            g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 3, 0, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -308,7 +307,7 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isRight)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
-            g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 3, tileHeight * 2, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -316,7 +315,7 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isTurnedLeft)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
-            g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, 0, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -324,7 +323,7 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isTurnedRight)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
-            g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight * 2, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -332,7 +331,7 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isAccelerated)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
-            g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight, srcX, srcY, tileWidth, tileHeight);
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -340,9 +339,10 @@ public class TacticalCombatScreen extends Screen
         if(selectedVehicle.isBraked)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
-            g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
+            drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, 0, tileHeight, srcX, srcY, tileWidth, tileHeight);
         }
 
+        g.drawPixmap(bUI, posX - tileWidth, posY - tileHeight, 0, 0, tileWidth * 4, tileHeight * 3, posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5), Direction.getAngle(facing));
 
         /*g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, 32, 224, tileWidth, tileHeight);            //break
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, 96, 192, tileWidth, tileHeight);            //accelerate

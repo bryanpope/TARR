@@ -1,5 +1,7 @@
 package com.framework;
 
+import android.graphics.Bitmap;
+
 public interface Graphics {
     public static enum PixmapFormat {
         ARGB8888, ARGB4444, RGB565
@@ -22,6 +24,9 @@ public interface Graphics {
 
     public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY,
                            int srcWidth, int srcHeight, float angle);
+
+    public void drawPixmap(Bitmap bitmap, int x, int y, int srcX, int srcY,
+                           int srcWidth, int srcHeight, int centreX, int centreY, float angle);
 
     public int getWidth();
 
