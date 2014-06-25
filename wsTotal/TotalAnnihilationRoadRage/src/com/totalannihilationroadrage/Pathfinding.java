@@ -102,7 +102,8 @@ public class Pathfinding
 
     public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node target)
     {
-        if(row >= 0 && col >= 0)
+        System.out.print("Row " + row + ", Col " + col);
+        if((row >= 0 && col >= 0) && (row <= 14 && col <= 39))
         {
             if (tiles.isPassable(row, col))
             {

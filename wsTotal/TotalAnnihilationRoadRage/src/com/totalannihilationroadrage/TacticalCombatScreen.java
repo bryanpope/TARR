@@ -62,7 +62,7 @@ public class TacticalCombatScreen extends Screen
         tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
-        //pathList = tcWorld.generatePaths();
+        pathList = tcWorld.generatePaths();
 	}
 
 	public void update(float deltaTime)
