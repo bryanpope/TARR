@@ -36,7 +36,7 @@ public class TacticalCombatScreen extends Screen
 
 	GameState state = GameState.Running;
     PhaseStates pState = PhaseStates.notActive;
-
+    Direction dir = Direction.NORTH;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
     Pathfinding pathfinding = new Pathfinding();
@@ -394,7 +394,6 @@ public class TacticalCombatScreen extends Screen
                 {
                     if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
                         //Move straight
-
                         System.out.println("moved straight");
                         selectedVehicle.isStraight = true;
                         selectedVehicle.xPos += 1;
@@ -427,7 +426,8 @@ public class TacticalCombatScreen extends Screen
 
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight)) {
                     //Left turn
-                    System.out.println("left turn");
+                    dir = Direction.turnLeft(dir);
+                    System.out.println("left turn " + dir);
                     selectedVehicle.isTurnedRight = false;
                     selectedVehicle.isTurnedLeft = true;
                     selectedVehicle.isStraight = false;
@@ -440,7 +440,8 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
                 {
                     //right turn
-                    System.out.println("right turn");
+                    dir = Direction.turnRight(dir);
+                    System.out.println("right turn " + dir);
                     selectedVehicle.isTurnedRight = true;
                     selectedVehicle.isTurnedLeft = false;
                     selectedVehicle.isStraight = false;

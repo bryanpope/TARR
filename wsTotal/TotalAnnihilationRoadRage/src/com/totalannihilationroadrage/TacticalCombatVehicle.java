@@ -46,7 +46,9 @@ public class TacticalCombatVehicle
             return true;
         }
         else
+        {
             return false;
+        }
     }
 
     boolean allowBreaking()
@@ -56,7 +58,9 @@ public class TacticalCombatVehicle
             return true;
         }
         else
+        {
             return false;
+        }
     }
 
     void brake()
@@ -76,7 +80,9 @@ public class TacticalCombatVehicle
             return true;
         }
         else
+        {
             return false;
+        }
     }
 
     void currentManeuverability()

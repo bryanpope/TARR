@@ -1,6 +1,6 @@
 package com.totalannihilationroadrage;
 
-public enum Direction 
+public enum Direction
 {
 	NORTH,
 	NORTHEAST,
@@ -10,6 +10,27 @@ public enum Direction
 	SOUTHWEST,
 	WEST,
 	NORTHWEST;
+
+    private static Direction[] vals = values();
+
+    public static Direction turnRight(Direction dir)
+    {
+        if(dir == Direction.NORTHWEST)
+        {
+            return Direction.NORTH;
+        }
+        return vals[(dir.ordinal() + 1) % vals.length];
+    }
+
+    public static Direction turnLeft(Direction dir)
+    {
+        if(dir == Direction.NORTH)
+        {
+            return Direction.NORTHWEST;
+        }
+
+        return vals[(dir.ordinal() - 1) % vals.length];
+    }
 
     public static float getAngle (Direction dir)
     {
