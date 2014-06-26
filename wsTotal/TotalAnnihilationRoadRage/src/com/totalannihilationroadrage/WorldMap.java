@@ -271,6 +271,7 @@ public class WorldMap extends Screen
         AvatarY = CityArray.get(Rand_pos)[1];
     }
 
+
     public void update(float deltaTime)
     {
         Graphics g = game.getGraphics();
@@ -406,7 +407,7 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        g.drawPixmap(world.image.pmImage, AvatarX, AvatarY, 1, 1, world.tileWidth, world.tileHeight);
+        g.drawPixmap(world.image.pmImage, AvatarX - cameraX, AvatarY - cameraY, 1, 1, world.tileWidth, world.tileHeight);
     }
 
     /*
