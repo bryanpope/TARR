@@ -10,7 +10,8 @@ public class Assets
     public static Pixmap ready;
     public static Pixmap pause;
     public static Pixmap gameOver;
-    
+    public static Pixmap gameOvermenu;
+
     public static OverworldTiledMap tmOverWorld;
     public static Pixmap pmOverWorld;
     public static TacticalCombatTiledMap tmHighway;
