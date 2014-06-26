@@ -2,8 +2,9 @@ package com.totalannihilationroadrage;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.framework.impl.Vector;
 
-public class TacticalCombatVehicle 
+public class TacticalCombatVehicle
 {
 	VehicleStatsCurrent vehicle;
 	GangMembers interior;
@@ -16,13 +17,14 @@ public class TacticalCombatVehicle
     int brake;
     int accelerate;
 	int maneuverability;
-    boolean isAccelerated = true;
-    boolean isBraked = true;
-    boolean isTurnedLeft = true;
-    boolean isTurnedRight = true;
-    boolean isStraight = true;
-    boolean isRight = false;
-    boolean isLeft = false;
+    boolean isSpeedChanged = false;
+    boolean isAccelerated = false;
+    boolean isBraked = false;
+    //boolean isTurnedLeft = true;
+    //boolean isTurnedRight = true;
+    //boolean isStraight = true;
+    //boolean isRight = false;
+    //boolean isLeft = false;
     boolean isMoved = false;
     List<Node> thePath = new ArrayList<Node>();
     int target;
@@ -43,6 +45,7 @@ public class TacticalCombatVehicle
         {
             speedCurrent += 10;
             accelerate++;
+            isAccelerated = true;
         }
     }
 
@@ -70,14 +73,30 @@ public class TacticalCombatVehicle
         }
     }
 
+    boolean allowMoving ()
+    {
+        return !isMoved;
+    }
+
     void brake()
     {
         if(brake < vehicle.statsBase.braking)
         {
             speedCurrent -= 10;
             brake++;
+            isBraked = true;
         }
 
+    }
+
+    void move ()
+    {
+        Vector vectorDirection = Direction.getDirectionVector(facing);
+        xPos = xPos + vectorDirection.x;
+        yPos = yPos + vectorDirection.y;
+        isMoved = true;
+        isAccelerated = true;
+        isBraked = true;
     }
 
     boolean allowTurning()
@@ -114,13 +133,13 @@ public class TacticalCombatVehicle
         accelerate = 0;
         speedCurrent = 30;
         maneuverability = vehicle.statsBase.maneuverability;
-        isAccelerated = true;
-        isBraked = true;
-        isTurnedLeft = true;
-        isTurnedRight = true;
-        isStraight = true;
-        isRight = false;
-        isLeft = false;
+        isAccelerated = false;
+        isBraked = false;
+        //isTurnedLeft = true;
+        //isTurnedRight = true;
+        //isStraight = true;
+        //isRight = false;
+        //isLeft = false;
         isMoved = false;
     }
 
