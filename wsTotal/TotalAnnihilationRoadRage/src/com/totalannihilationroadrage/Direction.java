@@ -1,5 +1,5 @@
 package com.totalannihilationroadrage;
-
+import com.framework.impl.Vector;
 public enum Direction
 {
 	NORTH,
@@ -30,6 +30,48 @@ public enum Direction
         }
 
         return vals[(dir.ordinal() - 1) % vals.length];
+    }
+
+    public static Vector getDirectionVector(Direction dir)
+    {
+        Vector vectorDirection = new Vector();
+
+        switch (dir)
+        {
+            case NORTH:
+                vectorDirection.x =  0;
+                vectorDirection.y = -1;
+                return vectorDirection;
+            case NORTHEAST:
+                vectorDirection.x = 1;
+                vectorDirection.y = -1;
+                return vectorDirection;
+            case EAST:
+                vectorDirection.x = 1;
+                vectorDirection.y = 0;
+                return vectorDirection;
+            case SOUTHEAST:
+                vectorDirection.x = 1;
+                vectorDirection.y = 1;
+                return vectorDirection;
+            case SOUTH:
+                vectorDirection.x = 0;
+                vectorDirection.y = 1;
+                return vectorDirection;
+            case SOUTHWEST:
+                vectorDirection.x = -1;
+                vectorDirection.y = 1;
+                return vectorDirection;
+            case WEST:
+                vectorDirection.x = -1;
+                vectorDirection.y = 0;
+                return vectorDirection;
+            case NORTHWEST:
+                vectorDirection.x = -1;
+                vectorDirection.y = -1;
+                return vectorDirection;
+        }
+        return vectorDirection;
     }
 
     public static RotationTransformation getRotationTransformation (Direction dir)

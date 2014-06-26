@@ -1,5 +1,5 @@
 package com.totalannihilationroadrage;
-
+import com.framework.impl.Vector;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -37,7 +37,7 @@ public class TacticalCombatScreen extends Screen
 
 	GameState state = GameState.Running;
     PhaseStates pState = PhaseStates.notActive;
-    Direction dir = Direction.NORTH;
+    Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
     Pathfinding pathfinding = new Pathfinding();
@@ -249,7 +249,7 @@ public class TacticalCombatScreen extends Screen
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : Color.YELLOW);
+            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : vehicles.get(i).isMoved ?  Color.rgb(255,250,130) : Color.YELLOW);
 			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
             g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getRotationTransformation(vehicles.get(i).facing));
 
@@ -427,9 +427,11 @@ public class TacticalCombatScreen extends Screen
                 {
                     if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
                         //Move left
-                        System.out.println("moved left");
-                        selectedVehicle.xPos += 1;
-                        selectedVehicle.yPos -= 1;
+                        Vector vectorDirection = Direction.getDirectionVector(selectedVehicle.facing);
+                        System.out.println("moved left " + selectedVehicle.xPos + " " + " " + selectedVehicle.yPos + selectedVehicle.facing + " " + vectorDirection.x + " " + vectorDirection.y);
+                        selectedVehicle.xPos = selectedVehicle.xPos + vectorDirection.x;
+                        selectedVehicle.yPos = selectedVehicle.yPos + vectorDirection.y;
+                        selectedVehicle.isMoved = true;
                         touchEvents.remove(i);
                         break;
                     }
@@ -438,9 +440,11 @@ public class TacticalCombatScreen extends Screen
                 {
                     if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
                         //Move right
-                        System.out.println("moved right");
-                        selectedVehicle.xPos += 1;
-                        selectedVehicle.yPos += 1;
+                        Vector vectorDirection = Direction.getDirectionVector(selectedVehicle.facing);
+                        System.out.println("moved right " + selectedVehicle.xPos + " " + selectedVehicle.yPos + " " + vectorDirection.x + " " + vectorDirection.y);
+                        selectedVehicle.xPos = selectedVehicle.xPos + vectorDirection.x;
+                        selectedVehicle.yPos = selectedVehicle.yPos + vectorDirection.y;
+                        selectedVehicle.isMoved = true;
                         touchEvents.remove(i);
                         break;
                     }
