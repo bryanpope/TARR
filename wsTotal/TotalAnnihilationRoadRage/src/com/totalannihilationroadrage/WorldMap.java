@@ -240,30 +240,31 @@ public class WorldMap extends Screen
         Random rand = new Random();
 
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
+        int xpos = 0;
+        int ypos = 0;
 
-        for (int i = 0; i < world.layers.size(); i++)  //picks the layer
+        int object_layer = 1;
+        for (int index = 0; index < world.layers.get(object_layer).data.size(); index++) //indexes through the tiledmap
         {
-            for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
+            int t_element = world.layers.get(object_layer).data.get(index);
+            //srcX = (t_element % tilesheetcol * world.tileWidth);
+            //srcY = (t_element / tilesheetcol * world.tileWidth);
+            xpos = destX * world.tileset.tileWidth;
+            ypos = destY * world.tileset.tileHeight;
+            if (t_element == 22)
             {
-                int t_element = world.layers.get(i).data.get(index) - 1;
-                //srcX = (t_element % tilesheetcol * world.tileWidth);
-                //srcY = (t_element / tilesheetcol * world.tileWidth);
-                destX = world.tileset.tileWidth;
-                destY = world.tileset.tileHeight;
-                if (t_element == 21)
-                {
-                    CityArray.add(new int[] {destX, destY});
-                }
-                destX++;
-
-                if (destX >= world.width)
-                {
-                    destX = 0;
-                    destY++;
-                }
-
+                CityArray.add(new int[] {xpos, ypos});
             }
+            destX++;
+
+            if (destX >= world.width)
+            {
+                destX = 0;
+                destY++;
+            }
+
         }
+
 
         Rand_pos = rand.nextInt(CityArray.size());
         AvatarX = CityArray.get(Rand_pos)[0];
