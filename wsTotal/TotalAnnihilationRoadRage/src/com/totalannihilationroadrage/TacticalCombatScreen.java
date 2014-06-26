@@ -221,7 +221,6 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
-        //test 
 
         /*
             The following is debug code to test Pathfinding.
@@ -303,25 +302,26 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isStraight)
-        {
+        //if(selectedVehicle.isStraight)
+        //{
             //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY, srcX, srcY, tileWidth, tileHeight);            //move straight
+        if (selectedVehicle.allowMoving())
+        {
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 3, tileHeight, srcX, srcY, tileWidth, tileHeight);
         }
+        //}
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        srcX = (index % numColumns) * tileHeight;
-        srcY = (index++ / numColumns) * tileWidth;
-        /*
-        if(selectedVehicle.isLeft)
+        /*if(selectedVehicle.isLeft)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY - tileHeight, srcX, srcY, tileWidth, tileHeight);      //move left
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 3, 0, srcX, srcY, tileWidth, tileHeight);
-        }
+        }*/
 
-
-        if(selectedVehicle.isRight)
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        /*if(selectedVehicle.isRight)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + (tileWidth * 2), posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       // move right
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 3, tileHeight * 2, srcX, srcY, tileWidth, tileHeight);
@@ -331,22 +331,22 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.allowTurning())
         {
-            if (selectedVehicle.isTurnedLeft)
-            {
+            //if (selectedVehicle.isTurnedLeft)
+            //{
                 //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);       //left turn
                 drawBmap(cUI, ((AndroidPixmap) Assets.roadTileSheet).bitmap, tileWidth * 2, 0, srcX, srcY, tileWidth, tileHeight);
-            }
+            //}
         }
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         if(selectedVehicle.allowTurning())
         {
-            if (selectedVehicle.isTurnedRight)
-            {
+            //if (selectedVehicle.isTurnedRight)
+            //{
                 //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);       //right turn
                 drawBmap(cUI, ((AndroidPixmap) Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight * 2, srcX, srcY, tileWidth, tileHeight);
-            }
+            //}
         }
 
         srcX = (index % numColumns) * tileHeight;
@@ -428,22 +428,19 @@ public class TacticalCombatScreen extends Screen
                 matrix.mapPoints(points);
                 eX = (int)points[0];
                 eY = (int)points[1];
-                if(selectedVehicle.isStraight)
+                if(selectedVehicle.allowMoving())
                 {
                     if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
                         //Move straight
-                        Vector vectorDirection = Direction.getDirectionVector(selectedVehicle.facing);
                         System.out.println("moved straight");
-                        selectedVehicle.isStraight = true;
-                        selectedVehicle.isMoved = true;
-                        selectedVehicle.xPos = selectedVehicle.xPos + vectorDirection.x;
-                        selectedVehicle.yPos = selectedVehicle.yPos + vectorDirection.y;
+                        //selectedVehicle.isStraight = true;
+                        //selectedVehicle.xPos += 1;
+                        selectedVehicle.move();
                         touchEvents.remove(i);
                         break;
                     }
                 }
-                /*
-                if(selectedVehicle.isLeft)
+                /*if(selectedVehicle.isLeft)
                 {
                     if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
                         //Move left
@@ -468,8 +465,8 @@ public class TacticalCombatScreen extends Screen
                         touchEvents.remove(i);
                         break;
                     }
-                }
-                */
+                }*/
+
                 if(selectedVehicle.allowTurning())
                 {
                     if (inBoundaryCheck(eX, eY, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
@@ -478,11 +475,11 @@ public class TacticalCombatScreen extends Screen
                         dir = Direction.turnLeft(dir);
                         selectedVehicle.turnLeft();
                         System.out.println("left turn " + dir);
-                        selectedVehicle.isTurnedRight = false;
-                        selectedVehicle.isTurnedLeft = true;
-                        selectedVehicle.isStraight = true;
-                        selectedVehicle.isLeft = true;
-                        selectedVehicle.isRight = false;
+                        //selectedVehicle.isTurnedRight = false;
+                        //selectedVehicle.isTurnedLeft = true;
+                        //selectedVehicle.isStraight = false;
+                        //selectedVehicle.isLeft = true;
+                        //selectedVehicle.isRight = false;
                         touchEvents.remove(i);
                         break;
                     }
@@ -496,11 +493,11 @@ public class TacticalCombatScreen extends Screen
                         dir = Direction.turnRight(dir);
                         selectedVehicle.turnRight();
                         System.out.println("right turn " + dir);
-                        selectedVehicle.isTurnedRight = true;
-                        selectedVehicle.isTurnedLeft = false;
-                        selectedVehicle.isStraight = true;
-                        selectedVehicle.isLeft = false;
-                        selectedVehicle.isRight = true;
+                        //selectedVehicle.isTurnedRight = true;
+                        //selectedVehicle.isTurnedLeft = false;
+                        //selectedVehicle.isStraight = false;
+                        //selectedVehicle.isLeft = false;
+                        //selectedVehicle.isRight = true;
                         touchEvents.remove(i);
                         break;
                     }
@@ -509,8 +506,6 @@ public class TacticalCombatScreen extends Screen
                 {
                     //accelerate
                     System.out.println("accelerate");
-                    selectedVehicle.isAccelerated = true;
-                    selectedVehicle.isBraked = false;
                     selectedVehicle.accelerate();
                     touchEvents.remove(i);
                     break;
