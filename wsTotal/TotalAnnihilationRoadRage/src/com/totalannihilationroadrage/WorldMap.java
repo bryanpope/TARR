@@ -257,8 +257,8 @@ public class WorldMap extends Screen
         }
 
         Rand_pos = rand.nextInt(CityArray.size());
-        AvatarX = (CityArray.get(Rand_pos)[0] * world.tileWidth) + camera_offsetx;
-        AvatarY = (CityArray.get(Rand_pos)[1] * world.tileHeight) + camera_offsety;
+        AvatarX = CityArray.get(Rand_pos)[0]  + camera_offsetx;
+        AvatarY = CityArray.get(Rand_pos)[1]  + camera_offsety;
     }
 
     public void update(float deltaTime)
