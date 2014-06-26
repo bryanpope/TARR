@@ -87,9 +87,9 @@ public class WorldMap extends Screen
     }
 
     int [] Have_Inventory = new int[Inventory.values().length];
-    int [][] CityArray;
-    int CityArray_row = 0;
-    int CityArray_col = 0;
+    List <int[]> CityArray = new ArrayList<int[]>();
+    //int CityArray_row = 0;
+    //int CityArray_col = 0;
 
     GameState state = GameState.Running;
     TiledMap world;
@@ -107,10 +107,13 @@ public class WorldMap extends Screen
 
     public int numRows = 0;
     public int numCols = 0;
+    public int srcX = 0;
+    public int srcY = 0;
 
-    public int AvatarX = 3;
-    public int AvatarY = 8;
-
+    public int AvatarX = 0;
+    public int AvatarY = 0;
+    public int Rand_pos = 0;
+    private WorldMapVehicle selectedVehicle = null;
 
     private void AutoLoot()
     {
@@ -197,8 +200,6 @@ public class WorldMap extends Screen
         Have_Inventory[RL] += quantity;
     }
 
-
-
     private void drawOverWorldUI(int posX, int posY)
     {
         Graphics g = game.getGraphics();
@@ -229,6 +230,35 @@ public class WorldMap extends Screen
         //world = new World();
         numRows = (game.getGraphics().getHeight()/ world.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / world.tileWidth) + 1;
+        avatar_placement();
+    }
+
+    public void avatar_placement()
+    {
+        Random rand = new Random();
+
+        int tilesheetcol = (world.image.width/world.tileset.tileWidth);
+
+        for (int i = 0; i < world.layers.size(); i++)  //picks the layer
+        {
+            for (int row = camera_toprow; (row - camera_toprow) < numRows; ++row)
+            {
+                for (int col = camera_leftcol; (col - camera_leftcol) < numCols; ++col)
+                {
+                    int t_element = world.layers.get(i).getTile(row,col);
+                    srcX = (t_element % tilesheetcol * world.tileWidth);
+                    srcY = (t_element / tilesheetcol * world.tileWidth);
+                    if (t_element == 21)
+                    {
+                        CityArray.add(new int[] {srcX, srcY});
+                    }
+                }
+            }
+        }
+
+        Rand_pos = rand.nextInt(CityArray.size());
+        AvatarX = (CityArray.get(Rand_pos)[0] * world.tileWidth) + camera_offsetx;
+        AvatarY = (CityArray.get(Rand_pos)[1] * world.tileHeight) + camera_offsety;
     }
 
     public void update(float deltaTime)
@@ -244,15 +274,11 @@ public class WorldMap extends Screen
         for(int i = 0; i < len; i++)
         {
             TouchEvent event = touchEvents.get(i);
-            //x = game.getInput().getTouchX(i);
-            //y = game.getInput().getTouchY(i);
             x = event.x;
             y = event.y;
 
             if (event.type == TouchEvent.TOUCH_DOWN)
             {
-
-
                 // Remember where we started
                 mLastTouchx = x;
                 mLastTouchy = y;
@@ -260,13 +286,14 @@ public class WorldMap extends Screen
 
             if (event.type == TouchEvent.TOUCH_UP)
             {
-
+                if (!event.wasDragged)
+                {
+                    //selectedVehicle = isVehicleTouched(event);
+                }
             }
 
             if(event.type == TouchEvent.TOUCH_DRAGGED)
             {
-                //x = game.getInput().getTouchX(i);
-                //y = game.getInput().getTouchY(i);
 
                 // Calculate the distance moved
                 final float dx = x - mLastTouchx;
@@ -330,7 +357,6 @@ public class WorldMap extends Screen
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         //int mapsize = (world.width * world.height);
         int destX, destY;
-        int srcX, srcY;
 
         //Node node;
         //Node start = new Node(9, 22, 0, 0, null);
@@ -349,13 +375,7 @@ public class WorldMap extends Screen
                     int t_element = world.layers.get(i).getTile(row,col);
                     srcX = (t_element % tilesheetcol * world.tileWidth);
                     srcY = (t_element / tilesheetcol * world.tileWidth);
-                    if (t_element == 22)
-                    {
-                        CityArray[CityArray_row][CityArray_col] = srcX;
-                        CityArray[CityArray_row][CityArray_col + 1] = srcY;
-                    }
 
-                    CityArray_row += 1;
                     g.drawPixmap(world.image.pmImage, destX, destY, srcX, srcY, world.tileWidth, world.tileHeight);
                 }
             }
@@ -376,14 +396,28 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        Random rand = new Random();
-
-        int Rand_pos = rand.nextInt(CityArray_row - 1);
-
-        g.drawPixmap(world.image.pmImage, CityArray[Rand_pos][CityArray_col], CityArray[Rand_pos][CityArray_col + 1], 1, 1, world.tileWidth, world.tileHeight);
+        g.drawPixmap(world.image.pmImage, AvatarX, AvatarY, 1, 1, world.tileWidth, world.tileHeight);
     }
 
+    /*
+    public WorldMapVehicle isVehicleTouched(Input.TouchEvent event)
+    {
+        //int tileWidth = 128;
+        //int tileHeight = 128;
+        int x, y;
 
+        for(int j = 0; j < world.layers.size(); ++j)
+        {
+            x = (world.data.get(j).xPos * tcWorld.tmBattleGround.tileWidth) - cameraX;
+            y = (tcWorld.tcvsPlayer.get(j).yPos * tcWorld.tmBattleGround.tileHeight) - cameraY;
+            if(inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight))
+            {
+                return tcWorld.tcvsPlayer.get(j);
+            }
+        }
+        return null;
+    }
+*/
     @Override
     public void pause()
     {
@@ -392,12 +426,14 @@ public class WorldMap extends Screen
     }
 
     @Override
-    public void resume() {
+    public void resume()
+    {
 
     }
 
     @Override
-    public void dispose() {
+    public void dispose()
+    {
 
     }
 }
