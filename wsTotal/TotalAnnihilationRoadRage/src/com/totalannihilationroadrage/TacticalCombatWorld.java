@@ -22,7 +22,9 @@ public class TacticalCombatWorld
     private Random randomTarget = new Random();
     Pathfinding pathfinding = new Pathfinding();
     private int pathListCounter = 0;
-    private int enemyListCounter = 0;
+    private int enemyCounter = 0;
+    int randomEnemyTarget = 0;
+    int j = 0;
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
@@ -30,6 +32,7 @@ public class TacticalCombatWorld
         tcvsEnemy = tcvsE;
         tmBattleGround = tmBG;
         deployVehicles();
+        //chooseTarget();
 	}
 	
     private void deployVehicles ()
@@ -45,6 +48,8 @@ public class TacticalCombatWorld
         deploySide(tcvsPlayer, 0, 13);
         deploySide(tcvsEnemy, 27, 13);
     }
+
+
 
     private void deploySide (List< TacticalCombatVehicle > side, int deployXOffset, int deployXWidth)
     {
@@ -77,51 +82,38 @@ public class TacticalCombatWorld
         }
     }
 
-    public List<List> generatePaths()
+    public void chooseTarget()
     {
-        int randomEnemyTarget;
-        Node path;
-        Node enemyNode;
-        Node enemyTarget;
-
-        List<Node> enemyNodeList = new ArrayList<Node>();
-        List<Node> enemyTargetList = new ArrayList<Node>();
-
-        for(int i = 0; i < 1 ; ++i)
+        for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
-            List<Node> pathList = new ArrayList<Node>();
-            enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
-            randomEnemyTarget = randomTarget.nextInt(tcvsPlayer.size());
-            enemyTarget = new Node(tcvsPlayer.get(randomEnemyTarget).yPos, tcvsPlayer.get(randomEnemyTarget).xPos, 0, 0, null);
-            enemyNodeList.add(enemyNode);
-            enemyTargetList.add(enemyTarget);
-
-            path = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, enemyTarget);
-            while(path != null)
-            {
-                pathList.add(path);
-                path = path.parentNode;
-            }
-            Collections.reverse(pathList);
-
-            pathListContainer.add(pathList);
+            tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size());
+            generatePath(tcvsEnemy.get(i).target);
         }
-
-        return pathListContainer;
     }
 
-    public void moveEnemy(List<List> plContainer)
+    public void generatePath(int target)
     {
-        /*if(!checkWithinShotRange(pathListContainer, 1))
-        {*/
-            if (enemyListCounter < tcvsEnemy.size())
-            {
-                /*tcvsEnemy.get(enemyListCounter).xPos = plContainer.get(pathListCounter).;
-                tcvsEnemy.get(enemyListCounter).yPos = plContainer.get(pathListCounter);*/
-                enemyListCounter++;
-                pathListCounter++;
-            }
-        //}
+        for(int i = 0; i < tcvsEnemy.size(); ++i)
+        {
+            Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0 ,0, null);
+            Node targetNode = new Node(tcvsPlayer.get(target).yPos, tcvsPlayer.get(target).xPos, 0 ,0, null);
+            tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
+        }
+        moveEnemy();
+    }
+
+    public void moveEnemy()
+    {
+        if(enemyCounter < tcvsEnemy.size())
+        {
+            tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(1).col;
+            tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(1).row;
+            enemyCounter++;
+        }
+        if(enemyCounter == tcvsEnemy.size())
+        {
+            enemyCounter = 0;
+        }
     }
 
     public boolean checkWithinShotRange(Node start, Node goal, double weaponRange)

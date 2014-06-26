@@ -1,6 +1,6 @@
 package com.totalannihilationroadrage;
 
-class Node implements Comparable<Node>
+public class Node implements Comparable<Node>
 {
     public int row;
     public int col;

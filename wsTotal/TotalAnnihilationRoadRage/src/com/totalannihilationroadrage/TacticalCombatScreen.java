@@ -40,8 +40,8 @@ public class TacticalCombatScreen extends Screen
     Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
-    Pathfinding pathfinding = new Pathfinding();
-    List<List> pathList;
+    //Pathfinding pathfinding = new Pathfinding();
+    List<Node> pathList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -63,7 +63,6 @@ public class TacticalCombatScreen extends Screen
         tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
-        //pathList = tcWorld.generatePaths();
 	}
 
     public boolean attackPhase(List <TacticalCombatVehicle> player, List<TacticalCombatVehicle> enemy)
@@ -182,7 +181,10 @@ public class TacticalCombatScreen extends Screen
             pState = PhaseStates.Moving;
         }
 
-        //tcWorld.moveEnemy(pathList);
+        /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
+        {
+            tcWorld.generatePath(tcWorld.tcvsEnemy.get(i).target);
+        }*/
 	}
 
     private void drawTacticalMap()
@@ -210,7 +212,7 @@ public class TacticalCombatScreen extends Screen
                     destY = ((row - cameraTopRow) * tMap.tileHeight) + tileOffsetY;
                     if (((row * tMap.layers.get(i).width) + col) >= tMap.layers.get(i).data.size())
                     {
-                        System.out.print("Out of range!");
+                        //System.out.print("Out of range!");
                     }
                     indexTile = tMap.layers.get(i).getTile(row, col);
                     srcX = (indexTile % tileSheetCol) * tMap.tileWidth;

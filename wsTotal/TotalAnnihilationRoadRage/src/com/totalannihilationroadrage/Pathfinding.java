@@ -3,22 +3,25 @@ package com.totalannihilationroadrage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.Set;
+import java.util.HashSet;
+
 
 public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    int j = 0;
+    private boolean open[][] = new boolean[40][15];
 
-    public Node IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
+    public List<Node> IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
     {
-
         Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
-       // closedList.clear();
-        //openList.clear();
+        closedList.clear();
+        openList.clear();
 
         while (!catchMeIfYouCan(currentNode, goal))
         {
+
             int row = currentNode.row;
             int col = currentNode.col;
 
@@ -64,11 +67,17 @@ public class Pathfinding
             //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
         }
 
-        //checkWithinShotRange(currentNode, goal, 10);
-        //removeRedundant(currentNode, tiles);
-
-        return currentNode;
+        List<Node> path = new ArrayList<Node>();
+        while (currentNode.parentNode != null)
+        {
+            path.add(currentNode);
+            currentNode = currentNode.parentNode;
+        }
+        path.add(start);
+        Collections.reverse(path);
+        return path;
     }
+
 
     public boolean catchMeIfYouCan(Node currentNode, Node goalNode)
     {
@@ -87,7 +96,7 @@ public class Pathfinding
         return false;
     }
 
-    public Node getChildFromOpen(double row, double col, List<Node> openList)
+    public Node getChildFromOpen(double row, double col)
     {
         for (int i = 0; i < openList.size(); ++i)
         {
@@ -99,9 +108,8 @@ public class Pathfinding
         return null;
     }
 
-    public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node target)
+    public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node goal)
     {
-        System.out.print("Row " + row + ", Col " + col);
         if((row >= 0 && col >= 0) && (row <= 14 && col <= 39))
         {
             if (tiles.isPassable(row, col))
@@ -109,12 +117,13 @@ public class Pathfinding
                 if (!isNodeClosed(row, col))
                 {
                     double g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
-                    double f = g + getDistance(row, col, target);
-                    Node child = getChildFromOpen(row, col, openList);
+                    double f = g + getDistance(row, col, goal);
+                    Node child = getChildFromOpen(row, col);
 
                     if (child == null)
                     {
                         child = new Node(row, col, g, f, currentNode);
+
                         openList.add(child);
                     }
                     else if (child.gCost > g)
@@ -270,6 +279,4 @@ public class Pathfinding
             removeRedundant(path.parentNode, tiles);
         }
     }
-
-
 }

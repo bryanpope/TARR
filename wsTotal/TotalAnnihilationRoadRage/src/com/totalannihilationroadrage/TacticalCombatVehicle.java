@@ -1,5 +1,8 @@
 package com.totalannihilationroadrage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TacticalCombatVehicle 
 {
 	VehicleStatsCurrent vehicle;
@@ -21,6 +24,8 @@ public class TacticalCombatVehicle
     boolean isRight = false;
     boolean isLeft = false;
     boolean isMoved = false;
+    List<Node> thePath = new ArrayList<Node>();
+    int target;
 
     TacticalCombatVehicle (VehicleStatsCurrent v, GangMembers i, GangMembers e, boolean isPlayer)
     {
