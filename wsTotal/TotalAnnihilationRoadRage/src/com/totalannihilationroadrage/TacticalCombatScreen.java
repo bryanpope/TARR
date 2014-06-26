@@ -219,6 +219,7 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
+        //test 
 
         /*
             The following is debug code to test Pathfinding.
