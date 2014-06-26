@@ -109,6 +109,8 @@ public class WorldMap extends Screen
     public int numCols = 0;
     public int srcX = 0;
     public int srcY = 0;
+    public int destX = 0;
+    public int destY = 0;
 
     public int AvatarX = 0;
     public int AvatarY = 0;
@@ -241,24 +243,31 @@ public class WorldMap extends Screen
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
-            for (int row = camera_toprow; (row - camera_toprow) < numRows; ++row)
+            for (int index = 0; index < world.layers.get(i).data.size(); index++) //indexes through the tiledmap
             {
-                for (int col = camera_leftcol; (col - camera_leftcol) < numCols; ++col)
+                int t_element = world.layers.get(i).data.get(index) - 1;
+                //srcX = (t_element % tilesheetcol * world.tileWidth);
+                //srcY = (t_element / tilesheetcol * world.tileWidth);
+                destX = world.tileset.tileWidth;
+                destY = world.tileset.tileHeight;
+                if (t_element == 21)
                 {
-                    int t_element = world.layers.get(i).getTile(row,col);
-                    srcX = (t_element % tilesheetcol * world.tileWidth);
-                    srcY = (t_element / tilesheetcol * world.tileWidth);
-                    if (t_element == 21)
-                    {
-                        CityArray.add(new int[] {srcX, srcY});
-                    }
+                    CityArray.add(new int[] {destX, destY});
                 }
+                destX++;
+
+                if (destX >= world.width)
+                {
+                    destX = 0;
+                    destY++;
+                }
+
             }
         }
 
         Rand_pos = rand.nextInt(CityArray.size());
-        AvatarX = CityArray.get(Rand_pos)[0]  + camera_offsetx;
-        AvatarY = CityArray.get(Rand_pos)[1]  + camera_offsety;
+        AvatarX = CityArray.get(Rand_pos)[0];
+        AvatarY = CityArray.get(Rand_pos)[1];
     }
 
     public void update(float deltaTime)
@@ -356,7 +365,7 @@ public class WorldMap extends Screen
         //int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         //int mapsize = (world.width * world.height);
-        int destX, destY;
+
 
         //Node node;
         //Node start = new Node(9, 22, 0, 0, null);
