@@ -41,35 +41,35 @@ public enum Direction
             case NORTH:
                 vectorDirection.x =  0;
                 vectorDirection.y = -1;
-                return vectorDirection;
+                break;
             case NORTHEAST:
                 vectorDirection.x = 1;
                 vectorDirection.y = -1;
-                return vectorDirection;
+                break;
             case EAST:
                 vectorDirection.x = 1;
                 vectorDirection.y = 0;
-                return vectorDirection;
+                break;
             case SOUTHEAST:
                 vectorDirection.x = 1;
                 vectorDirection.y = 1;
-                return vectorDirection;
+                break;
             case SOUTH:
                 vectorDirection.x = 0;
                 vectorDirection.y = 1;
-                return vectorDirection;
+                break;
             case SOUTHWEST:
                 vectorDirection.x = -1;
                 vectorDirection.y = 1;
-                return vectorDirection;
+                break;
             case WEST:
                 vectorDirection.x = -1;
                 vectorDirection.y = 0;
-                return vectorDirection;
+                break;
             case NORTHWEST:
                 vectorDirection.x = -1;
                 vectorDirection.y = -1;
-                return vectorDirection;
+                break;
         }
         return vectorDirection;
     }
