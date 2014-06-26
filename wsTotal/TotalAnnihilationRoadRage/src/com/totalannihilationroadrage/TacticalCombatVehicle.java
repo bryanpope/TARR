@@ -21,6 +21,7 @@ public class TacticalCombatVehicle
     boolean isRight = false;
     boolean isLeft = false;
     boolean isMoved = false;
+    boolean isTransferAllowed = false;
 
     TacticalCombatVehicle (VehicleStatsCurrent v, GangMembers i, GangMembers e, boolean isPlayer)
     {
@@ -109,14 +110,15 @@ public class TacticalCombatVehicle
         accelerate = 0;
         speedCurrent = 30;
         maneuverability = vehicle.statsBase.maneuverability;
-        boolean isAccelerated = true;
-        boolean isBraked = true;
-        boolean isTurnedLeft = true;
-        boolean isTurnedRight = true;
-        boolean isStraight = true;
-        boolean isRight = false;
-        boolean isLeft = false;
-        boolean isMoved = false;
+        isAccelerated = true;
+        isBraked = true;
+        isTurnedLeft = true;
+        isTurnedRight = true;
+        isStraight = true;
+        isRight = false;
+        isLeft = false;
+        isMoved = false;
+        isTransferAllowed = false;
     }
 
     void turnLeft()
