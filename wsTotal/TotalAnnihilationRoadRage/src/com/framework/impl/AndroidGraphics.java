@@ -16,6 +16,7 @@ import android.graphics.Rect;
 
 import com.framework.Graphics;
 import com.framework.Pixmap;
+import com.totalannihilationroadrage.RotationTransformation;
 
 public class AndroidGraphics implements Graphics {
     AssetManager assets;
@@ -122,7 +123,7 @@ public class AndroidGraphics implements Graphics {
         canvas.drawBitmap(((AndroidPixmap)pixmap).bitmap, x, y, null);
     }
 
-    public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight, float angle)
+    public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight, RotationTransformation rotTrans)
     {
         srcRect.left = srcX;
         srcRect.top = srcY;
@@ -135,27 +136,12 @@ public class AndroidGraphics implements Graphics {
         dstRect.bottom = y + srcHeight;
 
         canvas.save(Canvas.MATRIX_SAVE_FLAG);
-        if (angle < 0)
-        {
-            if (angle < -180)
-            {
-                canvas.rotate(angle + 540, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
-            }
-            else
-            {
-                canvas.rotate(angle + 180, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
-            }
-            canvas.scale(-1.0f, 1.0f, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
-        }
-        else
-        {
-            canvas.rotate(angle, x + (int)(srcWidth * 0.5), y + (int)(srcWidth * 0.5));
-        }
+        rotateCanvas(x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5), rotTrans);
         canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, srcRect, dstRect, null);
         canvas.restore();
     }
 
-    public void drawPixmap(Bitmap bitmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight, int centreX, int centreY, float angle)
+    public void drawPixmap(Bitmap bitmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight, int centreX, int centreY, RotationTransformation rotTrans)
     {
         srcRect.left = srcX;
         srcRect.top = srcY;
@@ -168,32 +154,32 @@ public class AndroidGraphics implements Graphics {
         dstRect.bottom = y + srcHeight;
 
         canvas.save(Canvas.MATRIX_SAVE_FLAG);
-        rotateCanvas(centreX, centreY, angle);
+        rotateCanvas(centreX, centreY, rotTrans);
         canvas.drawBitmap(bitmap, srcRect, dstRect, null);
         canvas.restore();
     }
 
-    public void rotateCanvas (int centreX, int centreY, float angle)
+    public void rotateCanvas (int centreX, int centreY, RotationTransformation rotTrans)
     {
-        if (angle < 0)
+        if (rotTrans.isFlippedHorizontally)
         {
-            if (angle < -180)
+            /*if (angle < -180)
             {
                 //canvas.rotate(angle + 540, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
                 canvas.rotate(angle + 540, centreX, centreY);
             }
             else
-            {
+            {*/
                 //canvas.rotate(angle + 180, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
-                canvas.rotate(angle + 180, centreX, centreY);
-            }
+                canvas.rotate(rotTrans.angle - 180, centreX, centreY);
+            //}
             //canvas.scale(-1.0f, 1.0f, x + (int)(srcWidth * 0.5), y + (int)(srcHeight * 0.5));
             canvas.scale(-1.0f, 1.0f, centreX, centreY);
         }
         else
         {
             //canvas.rotate(angle, x + (int)(srcWidth * 0.5), y + (int)(srcWidth * 0.5));
-            canvas.rotate(angle, centreX, centreY);
+            canvas.rotate(rotTrans.angle, centreX, centreY);
         }
     }
 

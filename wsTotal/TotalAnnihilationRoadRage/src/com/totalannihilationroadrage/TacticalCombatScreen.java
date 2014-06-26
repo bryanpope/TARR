@@ -251,7 +251,7 @@ public class TacticalCombatScreen extends Screen
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
             g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : Color.YELLOW);
 			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
-            g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getAngle(vehicles.get(i).facing));
+            g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getRotationTransformation(vehicles.get(i).facing));
 
             //drawUIPhaseMovement(destX, destY);
 		}
@@ -349,7 +349,7 @@ public class TacticalCombatScreen extends Screen
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, 0, tileHeight, srcX, srcY, tileWidth, tileHeight);
         }
 
-        g.drawPixmap(bUI, posX - tileWidth, posY - tileHeight, 0, 0, tileWidth * 4, tileHeight * 3, posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5), Direction.getAngle(facing));
+        g.drawPixmap(bUI, posX - tileWidth, posY - tileHeight, 0, 0, tileWidth * 4, tileHeight * 3, posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5), Direction.getRotationTransformation(facing));
 
         /*g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, 32, 224, tileWidth, tileHeight);            //break
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, 96, 192, tileWidth, tileHeight);            //accelerate
@@ -386,13 +386,14 @@ public class TacticalCombatScreen extends Screen
         //update the moving
         int tileWidth = 128;
         int tileHeight = 128;
+        int eX, eY;
 
         int len = touchEvents.size();
 
         Matrix matrix = new Matrix();
-        //matrix.postRotate(135, posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5));
-        matrix.postRotate(135);
-        float[] vector = new float[3];
+        float angle = -(Direction.getRotationTransformation(facing).angle);
+        matrix.setRotate(angle, posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5));
+        float[] points = new float[2];
         //c.save(Canvas.MATRIX_SAVE_FLAG);
         //g.rotateCanvas(posX + (int)(tileWidth * 0.5), posY + (int)(tileHeight * 0.5), Direction.getAngle(facing));
 
@@ -406,13 +407,14 @@ public class TacticalCombatScreen extends Screen
             }
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
-                vector[0] = event.x;
-                vector[1] = event.y;
-                vector[2] = 1;
-                matrix.mapVectors(vector);
+                points[0] = event.x;
+                points[1] = event.y;
+                matrix.mapPoints(points);
+                eX = (int)points[0];
+                eY = (int)points[1];
                 if(selectedVehicle.isStraight)
                 {
-                    if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
+                    if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
                         //Move straight
                         System.out.println("moved straight");
                         selectedVehicle.isStraight = true;
@@ -423,7 +425,7 @@ public class TacticalCombatScreen extends Screen
                 }
                 if(selectedVehicle.isLeft)
                 {
-                    if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
+                    if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
                         //Move left
                         System.out.println("moved left");
                         selectedVehicle.xPos += 1;
@@ -434,7 +436,7 @@ public class TacticalCombatScreen extends Screen
                 }
                 if(selectedVehicle.isRight)
                 {
-                    if (inBoundaryCheck(event.x, event.y, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
+                    if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
                         //Move right
                         System.out.println("moved right");
                         selectedVehicle.xPos += 1;
@@ -446,7 +448,7 @@ public class TacticalCombatScreen extends Screen
 
                 if(selectedVehicle.allowTurning())
                 {
-                    if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
+                    if (inBoundaryCheck(eX, eY, posX + tileWidth, posY - tileHeight, tileWidth, tileHeight))
                     {
                         //Left turn
                         dir = Direction.turnLeft(dir);
@@ -464,7 +466,7 @@ public class TacticalCombatScreen extends Screen
 
                 if(selectedVehicle.allowTurning())
                 {
-                    if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
+                    if (inBoundaryCheck(eX, eY, posX + tileWidth, posY + tileHeight, tileWidth, tileHeight))
                     {
                         //right turn
                         dir = Direction.turnRight(dir);
@@ -479,7 +481,7 @@ public class TacticalCombatScreen extends Screen
                         break;
                     }
                 }
-                if(inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
+                if(inBoundaryCheck(eX, eY, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //accelerate
                     System.out.println("accelerate");
@@ -489,7 +491,7 @@ public class TacticalCombatScreen extends Screen
                     touchEvents.remove(i);
                     break;
                 }
-                if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
+                if(inBoundaryCheck(eX, eY, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //break
                     System.out.println("break");

@@ -3,6 +3,8 @@ package com.framework;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
+import com.totalannihilationroadrage.RotationTransformation;
+
 public interface Graphics {
     public static enum PixmapFormat {
         ARGB8888, ARGB4444, RGB565
@@ -24,12 +26,12 @@ public interface Graphics {
     public void drawPixmap(Pixmap pixmap, int x, int y);
 
     public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY,
-                           int srcWidth, int srcHeight, float angle);
+                           int srcWidth, int srcHeight, RotationTransformation rotTrans);
 
     public void drawPixmap(Bitmap bitmap, int x, int y, int srcX, int srcY,
-                           int srcWidth, int srcHeight, int centreX, int centreY, float angle);
+                           int srcWidth, int srcHeight, int centreX, int centreY, RotationTransformation rotTrans);
 
-    public void rotateCanvas (int centreX, int centreY, float angle);
+    public void rotateCanvas (int centreX, int centreY, RotationTransformation rotTrans);
 
     public int getWidth();
 
