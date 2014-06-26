@@ -21,7 +21,6 @@ public class TacticalCombatVehicle
     boolean isRight = false;
     boolean isLeft = false;
     boolean isMoved = false;
-    boolean isTransferAllowed = false;
 
     TacticalCombatVehicle (VehicleStatsCurrent v, GangMembers i, GangMembers e, boolean isPlayer)
     {
@@ -118,7 +117,6 @@ public class TacticalCombatVehicle
         isRight = false;
         isLeft = false;
         isMoved = false;
-        isTransferAllowed = false;
     }
 
     void turnLeft()
