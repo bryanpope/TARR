@@ -13,18 +13,13 @@ public class TacticalCombatWorld
     private int roundsEnemy;
     public List< TacticalCombatVehicle > tcvsPlayer;
     public List< TacticalCombatVehicle > tcvsEnemy;
-    public List<List> pathListContainer = new ArrayList<List>();
     public TiledMap tmBattleGround;
-    Node testTarget = new Node(2, 2, 0, 0, null);
 
     private boolean fields[][] = new boolean[40][15];
     private Random random = new Random();
     private Random randomTarget = new Random();
     Pathfinding pathfinding = new Pathfinding();
-    private int pathListCounter = 0;
     private int enemyCounter = 0;
-    int randomEnemyTarget = 0;
-    int j = 0;
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
@@ -88,7 +83,6 @@ public class TacticalCombatWorld
         {
             tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size());
         }
-        //generatePath(tcvsEnemy.get(i).target);
     }
 
     public void generatePath(int target)

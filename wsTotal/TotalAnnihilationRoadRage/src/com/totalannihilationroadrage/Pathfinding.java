@@ -11,7 +11,6 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
-    private boolean open[][] = new boolean[40][15];
 
     public List<Node> IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
     {
@@ -68,7 +67,6 @@ public class Pathfinding
             Collections.sort(openList);
             //Assign currentNode to the last element in the List
             currentNode = openList.remove(openList.size() - 1);
-            //System.out.println("Curr Node Row " +  currentNode.row + ", Curr Node Col " + currentNode.col);
         }
 
         List<Node> path = new ArrayList<Node>();
@@ -266,7 +264,7 @@ public class Pathfinding
         return true;
     }
 
-    public void removeRedundant(Node path, TiledMap tiles)
+    /*public void removeRedundant(Node path, TiledMap tiles)
     {
         Node currNode = path.parentNode;
         //while there is a line of sight  from start to current node, set path parent to node and go to next node
@@ -282,5 +280,5 @@ public class Pathfinding
         {
             removeRedundant(path.parentNode, tiles);
         }
-    }
+    }*/
 }

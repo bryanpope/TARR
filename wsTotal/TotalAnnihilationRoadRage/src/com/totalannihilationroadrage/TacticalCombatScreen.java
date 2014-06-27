@@ -40,8 +40,6 @@ public class TacticalCombatScreen extends Screen
     Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
-    //Pathfinding pathfinding = new Pathfinding();
-    List<Node> pathList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
