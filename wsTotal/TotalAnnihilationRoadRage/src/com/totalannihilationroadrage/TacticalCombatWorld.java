@@ -54,6 +54,14 @@ public class TacticalCombatWorld
         return true;
     }
 
+    public void resetVehicles ()
+    {
+        for (int i = 0; i < tcvsPlayer.size(); ++i)
+        {
+            tcvsPlayer.get(i).resetValues();
+        }
+    }
+
     private void deployVehicles ()
     {
         for (int y = 0; y < 15; ++y)

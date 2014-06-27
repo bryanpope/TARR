@@ -186,11 +186,13 @@ public class TacticalCombatScreen extends Screen
 
     private void switchToAttackPhase ()
     {
+        tcWorld.resetVehicles();
         pState = PhaseStates.Attack;
     }
 
     private void switchToMovePhase ()
     {
+        tcWorld.resetVehicles();
         pState = PhaseStates.Moving;
     }
 

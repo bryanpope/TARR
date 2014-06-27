@@ -135,8 +135,8 @@ public class TacticalCombatVehicle
     {
         brake = 0;
         accelerate = 0;
-        speedCurrent = 30;
-        maneuverability = vehicle.statsBase.maneuverability;
+        //speedCurrent = 30;
+        //maneuverability = vehicle.statsBase.maneuverability;
         isAccelerated = false;
         isBraked = false;
         //isTurnedLeft = true;
@@ -145,6 +145,7 @@ public class TacticalCombatVehicle
         //isRight = false;
         //isLeft = false;
         isMoved = false;
+        isAttacked = false;
         isSpeedChanged = false;
     }
 
