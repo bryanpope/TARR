@@ -69,9 +69,10 @@ public class TacticalCombatScreen extends Screen
     {
         for(int j = 0; j < tcWorld.tcvsEnemy.get(j).vehicle.id; ++j)
         {
-            Node enemyTarget = new Node(tcWorld.tcvsEnemy.get(j).yPos, tcWorld.tcvsEnemy.get(j).xPos, 0, 0, null);
-            Node playerTarget = new Node(selectedVehicle.yPos, selectedVehicle.xPos, 0, 0, null);
-            if (selectedVehicle.isMoved && tcWorld.checkWithinShotRange(playerTarget, enemyTarget, 6))
+            //Node enemyTarget = new Node(tcWorld.tcvsEnemy.get(j).yPos, tcWorld.tcvsEnemy.get(j).xPos, 0, 0, null);
+            //Node playerTarget = new Node(selectedVehicle.yPos, selectedVehicle.xPos, 0, 0, null);
+            //if (selectedVehicle.isMoved && tcWorld.checkWithinShotRange(playerTarget, enemyTarget, 6))
+            if (selectedVehicle.isMoved)
             {
                 return true;
             }
@@ -354,7 +355,7 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isAccelerated)
+        if(selectedVehicle.allowAcceleration())
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight, srcX, srcY, tileWidth, tileHeight);
@@ -362,7 +363,7 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isBraked)
+        if(selectedVehicle.allowBreaking())
         {
             //g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, 0, tileHeight, srcX, srcY, tileWidth, tileHeight);
