@@ -313,6 +313,11 @@ public class WorldMap extends Screen
                 if (!event.wasDragged)
                 {
                     selectedVehicle = isVehicleTouched(event);
+
+                    if (selectedVehicle)
+                    {
+                        drawOverWorldUI(AvatarX,AvatarY);
+                    }
                 }
             }
 
