@@ -40,6 +40,8 @@ public class TacticalCombatScreen extends Screen
     Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
+    //Pathfinding pathfinding = new Pathfinding();
+    List<Node> pathList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -182,10 +184,10 @@ public class TacticalCombatScreen extends Screen
             pState = PhaseStates.Moving;
         }
 
-        for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
+        /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
         {
             tcWorld.generatePath(tcWorld.tcvsEnemy.get(i).target);
-        }
+        }*/
 	}
 
     private void drawTacticalMap()
@@ -222,6 +224,17 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
+
+        /*
+            The following is debug code to test Pathfinding.
+            It will draw red squares from the start node to the end node.
+        */
+        /*while(node != null)
+        {
+            g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
+            //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
+            node = node.parentNode;
+        }*/
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
@@ -341,7 +354,7 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.allowAcceleration())
+        if(selectedVehicle.isAccelerated)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight, srcX, srcY, tileWidth, tileHeight);
@@ -349,7 +362,7 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.allowBreaking())
+        if(selectedVehicle.isBraked)
         {
             //g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, 0, tileHeight, srcX, srcY, tileWidth, tileHeight);
@@ -428,6 +441,11 @@ public class TacticalCombatScreen extends Screen
                         selectedVehicle.move();
                         selectedVehicle.isMoved = true;
                         touchEvents.remove(i);
+                        if(attackPhase())
+                        {
+                            pState = PhaseStates.Attack;
+                            drawUIPhaseFire((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
+                        }
                         break;
                     }
                 }
@@ -493,28 +511,23 @@ public class TacticalCombatScreen extends Screen
                         break;
                     }
                 }
-                if (selectedVehicle.allowAcceleration())
+                if(inBoundaryCheck(eX, eY, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
-                    if (inBoundaryCheck(eX, eY, posX + tileWidth, posY, tileWidth, tileHeight)) {
-                        //accelerate
-                        System.out.println("accelerate");
-                        selectedVehicle.accelerate();
-                        touchEvents.remove(i);
-                        break;
-                    }
+                    //accelerate
+                    System.out.println("accelerate");
+                    selectedVehicle.accelerate();
+                    touchEvents.remove(i);
+                    break;
                 }
-                if (selectedVehicle.allowBreaking())
+                if(inBoundaryCheck(eX, eY, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
-                    if(inBoundaryCheck(eX, eY, posX - tileWidth, posY, tileWidth, tileHeight))
-                    {
-                        //break
-                        System.out.println("break");
-                        //selectedVehicle.isBraked = true;
-                        //selectedVehicle.isAccelerated = false;
-                        selectedVehicle.brake();
-                        touchEvents.remove(i);
-                        break;
-                    }
+                    //break
+                    System.out.println("break");
+                    selectedVehicle.isBraked = true;
+                    selectedVehicle.isAccelerated = false;
+                    selectedVehicle.brake();
+                    touchEvents.remove(i);
+                    break;
                 }
 
             }
@@ -522,7 +535,7 @@ public class TacticalCombatScreen extends Screen
         //c.restore();
     }
 
-    private void drawUIPhaseFire(int posX, int posY)
+    private void drawUIPhaseFire(int posX, int posY, Direction facing)
     {
         Graphics g = game.getGraphics();
         int tileWidth = 128;
