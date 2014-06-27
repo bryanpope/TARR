@@ -32,7 +32,7 @@ public class TacticalCombatWorld
         tcvsEnemy = tcvsE;
         tmBattleGround = tmBG;
         deployVehicles();
-        //chooseTarget();
+        chooseTarget();
 	}
 	
     private void deployVehicles ()
@@ -87,8 +87,8 @@ public class TacticalCombatWorld
         for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
             tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size());
-            generatePath(tcvsEnemy.get(i).target);
         }
+        //generatePath(tcvsEnemy.get(i).target);
     }
 
     public void generatePath(int target)
@@ -99,18 +99,21 @@ public class TacticalCombatWorld
             Node targetNode = new Node(tcvsPlayer.get(target).yPos, tcvsPlayer.get(target).xPos, 0 ,0, null);
             tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
         }
-        moveEnemy();
+        if(tcvsEnemy.get(enemyCounter).thePath != null)
+        {
+            moveEnemy();
+        }
     }
 
     public void moveEnemy()
     {
-        if(enemyCounter < tcvsEnemy.size())
+        if (enemyCounter < tcvsEnemy.size() - 1)
         {
             tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(1).col;
             tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(1).row;
             enemyCounter++;
         }
-        if(enemyCounter == tcvsEnemy.size())
+        if (enemyCounter == tcvsEnemy.size() - 1)
         {
             enemyCounter = 0;
         }

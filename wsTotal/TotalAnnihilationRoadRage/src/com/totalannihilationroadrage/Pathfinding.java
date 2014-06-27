@@ -21,6 +21,10 @@ public class Pathfinding
 
         while (!catchMeIfYouCan(currentNode, goal))
         {
+            if(currentNode == goal)
+            {
+                return null;
+            }
 
             int row = currentNode.row;
             int col = currentNode.col;
