@@ -65,13 +65,16 @@ public class TacticalCombatScreen extends Screen
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
 	}
 
-    public boolean attackPhase(List <TacticalCombatVehicle> player, List<TacticalCombatVehicle> enemy)
+    public boolean attackPhase()
     {
-        Node selectedPlayer = new Node(selectedVehicle.yPos, selectedVehicle.xPos, 0, 0, null);
-
-        if(selectedVehicle.isMoved )
+        for(int j = 0; j < tcWorld.tcvsEnemy.get(j).vehicle.id; ++j)
         {
-            return true;
+            Node enemyTarget = new Node(tcWorld.tcvsEnemy.get(j).yPos, tcWorld.tcvsEnemy.get(j).xPos, 0, 0, null);
+            Node playerTarget = new Node(selectedVehicle.yPos, selectedVehicle.xPos, 0, 0, null);
+            if (selectedVehicle.isMoved && tcWorld.checkWithinShotRange(playerTarget, enemyTarget, 6))
+            {
+                return true;
+            }
         }
         return false;
     }
@@ -436,6 +439,7 @@ public class TacticalCombatScreen extends Screen
                         //selectedVehicle.isStraight = true;
                         //selectedVehicle.xPos += 1;
                         selectedVehicle.move();
+                        selectedVehicle.isMoved = true;
                         touchEvents.remove(i);
                         break;
                     }
