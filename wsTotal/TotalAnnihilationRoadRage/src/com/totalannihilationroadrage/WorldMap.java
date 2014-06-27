@@ -115,7 +115,7 @@ public class WorldMap extends Screen
     public int AvatarX = 0;
     public int AvatarY = 0;
     public int Rand_pos = 0;
-    private WorldMapVehicle selectedVehicle = null;
+    private boolean selectedVehicle = false;
 
     private void AutoLoot()
     {
@@ -424,19 +424,18 @@ public class WorldMap extends Screen
     }
 
 
-    public WorldMapVehicle isVehicleTouched(Input.TouchEvent event)
+    public boolean isVehicleTouched(Input.TouchEvent event)
     {
         //int tileWidth = 128;
         //int tileHeight = 128;
         int x, y;
 
         if(inBoundaryCheck(event.x, event.y, AvatarX, AvatarY, world.tileWidth, world.tileHeight))
-
         {
-            //return tcWorld.tcvsPlayer.get(j);
+            return true;
         }
 
-        return null;
+        return false;
     }
 
     @Override
