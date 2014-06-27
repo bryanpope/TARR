@@ -99,6 +99,10 @@ public class TacticalCombatScreen extends Screen
                 updateFire(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
             }
         }
+        if(pState == PhaseStates.Attack)
+        {
+            updateSkip(touchEvents);
+        }
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
         {
@@ -217,7 +221,10 @@ public class TacticalCombatScreen extends Screen
                 drawUIPhaseFire((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
             }
         }
-
+        if(pState == PhaseStates.Attack)
+        {
+            drawSkip();
+        }
         /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
         {
             tcWorld.generatePath(tcWorld.tcvsEnemy.get(i).target);
@@ -589,6 +596,11 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //attack right
 
+        index += 9;
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, srcX, srcY, tileWidth, tileHeight);            //skip
+
         /*
         g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 32, 160, tileWidth, tileHeight);    //up arrow
         g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 64, 160, tileWidth, tileHeight);    //right arrow
@@ -637,6 +649,51 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
+    }
+
+    private void drawSkip()
+    {
+        Graphics g = game.getGraphics();
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int index = 32;
+        int numColumns = 4;
+        int srcX, srcY;
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, srcX, srcY, tileWidth, tileHeight);            //skip
+    }
+
+    private  void updateSkip(List<Input.TouchEvent> touchEvents)
+    {
+        //update the skip
+        Graphics g = game.getGraphics();
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
+                {
+                    System.out.println("skip");
+                    touchEvents.remove(i);
+                    switchToMovePhase();
+                    break;
+                }
+            }
+        }
+
     }
 
     private void drawUIPhaseCrewTransfer(int posX, int posY)
