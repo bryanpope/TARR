@@ -137,4 +137,107 @@ public class TacticalCombatWorld
     {
         return Math.sqrt((goal.row - start.row) * (goal.row - start.row) + (goal.col - start.col) * (goal.col - start.col));
     }
+
+    /**
+     * Returns a pseudo-random number between min and max, inclusive.
+     * The difference between min and max can be at most
+     * <code>Integer.MAX_VALUE - 1</code>.
+     *
+     * @param min Minimum value
+     * @param max Maximum value.  Must be greater than min.
+     * @return Integer between min and max, inclusive.
+     * @see java.util.Random#nextInt(int)
+     */
+    public static int randInt(int min, int max)
+    {
+
+        // Usually this should be a field rather than a method variable so
+        // that it is not re-seeded every call.
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        return randomNum;
+    }
+
+    private void calculateDeaths (int numAttackers, int attackBonus, GangMembers killedGangMembers)
+    {
+        int shotAt, attackRoll;
+
+        for (int i = 0; i < numAttackers; ++i)
+        {
+            attackRoll = randInt (1, 20);
+            shotAt = randInt (0, 4);
+            switch (shotAt)
+            {
+                case 0:
+                    if ((attackRoll + attackBonus) > (10 + 4))
+                    {
+                        killedGangMembers.armsmasters++;
+                    }
+                    break;
+                case 1:
+                    if ((attackRoll + attackBonus) > (10 + 3))
+                    {
+                        killedGangMembers.bodyguards++;
+                    }
+                    break;
+                case 2:
+                    if ((attackRoll + attackBonus) > (10 + 2))
+                    {
+                        killedGangMembers.commandos++;
+                    }
+                    break;
+                case 3:
+                    if ((attackRoll + attackBonus) > (10 + 1))
+                    {
+                        killedGangMembers.dragoons++;
+                    }
+                    break;
+                case 4:
+                    if ((attackRoll + attackBonus) > (10 + 0))
+                    {
+                        killedGangMembers.escorts++;
+                    }
+                    break;
+            }
+        }
+    }
+
+    private CombinedGangMembers shootRound(GangMembers gmAttacking, GangMembers gmDefending, int distance, boolean isCrossbows)
+    {
+        CombinedGangMembers gangs = new CombinedGangMembers();
+        int rangePenalty = 0;
+
+        if (isCrossbows)
+        {
+            if (distance < 6)
+            {
+                rangePenalty = (distance - 1) * -2;
+            }
+        }
+        else
+        {
+            rangePenalty = -(distance - 1);
+        }
+
+        if (!isCrossbows || (isCrossbows && (distance < 6)))
+        {
+            calculateDeaths (gmAttacking.armsmasters, 2 + rangePenalty, gangs.defender);
+            calculateDeaths (gmAttacking.bodyguards, 1 + rangePenalty, gangs.defender);
+            calculateDeaths (gmAttacking.commandos, 0 + rangePenalty, gangs.defender);
+            calculateDeaths (gmAttacking.dragoons, -1 + rangePenalty, gangs.defender);
+            calculateDeaths (gmAttacking.escorts, -2 + rangePenalty, gangs.defender);
+
+            calculateDeaths (gmDefending.armsmasters, 2 + rangePenalty, gangs.attacker);
+            calculateDeaths (gmDefending.bodyguards, 1 + rangePenalty, gangs.attacker);
+            calculateDeaths (gmDefending.commandos, 0 + rangePenalty, gangs.attacker);
+            calculateDeaths (gmDefending.dragoons, -1 + rangePenalty, gangs.attacker);
+            calculateDeaths (gmDefending.escorts, -2 + rangePenalty, gangs.attacker);
+        }
+
+        return gangs;
+    }
 }
