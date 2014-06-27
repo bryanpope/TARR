@@ -199,6 +199,7 @@ public class TacticalCombatScreen extends Screen
             tcWorld.generatePath();
         }
         tcWorld.resetVehicles();
+        tcWorld.findEnemiesInRange();
         pState = PhaseStates.Attack;
     }
 
@@ -238,6 +239,10 @@ public class TacticalCombatScreen extends Screen
         {
             drawSkip();
         }
+        /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
+        {
+            tcWorld.generatePath(tcWorld.tcvsEnemy.get(i).target);
+        }*/
 	}
 
     private void drawTacticalMap()
@@ -307,6 +312,7 @@ public class TacticalCombatScreen extends Screen
 		int tileSheetCol = tMap.image.width / tMap.tileset.tileWidth;
 		int destX, destY;
 		int srcX, srcY;
+        int tileColour = Color.BLACK;
 
 		for (int i = 0; i < vehicles.size(); ++i)
 		{
@@ -315,7 +321,49 @@ public class TacticalCombatScreen extends Screen
 			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
-            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : vehicles.get(i).isMoved ?  Color.rgb(255,250,130) : Color.YELLOW);
+            if (isEnemy)
+            {
+                tileColour = Color.RED;
+                /*if (pState == PhaseStates.Attack)
+                {
+                    if (vehicles.get(i).enemiesInRange.size() == 0)
+                    {
+                        tileColour = Color.rgb(237,100,109);
+                    }
+                    else
+                    {
+                        tileColour = Color.YELLOW;
+                    }
+                }*/
+            }
+            else
+            {
+                if (pState == PhaseStates.Moving)
+                {
+                    if (vehicles.get(i).isMoved)
+                    {
+                        tileColour = Color.rgb(255,250,130);
+                    }
+                    else
+                    {
+                        tileColour = Color.YELLOW;
+                    }
+                }
+                if (pState == PhaseStates.Attack)
+                {
+                    int test = vehicles.get(i).enemiesInRange.size();
+                    if (vehicles.get(i).enemiesInRange.size() == 0)
+                    {
+                        tileColour = Color.rgb(255,250,130);
+                    }
+                    else
+                    {
+                        tileColour = Color.YELLOW;
+                    }
+                }
+            }
+            g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, tileColour);
+            //g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : vehicles.get(i).isMoved ?  Color.rgb(255,250,130) : Color.YELLOW);
 			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
             g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Direction.getRotationTransformation(vehicles.get(i).facing));
 

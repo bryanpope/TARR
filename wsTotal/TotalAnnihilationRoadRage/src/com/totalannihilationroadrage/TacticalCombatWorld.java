@@ -66,6 +66,14 @@ public class TacticalCombatWorld
         return true;
     }
 
+    public void findEnemiesInRange ()
+    {
+        for (int i = 0; i < tcvsPlayer.size(); ++i)
+        {
+            tcvsPlayer.get(i).getEnemiesInRange(tcvsEnemy);
+        }
+    }
+
     public void resetVehicles ()
     {
         for (int i = 0; i < tcvsPlayer.size(); ++i)
@@ -251,7 +259,7 @@ public class TacticalCombatWorld
         }
     }
 
-    private CombinedGangMembers shootRound(GangMembers gmAttacking, GangMembers gmDefending, int distance, boolean isCrossbows)
+    public CombinedGangMembers shootRound(GangMembers gmAttacking, GangMembers gmDefending, int distance, boolean isCrossbows)
     {
         CombinedGangMembers gangs = new CombinedGangMembers();
         int rangePenalty = 0;

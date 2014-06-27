@@ -29,6 +29,7 @@ public class TacticalCombatVehicle
     boolean isAttacked = false;
     List<Node> thePath = new ArrayList<Node>();
     int target;
+    public List< TacticalCombatVehicle > enemiesInRange;
 
     TacticalCombatVehicle (VehicleStatsCurrent v, GangMembers i, GangMembers e, boolean isPlayer)
     {
@@ -40,6 +41,7 @@ public class TacticalCombatVehicle
         accelerate = 0;
         facing = isPlayer ? Direction.EAST : Direction.WEST;
         maneuverability = v.statsBase.maneuverability;
+        enemiesInRange = new ArrayList<TacticalCombatVehicle>();
     }
 
     void accelerate()
@@ -79,6 +81,31 @@ public class TacticalCombatVehicle
     boolean allowMoving ()
     {
         return !isMoved;
+    }
+
+    private double getDistanceFromGoal(Vector start, Vector goal)
+    {
+        return Math.sqrt((goal.y - start.y) * (goal.y - start.y) + (goal.x - start.x) * (goal.x - start.x));
+    }
+
+    public void getEnemiesInRange (List< TacticalCombatVehicle > enemies)
+    {
+        enemiesInRange.clear();
+        Vector start = new Vector();
+        Vector goal = new Vector();
+        start.x = xPos;
+        start.y = yPos;
+        double distance;
+        for (int i = 0; i < enemies.size(); ++i)
+        {
+            goal.x = enemies.get(i).xPos;
+            goal.y = enemies.get(i).yPos;
+            distance = getDistanceFromGoal(start, goal);
+            if (getDistanceFromGoal(start, goal) <= 10)
+            {
+                enemiesInRange.add(enemies.get(i));
+            }
+        }
     }
 
     void brake()
