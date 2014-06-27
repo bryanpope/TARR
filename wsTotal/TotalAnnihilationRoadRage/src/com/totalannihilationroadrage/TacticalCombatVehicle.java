@@ -26,6 +26,7 @@ public class TacticalCombatVehicle
     //boolean isRight = false;
     //boolean isLeft = false;
     boolean isMoved = false;
+    boolean isAttacked = false;
     List<Node> thePath = new ArrayList<Node>();
     int target;
 

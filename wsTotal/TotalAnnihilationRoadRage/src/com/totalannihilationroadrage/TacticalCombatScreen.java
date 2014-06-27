@@ -36,7 +36,7 @@ public class TacticalCombatScreen extends Screen
     }
 
 	GameState state = GameState.Running;
-    PhaseStates pState = PhaseStates.notActive;
+    PhaseStates pState = PhaseStates.Moving;
     Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
@@ -167,6 +167,10 @@ public class TacticalCombatScreen extends Screen
             previousTouchX = x;
             previousTouchY = y;
         }
+        if (tcWorld.allPlayerVehiclesMoved())
+        {
+            pState = PhaseStates.Attack;
+        }
 	}
 
 	@Override
@@ -181,8 +185,14 @@ public class TacticalCombatScreen extends Screen
 
         if (selectedVehicle != null)
         {
-            drawUIPhaseMovement((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
-            pState = PhaseStates.Moving;
+            if (pState == PhaseStates.Moving)
+            {
+                drawUIPhaseMovement((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
+            }
+            else if (pState == PhaseStates.Attack)
+            {
+                drawUIPhaseFire((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
+            }
         }
 
         /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
@@ -442,11 +452,6 @@ public class TacticalCombatScreen extends Screen
                         selectedVehicle.move();
                         selectedVehicle.isMoved = true;
                         touchEvents.remove(i);
-                        if(attackPhase())
-                        {
-                            pState = PhaseStates.Attack;
-                            drawUIPhaseFire((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
-                        }
                         break;
                     }
                 }
