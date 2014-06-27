@@ -206,23 +206,25 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        int tileWidth = 128;
-        int tileHeight = 128;
+        int relativeX = posX - cameraX;
+        int relativeY = posY - cameraY;
+        int tileWidth = 64;
+        int tileHeight = 64;
         int index = 0;
         int numColumns = 3;
         int srcX, srcY;
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.overWorldUI, posX, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);            //Loot
+        g.drawPixmap(Assets.overWorldUI, relativeX, relativeY - tileHeight, srcX, srcY, tileWidth, tileHeight);            //Loot
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.overWorldUI, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);           //People
+        g.drawPixmap(Assets.overWorldUI, relativeX + tileWidth, relativeY, srcX, srcY, tileWidth, tileHeight);           //People
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.overWorldUI, posX, posY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
+        g.drawPixmap(Assets.overWorldUI, relativeX, relativeY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
     }
 
     public WorldMap(Game game, TiledMap TiledMap)
@@ -313,11 +315,6 @@ public class WorldMap extends Screen
                 if (!event.wasDragged)
                 {
                     selectedVehicle = isVehicleTouched(event);
-
-                    if (selectedVehicle)
-                    {
-                        drawOverWorldUI(AvatarX,AvatarY);
-                    }
                 }
             }
 
@@ -364,7 +361,10 @@ public class WorldMap extends Screen
 
             mLastTouchx = x;
             mLastTouchy = y;
+
+
         }
+
     }
 
     @Override
@@ -376,6 +376,11 @@ public class WorldMap extends Screen
         g.clear(0);
         drawWorld(Assets.tmOverWorld);
         drawAvatar();
+
+        if(selectedVehicle)
+        {
+            drawOverWorldUI(AvatarX,AvatarY);
+        }
     }
 
     private void drawWorld(TiledMap world)
@@ -385,13 +390,6 @@ public class WorldMap extends Screen
         //int tilesheetsize = ((world.image.width/world.tileset.tileWidth) * (world.image.height/world.tileset.tileHeight));
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         //int mapsize = (world.width * world.height);
-
-
-        //Node node;
-        //Node start = new Node(9, 22, 0, 0, null);
-        //Node end = new Node(16, 29, 0, 0, null);
-        //pathfinding = new Pathfinding();
-        //node = pathfinding.IAmAPathAndILikeCheese(world, start, end);
 
         for (int i = 0; i < world.layers.size(); i++)  //picks the layer
         {
@@ -409,16 +407,6 @@ public class WorldMap extends Screen
                 }
             }
         }
-        /*
-            The following is debug code to test Pathfinding.
-            It will draw red squares from the start node to the end node.
-        */
-        /*while(node != null)
-        {
-            g.drawRect(node.col * world.tileset.tileWidth, node.row * world.tileset.tileHeight, world.tileset.tileWidth, world.tileset.tileHeight, Color.RED);
-            //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
-            node = node.parentNode;
-        }*/
     }
 
     private void drawAvatar()
@@ -435,7 +423,7 @@ public class WorldMap extends Screen
         //int tileHeight = 128;
         int x, y;
 
-        if(inBoundaryCheck(event.x, event.y, AvatarX, AvatarY, world.tileWidth, world.tileHeight))
+        if(inBoundaryCheck(event.x, event.y, AvatarX - cameraX, AvatarY - cameraY, world.tileWidth, world.tileHeight))
         {
             return true;
         }
