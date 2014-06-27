@@ -42,6 +42,18 @@ public class TacticalCombatWorld
         return true;
     }
 
+    public boolean allPlayerVehiclesAttacked ()
+    {
+        for (int i = 0; i < tcvsPlayer.size(); ++i)
+        {
+            if (!tcvsPlayer.get(i).isAttacked)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private void deployVehicles ()
     {
         for (int y = 0; y < 15; ++y)

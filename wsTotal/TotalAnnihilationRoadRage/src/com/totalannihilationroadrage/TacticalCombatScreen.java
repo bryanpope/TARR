@@ -176,11 +176,25 @@ public class TacticalCombatScreen extends Screen
         }
         if (tcWorld.allPlayerVehiclesMoved())
         {
-            pState = PhaseStates.Attack;
+            switchToAttackPhase();
+        }
+        if (tcWorld.allPlayerVehiclesAttacked())
+        {
+            switchToMovePhase();
         }
 	}
 
-	@Override
+    private void switchToAttackPhase ()
+    {
+        pState = PhaseStates.Attack;
+    }
+
+    private void switchToMovePhase ()
+    {
+        pState = PhaseStates.Moving;
+    }
+
+    @Override
 	public void present(float deltaTime)
 	{
 		Graphics g = game.getGraphics();
