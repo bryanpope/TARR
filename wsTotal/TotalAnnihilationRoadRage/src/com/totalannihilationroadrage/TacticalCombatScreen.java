@@ -194,10 +194,10 @@ public class TacticalCombatScreen extends Screen
 
     private void switchToAttackPhase ()
     {
-        while(tcWorld.enemyMoved != 10)
+        /*while(tcWorld.enemyMoved != 10)
         {
             tcWorld.generatePath();
-        }
+        }*/
         tcWorld.resetVehicles();
         tcWorld.findEnemiesInRange();
         pState = PhaseStates.Attack;
