@@ -58,9 +58,9 @@ public class MainMenuScreen extends Screen {
         for (int i = 0; i < 10; ++i)
         {
             tcvPlayer.add(setupVehicle(true));
-            tcvPlayer.get(i).facing = Direction.SOUTHWEST;
-            tcvEnemy.add(setupVehicle(true));
-            tcvEnemy.get(i).facing = Direction.NORTHEAST;
+            //tcvPlayer.get(i).facing = Direction.SOUTHWEST;
+            tcvEnemy.add(setupVehicle(false));
+            //tcvEnemy.get(i).facing = Direction.NORTHEAST;
         }
 
         tcWorld = new TacticalCombatWorld(Assets.tmHighway, tcvPlayer, tcvEnemy);
@@ -83,7 +83,7 @@ public class MainMenuScreen extends Screen {
         aGangI.dragoons = random.nextInt(10) + 1;
         aGangI.escorts = random.nextInt(10) + 1;
         VehicleStatsCurrent aVehicle = new VehicleStatsCurrent(Assets.vehicleStats.vehicles.get(random.nextInt(19)));
-        TacticalCombatVehicle aTacticalVehicle = new TacticalCombatVehicle(aVehicle, aGangE, aGangI, true);
+        TacticalCombatVehicle aTacticalVehicle = new TacticalCombatVehicle(aVehicle, aGangE, aGangI, isPlayer);
 
         return aTacticalVehicle;
     }

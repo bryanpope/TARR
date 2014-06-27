@@ -341,7 +341,7 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isAccelerated)
+        if(selectedVehicle.allowAcceleration())
         {
             //g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //accelerate
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, tileWidth * 2, tileHeight, srcX, srcY, tileWidth, tileHeight);
@@ -349,7 +349,7 @@ public class TacticalCombatScreen extends Screen
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        if(selectedVehicle.isBraked)
+        if(selectedVehicle.allowBreaking())
         {
             //g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //break
             drawBmap(cUI, ((AndroidPixmap)Assets.roadTileSheet).bitmap, 0, tileHeight, srcX, srcY, tileWidth, tileHeight);
@@ -493,23 +493,28 @@ public class TacticalCombatScreen extends Screen
                         break;
                     }
                 }
-                if(inBoundaryCheck(eX, eY, posX + tileWidth, posY, tileWidth, tileHeight))
+                if (selectedVehicle.allowAcceleration())
                 {
-                    //accelerate
-                    System.out.println("accelerate");
-                    selectedVehicle.accelerate();
-                    touchEvents.remove(i);
-                    break;
+                    if (inBoundaryCheck(eX, eY, posX + tileWidth, posY, tileWidth, tileHeight)) {
+                        //accelerate
+                        System.out.println("accelerate");
+                        selectedVehicle.accelerate();
+                        touchEvents.remove(i);
+                        break;
+                    }
                 }
-                if(inBoundaryCheck(eX, eY, posX - tileWidth, posY, tileWidth, tileHeight))
+                if (selectedVehicle.allowBreaking())
                 {
-                    //break
-                    System.out.println("break");
-                    selectedVehicle.isBraked = true;
-                    selectedVehicle.isAccelerated = false;
-                    selectedVehicle.brake();
-                    touchEvents.remove(i);
-                    break;
+                    if(inBoundaryCheck(eX, eY, posX - tileWidth, posY, tileWidth, tileHeight))
+                    {
+                        //break
+                        System.out.println("break");
+                        //selectedVehicle.isBraked = true;
+                        //selectedVehicle.isAccelerated = false;
+                        selectedVehicle.brake();
+                        touchEvents.remove(i);
+                        break;
+                    }
                 }
 
             }

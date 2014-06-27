@@ -35,6 +35,8 @@ public class TacticalCombatVehicle
         interior = new GangMembers(i);
         exterior = new GangMembers(e);
         speedCurrent = 30;
+        brake = 0;
+        accelerate = 0;
         facing = isPlayer ? Direction.EAST : Direction.WEST;
         maneuverability = v.statsBase.maneuverability;
     }
@@ -45,13 +47,13 @@ public class TacticalCombatVehicle
         {
             speedCurrent += 10;
             accelerate++;
-            isAccelerated = true;
+            isSpeedChanged = true;
         }
     }
 
     boolean allowAcceleration()
     {
-        if(!isBraked && accelerate < 1)
+        if(!isSpeedChanged && accelerate < 1)
         {
             return true;
         }
@@ -63,7 +65,7 @@ public class TacticalCombatVehicle
 
     boolean allowBreaking()
     {
-        if(!isAccelerated && brake < 1)
+        if(!isSpeedChanged && brake < 1)
         {
             return true;
         }
@@ -84,7 +86,7 @@ public class TacticalCombatVehicle
         {
             speedCurrent -= 10;
             brake++;
-            isBraked = true;
+            isSpeedChanged = true;
         }
 
     }
@@ -97,11 +99,12 @@ public class TacticalCombatVehicle
         isMoved = true;
         isAccelerated = true;
         isBraked = true;
+        isSpeedChanged = true;
     }
 
     boolean allowTurning()
     {
-        if(maneuverability > turningCounter)
+        if(!isMoved && (maneuverability > turningCounter))
         {
             return true;
         }
@@ -141,6 +144,7 @@ public class TacticalCombatVehicle
         //isRight = false;
         //isLeft = false;
         isMoved = false;
+        isSpeedChanged = false;
     }
 
     void turnLeft()
