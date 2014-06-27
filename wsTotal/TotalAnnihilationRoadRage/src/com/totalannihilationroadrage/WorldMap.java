@@ -271,6 +271,19 @@ public class WorldMap extends Screen
         AvatarY = CityArray.get(Rand_pos)[1];
     }
 
+    public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
+    {
+        //logic
+        if((touchXPos >= boxX) && (touchXPos <= boxX + boxWidth) &&
+                (touchYPos >= boxY) && (touchYPos <= boxY + boxHeight))
+        {
+            return true;
+        }
+        else
+            return false;
+
+    }
+
 
     public void update(float deltaTime)
     {
@@ -299,7 +312,7 @@ public class WorldMap extends Screen
             {
                 if (!event.wasDragged)
                 {
-                    //selectedVehicle = isVehicleTouched(event);
+                    selectedVehicle = isVehicleTouched(event);
                 }
             }
 
@@ -410,25 +423,22 @@ public class WorldMap extends Screen
         g.drawPixmap(world.image.pmImage, AvatarX - cameraX, AvatarY - cameraY, 1, 1, world.tileWidth, world.tileHeight);
     }
 
-    /*
+
     public WorldMapVehicle isVehicleTouched(Input.TouchEvent event)
     {
         //int tileWidth = 128;
         //int tileHeight = 128;
         int x, y;
 
-        for(int j = 0; j < world.layers.size(); ++j)
+        if(inBoundaryCheck(event.x, event.y, AvatarX, AvatarY, world.tileWidth, world.tileHeight))
+
         {
-            x = (world.data.get(j).xPos * tcWorld.tmBattleGround.tileWidth) - cameraX;
-            y = (tcWorld.tcvsPlayer.get(j).yPos * tcWorld.tmBattleGround.tileHeight) - cameraY;
-            if(inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight))
-            {
-                return tcWorld.tcvsPlayer.get(j);
-            }
+            //return tcWorld.tcvsPlayer.get(j);
         }
+
         return null;
     }
-*/
+
     @Override
     public void pause()
     {
