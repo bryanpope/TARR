@@ -20,6 +20,7 @@ public class TacticalCombatWorld
     private Random randomTarget = new Random();
     Pathfinding pathfinding = new Pathfinding();
     private int enemyCounter = 0;
+    public int enemyMoved = 0;
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
@@ -113,35 +114,42 @@ public class TacticalCombatWorld
     {
         for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
-            tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size());
+            tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size() - 1);
         }
     }
 
-    public void generatePath(int target)
+    public void generatePath()
     {
-        for(int i = 0; i < tcvsEnemy.size(); ++i)
+        for (int i = 0; i < tcvsEnemy.size() - 1; ++i)
         {
-            Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0 ,0, null);
-            Node targetNode = new Node(tcvsPlayer.get(target).yPos, tcvsPlayer.get(target).xPos, 0 ,0, null);
+            Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
+            Node targetNode = new Node(tcvsPlayer.get(tcvsEnemy.get(i).target).yPos, tcvsPlayer.get(tcvsEnemy.get(i).target).xPos, 0, 0, null);
             tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
         }
+
         if(tcvsEnemy.get(enemyCounter).thePath != null)
         {
             moveEnemy();
+            enemyMoved++;
+        }
+        else
+        {
+            enemyCounter++;
         }
     }
 
     public void moveEnemy()
     {
-        if (enemyCounter < tcvsEnemy.size() - 1)
+        if(tcvsEnemy.get(enemyCounter).thePath == null)
         {
-            tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(1).col;
-            tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(1).row;
-            enemyCounter++;
+            return;
         }
-        if (enemyCounter == tcvsEnemy.size() - 1)
+
+        if(enemyCounter < tcvsEnemy.size() - 1)
         {
-            enemyCounter = 0;
+            tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(0).col;
+            tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(0).row;
+            enemyCounter++;
         }
     }
 

@@ -75,7 +75,6 @@ public class Pathfinding
             path.add(currentNode);
             currentNode = currentNode.parentNode;
         }
-        path.add(start);
         Collections.reverse(path);
         return path;
     }

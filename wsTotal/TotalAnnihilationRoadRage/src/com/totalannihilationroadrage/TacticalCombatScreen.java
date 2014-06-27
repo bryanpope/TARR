@@ -69,10 +69,10 @@ public class TacticalCombatScreen extends Screen
     {
         for(int j = 0; j < tcWorld.tcvsEnemy.get(j).vehicle.id; ++j)
         {
-            //Node enemyTarget = new Node(tcWorld.tcvsEnemy.get(j).yPos, tcWorld.tcvsEnemy.get(j).xPos, 0, 0, null);
-            //Node playerTarget = new Node(selectedVehicle.yPos, selectedVehicle.xPos, 0, 0, null);
+            Node enemyTarget = new Node(tcWorld.tcvsEnemy.get(j).yPos, tcWorld.tcvsEnemy.get(j).xPos, 0, 0, null);
+            Node playerTarget = new Node(selectedVehicle.yPos, selectedVehicle.xPos, 0, 0, null);
             //if (selectedVehicle.isMoved && tcWorld.checkWithinShotRange(playerTarget, enemyTarget, 6))
-            if (selectedVehicle.isMoved)
+            if (selectedVehicle.isMoved && tcWorld.checkWithinShotRange(playerTarget, enemyTarget, 6))
             {
                 return true;
             }
@@ -190,12 +190,17 @@ public class TacticalCombatScreen extends Screen
 
     private void switchToAttackPhase ()
     {
+        while(tcWorld.enemyMoved != 10)
+        {
+            tcWorld.generatePath();
+        }
         tcWorld.resetVehicles();
         pState = PhaseStates.Attack;
     }
 
     private void switchToMovePhase ()
     {
+        tcWorld.enemyMoved = 0;
         tcWorld.resetVehicles();
         pState = PhaseStates.Moving;
     }
@@ -225,10 +230,6 @@ public class TacticalCombatScreen extends Screen
         {
             drawSkip();
         }
-        /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
-        {
-            tcWorld.generatePath(tcWorld.tcvsEnemy.get(i).target);
-        }*/
 	}
 
     private void drawTacticalMap()
