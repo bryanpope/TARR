@@ -88,9 +88,16 @@ public class TacticalCombatScreen extends Screen
         int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
         int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
         float x, y;
-        if((selectedVehicle != null) && (pState == PhaseStates.Moving))
+        if(selectedVehicle != null)
         {
-            updateMove(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
+            if(pState == PhaseStates.Moving)
+            {
+                updateMove(touchEvents, (selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
+            }
+            if (pState == PhaseStates.Attack)
+            {
+                updateFire(touchEvents,(selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
+            }
         }
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
@@ -574,7 +581,7 @@ public class TacticalCombatScreen extends Screen
         */
     }
 
-    private void updateFire(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    private void updateFire(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing)
     {
         //update the fire attack
         int tileWidth = 128;
