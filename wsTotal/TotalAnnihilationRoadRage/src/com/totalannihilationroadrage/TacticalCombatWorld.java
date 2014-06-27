@@ -30,7 +30,18 @@ public class TacticalCombatWorld
         deployVehicles();
         chooseTarget();
 	}
-	
+
+    public void moveAllVehicles()
+    {
+        for(int i = 0; i < tcvsPlayer.size(); ++i)
+        {
+            if (!tcvsPlayer.get(i).isMoved)
+            {
+                tcvsPlayer.get(i).move();
+            }
+        }
+    }
+
     public boolean allPlayerVehiclesMoved ()
     {
         for (int i = 0; i < tcvsPlayer.size(); ++i)
