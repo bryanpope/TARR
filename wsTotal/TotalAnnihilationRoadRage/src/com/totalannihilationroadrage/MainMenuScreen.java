@@ -29,13 +29,11 @@ public class MainMenuScreen extends Screen {
                         //Assets.click.play(1);
                     return;
                 }
-                /*
+
                 if(inBounds(event, 861, 466 + 68, 393, 92) ) {
-                    //game.setScreen(new HighscoreScreen(game));
-                    //if(Settings.soundEnabled)
-                       // Assets.click.play(1);
-                   // return;
-                }*/
+                    game.setScreen(new HowToScreen(game));
+                   return;
+                }
                 if(inBounds(event, 861, 466 + 136, 393, 200) )
                 {
                     //game.setScreen(new HelpScreen(game));

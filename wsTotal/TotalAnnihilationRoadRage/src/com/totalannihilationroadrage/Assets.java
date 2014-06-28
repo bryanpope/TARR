@@ -11,6 +11,8 @@ public class Assets
     public static Pixmap pause;
     public static Pixmap gameOver;
     public static Pixmap gameOvermenu;
+    public static Pixmap nextpage;
+    public static Pixmap howToScreen;
 
     public static OverworldTiledMap tmOverWorld;
     public static Pixmap pmOverWorld;
