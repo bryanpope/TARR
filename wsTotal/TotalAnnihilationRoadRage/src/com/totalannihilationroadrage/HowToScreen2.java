@@ -8,12 +8,10 @@ import com.framework.Screen;
 import java.util.List;
 
 /**
- * Created by Brandon on 2014-06-26.
+ * Created by Brandon on 2014-06-27.
  */
-
-public class GameOverScreen extends Screen
-{
-    public GameOverScreen(Game game) {
+public class HowToScreen2 extends Screen {
+    public HowToScreen2(Game game) {
         super(game);
     }
 
@@ -23,16 +21,17 @@ public class GameOverScreen extends Screen
         game.getInput().getKeyEvents();
 
         int len = touchEvents.size();
-        for (int i = 0; i < len; i++) {
+        for(int i = 0; i < len; i++) {
             Input.TouchEvent event = touchEvents.get(i);
-            if (event.type == Input.TouchEvent.TOUCH_UP) {
-                if (inBounds(event, 77, 982, 200, 200)) {
-                    game.setScreen(new MainMenuScreen(game));
+            if(event.type == Input.TouchEvent.TOUCH_UP) {
+                if(inBounds(event, 77, 982, 200, 200) ) {
+                    game.setScreen(new HowToScreen(game));
                     return;
                 }
             }
         }
     }
+
     private boolean inBounds(Input.TouchEvent event, int x, int y, int width, int height) {
         if(event.x > x && event.x < x + width - 1 &&
                 event.y > y && event.y < y + height - 1)
@@ -43,7 +42,8 @@ public class GameOverScreen extends Screen
 
     public void present(float deltaTime) {
         Graphics g = game.getGraphics();
-        g.drawPixmap(Assets.gameOver, 0, 0);
+
+        g.drawPixmap(Assets.howToScreen2, 0, 0);
         g.drawPixmap(Assets.previouspage, 77, 982);
 
     }
@@ -60,3 +60,5 @@ public class GameOverScreen extends Screen
 
     }
 }
+
+

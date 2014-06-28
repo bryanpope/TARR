@@ -27,8 +27,12 @@ public class HowToScreen extends Screen {
         for(int i = 0; i < len; i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
-                if(inBounds(event, 77, 982, 127, 71) ) {
+                if(inBounds(event, 77, 982, 200, 200) ) {
                     game.setScreen(new MainMenuScreen(game));
+                    return;
+                }
+                if(inBounds(event, 1843, 982, 200, 200) ) {
+                    game.setScreen(new HowToScreen2(game));
                     return;
                 }
             }
@@ -46,8 +50,10 @@ public class HowToScreen extends Screen {
     @Override
     public void present(float deltaTime) {
         Graphics g = game.getGraphics();
+
         g.drawPixmap(Assets.howToScreen, 0, 0);
-        g.drawPixmap(Assets.nextpage, 77, 982);
+        g.drawPixmap(Assets.previouspage, 77, 982);
+        g.drawPixmap(Assets.nextpage, 1843, 982);
     }
 
     @Override

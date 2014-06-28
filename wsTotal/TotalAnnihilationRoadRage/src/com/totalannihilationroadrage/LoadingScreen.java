@@ -12,14 +12,15 @@ public class LoadingScreen extends Screen {
 
     public void update(float deltaTime) {
         Graphics g = game.getGraphics();
-        Assets.background = g.newPixmap("Titlescreen1920x1080.png", PixmapFormat.ARGB8888);
+
+        Assets.background = g.newPixmap("Titlescreen1920x1080.jpg", PixmapFormat.ARGB8888);
         Assets.mainMenu = g.newPixmap("buttons2.png", PixmapFormat.ARGB4444);
         Assets.overWorldUI = g.newPixmap("OverworldUI.png", PixmapFormat.ARGB8888);
-        Assets.gameOver = g.newPixmap("gameover.png", PixmapFormat.ARGB4444);
-        Assets.gameOvermenu = g.newPixmap("mainmenu.png", PixmapFormat.ARGB4444);
-        Assets.howToScreen = g.newPixmap("howToScreen1.png", PixmapFormat.ARGB4444);
-        Assets.nextpage = g.newPixmap("moveToNextPage.png", PixmapFormat.ARGB4444);
-        Assets.howToScreen = g.newPixmap("howToScreen1.png", PixmapFormat.ARGB8888);
+        Assets.gameOver = g.newPixmap("gameover.jpg", PixmapFormat.ARGB4444);
+        Assets.howToScreen = g.newPixmap("howToScreen1.jpg", PixmapFormat.ARGB8888);
+        Assets.howToScreen2 = g.newPixmap("howToScreen2.jpg", PixmapFormat.ARGB8888);
+        Assets.previouspage = g.newPixmap("moveToNextPage.png", PixmapFormat.ARGB4444);
+        Assets.nextpage = g.newPixmap("moveToNextPage2.png", PixmapFormat.ARGB4444);
 
         //Assets.nextpage = g.newPixmap("moveToNextPage.png", PixmapFormat.ARGB4444);
         //Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
