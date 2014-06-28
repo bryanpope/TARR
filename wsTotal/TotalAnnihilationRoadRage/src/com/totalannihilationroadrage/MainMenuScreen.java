@@ -30,17 +30,14 @@ public class MainMenuScreen extends Screen {
                     return;
                 }
 
-                if(inBounds(event, 861, 466 + 68, 393, 92) ) {
+                if(inBounds(event, 861, 466 + 130, 393, 92) ) {
                     game.setScreen(new HowToScreen(game));
 
                    return;
                 }
-                if(inBounds(event, 861, 466 + 136, 393, 200) )
+                if(inBounds(event, 861, 466 + 260, 393, 200) )
                 {
-                    //game.setScreen(new HelpScreen(game));
                     startTacticalCombat();
-                   // if(Settings.soundEnabled)
-                        //Assets.click.play(1);
                     return;
                 }
 
