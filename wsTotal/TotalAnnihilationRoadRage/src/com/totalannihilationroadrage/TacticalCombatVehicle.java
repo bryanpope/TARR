@@ -83,7 +83,7 @@ public class TacticalCombatVehicle
         return !isMoved;
     }
 
-    private double getDistanceFromGoal(Vector start, Vector goal)
+    public double getDistanceFromGoal(Vector start, Vector goal)
     {
         return Math.sqrt((goal.y - start.y) * (goal.y - start.y) + (goal.x - start.x) * (goal.x - start.x));
     }
@@ -105,6 +105,11 @@ public class TacticalCombatVehicle
             {
                 enemiesInRange.add(enemies.get(i));
             }
+        }
+
+        if (enemiesInRange.size() == 0)
+        {
+            isAttacked = true;
         }
     }
 

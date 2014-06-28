@@ -47,6 +47,8 @@ public class AndroidGraphics implements Graphics {
 
         Options options = new Options();
         options.inPreferredConfig = config;
+        options.inPurgeable = true;
+        options.inInputShareable = true;
 
         InputStream in = null;
         Bitmap bitmap = null;

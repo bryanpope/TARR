@@ -32,6 +32,7 @@ public class TacticalCombatScreen extends Screen
         notActive,
         Moving,
         Attack,
+        DisplayCasualties,
         CrewTransfer
     }
 
@@ -42,6 +43,7 @@ public class TacticalCombatScreen extends Screen
     TiledMap tMap;
     //Pathfinding pathfinding = new Pathfinding();
     List<Node> pathList;
+    private CombinedGangMembers killList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -324,17 +326,21 @@ public class TacticalCombatScreen extends Screen
             if (isEnemy)
             {
                 tileColour = Color.RED;
-                /*if (pState == PhaseStates.Attack)
+                if (pState == PhaseStates.Attack)
                 {
-                    if (vehicles.get(i).enemiesInRange.size() == 0)
+                    if (selectedVehicle != null)
                     {
                         tileColour = Color.rgb(237,100,109);
+                        for (int j = 0; j < selectedVehicle.enemiesInRange.size(); ++j)
+                        {
+                            if (selectedVehicle.enemiesInRange.get(j).vehicle.id == vehicles.get(i).vehicle.id)
+                            {
+                                tileColour = Color.RED;
+                                break;
+                            }
+                        }
                     }
-                    else
-                    {
-                        tileColour = Color.YELLOW;
-                    }
-                }*/
+                }
             }
             else
             {
@@ -391,6 +397,11 @@ public class TacticalCombatScreen extends Screen
 
     private void drawUIPhaseMovement (int posX, int posY, Direction facing)
     {
+        if (selectedVehicle.isMoved)
+        {
+            return;
+        }
+
         Graphics g = game.getGraphics();
         int tileWidth = 128;
         int tileHeight = 128;
@@ -498,6 +509,11 @@ public class TacticalCombatScreen extends Screen
 
     public void updateMove(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing)
     {
+        if (selectedVehicle.isMoved)
+        {
+            return;
+        }
+
         Graphics g = game.getGraphics();
         Canvas c = g.getCanvas();
         //update the moving
@@ -630,6 +646,11 @@ public class TacticalCombatScreen extends Screen
 
     private void drawUIPhaseFire(int posX, int posY, Direction facing)
     {
+        if (selectedVehicle.isAttacked)
+        {
+            return;
+        }
+
         Graphics g = game.getGraphics();
         int tileWidth = 128;
         int tileHeight = 128;
@@ -668,11 +689,17 @@ public class TacticalCombatScreen extends Screen
 
     private void updateFire(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing)
     {
+        if (selectedVehicle.isAttacked)
+        {
+            return;
+        }
+
         //update the fire attack
         int tileWidth = 128;
         int tileHeight = 128;
 
         int len = touchEvents.size();
+        TacticalCombatVehicle vEnemy;
 
         for(int i = 0; i < len; i++)
         {
@@ -704,8 +731,30 @@ public class TacticalCombatScreen extends Screen
                     //attack left is selected
                     System.out.println("attack left");
                 }
+
+                for (int j = 0; j < selectedVehicle.enemiesInRange.size(); ++j)
+                {
+                    vEnemy = selectedVehicle.enemiesInRange.get(j);
+                    if (inBoundaryCheck(event.x, event.y, vEnemy.xPos, vEnemy.yPos, tileWidth, tileHeight))
+                    {
+                        executeCombat(selectedVehicle, vEnemy);
+                    }
+                }
             }
         }
+    }
+
+    private void executeCombat (TacticalCombatVehicle attacker, TacticalCombatVehicle defender)
+    {
+        Vector start = new Vector();
+        Vector goal = new Vector();
+        start.x = attacker.xPos;
+        start.y = attacker.yPos;
+        goal.x = defender.xPos;
+        goal.y = defender.yPos;
+        int distanceAway = (int)Math.round(attacker.getDistanceFromGoal(start, goal));
+
+        killList = tcWorld.shootRound(attacker.interior, defender.interior, distanceAway, false);
     }
 
     private void drawSkip()

@@ -263,6 +263,7 @@ public class TacticalCombatWorld
     {
         CombinedGangMembers gangs = new CombinedGangMembers();
         int rangePenalty = 0;
+        GangMembers defenderAdjust = new GangMembers(gmDefending);
 
         if (isCrossbows)
         {
@@ -284,11 +285,17 @@ public class TacticalCombatWorld
             calculateDeaths (gmAttacking.dragoons, -1 + rangePenalty, gangs.defender);
             calculateDeaths (gmAttacking.escorts, -2 + rangePenalty, gangs.defender);
 
-            calculateDeaths (gmDefending.armsmasters, 2 + rangePenalty, gangs.attacker);
-            calculateDeaths (gmDefending.bodyguards, 1 + rangePenalty, gangs.attacker);
-            calculateDeaths (gmDefending.commandos, 0 + rangePenalty, gangs.attacker);
-            calculateDeaths (gmDefending.dragoons, -1 + rangePenalty, gangs.attacker);
-            calculateDeaths (gmDefending.escorts, -2 + rangePenalty, gangs.attacker);
+            defenderAdjust.armsmasters -= gangs.defender.armsmasters;
+            defenderAdjust.bodyguards -= gangs.defender.bodyguards;
+            defenderAdjust.commandos -= gangs.defender.commandos;
+            defenderAdjust.dragoons -= gangs.defender.dragoons;
+            defenderAdjust.escorts -= gangs.defender.escorts;
+
+            calculateDeaths (defenderAdjust.armsmasters, 2 + rangePenalty, gangs.attacker);
+            calculateDeaths (defenderAdjust.bodyguards, 1 + rangePenalty, gangs.attacker);
+            calculateDeaths (defenderAdjust.commandos, 0 + rangePenalty, gangs.attacker);
+            calculateDeaths (defenderAdjust.dragoons, -1 + rangePenalty, gangs.attacker);
+            calculateDeaths (defenderAdjust.escorts, -2 + rangePenalty, gangs.attacker);
         }
 
         return gangs;
