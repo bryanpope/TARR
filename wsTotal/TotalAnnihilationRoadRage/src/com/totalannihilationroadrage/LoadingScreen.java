@@ -18,8 +18,7 @@ public class LoadingScreen extends Screen {
         Assets.gameOver = g.newPixmap("gameover.png", PixmapFormat.ARGB4444);
         Assets.gameOvermenu = g.newPixmap("mainmenu.png", PixmapFormat.ARGB4444);
         Assets.howToScreen = g.newPixmap("howToScreen1.png", PixmapFormat.ARGB4444);
-
-        //Assets.nextpage = g.newPixmap("moveToNextPage.png", PixmapFormat.ARGB4444);
+        Assets.nextpage = g.newPixmap("moveToNextPage.png", PixmapFormat.ARGB4444);
         //Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
        // Assets.buttons = g.newPixmap("buttons.png", PixmapFormat.ARGB4444);
         //Assets.help1 = g.newPixmap("help1.png", PixmapFormat.ARGB4444);
