@@ -1,5 +1,8 @@
 package com.totalannihilationroadrage;
 
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Input;
@@ -40,12 +43,31 @@ public class HowToScreen2 extends Screen {
             return false;
     }
 
+    @Override
     public void present(float deltaTime) {
         Graphics g = game.getGraphics();
+        String text;
+        int fontSize = 72;
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int index = 20;
+        int numColumns = 4;
+        int srcX, srcY;
 
-        g.drawPixmap(Assets.howToScreen2, 0, 0);
-        g.drawPixmap(Assets.previouspage, 77, 982);
+        g.drawPixmap(Assets.howToScreen, 0, 0);
 
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, 77, 982, srcX, srcY, tileWidth, tileHeight);
+
+        text = " After your movement phase the attack phase will begin.\n" +
+                " If you’re within range the color around your vehicle will\n" +
+                " change colour indicating that you can attack a vehicle\n" +
+                " in your line of sight. Select one of your vehicles, then\n" +
+                " select one of the arrows to attack, or select skip in order\n" +
+                " to move past the attack phase.";
+
+        g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
     }
 
     public void pause() {
