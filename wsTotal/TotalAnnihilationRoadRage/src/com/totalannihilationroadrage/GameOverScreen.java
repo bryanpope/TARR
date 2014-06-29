@@ -1,5 +1,8 @@
 package com.totalannihilationroadrage;
 
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Input;
@@ -26,7 +29,7 @@ public class GameOverScreen extends Screen
         for (int i = 0; i < len; i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if (event.type == Input.TouchEvent.TOUCH_UP) {
-                if (inBounds(event, 77, 982, 200, 200)) {
+                if (inBounds(event, 77, 950, 200, 200)) {
                     game.setScreen(new MainMenuScreen(game));
                     return;
                 }
@@ -43,8 +46,29 @@ public class GameOverScreen extends Screen
 
     public void present(float deltaTime) {
         Graphics g = game.getGraphics();
-        g.drawPixmap(Assets.gameOver, 0, 0);
-        g.drawPixmap(Assets.previouspage, 77, 982);
+        String text;
+        String title;
+        int fontSize = 200;
+        int titleSize = 300;
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int index = 20;
+        int numColumns = 4;
+        int srcX, srcY;
+
+        g.drawPixmap(Assets.howToScreen, 0, 0);
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
+
+
+        text = "TRY AGAIN!";
+
+        g.drawText(text, 970, 800, Color.WHITE, fontSize, Paint.Align.CENTER);
+
+        title = "GAME OVER";
+        g.drawText(title, 970, 500, Color.WHITE, titleSize, Paint.Align.CENTER);
 
     }
 

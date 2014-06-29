@@ -56,7 +56,9 @@ public class HowToScreen extends Screen {
     public void present(float deltaTime) {
         Graphics g = game.getGraphics();
         String text;
+        String title;
         int fontSize = 72;
+        int titleSize = 200;
         int tileWidth = 128;
         int tileHeight = 128;
         int index = 20;
@@ -82,6 +84,9 @@ public class HowToScreen extends Screen {
                 " movement use move all.";
 
         g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
+
+        title = "HOW TO PLAY";
+        g.drawText(title, 970, 200, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
     }
 
     @Override

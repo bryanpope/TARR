@@ -13,8 +13,8 @@ import java.util.List;
 /**
  * Created by Brandon on 2014-06-29.
  */
-public class HowToScreen3 extends Screen {
-    public HowToScreen3(Game game) {
+public class Credits extends Screen {
+    public Credits(Game game) {
         super(game);
     }
 
@@ -28,7 +28,7 @@ public class HowToScreen3 extends Screen {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
                 if(inBounds(event, 77, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen2(game));
+                    game.setScreen(new MainMenuScreen(game));
                     return;
                 }
             }
@@ -62,18 +62,16 @@ public class HowToScreen3 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text = " Move around the over world map in order to scavenge \n" +
-                " supplies for your crew. Touch a spot on the world to move \n" +
-                " to that position,  and touch your avatar to bring up your\n" +
-                " HUD. Pick one of the three options available in order to \n" +
-                " gain supplies. You have a random chance to gain all\n" +
-                " supplies, as well there is a chance you will encounter\n" +
-                " a random gang meaning you will enter tactical combat.";
+        text = "Bryan Pope - Lead Programmer\n\n" +
+               "Andrew Best - Pathfinding\n\n" +
+               "Brandon Coulthard - UI and Art\n\n" +
+               "Neilson Leslie - Overworld programmer\n\n" +
+               "Carson Braun - Lead Artist";
 
-        g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
+        g.drawText(text, 970, 400, Color.WHITE, fontSize, Paint.Align.CENTER);
 
-        title = "HOW TO PLAY";
-        g.drawText(title, 970, 200, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
+        title = "Credits";
+        g.drawText(title, 970, 200, Color.WHITE, titleSize, Paint.Align.CENTER);
     }
 
     @Override
