@@ -27,8 +27,14 @@ public class HowToScreen2 extends Screen {
         for(int i = 0; i < len; i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
-                if(inBounds(event, 77, 982, 200, 200) ) {
+                if(inBounds(event, 77, 950, 200, 200) ) {
                     game.setScreen(new HowToScreen(game));
+                    return;
+                }
+
+
+                if(inBounds(event, 1730, 950, 200, 200) ) {
+                    game.setScreen(new HowToScreen3(game));
                     return;
                 }
             }
@@ -58,7 +64,12 @@ public class HowToScreen2 extends Screen {
 
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
-        g.drawPixmap(Assets.roadTileSheet, 77, 982, srcX, srcY, tileWidth, tileHeight);
+        g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
+
+        index = 22;
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
         text = " After your movement phase the attack phase will begin.\n" +
                 " If you’re within range the color around your vehicle will\n" +
