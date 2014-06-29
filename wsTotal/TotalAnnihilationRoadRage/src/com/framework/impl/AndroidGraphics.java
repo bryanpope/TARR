@@ -98,7 +98,7 @@ public class AndroidGraphics implements Graphics {
     public void drawRect(int x, int y, int width, int height, int color) {
         paint.setColor(color);
         paint.setStyle(Style.FILL);
-        canvas.drawRect(x, y, x + width - 1, y + width - 1, paint);
+        canvas.drawRect(x, y, x + width, y + height, paint);
     }
 
     public void drawText (String text, int x, int y, int color, int size, Paint.Align alignment)

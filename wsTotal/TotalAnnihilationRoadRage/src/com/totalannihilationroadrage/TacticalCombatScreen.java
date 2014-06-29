@@ -37,8 +37,15 @@ public class TacticalCombatScreen extends Screen
         CrewTransfer
     }
 
+    enum StateCombatReport
+    {
+        DefenderDeaths,
+        AttackerDeaths
+    }
+
 	GameState state = GameState.Running;
     PhaseStates pState = PhaseStates.Moving;
+    StateCombatReport stateCombatReport = StateCombatReport.DefenderDeaths;
     Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
@@ -109,6 +116,10 @@ public class TacticalCombatScreen extends Screen
         if(pState == PhaseStates.Attack)
         {
             updateSkip(touchEvents);
+        }
+        if(pState == PhaseStates.DisplayCasualties)
+        {
+            updateCombatReport(touchEvents);
         }
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
@@ -241,6 +252,10 @@ public class TacticalCombatScreen extends Screen
         if(pState == PhaseStates.Attack)
         {
             drawSkip();
+        }
+        if (pState == PhaseStates.DisplayCasualties)
+        {
+            drawCombatReport();
         }
         /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
         {
@@ -738,11 +753,18 @@ public class TacticalCombatScreen extends Screen
                 for (int j = 0; j < selectedVehicle.enemiesInRange.size(); ++j)
                 {
                     vEnemy = selectedVehicle.enemiesInRange.get(j);
-                    if (inBoundaryCheck(event.x, event.y, vEnemy.xPos, vEnemy.yPos, tileWidth, tileHeight))
+                    if (inBoundaryCheck(event.x, event.y, (vEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (vEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, tileWidth, tileHeight))
                     {
                         executeCombat(selectedVehicle, vEnemy);
+                        pState = PhaseStates.DisplayCasualties;
+                        touchEvents.remove(i);
+                        break;
                     }
                 }
+            }
+            if (pState == PhaseStates.DisplayCasualties)
+            {
+                break;
             }
         }
     }
@@ -819,7 +841,7 @@ public class TacticalCombatScreen extends Screen
         g.drawPixmap(Assets.roadTileSheet, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, srcX, srcY, tileWidth, tileHeight);            //skip
     }
 
-    private  void updateMoveAll(List<Input.TouchEvent> touchEvents)
+    private void updateMoveAll(List<Input.TouchEvent> touchEvents)
     {
         //update the skip
         Graphics g = game.getGraphics();
@@ -908,6 +930,118 @@ public class TacticalCombatScreen extends Screen
                 {
                     //skip image is selected
                     System.out.println("skip");
+                }
+            }
+        }
+    }
+
+    private void drawCombatReport()
+    {
+        Graphics g = game.getGraphics();
+        int fontSize = 72;
+        int rectWidth = 768;
+        int rectHeight = fontSize * 8;
+        int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
+        int yPos = (int)((g.getHeight() * 0.5) - (rectHeight * 0.5));
+        int line = 0;
+        String text;
+
+        g.drawRect(xPos, yPos, rectWidth, rectHeight, Color.BLACK);
+
+        xPos += fontSize * 1.5;
+
+        if (stateCombatReport == StateCombatReport.DefenderDeaths)
+        {
+            line += 5;
+            yPos = line * fontSize;
+
+            text = "Defenders Left";
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Armsmasters: " + killList.defender.armsmasters;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Bodyguards: " + killList.defender.bodyguards;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Commandos: " + killList.defender.commandos;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Dragoons: " + killList.defender.dragoons;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Escorts: " + killList.defender.escorts;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+        }
+        if (stateCombatReport == StateCombatReport.AttackerDeaths)
+        {
+            line += 5;
+            yPos = line * fontSize;
+
+            text = "Attackers Left";
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Armsmasters: " + killList.attacker.armsmasters;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Bodyguards: " + killList.attacker.bodyguards;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Commandos: " + killList.attacker.commandos;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Dragoons: " + killList.attacker.dragoons;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "Escorts: " + killList.attacker.escorts;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+        }
+    }
+
+    private void updateCombatReport(List<Input.TouchEvent> touchEvents)
+    {
+        Graphics g = game.getGraphics();
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if (stateCombatReport == StateCombatReport.DefenderDeaths)
+                {
+                    stateCombatReport = StateCombatReport.AttackerDeaths;
+                    touchEvents.remove(i);
+                    break;
+                }
+                if (stateCombatReport == StateCombatReport.AttackerDeaths)
+                {
+                    stateCombatReport = StateCombatReport.DefenderDeaths;
+                    pState = PhaseStates.Attack;
+                    touchEvents.remove(i);
+                    break;
                 }
             }
         }

@@ -298,6 +298,28 @@ public class TacticalCombatWorld
             calculateDeaths (defenderAdjust.escorts, -2 + rangePenalty, gangs.attacker);
         }
 
+        gmAttacking.armsmasters -= gangs.attacker.armsmasters;
+        gmAttacking.bodyguards -= gangs.attacker.bodyguards;
+        gmAttacking.commandos -= gangs.attacker.commandos;
+        gmAttacking.dragoons -= gangs.attacker.dragoons;
+        gmAttacking.escorts -= gangs.attacker.escorts;
+        gmDefending.armsmasters -= gangs.defender.armsmasters;
+        gmDefending.bodyguards -= gangs.defender.bodyguards;
+        gmDefending.commandos -= gangs.defender.commandos;
+        gmDefending.dragoons -= gangs.defender.dragoons;
+        gmDefending.escorts -= gangs.defender.escorts;
+
+        gangs.attacker.armsmasters = gmAttacking.armsmasters;
+        gangs.attacker.bodyguards = gmAttacking.bodyguards;
+        gangs.attacker.commandos = gmAttacking.commandos;
+        gangs.attacker.dragoons = gmAttacking.dragoons;
+        gangs.attacker.escorts = gmAttacking.escorts;
+        gangs.defender.armsmasters = gmDefending.armsmasters;
+        gangs.defender.bodyguards = gmDefending.bodyguards;
+        gangs.defender.commandos = gmDefending.commandos;
+        gangs.defender.dragoons = gmDefending.dragoons;
+        gangs.defender.escorts = gmDefending.escorts;
+
         return gangs;
     }
 }
