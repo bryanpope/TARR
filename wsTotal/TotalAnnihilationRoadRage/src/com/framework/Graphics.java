@@ -2,6 +2,7 @@ package com.framework;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 import com.totalannihilationroadrage.RotationTransformation;
 
@@ -19,6 +20,8 @@ public interface Graphics {
     public void drawLine(int x, int y, int x2, int y2, int color);
 
     public void drawRect(int x, int y, int width, int height, int color);
+
+    public void drawText (String text, int x, int y, int color, int size, Paint.Align alignment);
 
     public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY,
             int srcWidth, int srcHeight);

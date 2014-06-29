@@ -101,6 +101,15 @@ public class AndroidGraphics implements Graphics {
         canvas.drawRect(x, y, x + width - 1, y + width - 1, paint);
     }
 
+    public void drawText (String text, int x, int y, int color, int size, Paint.Align alignment)
+    {
+        paint.setTextAlign(alignment);
+        paint.setColor(color);
+        paint.setTextSize(size);
+        paint.setStyle(Style.FILL);
+        canvas.drawText(text, x, y, paint);
+    }
+
     public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY,
             int srcWidth, int srcHeight) {
         srcRect.left = srcX;

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Rect;
 
 import com.framework.Game;
@@ -408,6 +409,8 @@ public class TacticalCombatScreen extends Screen
         int index = 23;
         int numColumns = 4;
         int srcX, srcY;
+
+        g.drawText(String.valueOf(selectedVehicle.speedCurrent), posX + (int)(tileWidth * 0.5), posY - (int)(tileHeight * 0.1), Color.WHITE, 72, Paint.Align.CENTER);
 
         Bitmap bUI = Bitmap.createBitmap(tileWidth * 4, tileHeight * 3, Bitmap.Config.ARGB_8888);
         Canvas cUI = new Canvas(bUI);
