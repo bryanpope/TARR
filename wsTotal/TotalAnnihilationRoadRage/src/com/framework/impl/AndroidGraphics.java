@@ -107,7 +107,12 @@ public class AndroidGraphics implements Graphics {
         paint.setColor(color);
         paint.setTextSize(size);
         paint.setStyle(Style.FILL);
-        canvas.drawText(text, x, y, paint);
+
+        String[] separatedText = text.split("\n");
+        for (int i = 0; i < separatedText.length; ++i)
+        {
+            canvas.drawText(separatedText[i], x, y + (i * size), paint);
+        }
     }
 
     public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY,
