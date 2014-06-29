@@ -66,7 +66,14 @@ public class Pathfinding
             //Sort the openList
             Collections.sort(openList);
             //Assign currentNode to the last element in the List
-            currentNode = openList.remove(openList.size() - 1);
+            if(openList.size() > 0)
+            {
+                currentNode = openList.remove(openList.size() - 1);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         List<Node> path = new ArrayList<Node>();

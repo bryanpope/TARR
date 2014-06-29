@@ -198,6 +198,10 @@ public class TacticalCombatScreen extends Screen
         }
         if (tcWorld.allPlayerVehiclesMoved())
         {
+            for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
+            {
+                tcWorld.generatePath();
+            }
             switchToAttackPhase();
         }
         if (tcWorld.allPlayerVehiclesAttacked())
@@ -257,10 +261,8 @@ public class TacticalCombatScreen extends Screen
         {
             drawCombatReport();
         }
-        /*for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
-        {
-            tcWorld.generatePath(tcWorld.tcvsEnemy.get(i).target);
-        }*/
+
+
 	}
 
     private void drawTacticalMap()

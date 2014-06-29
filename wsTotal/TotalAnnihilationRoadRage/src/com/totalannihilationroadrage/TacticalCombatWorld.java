@@ -139,14 +139,17 @@ public class TacticalCombatWorld
 
     public void generatePath()
     {
-        for (int i = 0; i < tcvsEnemy.size() - 1; ++i)
+        for (int i = 0; i <= tcvsEnemy.size() - 1; ++i)
         {
             Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
             Node targetNode = new Node(tcvsPlayer.get(tcvsEnemy.get(i).target).yPos, tcvsPlayer.get(tcvsEnemy.get(i).target).xPos, 0, 0, null);
             tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
         }
-
-        if(tcvsEnemy.get(enemyCounter).thePath != null)
+        if(enemyCounter == tcvsEnemy.size())
+        {
+            enemyCounter = 0;
+        }
+        if(tcvsEnemy.get(enemyCounter).thePath != null && tcvsEnemy.get(enemyCounter).thePath.size() != 0)
         {
             moveEnemy();
             enemyMoved++;
@@ -159,16 +162,16 @@ public class TacticalCombatWorld
 
     public void moveEnemy()
     {
-        if(tcvsEnemy.get(enemyCounter).thePath == null)
-        {
-            return;
-        }
 
-        if(enemyCounter < tcvsEnemy.size() - 1)
+        if(enemyCounter < tcvsEnemy.size())
         {
             tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(0).col;
             tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(0).row;
             enemyCounter++;
+        }
+        else
+        {
+            return;
         }
     }
 
