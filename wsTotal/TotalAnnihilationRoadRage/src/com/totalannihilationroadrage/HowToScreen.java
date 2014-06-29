@@ -31,7 +31,7 @@ public class HowToScreen extends Screen {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
                 if(inBounds(event, 77, 950, 200, 200) ) {
-                    game.setScreen(new MainMenuScreen(game));
+                    game.setScreen(new HowToScreen3(game));
                     return;
                 }
 

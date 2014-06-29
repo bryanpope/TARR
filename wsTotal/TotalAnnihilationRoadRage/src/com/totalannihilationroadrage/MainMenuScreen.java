@@ -31,7 +31,7 @@ public class MainMenuScreen extends Screen {
                 }
 
                 if(inBounds(event, 861, 466 + 130, 393, 92) ) {
-                    game.setScreen(new HowToScreen(game));
+                    game.setScreen(new HowToScreen3(game));
 
                    return;
                 }
