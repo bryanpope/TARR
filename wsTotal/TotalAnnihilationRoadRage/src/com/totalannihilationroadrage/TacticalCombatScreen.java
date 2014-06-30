@@ -212,12 +212,9 @@ public class TacticalCombatScreen extends Screen
 
     private void switchToAttackPhase ()
     {
-        /*while(tcWorld.enemyMoved != 10)
-        {
-            tcWorld.generatePath();
-        }*/
         tcWorld.resetVehicles();
         tcWorld.findEnemiesInRange();
+        tcWorld.findPlayersInRange();
         pState = PhaseStates.Attack;
     }
 
@@ -299,17 +296,6 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
-
-        /*
-            The following is debug code to test Pathfinding.
-            It will draw red squares from the start node to the end node.
-        */
-        /*while(node != null)
-        {
-            g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
-            //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
-            node = node.parentNode;
-        }*/
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
@@ -731,25 +717,41 @@ public class TacticalCombatScreen extends Screen
             }
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
-                Settings.soundEnabled = true;
+                Settings.soundEnabled = !Settings.soundEnabled;
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //attack up is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack up");
                 }
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack right is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack right");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX,  posY + tileHeight, tileWidth, tileHeight))
                 {
                     //attack down is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack down");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack left is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack left");
                 }
 
@@ -758,7 +760,6 @@ public class TacticalCombatScreen extends Screen
                     vEnemy = selectedVehicle.enemiesInRange.get(j);
                     if (inBoundaryCheck(event.x, event.y, (vEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (vEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, tileWidth, tileHeight))
                     {
-                        playGunSound();
                         executeCombat(selectedVehicle, vEnemy);
                         pState = PhaseStates.DisplayCasualties;
                         touchEvents.remove(i);
@@ -769,18 +770,6 @@ public class TacticalCombatScreen extends Screen
             if (pState == PhaseStates.DisplayCasualties)
             {
                 break;
-            }
-        }
-    }
-
-    private void playGunSound()
-    {
-        int gunShots = TacticalCombatWorld.randInt(1, 3);
-        for(int i = 0; i < gunShots; ++i)
-        {
-            if(Settings.soundEnabled)
-            {
-                Assets.gunShot.play(gunShots);
             }
         }
     }
