@@ -65,6 +65,7 @@ public class TacticalCombatScreen extends Screen
     private float previousTouchY = 0;
     private int pointerId;
     private TacticalCombatVehicle selectedVehicle = null;
+    private int enemyAttackCounter = 0;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld, TiledMap tacticalMap)
 	{
@@ -225,6 +226,7 @@ public class TacticalCombatScreen extends Screen
     private void switchToMovePhase ()
     {
         tcWorld.enemyMoved = 0;
+        enemyAttackCounter = 0;
         tcWorld.resetVehicles();
         pState = PhaseStates.Moving;
     }
@@ -703,8 +705,8 @@ public class TacticalCombatScreen extends Screen
                     {
                         playGunSound();
                         executeCombat(selectedVehicle, vEnemy);
-                        pState = PhaseStates.DisplayCasualties;
                         prevState = PhaseStates.Attack;
+                        pState = PhaseStates.DisplayCasualties;
                         touchEvents.remove(i);
                         break;
                     }
@@ -717,6 +719,25 @@ public class TacticalCombatScreen extends Screen
         }
     }
 
+    private void updateEnemyFire()
+    {
+        int gumbyFive;
+        if(enemyAttackCounter >= tcWorld.tcvsEnemy.size())
+        {
+            switchToMovePhase();
+            return;
+        }
+
+        if(tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() > 0 && enemyAttackCounter < tcWorld.tcvsEnemy.size())
+        {
+            gumbyFive = tcWorld.randInt(0, tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() - 1);
+            executeCombat(tcWorld.tcvsEnemy.get(enemyAttackCounter), tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.get(gumbyFive));
+            prevState = PhaseStates.EnemyAttack;
+            pState = PhaseStates.DisplayCasualties;
+            enemyAttackCounter++;
+        }
+    }
+
     private void playGunSound()
     {
         int gunShots = TacticalCombatWorld.randInt(1, 3);
@@ -725,23 +746,6 @@ public class TacticalCombatScreen extends Screen
             if(Settings.soundEnabled)
             {
                 Assets.gunShot.play(gunShots);
-            }
-        }
-    }
-
-    private void updateEnemyFire()
-    {
-        TacticalCombatVehicle enemyFireTarget;
-        for(int i = 0; i < tcWorld.tcvsEnemy.get(i).enemiesInRange.size(); ++i)
-        {
-            enemyFireTarget = tcWorld.tcvsEnemy.get(i).enemiesInRange.get(i);
-            executeCombat(tcWorld.tcvsEnemy.get(i), enemyFireTarget);
-            pState = PhaseStates.DisplayCasualties;
-            prevState = PhaseStates.EnemyAttack;
-
-            if(pState == PhaseStates.DisplayCasualties)
-            {
-                break;
             }
         }
     }
@@ -796,8 +800,8 @@ public class TacticalCombatScreen extends Screen
                 {
                     System.out.println("skip");
                     touchEvents.remove(i);
-                    //pState = PhaseStates.EnemyAttack;
-                    switchToMovePhase();
+                    //switchToMovePhase();
+                    pState = PhaseStates.EnemyAttack;
                     break;
                 }
             }
