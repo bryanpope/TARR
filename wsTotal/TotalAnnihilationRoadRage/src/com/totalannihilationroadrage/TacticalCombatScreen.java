@@ -731,7 +731,7 @@ public class TacticalCombatScreen extends Screen
             }
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
-                Settings.soundEnabled = !Settings.soundEnabled;
+                Settings.soundEnabled = true;
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //attack up is selected
