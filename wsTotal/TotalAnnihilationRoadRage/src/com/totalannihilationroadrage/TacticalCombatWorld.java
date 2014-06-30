@@ -301,16 +301,16 @@ public class TacticalCombatWorld
             calculateDeaths (defenderAdjust.escorts, -2 + rangePenalty, gangs.attacker);
         }
 
-        gmAttacking.armsmasters -= gangs.attacker.armsmasters;
-        gmAttacking.bodyguards -= gangs.attacker.bodyguards;
-        gmAttacking.commandos -= gangs.attacker.commandos;
-        gmAttacking.dragoons -= gangs.attacker.dragoons;
-        gmAttacking.escorts -= gangs.attacker.escorts;
-        gmDefending.armsmasters -= gangs.defender.armsmasters;
-        gmDefending.bodyguards -= gangs.defender.bodyguards;
-        gmDefending.commandos -= gangs.defender.commandos;
-        gmDefending.dragoons -= gangs.defender.dragoons;
-        gmDefending.escorts -= gangs.defender.escorts;
+        gmAttacking.armsmasters = stopAtZero(gmAttacking.armsmasters - gangs.attacker.armsmasters);
+        gmAttacking.bodyguards = stopAtZero(gmAttacking.bodyguards - gangs.attacker.bodyguards);
+        gmAttacking.commandos = stopAtZero(gmAttacking.commandos - gangs.attacker.commandos);
+        gmAttacking.dragoons = stopAtZero(gmAttacking.dragoons - gangs.attacker.dragoons);
+        gmAttacking.escorts = stopAtZero(gmAttacking.escorts - gangs.attacker.escorts);
+        gmDefending.armsmasters = stopAtZero(gmDefending.armsmasters - gangs.defender.armsmasters);
+        gmDefending.bodyguards = stopAtZero(gmDefending.bodyguards - gangs.defender.bodyguards);
+        gmDefending.commandos = stopAtZero(gmDefending.commandos - gangs.defender.commandos);
+        gmDefending.dragoons = stopAtZero(gmDefending.dragoons - gangs.defender.dragoons);
+        gmDefending.escorts = stopAtZero(gmDefending.escorts - gangs.defender.escorts);
 
         gangs.attacker.armsmasters = gmAttacking.armsmasters;
         gangs.attacker.bodyguards = gmAttacking.bodyguards;
@@ -324,5 +324,10 @@ public class TacticalCombatWorld
         gangs.defender.escorts = gmDefending.escorts;
 
         return gangs;
+    }
+
+    private int stopAtZero (int value)
+    {
+        return (value < 0) ? 0 : value;
     }
 }
