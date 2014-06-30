@@ -34,6 +34,7 @@ public class TacticalCombatScreen extends Screen
         Moving,
         Attack,
         DisplayCasualties,
+        EnemyAttack,
         CrewTransfer
     }
 
@@ -49,8 +50,7 @@ public class TacticalCombatScreen extends Screen
     Direction dir = Direction.EAST;
 	TacticalCombatWorld tcWorld;
     TiledMap tMap;
-    //Pathfinding pathfinding = new Pathfinding();
-    List<Node> pathList;
+    PhaseStates prevState;
     private CombinedGangMembers killList;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
@@ -120,6 +120,10 @@ public class TacticalCombatScreen extends Screen
         if(pState == PhaseStates.DisplayCasualties)
         {
             updateCombatReport(touchEvents);
+        }
+        if(pState == PhaseStates.EnemyAttack)
+        {
+            updateEnemyFire();
         }
         int len = touchEvents.size();
         for(int i = 0; i < len; i++)
@@ -258,8 +262,6 @@ public class TacticalCombatScreen extends Screen
         {
             drawCombatReport();
         }
-
-
 	}
 
     private void drawTacticalMap()
@@ -556,40 +558,12 @@ public class TacticalCombatScreen extends Screen
                     if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
                         //Move straight
                         System.out.println("moved straight");
-                        //selectedVehicle.isStraight = true;
-                        //selectedVehicle.xPos += 1;
                         selectedVehicle.move();
                         selectedVehicle.isMoved = true;
                         touchEvents.remove(i);
                         break;
                     }
                 }
-                /*if(selectedVehicle.isLeft)
-                {
-                    if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY - tileHeight, tileWidth, tileHeight)) {
-                        //Move left
-                        Vector vectorDirection = Direction.getDirectionVector(selectedVehicle.facing);
-                        System.out.println("moved left " + selectedVehicle.xPos + " " + " " + selectedVehicle.yPos + selectedVehicle.facing + " " + vectorDirection.x + " " + vectorDirection.y);
-                        selectedVehicle.xPos = selectedVehicle.xPos + vectorDirection.x;
-                        selectedVehicle.yPos = selectedVehicle.yPos + vectorDirection.y;
-                        selectedVehicle.isMoved = true;
-                        touchEvents.remove(i);
-                        break;
-                    }
-                }
-                if(selectedVehicle.isRight)
-                {
-                    if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY + tileHeight, tileWidth, tileHeight)) {
-                        //Move right
-                        Vector vectorDirection = Direction.getDirectionVector(selectedVehicle.facing);
-                        System.out.println("moved right " + selectedVehicle.xPos + " " + selectedVehicle.yPos + " " + vectorDirection.x + " " + vectorDirection.y);
-                        selectedVehicle.xPos = selectedVehicle.xPos + vectorDirection.x;
-                        selectedVehicle.yPos = selectedVehicle.yPos + vectorDirection.y;
-                        selectedVehicle.isMoved = true;
-                        touchEvents.remove(i);
-                        break;
-                    }
-                }*/
 
                 if(selectedVehicle.allowTurning())
                 {
@@ -599,11 +573,6 @@ public class TacticalCombatScreen extends Screen
                         dir = Direction.turnLeft(dir);
                         selectedVehicle.turnLeft();
                         System.out.println("left turn " + dir);
-                        //selectedVehicle.isTurnedRight = false;
-                        //selectedVehicle.isTurnedLeft = true;
-                        //selectedVehicle.isStraight = false;
-                        //selectedVehicle.isLeft = true;
-                        //selectedVehicle.isRight = false;
                         touchEvents.remove(i);
                         break;
                     }
@@ -617,11 +586,6 @@ public class TacticalCombatScreen extends Screen
                         dir = Direction.turnRight(dir);
                         selectedVehicle.turnRight();
                         System.out.println("right turn " + dir);
-                        //selectedVehicle.isTurnedRight = true;
-                        //selectedVehicle.isTurnedLeft = false;
-                        //selectedVehicle.isStraight = false;
-                        //selectedVehicle.isLeft = false;
-                        //selectedVehicle.isRight = true;
                         touchEvents.remove(i);
                         break;
                     }
@@ -684,13 +648,6 @@ public class TacticalCombatScreen extends Screen
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, srcX, srcY, tileWidth, tileHeight);            //skip
-
-        /*
-        g.drawPixmap(Assets.roadTileSheet,posX, posY - 32, 32, 160, tileWidth, tileHeight);    //up arrow
-        g.drawPixmap(Assets.roadTileSheet,posX + 32, posY, 64, 160, tileWidth, tileHeight);    //right arrow
-        g.drawPixmap(Assets.roadTileSheet,posX, posY + 32, 96, 128, tileWidth, tileHeight);   //down arrow
-        g.drawPixmap(Assets.roadTileSheet,posX - 32, posY, 0, 160, tileWidth, tileHeight);    //left arrow
-        */
     }
 
     private void updateFire(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing)
@@ -747,6 +704,7 @@ public class TacticalCombatScreen extends Screen
                         playGunSound();
                         executeCombat(selectedVehicle, vEnemy);
                         pState = PhaseStates.DisplayCasualties;
+                        prevState = PhaseStates.Attack;
                         touchEvents.remove(i);
                         break;
                     }
@@ -766,25 +724,27 @@ public class TacticalCombatScreen extends Screen
         {
             if(Settings.soundEnabled)
             {
-                if(gunShots == 1)
-                {
-                    Assets.gunShot.play(1);
-                }
-                if(gunShots == 2)
-                {
-                    Assets.gunShot.play(1);
-                    Assets.gunShot.play(2);
-                }
-                if(gunShots == 3)
-                {
-                    Assets.gunShot.play(1);
-                    Assets.gunShot.play(2);
-                    Assets.gunShot.play(3);
-                }
+                Assets.gunShot.play(gunShots);
             }
         }
     }
 
+    private void updateEnemyFire()
+    {
+        TacticalCombatVehicle enemyFireTarget;
+        for(int i = 0; i < tcWorld.tcvsEnemy.get(i).enemiesInRange.size(); ++i)
+        {
+            enemyFireTarget = tcWorld.tcvsEnemy.get(i).enemiesInRange.get(i);
+            executeCombat(tcWorld.tcvsEnemy.get(i), enemyFireTarget);
+            pState = PhaseStates.DisplayCasualties;
+            prevState = PhaseStates.EnemyAttack;
+
+            if(pState == PhaseStates.DisplayCasualties)
+            {
+                break;
+            }
+        }
+    }
 
     private void executeCombat (TacticalCombatVehicle attacker, TacticalCombatVehicle defender)
     {
@@ -836,6 +796,7 @@ public class TacticalCombatScreen extends Screen
                 {
                     System.out.println("skip");
                     touchEvents.remove(i);
+                    //pState = PhaseStates.EnemyAttack;
                     switchToMovePhase();
                     break;
                 }
@@ -1056,7 +1017,14 @@ public class TacticalCombatScreen extends Screen
                 if (stateCombatReport == StateCombatReport.AttackerDeaths)
                 {
                     stateCombatReport = StateCombatReport.DefenderDeaths;
-                    pState = PhaseStates.Attack;
+                    if(prevState == PhaseStates.Attack)
+                    {
+                        pState = PhaseStates.Attack;
+                    }
+                    if(prevState == PhaseStates.EnemyAttack)
+                    {
+                        pState = PhaseStates.EnemyAttack;
+                    }
                     touchEvents.remove(i);
                     break;
                 }
