@@ -101,7 +101,7 @@ public class TacticalCombatVehicle
             goal.x = enemies.get(i).xPos;
             goal.y = enemies.get(i).yPos;
             distance = getDistanceFromGoal(start, goal);
-            if (getDistanceFromGoal(start, goal) <= 10)
+            if (getDistanceFromGoal(start, goal) <= 30)
             {
                 enemiesInRange.add(enemies.get(i));
             }
