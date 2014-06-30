@@ -15,6 +15,7 @@ public class Assets
     public static Pixmap previouspage;
     public static Pixmap howToScreen;
     public static Pixmap howToScreen2;
+    public static Sound gunShot;
 
     public static OverworldTiledMap tmOverWorld;
     public static Pixmap pmOverWorld;

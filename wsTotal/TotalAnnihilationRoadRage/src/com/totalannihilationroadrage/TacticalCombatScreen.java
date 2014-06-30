@@ -731,24 +731,41 @@ public class TacticalCombatScreen extends Screen
             }
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
+                Settings.soundEnabled = !Settings.soundEnabled;
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //attack up is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack up");
                 }
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack right is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack right");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX,  posY + tileHeight, tileWidth, tileHeight))
                 {
                     //attack down is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack down");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack left is selected
+                    if(Settings.soundEnabled)
+                    {
+                        Assets.gunShot.play(1);
+                    }
                     System.out.println("attack left");
                 }
 
