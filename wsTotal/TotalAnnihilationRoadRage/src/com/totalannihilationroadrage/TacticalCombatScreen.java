@@ -721,37 +721,21 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //attack up is selected
-                    if(Settings.soundEnabled)
-                    {
-                        Assets.gunShot.play(1);
-                    }
                     System.out.println("attack up");
                 }
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack right is selected
-                    if(Settings.soundEnabled)
-                    {
-                        Assets.gunShot.play(1);
-                    }
                     System.out.println("attack right");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX,  posY + tileHeight, tileWidth, tileHeight))
                 {
                     //attack down is selected
-                    if(Settings.soundEnabled)
-                    {
-                        Assets.gunShot.play(1);
-                    }
                     System.out.println("attack down");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack left is selected
-                    if(Settings.soundEnabled)
-                    {
-                        Assets.gunShot.play(1);
-                    }
                     System.out.println("attack left");
                 }
 
@@ -760,6 +744,7 @@ public class TacticalCombatScreen extends Screen
                     vEnemy = selectedVehicle.enemiesInRange.get(j);
                     if (inBoundaryCheck(event.x, event.y, (vEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (vEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, tileWidth, tileHeight))
                     {
+                        playGunSound();
                         executeCombat(selectedVehicle, vEnemy);
                         pState = PhaseStates.DisplayCasualties;
                         touchEvents.remove(i);
@@ -773,6 +758,33 @@ public class TacticalCombatScreen extends Screen
             }
         }
     }
+
+    private void playGunSound()
+    {
+        int gunShots = TacticalCombatWorld.randInt(1, 3);
+        for(int i = 0; i < gunShots; ++i)
+        {
+            if(Settings.soundEnabled)
+            {
+                if(gunShots == 1)
+                {
+                    Assets.gunShot.play(1);
+                }
+                if(gunShots == 2)
+                {
+                    Assets.gunShot.play(1);
+                    Assets.gunShot.play(2);
+                }
+                if(gunShots == 3)
+                {
+                    Assets.gunShot.play(1);
+                    Assets.gunShot.play(2);
+                    Assets.gunShot.play(3);
+                }
+            }
+        }
+    }
+
 
     private void executeCombat (TacticalCombatVehicle attacker, TacticalCombatVehicle defender)
     {
