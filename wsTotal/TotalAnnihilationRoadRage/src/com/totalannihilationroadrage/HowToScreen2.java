@@ -31,6 +31,12 @@ public class HowToScreen2 extends Screen {
                     game.setScreen(new HowToScreen(game));
                     return;
                 }
+
+                if(inBounds(event, 1730, 950, 200, 200) ) {
+                    game.setScreen(new MainMenuScreen(game));
+                    return;
+                }
+
             }
         }
     }
@@ -61,6 +67,11 @@ public class HowToScreen2 extends Screen {
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
+
+        index = 53;
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
         text = " After your movement phase the attack phase will begin.\n" +
                 " If you’re within range the color around your vehicle will\n" +
