@@ -212,12 +212,9 @@ public class TacticalCombatScreen extends Screen
 
     private void switchToAttackPhase ()
     {
-        /*while(tcWorld.enemyMoved != 10)
-        {
-            tcWorld.generatePath();
-        }*/
         tcWorld.resetVehicles();
         tcWorld.findEnemiesInRange();
+        tcWorld.findPlayersInRange();
         pState = PhaseStates.Attack;
     }
 
@@ -299,17 +296,6 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
-
-        /*
-            The following is debug code to test Pathfinding.
-            It will draw red squares from the start node to the end node.
-        */
-        /*while(node != null)
-        {
-            g.drawRect(node.col * tMap.tileset.tileWidth, node.row * tMap.tileset.tileHeight, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.RED);
-            //System.out.println("Node Row " + node.col + ", Node Col " + node.row);
-            node = node.parentNode;
-        }*/
 	}
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)

@@ -66,11 +66,31 @@ public class TacticalCombatWorld
         return true;
     }
 
+    public boolean allEnemyVehiclesAttacked()
+    {
+        for(int i = 0; i < tcvsEnemy.size(); ++i)
+        {
+            if(!tcvsEnemy.get(i).isAttacked)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void findEnemiesInRange ()
     {
         for (int i = 0; i < tcvsPlayer.size(); ++i)
         {
             tcvsPlayer.get(i).getEnemiesInRange(tcvsEnemy);
+        }
+    }
+
+    public void findPlayersInRange()
+    {
+        for(int i = 0; i < tcvsEnemy.size(); ++i)
+        {
+            tcvsEnemy.get(i).getEnemiesInRange(tcvsPlayer);
         }
     }
 
