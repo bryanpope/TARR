@@ -1036,6 +1036,63 @@ public class TacticalCombatScreen extends Screen
         }
     }
 
+
+    private void drawSelectAreaToAttack(int posX, int posY, Direction facing)
+    {
+        Graphics g = game.getGraphics();
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int index = 56;
+        int numColumns = 4;
+        int srcX, srcY;
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //outside of vehicle
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, posX, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);            //inside of vehicle
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //tires
+    }
+
+    private void updateSelectAreaToAttack(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing) {
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+        TacticalCombatVehicle vEnemy;
+
+        for (int i = 0; i < len; i++) {
+            Input.TouchEvent event = touchEvents.get(i);
+            if (event.type == Input.TouchEvent.TOUCH_DOWN) {
+
+
+            }
+            if (event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if (inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight)) {
+                    //attack up is selected
+                    System.out.println("selected outside of vehicle");
+                }
+                if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
+                    //attack right is selected
+                    System.out.println("selected inside of vehicles");
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
+                    //attack down is selected
+                    System.out.println("selected tires");
+                }
+
+            }
+
+        }
+    }
+
+
     @Override
 	public void pause()
 	{
