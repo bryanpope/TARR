@@ -16,6 +16,7 @@ public class VehicleStatsBaseAll extends DefaultHandler2
     private VehicleStatsBase aVehicle;
     public Pixmap tileSheetVehicles;
     final public int INDEX_START_CAR_TILES = 33;
+    final public int INDEX_DESTROYED_CAR_TILES = 54;
     private String test, testA;
 
     VehicleStatsBaseAll()

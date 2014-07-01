@@ -27,6 +27,7 @@ public class TacticalCombatVehicle
     //boolean isLeft = false;
     boolean isMoved = false;
     boolean isAttacked = false;
+    boolean isDead = false;
     List<Node> thePath = new ArrayList<Node>();
     int target;
     public List< TacticalCombatVehicle > enemiesInRange;
@@ -126,9 +127,12 @@ public class TacticalCombatVehicle
 
     void move ()
     {
-        Vector vectorDirection = Direction.getDirectionVector(facing);
-        xPos = xPos + vectorDirection.x;
-        yPos = yPos + vectorDirection.y;
+        if (!isDead)
+        {
+            Vector vectorDirection = Direction.getDirectionVector(facing);
+            xPos = xPos + vectorDirection.x;
+            yPos = yPos + vectorDirection.y;
+        }
         isMoved = true;
         isAccelerated = true;
         isBraked = true;
@@ -191,6 +195,14 @@ public class TacticalCombatVehicle
     {
         facing = Direction.turnRight(facing);
         turningCounter++;
+    }
+
+    void checkIfDead ()
+    {
+        if (interior.allDead())
+        {
+            isDead = true;
+        }
     }
 
 }

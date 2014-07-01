@@ -185,8 +185,11 @@ public class TacticalCombatWorld
 
         if(enemyCounter < tcvsEnemy.size())
         {
-            tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(0).col;
-            tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(0).row;
+            if (!tcvsEnemy.get(enemyCounter).isDead)
+            {
+                tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(0).col;
+                tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(0).row;
+            }
             enemyCounter++;
         }
         else

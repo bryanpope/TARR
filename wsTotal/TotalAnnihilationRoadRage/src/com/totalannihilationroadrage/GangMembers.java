@@ -25,4 +25,9 @@ public class GangMembers
         dragoons = roster.dragoons;
         escorts = roster.escorts;
     }
+
+    public boolean allDead ()
+    {
+        return (armsmasters == 0) && (bodyguards == 0) && (commandos == 0) && (dragoons == 0) && (escorts == 0);
+    }
 }

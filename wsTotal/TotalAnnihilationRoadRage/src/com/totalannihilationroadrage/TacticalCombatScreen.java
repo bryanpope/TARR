@@ -353,7 +353,7 @@ public class TacticalCombatScreen extends Screen
 		{
 			destX = (vehicles.get(i).xPos * tMap.tileset.tileWidth) - cameraX;
 			destY = (vehicles.get(i).yPos * tMap.tileset.tileHeight) - cameraY;
-			int t_element = vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
+			int t_element =  vehicles.get(i).isDead ? Assets.vehicleStats.INDEX_DESTROYED_CAR_TILES + 1 : vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
             if (isEnemy)
@@ -401,6 +401,10 @@ public class TacticalCombatScreen extends Screen
                     }
                 }
             }
+            if (vehicles.get(i).isDead)
+            {
+                tileColour = Color.TRANSPARENT;
+            }
             g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, tileColour);
             //g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : vehicles.get(i).isMoved ?  Color.rgb(255,250,130) : Color.YELLOW);
 			//g.drawPixmap(Assets.vehicleStats.tileSheetVehicles, destX, destY, srcX, srcY, tMap.tileset.tileWidth, tMap.tileset.tileHeight);
@@ -430,7 +434,7 @@ public class TacticalCombatScreen extends Screen
 
     private void drawUIPhaseMovement (int posX, int posY, Direction facing)
     {
-        if (selectedVehicle.isMoved)
+        if (selectedVehicle.isMoved  || selectedVehicle.isDead)
         {
             return;
         }
@@ -534,7 +538,7 @@ public class TacticalCombatScreen extends Screen
         {
             x = (tcWorld.tcvsPlayer.get(j).xPos * tcWorld.tmBattleGround.tileWidth) - cameraX;
             y = (tcWorld.tcvsPlayer.get(j).yPos * tcWorld.tmBattleGround.tileHeight) - cameraY;
-            if(inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight))
+            if(inBoundaryCheck(event.x, event.y, x, y, tcWorld.tmBattleGround.tileWidth, tcWorld.tmBattleGround.tileHeight) && !tcWorld.tcvsPlayer.get(j).isDead)
             {
                 return tcWorld.tcvsPlayer.get(j);
             }
@@ -544,7 +548,7 @@ public class TacticalCombatScreen extends Screen
 
     public void updateMove(List<Input.TouchEvent> touchEvents, int posX, int posY, Direction facing)
     {
-        if (selectedVehicle.isMoved)
+        if (selectedVehicle.isMoved || selectedVehicle.isDead)
         {
             return;
         }
@@ -643,7 +647,7 @@ public class TacticalCombatScreen extends Screen
 
     private void drawUIPhaseFire(int posX, int posY, Direction facing)
     {
-        if (selectedVehicle.isAttacked)
+        if (selectedVehicle.isAttacked || selectedVehicle.isDead)
         {
             return;
         }
@@ -786,6 +790,8 @@ public class TacticalCombatScreen extends Screen
         int distanceAway = (int)Math.round(attacker.getDistanceFromGoal(start, goal));
 
         killList = tcWorld.shootRound(attacker.interior, defender.interior, distanceAway, false);
+        attacker.checkIfDead();
+        defender.checkIfDead();
     }
 
     private void drawSkip()
@@ -825,8 +831,8 @@ public class TacticalCombatScreen extends Screen
                 {
                     System.out.println("skip");
                     touchEvents.remove(i);
-                    //switchToMovePhase();
-                    pState = PhaseStates.EnemyAttack;
+                    switchToMovePhase();
+                    //pState = PhaseStates.EnemyAttack;
                     break;
                 }
             }
@@ -1064,6 +1070,11 @@ public class TacticalCombatScreen extends Screen
 
     private void drawSelectAreaToAttack(int posX, int posY)
     {
+        if (selectedVehicleEnemy.isDead)
+        {
+            return;
+        }
+
         Graphics g = game.getGraphics();
         int tileWidth = 128;
         int tileHeight = 128;
@@ -1084,7 +1095,13 @@ public class TacticalCombatScreen extends Screen
         g.drawPixmap(Assets.roadTileSheet, posX + tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //tires
     }
 
-    private void updateSelectAreaToAttack(List<Input.TouchEvent> touchEvents, int posX, int posY) {
+    private void updateSelectAreaToAttack(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    {
+        if (selectedVehicleEnemy.isDead)
+        {
+            return;
+        }
+
         int tileWidth = 128;
         int tileHeight = 128;
 
