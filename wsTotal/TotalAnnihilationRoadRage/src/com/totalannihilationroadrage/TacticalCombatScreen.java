@@ -201,7 +201,7 @@ public class TacticalCombatScreen extends Screen
             previousTouchX = x;
             previousTouchY = y;
         }
-        if (tcWorld.allPlayerVehiclesMoved())
+        if ((pState == PhaseStates.Moving) && tcWorld.allPlayerVehiclesMoved())
         {
             for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
             {
@@ -209,7 +209,7 @@ public class TacticalCombatScreen extends Screen
             }
             switchToAttackPhase();
         }
-        if (tcWorld.allPlayerVehiclesAttacked())
+        if ((pState == PhaseStates.Attack) && tcWorld.allPlayerVehiclesAttacked())
         {
             switchToMovePhase();
         }
@@ -336,9 +336,9 @@ public class TacticalCombatScreen extends Screen
                 tileColour = Color.RED;
                 if (pState == PhaseStates.Attack)
                 {
-                    if (selectedVehicle != null)
+                    tileColour = Color.rgb(237,100,109);
+                    if ((selectedVehicle != null) && !selectedVehicle.isAttacked)
                     {
-                        tileColour = Color.rgb(237,100,109);
                         for (int j = 0; j < selectedVehicle.enemiesInRange.size(); ++j)
                         {
                             if (selectedVehicle.enemiesInRange.get(j).vehicle.id == vehicles.get(i).vehicle.id)
@@ -366,7 +366,7 @@ public class TacticalCombatScreen extends Screen
                 if (pState == PhaseStates.Attack)
                 {
                     int test = vehicles.get(i).enemiesInRange.size();
-                    if (vehicles.get(i).enemiesInRange.size() == 0)
+                    if (vehicles.get(i).isAttacked || (vehicles.get(i).enemiesInRange.size() == 0))
                     {
                         tileColour = Color.rgb(255,250,130);
                     }
@@ -705,6 +705,7 @@ public class TacticalCombatScreen extends Screen
                     {
                         playGunSound();
                         executeCombat(selectedVehicle, vEnemy);
+                        selectedVehicle.isAttacked = true;
                         prevState = PhaseStates.Attack;
                         pState = PhaseStates.DisplayCasualties;
                         touchEvents.remove(i);
