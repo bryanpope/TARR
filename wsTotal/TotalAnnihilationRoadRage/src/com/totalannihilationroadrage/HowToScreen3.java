@@ -73,17 +73,21 @@ public class HowToScreen3 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text = " When in tactical combat your goal is to destroy the enemy\n"
-                + " forces. Select one of your vehicles to bring up your HUD\n" +
-                " and select which direction you want to move. Acceleration \n" +
-                " and breaking will affect your maneuverability meaning\n" +
-                " how many times your vehicle can turn. For quick\n" +
-                " movement use move all.";
+        text =  " Select one of your vehicles, then hold down on an enemy\n" +
+                " you want to attack. After drag your finger to one of the \n" +
+                " three images in order to pick where you want to attack. \n" +
+                " You can select skip in order to move past the attack phase\n" +
+                " When selecting an enemy vehicle three images will display \n" +
+                " around that vehicle: To the left, the front of a vehicle image\n" +
+                " is drawn meaning attack the outside, above a steering \n" +
+                " wheel image meaning attack the inside of the vehicle, and \n" +
+                " lastly a tire image to the right meaning attack the tires of \n" +
+                " the vehicle.";
 
-        g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
+        g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 
         title = "HOW TO PLAY";
-        g.drawText(title, 970, 200, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
+        g.drawText(title, 970, 190, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
     }
 
     @Override

@@ -76,17 +76,20 @@ public class HowToScreen2 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text = " After your movement phase the attack phase will begin.\n" +
-                " If you’re within range the color around your vehicle will\n" +
-                " change colour indicating that you can attack a vehicle\n" +
-                " in your line of sight. Select one of your vehicles, then\n" +
-                " select one of the arrows to attack, or select skip in order\n" +
-                " to move past the attack phase.";
+        text =  " In tactical combat select one of your vehicles to bring up \n" +
+                " your HUD and select which direction you want to move. \n" +
+                " Acceleration and breaking will affect your maneuverability \n" +
+                " meaning how many times your vehicle can turn. For quick \n" +
+                " movement use move all. If you’re within range of an enemy \n" +
+                " the colour around your vehicle will change to bright yellow \n" +
+                " indicating that you can attack a vehicle in your line of sight.\n" +
+                " Enemy vehicles will turn bright red if they are within line of \n"+
+                " sight of one of your vehicles";
 
-        g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
+        g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 
         title = "HOW TO PLAY";
-        g.drawText(title, 970, 200, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
+        g.drawText(title, 970, 190, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
     }
 
     public void pause() {
@@ -102,4 +105,13 @@ public class HowToScreen2 extends Screen {
     }
 }
 
+/*
+
+Select one of your vehicles to bring up your
+" +
+                "\n" +
+                " \n" +
+                "  \n" +
+                " ";
+ */
 

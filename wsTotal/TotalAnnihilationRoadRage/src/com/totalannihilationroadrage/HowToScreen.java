@@ -79,10 +79,10 @@ public class HowToScreen extends Screen {
                 " supplies, as well there is a chance you will encounter\n" +
                 " a random gang meaning you will enter tactical combat.";
 
-        g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
+        g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 
         title = "HOW TO PLAY";
-        g.drawText(title, 970, 200, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
+        g.drawText(title, 970, 190, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
     }
 
     @Override
