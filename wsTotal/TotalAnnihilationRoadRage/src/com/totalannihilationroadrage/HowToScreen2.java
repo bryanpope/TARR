@@ -8,11 +8,14 @@ import com.framework.Graphics;
 import com.framework.Input;
 import com.framework.Screen;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Brandon on 2014-06-27.
  */
+
 public class HowToScreen2 extends Screen {
     public HowToScreen2(Game game) {
         super(game);
@@ -33,7 +36,7 @@ public class HowToScreen2 extends Screen {
                 }
 
                 if(inBounds(event, 1730, 950, 200, 200) ) {
-                    game.setScreen(new MainMenuScreen(game));
+                    game.setScreen(new HowToScreen3(game));
                     return;
                 }
 
@@ -68,7 +71,7 @@ public class HowToScreen2 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
 
-        index = 53;
+        index = 22;
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);

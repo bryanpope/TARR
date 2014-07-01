@@ -28,11 +28,12 @@ public class HowToScreen3 extends Screen {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
                 if(inBounds(event, 77, 950, 200, 200) ) {
-                    game.setScreen(new MainMenuScreen(game));
+                    game.setScreen(new HowToScreen2(game));
                     return;
                 }
+
                 if(inBounds(event, 1730, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen(game));
+                    game.setScreen(new MainMenuScreen(game));
                     return;
                 }
 
@@ -67,18 +68,17 @@ public class HowToScreen3 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
 
-        index = 22;
+        index = 53;
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text = " Move around the over world map in order to scavenge \n" +
-                " supplies for your crew. Touch a spot on the world to move \n" +
-                " to that position,  and touch your avatar to bring up your\n" +
-                " HUD. Pick one of the three options available in order to \n" +
-                " gain supplies. You have a random chance to gain all\n" +
-                " supplies, as well there is a chance you will encounter\n" +
-                " a random gang meaning you will enter tactical combat.";
+        text = " When in tactical combat your goal is to destroy the enemy\n"
+                + " forces. Select one of your vehicles to bring up your HUD\n" +
+                " and select which direction you want to move. Acceleration \n" +
+                " and breaking will affect your maneuverability meaning\n" +
+                " how many times your vehicle can turn. For quick\n" +
+                " movement use move all.";
 
         g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
 

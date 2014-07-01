@@ -1,5 +1,4 @@
 package com.totalannihilationroadrage;
-
 import android.graphics.Color;
 import android.graphics.Paint;
 
@@ -8,14 +7,11 @@ import com.framework.Graphics;
 import com.framework.Input;
 import com.framework.Screen;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Random;
-
 /**
- * Created by Brandon on 2014-06-27.
+ * Created by Brandon on 2014-07-01.
  */
-
 public class HowToScreen extends Screen {
     public HowToScreen(Game game) {
         super(game);
@@ -31,10 +27,9 @@ public class HowToScreen extends Screen {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
                 if(inBounds(event, 77, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen3(game));
+                    game.setScreen(new MainMenuScreen(game));
                     return;
                 }
-
                 if(inBounds(event, 1730, 950, 200, 200) ) {
                     game.setScreen(new HowToScreen2(game));
                     return;
@@ -76,12 +71,13 @@ public class HowToScreen extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text = " When in tactical combat your goal is to destroy the enemy\n"
-                + " forces. Select one of your vehicles to bring up your HUD\n" +
-                " and select which direction you want to move. Acceleration \n" +
-                " and breaking will affect your maneuverability meaning\n" +
-                " how many times your vehicle can turn. For quick\n" +
-                " movement use move all.";
+        text = " Move around the over world map in order to scavenge \n" +
+                " supplies for your crew. Touch a spot on the world to move \n" +
+                " to that position,  and touch your avatar to bring up your\n" +
+                " HUD. Pick one of the three options available in order to \n" +
+                " gain supplies. You have a random chance to gain all\n" +
+                " supplies, as well there is a chance you will encounter\n" +
+                " a random gang meaning you will enter tactical combat.";
 
         g.drawText(text, 0, 350, Color.WHITE, fontSize, Paint.Align.LEFT);
 
@@ -104,3 +100,4 @@ public class HowToScreen extends Screen {
 
     }
 }
+
