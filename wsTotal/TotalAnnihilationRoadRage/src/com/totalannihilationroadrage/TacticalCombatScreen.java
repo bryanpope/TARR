@@ -761,12 +761,15 @@ public class TacticalCombatScreen extends Screen
 
         if(tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() > 0 && enemyAttackCounter < tcWorld.tcvsEnemy.size())
         {
-            gumbyFive = tcWorld.randInt(0, tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() - 1);
+            if(!tcWorld.tcvsEnemy.get(enemyAttackCounter).isDead)
+            {
+                gumbyFive = tcWorld.randInt(0, tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() - 1);
 
-            executeCombat(tcWorld.tcvsEnemy.get(enemyAttackCounter), tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.get(gumbyFive));
-            prevState = PhaseStates.EnemyAttack;
-            pState = PhaseStates.DisplayCasualties;
-            enemyAttackCounter++;
+                executeCombat(tcWorld.tcvsEnemy.get(enemyAttackCounter), tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.get(gumbyFive));
+                prevState = PhaseStates.EnemyAttack;
+                pState = PhaseStates.DisplayCasualties;
+                enemyAttackCounter++;
+            }
         }
         enemyAttackCounter++;
         if(enemyAttackCounter == tcWorld.tcvsEnemy.size())
