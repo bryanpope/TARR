@@ -88,7 +88,7 @@ public class WorldMap extends Screen
 
     int [] Have_Inventory = new int[Inventory.values().length];
     List <int[]> CityArray = new ArrayList<int[]>();
-    List<Node> Path;
+    List<Node> Path = new ArrayList<Node>();
     int PathCounter = 0;
 
     //int CityArray_row = 0;
@@ -329,7 +329,7 @@ public class WorldMap extends Screen
                 {
                     Node Avatar_Node = new Node((AvatarY/world.tileHeight), (AvatarX/world.tileWidth), 0, 0, null, null);
                     Node Destination_Node = new Node(((int)mLastTouchy + cameraY)/world.tileHeight, ((int)mLastTouchx + cameraX)/world.tileWidth, 0, 0, null, null);
-                    Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
+                    //Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
                 }
             }
 
