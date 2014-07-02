@@ -22,31 +22,28 @@ public class TacticalCombatWorld
     private int enemyCounter = 0;
     public int enemyMoved = 0;
 
-    boolean allEnemiesDefeated = false;
-    boolean allPlayersDefeated = false;
-
     private boolean allEnemiesDead ()
     {
-        if(allEnemiesDefeated)
+        for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
-            return true;
+            if (tcvsEnemy.get(i).isDead)
+            {
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     private boolean allPlayersDead ()
     {
-        if(allPlayersDefeated)
+        for(int i = 0; i < tcvsPlayer.size(); ++i)
         {
-            return true;
+            if (tcvsPlayer.get(i).isDead)
+            {
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
