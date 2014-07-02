@@ -14,7 +14,7 @@ public class Pathfinding
 
     public List<Node> IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
     {
-        Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null);
+        Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null, start.facing);
         closedList.clear();
         openList.clear();
 
@@ -30,36 +30,36 @@ public class Pathfinding
 
             //right child
             col++;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.EAST);
 
             //left child
             col -= 2;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.WEST);
 
             //top child
             col++;
             row--;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.NORTH);
 
             //bottom child
             row += 2;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.SOUTH);
 
             //bottom right
             col++;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.SOUTHEAST);
 
             //bottom left
             col -= 2;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.SOUTHWEST);
 
             //top left
             row -= 2;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.NORTHWEST);
 
             //top right
             col += 2;
-            addChild(row, col, tiles, currentNode, goal);
+            addChild(row, col, tiles, currentNode, goal, Direction.NORTHEAST);
 
             //Put currentNode in the closedList
             closedList.add(currentNode);
@@ -116,9 +116,9 @@ public class Pathfinding
         return null;
     }
 
-    public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node goal)
+    public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node goal, Direction facing)
     {
-        if((row >= 0 && col >= 0) && (row <= 14 && col <= 39))
+        if((row >= 0 && col >= 0) && (row <= tiles.height && col <= tiles.width))
         {
             if (tiles.isPassable(row, col))
             {
@@ -130,11 +130,11 @@ public class Pathfinding
 
                     if (child == null)
                     {
-                        child = new Node(row, col, g, f, currentNode);
+                        child = new Node(row, col, g, f, currentNode, facing);
 
                         openList.add(child);
                     }
-                    else if (child.gCost > g)
+                    else if(child.gCost > g)
                     {
                         child.fCost = f;
                         child.gCost = g;
@@ -145,12 +145,12 @@ public class Pathfinding
         }
     }
 
-    public double getDistance(int row, int col, Node goal)
+    public double getDistance(double row, double col, Node goal)
     {
         return Math.sqrt((goal.row - row) * (goal.row - row) + (goal.col - col) * (goal.col - col));
     }
 
-    public double getDistanceFromParent(int row, int col, Node parent)
+    public double getDistanceFromParent(double row, double col, Node parent)
     {
         return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
     }

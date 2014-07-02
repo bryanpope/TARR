@@ -79,7 +79,7 @@ public class TacticalCombatScreen extends Screen
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
 	}
 
-    public boolean attackPhase()
+    /*public boolean attackPhase()
     {
         for(int j = 0; j < tcWorld.tcvsEnemy.get(j).vehicle.id; ++j)
         {
@@ -92,7 +92,7 @@ public class TacticalCombatScreen extends Screen
             }
         }
         return false;
-    }
+    }*/
 
 	public void update(float deltaTime)
 	{

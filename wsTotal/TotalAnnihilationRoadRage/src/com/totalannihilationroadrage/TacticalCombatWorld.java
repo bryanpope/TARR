@@ -244,8 +244,8 @@ public class TacticalCombatWorld
             {
                 tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size() - 1);
             }
-            Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
-            Node targetNode = new Node(tcvsPlayer.get(tcvsEnemy.get(i).target).yPos, tcvsPlayer.get(tcvsEnemy.get(i).target).xPos, 0, 0, null);
+            Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null, tcvsEnemy.get(i).facing);
+            Node targetNode = new Node(tcvsPlayer.get(tcvsEnemy.get(i).target).yPos, tcvsPlayer.get(tcvsEnemy.get(i).target).xPos, 0, 0, null, tcvsPlayer.get(tcvsEnemy.get(i).target).facing);
 
             tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
         }
