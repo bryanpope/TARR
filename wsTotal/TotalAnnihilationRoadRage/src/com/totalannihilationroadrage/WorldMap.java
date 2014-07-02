@@ -327,8 +327,8 @@ public class WorldMap extends Screen
 
                 if (selectedVehicle)
                 {
-                    Node Avatar_Node = new Node(AvatarY, AvatarX, 0, 0, null);
-                    Node Destination_Node = new Node((int)mLastTouchy, (int)mLastTouchx, 0, 0, null);
+                    Node Avatar_Node = new Node((AvatarY/world.tileHeight), (AvatarX/world.tileWidth), 0, 0, null, null);
+                    Node Destination_Node = new Node(((int)mLastTouchy + cameraY)/world.tileHeight, ((int)mLastTouchx + cameraX)/world.tileWidth, 0, 0, null, null);
                     Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
                 }
             }
@@ -388,10 +388,11 @@ public class WorldMap extends Screen
 
         }
 
-        /*if ((Path != null) || (Path.size()) != 0)
+
+        if ((Path != null) && (Path.size()) != 0)
         {
             MovePlayer();
-        }*/
+        }
 
 
 
