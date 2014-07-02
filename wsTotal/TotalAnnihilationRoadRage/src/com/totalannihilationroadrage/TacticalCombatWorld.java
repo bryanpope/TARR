@@ -22,6 +22,33 @@ public class TacticalCombatWorld
     private int enemyCounter = 0;
     public int enemyMoved = 0;
 
+    boolean allEnemiesDefeated = false;
+    boolean allPlayersDefeated = false;
+
+    private boolean allEnemiesDead ()
+    {
+        if(allEnemiesDefeated)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private boolean allPlayersDead ()
+    {
+        if(allPlayersDefeated)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
 	{
         tcvsPlayer = tcvsP;
