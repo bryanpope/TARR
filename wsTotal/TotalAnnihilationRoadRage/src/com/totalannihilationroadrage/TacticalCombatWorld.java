@@ -213,8 +213,13 @@ public class TacticalCombatWorld
     {
         for (int i = 0; i <= tcvsEnemy.size() - 1; ++i)
         {
+            if(tcvsPlayer.get(tcvsEnemy.get(i).target).isDead)
+            {
+                tcvsEnemy.get(i).target = randomTarget.nextInt(tcvsPlayer.size() - 1);
+            }
             Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null);
             Node targetNode = new Node(tcvsPlayer.get(tcvsEnemy.get(i).target).yPos, tcvsPlayer.get(tcvsEnemy.get(i).target).xPos, 0, 0, null);
+
             tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
         }
         if(enemyCounter == tcvsEnemy.size())

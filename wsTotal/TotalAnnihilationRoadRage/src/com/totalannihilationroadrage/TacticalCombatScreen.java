@@ -218,7 +218,7 @@ public class TacticalCombatScreen extends Screen
         {
             for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
             {
-                tcWorld.generatePath();
+                //tcWorld.generatePath();
             }
             switchToAttackPhase();
         }
@@ -762,11 +762,19 @@ public class TacticalCombatScreen extends Screen
         if(tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() > 0 && enemyAttackCounter < tcWorld.tcvsEnemy.size())
         {
             gumbyFive = tcWorld.randInt(0, tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() - 1);
+
             executeCombat(tcWorld.tcvsEnemy.get(enemyAttackCounter), tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.get(gumbyFive));
             prevState = PhaseStates.EnemyAttack;
             pState = PhaseStates.DisplayCasualties;
             enemyAttackCounter++;
         }
+        enemyAttackCounter++;
+        if(enemyAttackCounter == tcWorld.tcvsEnemy.size())
+        {
+            pState = PhaseStates.Moving;
+            enemyAttackCounter = 0;
+        }
+
     }
 
     private void playGunSound()
@@ -794,9 +802,12 @@ public class TacticalCombatScreen extends Screen
         killList = tcWorld.shootRound(attacker.interior, defender.interior, distanceAway, false);
         attacker.checkIfDead();
         defender.checkIfDead();
-        if(selectedVehicleEnemy.isDead)
+        if(selectedVehicleEnemy != null)
         {
-            Assets.explosion.play(1);
+            if (selectedVehicleEnemy.isDead)
+            {
+                Assets.explosion.play(1);
+            }
         }
     }
 
@@ -837,8 +848,8 @@ public class TacticalCombatScreen extends Screen
                 {
                     System.out.println("skip");
                     touchEvents.remove(i);
-                    switchToMovePhase();
-                    //pState = PhaseStates.EnemyAttack;
+                    //switchToMovePhase();
+                    pState = PhaseStates.EnemyAttack;
                     break;
                 }
             }
