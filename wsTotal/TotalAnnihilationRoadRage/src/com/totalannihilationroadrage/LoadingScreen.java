@@ -21,6 +21,7 @@ public class LoadingScreen extends Screen {
         Assets.howToScreen = g.newPixmap("screen.jpg", PixmapFormat.ARGB8888);
         Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", PixmapFormat.ARGB8888);
         Assets.gunShot = game.getAudio().newSound("gunShot.wav");
+        Assets.explosion = game.getAudio().newSound("explosion.wav");
         //Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
        // Assets.buttons = g.newPixmap("buttons.png", PixmapFormat.ARGB4444);
         //Assets.help1 = g.newPixmap("help1.png", PixmapFormat.ARGB4444);

@@ -404,6 +404,7 @@ public class TacticalCombatScreen extends Screen
             if (vehicles.get(i).isDead)
             {
                 tileColour = Color.TRANSPARENT;
+
             }
             g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, tileColour);
             //g.drawRect(destX, destY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, isEnemy ? Color.RED : vehicles.get(i).isMoved ?  Color.rgb(255,250,130) : Color.YELLOW);
@@ -792,6 +793,10 @@ public class TacticalCombatScreen extends Screen
         killList = tcWorld.shootRound(attacker.interior, defender.interior, distanceAway, false);
         attacker.checkIfDead();
         defender.checkIfDead();
+        if(selectedVehicleEnemy.isDead)
+        {
+            Assets.explosion.play(1);
+        }
     }
 
     private void drawSkip()
