@@ -279,6 +279,7 @@ public class TacticalCombatScreen extends Screen
         if(pState == PhaseStates.Moving)
         {
             drawMoveAll();
+            drawPlayerReport();
         }
         if(pState == PhaseStates.Attack)
         {
@@ -729,22 +730,22 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight))
                 {
                     //attack up is selected
-                    System.out.println("attack up");
+                    //System.out.println("attack up");
                 }
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack right is selected
-                    System.out.println("attack right");
+                   // System.out.println("attack right");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX,  posY + tileHeight, tileWidth, tileHeight))
                 {
                     //attack down is selected
-                    System.out.println("attack down");
+                    //System.out.println("attack down");
                 }
                 if(inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight))
                 {
                     //attack left is selected
-                    System.out.println("attack left");
+                    //System.out.println("attack left");
                 }
             }
         }
@@ -966,6 +967,30 @@ public class TacticalCombatScreen extends Screen
                     System.out.println("skip");
                 }
             }
+        }
+    }
+
+    private void drawPlayerReport()
+    {
+        Graphics g = game.getGraphics();
+        int fontSize = 48;
+        int rectWidth = 1000;
+        int rectHeight = 300;
+        int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
+        int yPos = (int)((g.getHeight()) - (rectHeight * 0.5));
+        int line = 0;
+        String text;
+
+        g.drawRect(xPos, yPos, rectWidth, rectHeight, Color.BLACK);
+
+        xPos += fontSize * 1.5;
+
+        if(selectedVehicle != null)
+        {
+            text = "Armsmasters: " + selectedVehicle.interior.armsmasters;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
         }
     }
 
