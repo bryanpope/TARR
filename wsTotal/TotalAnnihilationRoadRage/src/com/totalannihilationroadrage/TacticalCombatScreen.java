@@ -218,7 +218,7 @@ public class TacticalCombatScreen extends Screen
         {
             for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
             {
-                //tcWorld.generatePath();
+                tcWorld.generatePath();
             }
             switchToAttackPhase();
         }
@@ -774,8 +774,9 @@ public class TacticalCombatScreen extends Screen
         enemyAttackCounter++;
         if(enemyAttackCounter == tcWorld.tcvsEnemy.size())
         {
-            pState = PhaseStates.Moving;
-            enemyAttackCounter = 0;
+            //pState = PhaseStates.Moving;
+            //enemyAttackCounter = 0;
+            switchToMovePhase();
         }
 
     }

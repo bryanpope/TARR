@@ -92,6 +92,11 @@ public class TacticalCombatVehicle
     public void getEnemiesInRange (List< TacticalCombatVehicle > enemies)
     {
         enemiesInRange.clear();
+        if (isDead)
+        {
+            isAttacked = true;
+            return;
+        }
         Vector start = new Vector();
         Vector goal = new Vector();
         start.x = xPos;
@@ -190,6 +195,7 @@ public class TacticalCombatVehicle
         isMoved = false;
         isAttacked = false;
         isSpeedChanged = false;
+        turningCounter = 0;
     }
 
     void turnLeft()
