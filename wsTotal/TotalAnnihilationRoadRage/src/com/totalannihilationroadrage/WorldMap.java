@@ -88,6 +88,9 @@ public class WorldMap extends Screen
 
     int [] Have_Inventory = new int[Inventory.values().length];
     List <int[]> CityArray = new ArrayList<int[]>();
+    List<Node> Path;
+    int PathCounter = 0;
+
     //int CityArray_row = 0;
     //int CityArray_col = 0;
 
@@ -116,6 +119,11 @@ public class WorldMap extends Screen
     public int AvatarY = 0;
     public int Rand_pos = 0;
     private boolean selectedVehicle = false;
+
+    TacticalCombatWorld tcWorld;
+    List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
+    List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
+
 
     private void AutoLoot()
     {
@@ -231,10 +239,20 @@ public class WorldMap extends Screen
     {
         super(game);
         world = TiledMap;
-        //world = new World();
+
         numRows = (game.getGraphics().getHeight()/ world.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / world.tileWidth) + 1;
+
+        for (int i = 0; i < 10; ++i)
+        {
+            tcvPlayer.add(setupVehicle(true));
+            //tcvPlayer.get(i).facing = Direction.SOUTHWEST;
+            tcvEnemy.add(setupVehicle(false));
+            //tcvEnemy.get(i).facing = Direction.NORTHEAST;
+        }
+
         avatar_placement();
+
     }
 
     public void avatar_placement()
@@ -267,7 +285,6 @@ public class WorldMap extends Screen
 
         }
 
-
         Rand_pos = rand.nextInt(CityArray.size());
         AvatarX = CityArray.get(Rand_pos)[0];
         AvatarY = CityArray.get(Rand_pos)[1];
@@ -285,7 +302,6 @@ public class WorldMap extends Screen
             return false;
 
     }
-
 
     public void update(float deltaTime)
     {
@@ -308,6 +324,13 @@ public class WorldMap extends Screen
                 // Remember where we started
                 mLastTouchx = x;
                 mLastTouchy = y;
+
+                if (selectedVehicle)
+                {
+                    Node Avatar_Node = new Node(AvatarY, AvatarX, 0, 0, null);
+                    Node Destination_Node = new Node((int)mLastTouchy, (int)mLastTouchx, 0, 0, null);
+                    Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
+                }
             }
 
             if (event.type == TouchEvent.TOUCH_UP)
@@ -365,6 +388,65 @@ public class WorldMap extends Screen
 
         }
 
+        /*if ((Path != null) || (Path.size()) != 0)
+        {
+            MovePlayer();
+        }*/
+
+
+
+    }
+
+    public void MovePlayer()
+    {
+
+        if(PathCounter < Path.size())
+        {
+            AvatarX = Path.get(PathCounter).col;
+            AvatarY = Path.get(PathCounter).row;
+            PathCounter++;
+        }
+        else
+        {
+            PathCounter = 0;
+            AutoLoot();
+
+            Random rand = new Random();
+            int TC = rand.nextInt(100);
+
+            if (TC < 5)
+            {
+                startTacticalCombat();
+            }
+            return;
+        }
+    }
+
+    private void startTacticalCombat ()
+    {
+        tcWorld = new TacticalCombatWorld(Assets.tmHighway, tcvPlayer, tcvEnemy);
+        game.setScreen(new TacticalCombatScreen(game, tcWorld, tcWorld.tmBattleGround));
+    }
+
+    private TacticalCombatVehicle setupVehicle (boolean isPlayer)
+    {
+        Random random = new Random();
+        GangMembers aGangE = new GangMembers();
+        aGangE.armsmasters = random.nextInt(10) + 1;
+        aGangE.bodyguards = random.nextInt(10) + 1;
+        aGangE.commandos = random.nextInt(10) + 1;
+        aGangE.dragoons = random.nextInt(10) + 1;
+        aGangE.escorts = random.nextInt(10) + 1;
+        GangMembers aGangI = new GangMembers();
+        aGangI.armsmasters = random.nextInt(10) + 1;
+        aGangI.bodyguards = random.nextInt(10) + 1;
+        aGangI.commandos = random.nextInt(10) + 1;
+        aGangI.dragoons = random.nextInt(10) + 1;
+        aGangI.escorts = random.nextInt(10) + 1;
+        VehicleStatsCurrent aVehicle = new VehicleStatsCurrent(Assets.vehicleStats.vehicles.get(random.nextInt(19)));
+        TacticalCombatVehicle aTacticalVehicle = new TacticalCombatVehicle(aVehicle, aGangE, aGangI, isPlayer);
+
+        return aTacticalVehicle;
     }
 
     @Override
@@ -415,7 +497,6 @@ public class WorldMap extends Screen
 
         g.drawPixmap(world.image.pmImage, AvatarX - cameraX, AvatarY - cameraY, 1, 1, world.tileWidth, world.tileHeight);
     }
-
 
     public boolean isVehicleTouched(Input.TouchEvent event)
     {
