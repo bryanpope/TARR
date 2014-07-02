@@ -11,6 +11,8 @@ public class Pathfinding
 {
     List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
+    Direction directionLeft;
+    Direction directionRight;
 
     public List<Node> IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
     {
@@ -124,8 +126,10 @@ public class Pathfinding
             {
                 if (!isNodeClosed(row, col))
                 {
-                    double g = currentNode.gCost + getDistanceFromParent(row, col, currentNode);
-                    double f = g + getDistance(row, col, goal);
+                    Node tempChildNode = new Node(row, col, currentNode.gCost, currentNode.fCost, currentNode, facing);
+                    //getDistanceWithFacing(tempNode, currentNode);
+                    double g = currentNode.gCost + getDistanceWithFacing(tempChildNode, currentNode);
+                    double f = g + getDistance(row, col, currentNode);
                     Node child = getChildFromOpen(row, col);
 
                     if (child == null)
@@ -143,6 +147,22 @@ public class Pathfinding
                 }
             }
         }
+    }
+
+    public double getDistanceWithFacing(Node tempChildNode, Node parent)
+    {
+        directionLeft = Direction.turnLeft(tempChildNode.facing);
+        directionRight = Direction.turnRight(tempChildNode.facing);
+
+        if(tempChildNode.facing != parent.facing)
+        {
+            if(tempChildNode.facing == directionLeft || tempChildNode.facing == directionRight)
+            {
+                return Math.sqrt((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col));
+            }
+            return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col)) * 3;
+        }
+        return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col));
     }
 
     public double getDistance(double row, double col, Node goal)

@@ -263,11 +263,12 @@ public class TacticalCombatWorld
 
     public void moveEnemy()
     {
-
         if(enemyCounter < tcvsEnemy.size())
         {
             if (!tcvsEnemy.get(enemyCounter).isDead)
             {
+                tcvsEnemy.get(enemyCounter).facing = tcvsEnemy.get(enemyCounter).thePath.get(0).facing;
+                Direction.getDirectionVector(tcvsEnemy.get(enemyCounter).facing);
                 tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(0).col;
                 tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(0).row;
                 if (vehicleCrashed(tcvsEnemy.get(enemyCounter)) || isAnotherVehicleHere(tcvsEnemy.get(enemyCounter)))
