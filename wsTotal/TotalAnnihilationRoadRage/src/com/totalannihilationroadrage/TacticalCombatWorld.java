@@ -26,24 +26,24 @@ public class TacticalCombatWorld
     {
         for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
-            if (tcvsEnemy.get(i).isDead)
+            if (!tcvsEnemy.get(i).isDead)
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     private boolean allPlayersDead ()
     {
         for(int i = 0; i < tcvsPlayer.size(); ++i)
         {
-            if (tcvsPlayer.get(i).isDead)
+            if (!tcvsPlayer.get(i).isDead)
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 	TacticalCombatWorld (TiledMap tmBG, List< TacticalCombatVehicle > tcvsP, List< TacticalCombatVehicle > tcvsE)
