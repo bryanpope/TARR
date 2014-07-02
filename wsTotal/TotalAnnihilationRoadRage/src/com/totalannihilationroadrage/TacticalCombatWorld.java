@@ -211,7 +211,7 @@ public class TacticalCombatWorld
                 ++deployX;
                 if (deployX >= (deployXOffset + deployXWidth))
                 {
-                    deployX = 0;
+                    deployX = deployXOffset;
                     ++deployY;
                     if (deployY >= 15)
                     {
