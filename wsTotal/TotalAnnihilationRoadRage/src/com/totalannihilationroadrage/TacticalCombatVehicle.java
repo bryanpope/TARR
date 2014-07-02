@@ -139,6 +139,13 @@ public class TacticalCombatVehicle
         isSpeedChanged = true;
     }
 
+    void reverse ()
+    {
+        Vector vectorDirection = Direction.getDirectionVector(facing);
+        xPos = xPos - vectorDirection.x;
+        yPos = yPos - vectorDirection.y;
+    }
+
     boolean allowTurning()
     {
         if(!isMoved && (maneuverability > turningCounter))
@@ -203,6 +210,12 @@ public class TacticalCombatVehicle
         {
             isDead = true;
         }
+    }
+
+    void die ()
+    {
+        interior.terminateAll();
+        exterior.terminateAll();
     }
 
 }

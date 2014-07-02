@@ -10,11 +10,7 @@ public class GangMembers
 
     GangMembers ()
     {
-        armsmasters = 0;
-        bodyguards = 0;
-        commandos = 0;
-        dragoons = 0;
-        escorts = 0;
+        terminateAll();
     }
 
     GangMembers (GangMembers roster)
@@ -29,5 +25,14 @@ public class GangMembers
     public boolean allDead ()
     {
         return (armsmasters == 0) && (bodyguards == 0) && (commandos == 0) && (dragoons == 0) && (escorts == 0);
+    }
+
+    public void terminateAll ()
+    {
+        armsmasters = 0;
+        bodyguards = 0;
+        commandos = 0;
+        dragoons = 0;
+        escorts = 0;
     }
 }

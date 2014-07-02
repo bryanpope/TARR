@@ -590,8 +590,9 @@ public class TacticalCombatScreen extends Screen
                     if (inBoundaryCheck(eX, eY, posX + (tileWidth * 2), posY, tileWidth, tileHeight)) {
                         //Move straight
                         System.out.println("moved straight");
-                        selectedVehicle.move();
-                        selectedVehicle.isMoved = true;
+                        //selectedVehicle.move();
+                        //selectedVehicle.isMoved = true;
+                        tcWorld.moveVehicle(selectedVehicle);
                         touchEvents.remove(i);
                         break;
                     }

@@ -40,6 +40,54 @@ public class TacticalCombatWorld
                 tcvsPlayer.get(i).move();
             }
         }
+        for(int i = 0; i < tcvsPlayer.size(); ++i)
+        {
+            if (vehicleCrashed(tcvsPlayer.get(i)) || isAnotherVehicleHere(tcvsPlayer.get(i)))
+            {
+                tcvsPlayer.get(i).reverse();
+                tcvsPlayer.get(i).isDead = true;
+            }
+        }
+    }
+
+    public void moveVehicle(TacticalCombatVehicle vehicle)
+    {
+        if (!vehicle.isMoved)
+        {
+            vehicle.move();
+            vehicle.isMoved = true;
+        }
+        if (vehicleCrashed(vehicle) || isAnotherVehicleHere(vehicle))
+        {
+            vehicle.reverse();
+            vehicle.isDead = true;
+        }
+    }
+
+    private boolean vehicleCrashed(TacticalCombatVehicle vehicle)
+    {
+        return !tmBattleGround.isPassable(vehicle.yPos, vehicle.xPos);
+    }
+
+    private boolean isAnotherVehicleHere (TacticalCombatVehicle vehicle)
+    {
+        for (int i = 0; i < tcvsPlayer.size(); ++i)
+        {
+            if ((tcvsPlayer.get(i).vehicle.id != vehicle.vehicle.id) && (tcvsPlayer.get(i).xPos == vehicle.xPos) && (tcvsPlayer.get(i).yPos == vehicle.yPos))
+            {
+                tcvsPlayer.get(i).isDead = true;
+                return true;
+            }
+        }
+        for (int i = 0; i < tcvsEnemy.size(); ++i)
+        {
+            if ((tcvsEnemy.get(i).vehicle.id != vehicle.vehicle.id) && (tcvsEnemy.get(i).xPos == vehicle.xPos) && (tcvsEnemy.get(i).yPos == vehicle.yPos))
+            {
+                tcvsEnemy.get(i).isDead = true;
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean allPlayerVehiclesMoved ()
@@ -189,6 +237,11 @@ public class TacticalCombatWorld
             {
                 tcvsEnemy.get(enemyCounter).xPos = tcvsEnemy.get(enemyCounter).thePath.get(0).col;
                 tcvsEnemy.get(enemyCounter).yPos = tcvsEnemy.get(enemyCounter).thePath.get(0).row;
+                if (vehicleCrashed(tcvsEnemy.get(enemyCounter)) || isAnotherVehicleHere(tcvsEnemy.get(enemyCounter)))
+                {
+                    tcvsEnemy.get(enemyCounter).reverse();
+                    tcvsEnemy.get(enemyCounter).isDead = true;
+                }
             }
             enemyCounter++;
         }
