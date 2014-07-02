@@ -96,7 +96,7 @@ public class WorldMap extends Screen
 
     GameState state = GameState.Running;
     TiledMap world;
-    Pathfinding pathfinding;
+    Pathfinding pathfinding = new Pathfinding();
 
     public int camera_toprow = 0;
     public int camera_leftcol = 0;
@@ -329,7 +329,7 @@ public class WorldMap extends Screen
                 {
                     Node Avatar_Node = new Node((AvatarY/world.tileHeight), (AvatarX/world.tileWidth), 0, 0, null, null);
                     Node Destination_Node = new Node(((int)mLastTouchy + cameraY)/world.tileHeight, ((int)mLastTouchx + cameraX)/world.tileWidth, 0, 0, null, null);
-                    //Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
+                    Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
                 }
             }
 
