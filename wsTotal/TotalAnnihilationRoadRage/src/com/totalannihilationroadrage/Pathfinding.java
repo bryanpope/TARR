@@ -162,7 +162,7 @@ public class Pathfinding
             }
             return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col)) * 3;
         }
-        return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col));
+        return 1;
     }
 
     public double getDistance(double row, double col, Node goal)
