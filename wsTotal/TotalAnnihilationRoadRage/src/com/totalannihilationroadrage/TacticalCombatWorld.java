@@ -46,6 +46,7 @@ public class TacticalCombatWorld
             {
                 tcvsPlayer.get(i).reverse();
                 tcvsPlayer.get(i).isDead = true;
+                Assets.explosion.play(1);
             }
         }
     }
@@ -61,6 +62,7 @@ public class TacticalCombatWorld
         {
             vehicle.reverse();
             vehicle.isDead = true;
+            Assets.explosion.play(1);
         }
     }
 
@@ -76,6 +78,7 @@ public class TacticalCombatWorld
             if ((tcvsPlayer.get(i).vehicle.id != vehicle.vehicle.id) && (tcvsPlayer.get(i).xPos == vehicle.xPos) && (tcvsPlayer.get(i).yPos == vehicle.yPos))
             {
                 tcvsPlayer.get(i).isDead = true;
+                Assets.explosion.play(1);
                 return true;
             }
         }
@@ -84,6 +87,7 @@ public class TacticalCombatWorld
             if ((tcvsEnemy.get(i).vehicle.id != vehicle.vehicle.id) && (tcvsEnemy.get(i).xPos == vehicle.xPos) && (tcvsEnemy.get(i).yPos == vehicle.yPos))
             {
                 tcvsEnemy.get(i).isDead = true;
+                Assets.explosion.play(1);
                 return true;
             }
         }
@@ -241,6 +245,7 @@ public class TacticalCombatWorld
                 {
                     tcvsEnemy.get(enemyCounter).reverse();
                     tcvsEnemy.get(enemyCounter).isDead = true;
+                    Assets.explosion.play(1);
                 }
             }
             enemyCounter++;
