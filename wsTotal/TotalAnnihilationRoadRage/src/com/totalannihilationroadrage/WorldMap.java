@@ -88,6 +88,7 @@ public class WorldMap extends Screen
     }
 
     int [] Have_Inventory = new int[Inventory.values().length];
+    int [] Roster = new int[People.values().length];
     List <int[]> CityArray = new ArrayList<int[]>();
     List<Node> Path = new ArrayList<Node>();
     int PathCounter = 0;
@@ -137,6 +138,25 @@ public class WorldMap extends Screen
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
     List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
 
+    int totalVehicles = + Have_Inventory[Inventory.Bus.ordinal()]
+            + Have_Inventory[Inventory.Compact_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Compact_HardTop.ordinal()]
+            + Have_Inventory[Inventory.Construction_Vehicle.ordinal()]
+            + Have_Inventory[Inventory.Flatbed_Truck.ordinal()]
+            + Have_Inventory[Inventory.Limousine.ordinal()]
+            + Have_Inventory[Inventory.Midsize_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Midsize_HardTop.ordinal()]
+            + Have_Inventory[Inventory.Motorcycle.ordinal()]
+            + Have_Inventory[Inventory.Offroad_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Offroad_HardTop.ordinal()]
+            + Have_Inventory[Inventory.Sidecar.ordinal()]
+            + Have_Inventory[Inventory.Pickup_truck.ordinal()]
+            + Have_Inventory[Inventory.Sports_Car_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Sports_Car_HardTop.ordinal()]
+            + Have_Inventory[Inventory.StationWagon.ordinal()]
+            + Have_Inventory[Inventory.Van.ordinal()]
+            + Have_Inventory[Inventory.Tractor.ordinal()]
+            + Have_Inventory[Inventory.Trailer_Truck.ordinal()];
 
     private void AutoLoot()
     {
@@ -149,7 +169,7 @@ public class WorldMap extends Screen
             case '1': randomLoot();
                 break;
 
-            case '2': //randomPeople();
+            case '2': randomPeople();
                 break;
         }
     }
@@ -158,7 +178,7 @@ public class WorldMap extends Screen
     {
         Random rand = new Random();
 
-        int RL = rand.nextInt(26) + 1;
+        int RL = rand.nextInt(26);
         int quantity = 0;
         switch(RL)
         {
@@ -223,6 +243,164 @@ public class WorldMap extends Screen
         Have_Inventory[RL] += quantity;
     }
 
+    private void randomPeople()
+    {
+        Random rand = new Random();
+
+        int RP = rand.nextInt(16);
+        int quantity = 0;
+        switch(RP)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            {
+                quantity = rand.nextInt(2);
+                break;
+            }
+
+        }
+
+        Roster[RP] += quantity;
+    }
+
+
+    private void searchLoot()
+    {
+        Random rand = new Random();
+
+        int SL = rand.nextInt(6);
+        int quantity = 0;
+        switch(SL)
+        {
+            case 0:
+            case 2:
+            {
+                quantity = rand.nextInt(200) + 1;
+                break;
+            }
+
+            case 1:
+            {
+                quantity = rand.nextInt(900) + 1;
+                break;
+            }
+
+            case 3:
+            case 4:
+            case 6:
+            {
+                quantity = rand.nextInt(30) + 1;
+                break;
+            }
+
+            case 5:
+            {
+                quantity = rand.nextInt(75) + 1;
+                break;
+            }
+        }
+
+        Have_Inventory[SL] += quantity;
+    }
+
+    private void searchVehicle()
+    {
+        Random rand = new Random();
+
+        int SV = rand.nextInt(26)+ 7;
+        int quantity = 0;
+        switch(SV)
+        {
+            case 7:
+            case 8:
+            {
+                quantity = rand.nextInt(4) + 1;
+                break;
+            }
+
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            {
+                quantity = rand.nextInt(2);
+                break;
+            }
+        }
+
+        Have_Inventory[SV] += quantity;
+    }
+
+    private void updateWorldUI(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    {
+        int relativeX = posX - cameraX;
+        int relativeY = posY - cameraY;
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
+                    //Update Loot
+                    System.out.println("loot");
+                    touchEvents.remove(i);
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
+                    //Update People
+                    System.out.println("people");
+                    touchEvents.remove(i);
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX, posY + tileHeight, tileWidth, tileHeight)) {
+                    //Update Vehicles
+                    System.out.println("vehicles");
+                    touchEvents.remove(i);
+                    break;
+                }
+            }
+        }
+    }
+
+
     private void drawOverWorldUI(int posX, int posY)
     {
         Graphics g = game.getGraphics();
@@ -248,6 +426,7 @@ public class WorldMap extends Screen
         g.drawPixmap(Assets.overWorldUI, relativeX, relativeY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
     }
 
+
     public WorldMap(Game game, TiledMap TiledMap)
     {
         super(game);
@@ -255,6 +434,12 @@ public class WorldMap extends Screen
 
         numRows = (game.getGraphics().getHeight()/ world.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / world.tileWidth) + 1;
+
+        for (int r = 0; r < 20; r++)
+        {
+            randomLoot();
+            randomPeople();
+        }
 
         for (int i = 0; i < 10; ++i)
         {
@@ -271,6 +456,7 @@ public class WorldMap extends Screen
     public void avatar_placement()
     {
         Random rand = new Random();
+        Graphics g = game.getGraphics();
 
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         int xpos = 0;
@@ -301,6 +487,9 @@ public class WorldMap extends Screen
         Rand_pos = rand.nextInt(CityArray.size());
         AvatarX = CityArray.get(Rand_pos)[0];
         AvatarY = CityArray.get(Rand_pos)[1];
+
+        cameraX = (AvatarX) - g.getWidth()/2;
+        cameraY = (AvatarY) - g.getHeight()/2;
     }
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
@@ -354,10 +543,16 @@ public class WorldMap extends Screen
                 {
                     selectedVehicle = isVehicleTouched(event);
                 }
-                if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
-                {//checks if the inventory button has been selected
+
+                if (inBoundaryCheck(event.x, event.y, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight)) {//checks if the inventory button has been selected
                     updateInventory(touchEvents);
                 }
+
+                if(selectedVehicle)
+                {
+                    updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
+                }
+             
             }
 
             if(event.type == TouchEvent.TOUCH_DRAGGED)
@@ -404,9 +599,36 @@ public class WorldMap extends Screen
             mLastTouchx = x;
             mLastTouchy = y;
 
-
         }
 
+        if (cameraX < 0)
+        {
+            cameraX = 0;
+        }
+        if (cameraX > maxCameraX)
+        {
+            cameraX = maxCameraX;
+        }
+
+        if (cameraY < 0)
+        {
+            cameraY = 0;
+        }
+        if (cameraY > maxCameraY)
+        {
+            cameraY = maxCameraY;
+        }
+
+        camera_leftcol = cameraX / world.tileWidth;
+        camera_offsetx = -(cameraX % world.tileWidth);
+        camera_toprow = cameraY /world.tileHeight;
+        camera_offsety = -(cameraY % world.tileWidth);
+
+        numRows = g.getHeight() / world.tileHeight;
+        numRows += (camera_offsety < 0) ? 1 : 0;
+
+        numCols = g.getWidth() / world.tileWidth;
+        numCols += (camera_offsetx < 0) ? 1 : 0;
 
         if ((Path != null) && (Path.size()) != 0)
         {
@@ -438,6 +660,9 @@ public class WorldMap extends Screen
             {
                 startTacticalCombat();
             }
+
+            selectedVehicle = false;
+
             return;
         }
     }
@@ -520,7 +745,7 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        g.drawPixmap(world.image.pmImage, AvatarX - cameraX, AvatarY - cameraY, 1, 1, world.tileWidth, world.tileHeight);
+        g.drawPixmap(world.image.pmImage, (AvatarX) - cameraX, (AvatarY)  - cameraY, 1, 1, world.tileWidth, world.tileHeight);
     }
 
     public boolean isVehicleTouched(Input.TouchEvent event)
