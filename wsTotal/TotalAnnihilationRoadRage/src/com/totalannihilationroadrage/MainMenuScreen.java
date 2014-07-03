@@ -23,24 +23,25 @@ public class MainMenuScreen extends Screen {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-                if(inBounds(event, 861, 466, 393, 100) ) {
+                if(inBounds(event, 861, 466, 393, 112) ) {
                     game.setScreen(new WorldMap(game, Assets.tmOverWorld));
-                   // if(Settings.soundEnabled)
-                        //Assets.click.play(1);
                     return;
                 }
 
-                if(inBounds(event, 861, 466 + 130, 393, 92) ) {
+                if(inBounds(event, 861, 466 + 112, 393, 112) ) {
                     game.setScreen(new HowToScreen(game));
-
                    return;
                 }
-                if(inBounds(event, 861, 466 + 260, 393, 200) )
+                if(inBounds(event, 861, 466 + 224, 393, 112) )
+                {
+                    game.setScreen((new Credits(game)));
+                    return;
+                }
+                if(inBounds(event, 861, 466 + 336, 393, 112) )
                 {
                     startTacticalCombat();
                     return;
                 }
-
             }
         }
     }
