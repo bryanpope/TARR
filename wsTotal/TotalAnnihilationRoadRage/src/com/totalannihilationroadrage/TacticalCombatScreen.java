@@ -279,7 +279,10 @@ public class TacticalCombatScreen extends Screen
         if(pState == PhaseStates.Moving)
         {
             drawMoveAll();
-            drawPlayerReport();
+            if(selectedVehicle != null)
+            {
+                drawPlayerReport();
+            }
         }
         if(pState == PhaseStates.Attack)
         {
@@ -972,11 +975,11 @@ public class TacticalCombatScreen extends Screen
 
     private void drawPlayerReport()
     {
-        //used to tell what crew each player vehicle has 
+        //used to tell what crew each player vehicle has
         Graphics g = game.getGraphics();
         int fontSize = 48;
-        int rectWidth = 470;
-        int rectHeight = 500;
+        int rectWidth = 920;
+        int rectHeight = 300;
         int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
         int yPos = (int)(g.getHeight() - (rectHeight * 0.5));
         int line = 0;
@@ -992,20 +995,22 @@ public class TacticalCombatScreen extends Screen
             yPos = yPos + (line * fontSize);
             g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
 
-            text = "Dragoons: " + selectedVehicle.interior.dragoons;
-            yPos = yPos + (line * fontSize);
-            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
-
             text = "Bodyguards: " + selectedVehicle.interior.bodyguards;
-            yPos = yPos + (line * fontSize);
+            xPos += 450;
             g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
 
             text = "Commandos: " + selectedVehicle.interior.commandos;
             yPos = yPos + (line * fontSize);
+            xPos -= 450;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+
+            text = "Dragoons: " + selectedVehicle.interior.dragoons;
+            xPos += 450;
             g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
 
             text = "Escorts: " + selectedVehicle.interior.escorts;
             yPos = yPos + (line * fontSize);
+            xPos -= 450;
             g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         }
     }
