@@ -127,7 +127,6 @@ public class Pathfinding
                 if (!isNodeClosed(row, col))
                 {
                     Node tempChildNode = new Node(row, col, currentNode.gCost, currentNode.fCost, currentNode, facing);
-                    //getDistanceWithFacing(tempNode, currentNode);
                     double g = currentNode.gCost + getDistanceWithFacing(tempChildNode, currentNode);
                     double f = g + getDistance(row, col, currentNode);
                     Node child = getChildFromOpen(row, col);
@@ -149,6 +148,11 @@ public class Pathfinding
         }
     }
 
+    /*
+        This function uses facing to determine the g cost from the parent node.
+        The goal is to have the AI only be able to go three directions. The way they are facing,
+        turning to the right of that direction, or turning to the left of that direction.
+     */
     public double getDistanceWithFacing(Node tempChildNode, Node parent)
     {
         directionLeft = Direction.turnLeft(tempChildNode.facing);
@@ -160,7 +164,7 @@ public class Pathfinding
             {
                 return Math.sqrt((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col));
             }
-            return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col)) * 3;
+            return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col)) * 2;
         }
         return 1;
     }
