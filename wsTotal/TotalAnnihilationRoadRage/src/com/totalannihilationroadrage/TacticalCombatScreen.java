@@ -230,6 +230,11 @@ public class TacticalCombatScreen extends Screen
         {
             switchToMovePhase();
         }
+
+        if (tcWorld.allPlayersDead() || tcWorld.allEnemiesDead())
+        {
+            game.setScreen(new WorldMap(game, Assets.tmOverWorld));
+        }
 	}
 
     private void switchToAttackPhase ()
@@ -756,11 +761,6 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
-    }
-
-    private void setupBulletsAnimation (TacticalCombatVehicle start, TacticalCombatVehicle end)
-    {
-
     }
 
     private void updateEnemyFire()

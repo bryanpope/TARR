@@ -22,7 +22,7 @@ public class TacticalCombatWorld
     private int enemyCounter = 0;
     public int enemyMoved = 0;
 
-    private boolean allEnemiesDead ()
+    public boolean allEnemiesDead ()
     {
         for(int i = 0; i < tcvsEnemy.size(); ++i)
         {
@@ -34,7 +34,7 @@ public class TacticalCombatWorld
         return true;
     }
 
-    private boolean allPlayersDead ()
+    public boolean allPlayersDead ()
     {
         for(int i = 0; i < tcvsPlayer.size(); ++i)
         {
