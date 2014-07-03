@@ -28,6 +28,8 @@ abstract public class TiledMap extends DefaultHandler2
 	}
 
     abstract boolean isPassable (int row, int col);
+    abstract void setDestroyedVehicle (int row, int col);
+
 
     void populateWithXMLFields (String localName, Attributes attributes)
 	{

@@ -59,6 +59,11 @@ public class TacticalCombatWorld
     {
         for(int i = 0; i < tcvsPlayer.size(); ++i)
         {
+            if (tcvsPlayer.get(i).isDead)
+            {
+                tcvsPlayer.get(i).isMoved = true;
+                continue;
+            }
             if (!tcvsPlayer.get(i).isMoved)
             {
                 tcvsPlayer.get(i).move();
@@ -66,10 +71,15 @@ public class TacticalCombatWorld
         }
         for(int i = 0; i < tcvsPlayer.size(); ++i)
         {
+            if (tcvsPlayer.get(i).isDead)
+            {
+                continue;
+            }
             if (vehicleCrashed(tcvsPlayer.get(i)) || isAnotherVehicleHere(tcvsPlayer.get(i)))
             {
                 tcvsPlayer.get(i).reverse();
-                tcvsPlayer.get(i).isDead = true;
+                tcvsPlayer.get(i).die();
+                makeVehicleDestroyedTile(tcvsPlayer.get(i));
                 Assets.explosion.play(1);
             }
         }
@@ -77,6 +87,12 @@ public class TacticalCombatWorld
 
     public void moveVehicle(TacticalCombatVehicle vehicle)
     {
+        if (vehicle.isDead)
+        {
+            vehicle.isMoved = true;
+            return;
+        }
+
         if (!vehicle.isMoved)
         {
             vehicle.move();
@@ -85,7 +101,8 @@ public class TacticalCombatWorld
         if (vehicleCrashed(vehicle) || isAnotherVehicleHere(vehicle))
         {
             vehicle.reverse();
-            vehicle.isDead = true;
+            vehicle.die();
+            makeVehicleDestroyedTile(vehicle);
             Assets.explosion.play(1);
         }
     }
@@ -101,7 +118,8 @@ public class TacticalCombatWorld
         {
             if ((tcvsPlayer.get(i).vehicle.id != vehicle.vehicle.id) && (tcvsPlayer.get(i).xPos == vehicle.xPos) && (tcvsPlayer.get(i).yPos == vehicle.yPos))
             {
-                tcvsPlayer.get(i).isDead = true;
+                tcvsPlayer.get(i).die();
+                makeVehicleDestroyedTile(tcvsPlayer.get(i));
                 Assets.explosion.play(1);
                 return true;
             }
@@ -110,12 +128,18 @@ public class TacticalCombatWorld
         {
             if ((tcvsEnemy.get(i).vehicle.id != vehicle.vehicle.id) && (tcvsEnemy.get(i).xPos == vehicle.xPos) && (tcvsEnemy.get(i).yPos == vehicle.yPos))
             {
-                tcvsEnemy.get(i).isDead = true;
+                tcvsEnemy.get(i).die();
+                makeVehicleDestroyedTile(tcvsEnemy.get(i));
                 Assets.explosion.play(1);
                 return true;
             }
         }
         return false;
+    }
+
+    private void makeVehicleDestroyedTile (TacticalCombatVehicle vehicle)
+    {
+        tmBattleGround.setDestroyedVehicle(vehicle.yPos, vehicle.xPos);
     }
 
     public boolean allPlayerVehiclesMoved ()

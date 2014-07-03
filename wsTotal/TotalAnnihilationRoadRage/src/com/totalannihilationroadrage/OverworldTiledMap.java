@@ -41,4 +41,9 @@ public class OverworldTiledMap extends TiledMap
 
         return false;
     }
+
+    public void setDestroyedVehicle (int row, int col)
+    {
+        // WHAT ARE YOU LOOKING AT?!!
+    }
 }

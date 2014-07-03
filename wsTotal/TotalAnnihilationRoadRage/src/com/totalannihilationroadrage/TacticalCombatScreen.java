@@ -70,6 +70,10 @@ public class TacticalCombatScreen extends Screen
     private TacticalCombatVehicle selectedVehicleEnemy = null;
     private int enemyAttackCounter = 0;
 
+    private List<Vector> currentBulletsPos;
+    private int currentBulletsSpeed;
+    private Vector bulletsEndPos;
+
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld, TiledMap tacticalMap)
 	{
 		super(game);
@@ -218,7 +222,7 @@ public class TacticalCombatScreen extends Screen
         {
             for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
             {
-                tcWorld.generatePath();
+                //tcWorld.generatePath();
             }
             switchToAttackPhase();
         }
@@ -752,6 +756,11 @@ public class TacticalCombatScreen extends Screen
                 }
             }
         }
+    }
+
+    private void setupBulletsAnimation (TacticalCombatVehicle start, TacticalCombatVehicle end)
+    {
+
     }
 
     private void updateEnemyFire()

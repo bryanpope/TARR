@@ -13,11 +13,19 @@ public class TacticalCombatTiledMap extends TiledMap
         return !(isBlockTile(layerOneVal) || isBlockTile(layerTwoVal));
     }
 
+    public void setDestroyedVehicle (int row, int col)
+    {
+        //layers.get(0).setTile(row, col, 55);
+        layers.get(1).setTile(row, col, 55);
+    }
+
     private boolean isBlockTile (int tileVal)
     {
         switch (tileVal)
         {
             case 15:
+            case 54:
+            case 55:
                 return true;
             case 13:
             case 14:

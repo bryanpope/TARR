@@ -214,7 +214,7 @@ public class TacticalCombatVehicle
     {
         if (interior.allDead())
         {
-            isDead = true;
+            die();
         }
     }
 
@@ -222,6 +222,7 @@ public class TacticalCombatVehicle
     {
         interior.terminateAll();
         exterior.terminateAll();
+        isDead = true;
     }
 
 }
