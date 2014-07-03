@@ -4,6 +4,7 @@ package com.totalannihilationroadrage;
  * Created by Lord_Oni on 6/11/2014.
  */
 
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -137,12 +138,32 @@ public class WorldMap extends Screen
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
     List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
 
+    int totalVechicles = + Have_Inventory[Inventory.Bus.ordinal()]
+            + Have_Inventory[Inventory.Compact_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Compact_HardTop.ordinal()]
+            + Have_Inventory[Inventory.Construction_Vehicle.ordinal()]
+            + Have_Inventory[Inventory.Flatbed_Truck.ordinal()]
+            + Have_Inventory[Inventory.Limousine.ordinal()]
+            + Have_Inventory[Inventory.Midsize_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Midsize_HardTop.ordinal()]
+            + Have_Inventory[Inventory.Motorcycle.ordinal()]
+            + Have_Inventory[Inventory.Offroad_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Offroad_HardTop.ordinal()]
+            + Have_Inventory[Inventory.Sidecar.ordinal()]
+            + Have_Inventory[Inventory.Pickup_truck.ordinal()]
+            + Have_Inventory[Inventory.Sports_Car_Convertible.ordinal()]
+            + Have_Inventory[Inventory.Sports_Car_HardTop.ordinal()]
+            + Have_Inventory[Inventory.StationWagon.ordinal()]
+            + Have_Inventory[Inventory.Van.ordinal()]
+            + Have_Inventory[Inventory.Tractor.ordinal()]
+            + Have_Inventory[Inventory.Trailer_Truck.ordinal()];
 
     private void AutoLoot()
     {
         Random rand = new Random();
 
         int AL = rand.nextInt(2) + 1;
+        int quantity = 0;
 
         switch (AL)
         {
@@ -150,6 +171,7 @@ public class WorldMap extends Screen
                 break;
 
             case '2': //randomPeople();
+                quantity = rand.nextInt(5) + 1;
                 break;
         }
     }
@@ -158,7 +180,7 @@ public class WorldMap extends Screen
     {
         Random rand = new Random();
 
-        int RL = rand.nextInt(26) + 1;
+        int RL = rand.nextInt(26);
         int quantity = 0;
         switch(RL)
         {
@@ -615,7 +637,7 @@ public class WorldMap extends Screen
         //used to tell what crew each player vehicle has
         Graphics g = game.getGraphics();
         int fontSize = 72;
-        int rectWidth = 800;
+        int rectWidth = 850;
         int rectHeight = fontSize * 12;
         int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
         int yPos = (int)((g.getHeight() * 0.5) - (rectHeight * 0.5));
@@ -626,7 +648,6 @@ public class WorldMap extends Screen
 
         xPos += fontSize * 1.5;
 
-
         line += 3;
         yPos = line * fontSize;
 
@@ -634,47 +655,48 @@ public class WorldMap extends Screen
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Fuel: " + fuel;
+        text = "Fuel: " + Have_Inventory[Inventory.Fuel.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Food: " + food;
+        text = "Food: " + Have_Inventory[Inventory.Food.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Ammo: " + ammo;
+        text = "Ammo: " + Have_Inventory[Inventory.Ammo.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Guns: " + guns;
+        text = "Guns: " + Have_Inventory[Inventory.Guns.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Tires: " + tires;
+        text = "Tires: " + Have_Inventory[Inventory.Tires.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Medical Supplies: " + medicalSupplies;
+        text = "Medical Supplies: " + Have_Inventory[Inventory.Medical_Supplies.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Antitoxins: " + antitoxins;
+        text = "Antitoxins: " + Have_Inventory[Inventory.Antitoxins.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Vehicles: " + vehicles;
+        text = "Vehicles: " + totalVechicles;
+
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "People: " + people;
+        text = "People: " ;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
