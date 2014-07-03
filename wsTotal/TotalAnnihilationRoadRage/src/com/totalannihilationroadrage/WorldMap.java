@@ -158,6 +158,157 @@ public class WorldMap extends Screen
             + Have_Inventory[Inventory.Tractor.ordinal()]
             + Have_Inventory[Inventory.Trailer_Truck.ordinal()];
 
+    public void update(float deltaTime)
+    {
+        Graphics g = game.getGraphics();
+        List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+        game.getInput().getKeyEvents();
+        int maxCameraX = (world.width * world.tileWidth) - g.getWidth();
+        int maxCameraY = (world.height * world.tileHeight) - g.getHeight();
+        float x, y;
+
+        int len = touchEvents.size();
+        for(int i = 0; i < len; i++)
+        {
+            TouchEvent event = touchEvents.get(i);
+            x = event.x;
+            y = event.y;
+
+            if (event.type == TouchEvent.TOUCH_DOWN)
+            {
+
+            }
+
+            if (event.type == TouchEvent.TOUCH_UP)
+            {
+                int tileWidth = 128;
+                int tileHeight = 128;
+                if (!event.wasDragged  && !selectedVehicle)
+                {
+                    selectedVehicle = isVehicleTouched(event);
+                    if (selectedVehicle)
+                    {
+                        touchEvents.remove(i);
+                        break;
+                    }
+                }
+
+                updateInventory(touchEvents);
+
+                if(selectedVehicle)
+                {
+                    updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
+                    updatePath(touchEvents);
+                }
+
+            }
+
+            if(event.type == TouchEvent.TOUCH_DRAGGED)
+            {
+                drawScreen = false;
+                // Calculate the distance moved
+                final float dx = x - mLastTouchx;
+                final float dy = y - mLastTouchy;
+
+                // Move the object
+                // check boundaries on X and Y
+                cameraX -= Math.round(dx);
+                if (cameraX < 0)
+                {
+                    cameraX = 0;
+                }
+                if (cameraX > maxCameraX)
+                {
+                    cameraX = maxCameraX;
+                }
+
+                cameraY -= Math.round(dy);
+                if (cameraY < 0)
+                {
+                    cameraY = 0;
+                }
+                if (cameraY > maxCameraY)
+                {
+                    cameraY = maxCameraY;
+                }
+
+                camera_leftcol = cameraX / world.tileWidth;
+                camera_offsetx = -(cameraX % world.tileWidth);
+                camera_toprow = cameraY /world.tileHeight;
+                camera_offsety = -(cameraY % world.tileWidth);
+
+                numRows = g.getHeight() / world.tileHeight;
+                numRows += (camera_offsety < 0) ? 1 : 0;
+
+                numCols = g.getWidth() / world.tileWidth;
+                numCols += (camera_offsetx < 0) ? 1 : 0;
+            }
+
+            mLastTouchx = x;
+            mLastTouchy = y;
+
+        }
+
+        if (cameraX < 0)
+        {
+            cameraX = 0;
+        }
+        if (cameraX > maxCameraX)
+        {
+            cameraX = maxCameraX;
+        }
+
+        if (cameraY < 0)
+        {
+            cameraY = 0;
+        }
+        if (cameraY > maxCameraY)
+        {
+            cameraY = maxCameraY;
+        }
+
+        camera_leftcol = cameraX / world.tileWidth;
+        camera_offsetx = -(cameraX % world.tileWidth);
+        camera_toprow = cameraY /world.tileHeight;
+        camera_offsety = -(cameraY % world.tileWidth);
+
+        numRows = g.getHeight() / world.tileHeight;
+        numRows += (camera_offsety < 0) ? 1 : 0;
+
+        numCols = g.getWidth() / world.tileWidth;
+        numCols += (camera_offsetx < 0) ? 1 : 0;
+
+        if ((Path != null) && (Path.size()) != 0)
+        {
+            MovePlayer();
+        }
+
+
+
+    }
+
+    @Override
+    public void present(float deltaTime)
+    {
+        Graphics g = game.getGraphics();
+
+        //g.drawPixmap(Assets.background, 0, 0);
+        g.clear(0);
+        drawWorld(Assets.tmOverWorld);
+        drawAvatar();
+        drawInventoryButton();
+
+        if(selectedVehicle)
+        {
+            drawOverWorldUI(AvatarX,AvatarY);
+        }
+        if(drawScreen)
+        {
+            drawInventoryScreen();
+        }
+    }
+
+
     private void AutoLoot()
     {
         Random rand = new Random();
@@ -505,136 +656,6 @@ public class WorldMap extends Screen
 
     }
 
-    public void update(float deltaTime)
-    {
-        Graphics g = game.getGraphics();
-        List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
-        game.getInput().getKeyEvents();
-        int maxCameraX = (world.width * world.tileWidth) - g.getWidth();
-        int maxCameraY = (world.height * world.tileHeight) - g.getHeight();
-        float x, y;
-
-        int len = touchEvents.size();
-        for(int i = 0; i < len; i++)
-        {
-            TouchEvent event = touchEvents.get(i);
-            x = event.x;
-            y = event.y;
-
-            if (event.type == TouchEvent.TOUCH_DOWN)
-            {
-
-            }
-
-            if (event.type == TouchEvent.TOUCH_UP)
-            {
-                int tileWidth = 128;
-                int tileHeight = 128;
-                if (!event.wasDragged  && !selectedVehicle)
-                {
-                    selectedVehicle = isVehicleTouched(event);
-                    if (selectedVehicle)
-                    {
-                        touchEvents.remove(i);
-                        break;
-                    }
-                }
-
-                if (inBoundaryCheck(event.x, event.y, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight)) {//checks if the inventory button has been selected
-                    updateInventory(touchEvents);
-                }
-
-                if(selectedVehicle)
-                {
-                    updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
-                    updatePath(touchEvents);
-                }
-             
-            }
-
-            if(event.type == TouchEvent.TOUCH_DRAGGED)
-            {
-                drawScreen = false;
-                // Calculate the distance moved
-                final float dx = x - mLastTouchx;
-                final float dy = y - mLastTouchy;
-
-                // Move the object
-                // check boundaries on X and Y
-                cameraX -= Math.round(dx);
-                if (cameraX < 0)
-                {
-                    cameraX = 0;
-                }
-                if (cameraX > maxCameraX)
-                {
-                    cameraX = maxCameraX;
-                }
-
-                cameraY -= Math.round(dy);
-                if (cameraY < 0)
-                {
-                    cameraY = 0;
-                }
-                if (cameraY > maxCameraY)
-                {
-                    cameraY = maxCameraY;
-                }
-
-                camera_leftcol = cameraX / world.tileWidth;
-                camera_offsetx = -(cameraX % world.tileWidth);
-                camera_toprow = cameraY /world.tileHeight;
-                camera_offsety = -(cameraY % world.tileWidth);
-
-                numRows = g.getHeight() / world.tileHeight;
-                numRows += (camera_offsety < 0) ? 1 : 0;
-
-                numCols = g.getWidth() / world.tileWidth;
-                numCols += (camera_offsetx < 0) ? 1 : 0;
-            }
-
-            mLastTouchx = x;
-            mLastTouchy = y;
-
-        }
-
-        if (cameraX < 0)
-        {
-            cameraX = 0;
-        }
-        if (cameraX > maxCameraX)
-        {
-            cameraX = maxCameraX;
-        }
-
-        if (cameraY < 0)
-        {
-            cameraY = 0;
-        }
-        if (cameraY > maxCameraY)
-        {
-            cameraY = maxCameraY;
-        }
-
-        camera_leftcol = cameraX / world.tileWidth;
-        camera_offsetx = -(cameraX % world.tileWidth);
-        camera_toprow = cameraY /world.tileHeight;
-        camera_offsety = -(cameraY % world.tileWidth);
-
-        numRows = g.getHeight() / world.tileHeight;
-        numRows += (camera_offsety < 0) ? 1 : 0;
-
-        numCols = g.getWidth() / world.tileWidth;
-        numCols += (camera_offsetx < 0) ? 1 : 0;
-
-        if ((Path != null) && (Path.size()) != 0)
-        {
-            MovePlayer();
-        }
-
-
-
-    }
 
     public void updatePath(List<Input.TouchEvent> touchEvents)
     {
@@ -705,27 +726,6 @@ public class WorldMap extends Screen
         TacticalCombatVehicle aTacticalVehicle = new TacticalCombatVehicle(aVehicle, aGangE, aGangI, isPlayer);
 
         return aTacticalVehicle;
-    }
-
-    @Override
-    public void present(float deltaTime)
-    {
-        Graphics g = game.getGraphics();
-
-        //g.drawPixmap(Assets.background, 0, 0);
-        g.clear(0);
-        drawWorld(Assets.tmOverWorld);
-        drawAvatar();
-        drawInventoryButton();
-
-        if(selectedVehicle)
-        {
-            drawOverWorldUI(AvatarX,AvatarY);
-        }
-        if(drawScreen)
-        {
-            drawInventoryScreen();
-        }
     }
 
     private void drawWorld(TiledMap world)
