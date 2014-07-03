@@ -229,8 +229,8 @@ public class WorldMap extends Screen
 
         int relativeX = posX - cameraX;
         int relativeY = posY - cameraY;
-        int tileWidth = 64;
-        int tileHeight = 64;
+        int tileWidth = 128;
+        int tileHeight = 128;
         int index = 0;
         int numColumns = 3;
         int srcX, srcY;
@@ -627,7 +627,7 @@ public class WorldMap extends Screen
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "food: " + food;
+        text = "Food: " + food;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
