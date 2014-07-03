@@ -256,6 +256,9 @@ public class WorldMap extends Screen
         numRows = (game.getGraphics().getHeight()/ world.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / world.tileWidth) + 1;
 
+        for (int r = 0; r < 20; r++)
+            randomLoot();
+
         for (int i = 0; i < 10; ++i)
         {
             tcvPlayer.add(setupVehicle(true));
@@ -271,6 +274,7 @@ public class WorldMap extends Screen
     public void avatar_placement()
     {
         Random rand = new Random();
+        Graphics g = game.getGraphics();
 
         int tilesheetcol = (world.image.width/world.tileset.tileWidth);
         int xpos = 0;
@@ -301,6 +305,9 @@ public class WorldMap extends Screen
         Rand_pos = rand.nextInt(CityArray.size());
         AvatarX = CityArray.get(Rand_pos)[0];
         AvatarY = CityArray.get(Rand_pos)[1];
+
+        cameraX = (AvatarX * world.tileWidth) - g.getWidth()/2;
+        cameraY = (AvatarY * world.tileHeight) - g.getHeight()/2;
     }
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
@@ -405,6 +412,8 @@ public class WorldMap extends Screen
             mLastTouchy = y;
 
 
+
+
         }
 
 
@@ -438,6 +447,9 @@ public class WorldMap extends Screen
             {
                 startTacticalCombat();
             }
+
+            selectedVehicle = false;
+
             return;
         }
     }
@@ -520,7 +532,7 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        g.drawPixmap(world.image.pmImage, AvatarX - cameraX, AvatarY - cameraY, 1, 1, world.tileWidth, world.tileHeight);
+        g.drawPixmap(world.image.pmImage, (AvatarX * world.tileWidth) - cameraX, (AvatarY * world.tileHeight)  - cameraY, 1, 1, world.tileWidth, world.tileHeight);
     }
 
     public boolean isVehicleTouched(Input.TouchEvent event)
