@@ -523,16 +523,7 @@ public class WorldMap extends Screen
 
             if (event.type == TouchEvent.TOUCH_DOWN)
             {
-                // Remember where we started
-                mLastTouchx = x;
-                mLastTouchy = y;
 
-                if (selectedVehicle)
-                {
-                    Node Avatar_Node = new Node((AvatarY/world.tileHeight), (AvatarX/world.tileWidth), 0, 0, null, null);
-                    Node Destination_Node = new Node(((int)mLastTouchy + cameraY)/world.tileHeight, ((int)mLastTouchx + cameraX)/world.tileWidth, 0, 0, null, null);
-                    Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
-                }
             }
 
             if (event.type == TouchEvent.TOUCH_UP)
@@ -551,6 +542,7 @@ public class WorldMap extends Screen
                 if(selectedVehicle)
                 {
                     updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
+                    updatePath(touchEvents);
                 }
              
             }
@@ -637,6 +629,26 @@ public class WorldMap extends Screen
 
 
 
+    }
+
+    public void updatePath(List<Input.TouchEvent> touchEvents)
+    {
+        // Remember where we started
+        int len = touchEvents.size();
+
+        if (selectedVehicle)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                Input.TouchEvent event = touchEvents.get(i);
+                Node Avatar_Node = new Node((AvatarY / world.tileHeight), (AvatarX / world.tileWidth), 0, 0, null, null);
+                Node Destination_Node = new Node((event.x + cameraY) / world.tileHeight, (event.y + cameraX) / world.tileWidth, 0, 0, null, null);
+                Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
+                touchEvents.remove(i);
+                break;
+            }
+        }
     }
 
     public void MovePlayer()
