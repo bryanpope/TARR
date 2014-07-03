@@ -359,6 +359,46 @@ public class WorldMap extends Screen
         Have_Inventory[SV] += quantity;
     }
 
+    private void updateWorldUI(List<Input.TouchEvent> touchEvents, int posX, int posY)
+    {
+        int relativeX = posX - cameraX;
+        int relativeY = posY - cameraY;
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
+                    //Update Loot
+                    System.out.println("loot");
+                    touchEvents.remove(i);
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
+                    //Update People
+                    System.out.println("people");
+                    touchEvents.remove(i);
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX, posY + tileHeight, tileWidth, tileHeight)) {
+                    //Update Vehicles
+                    System.out.println("vehicles");
+                    touchEvents.remove(i);
+                    break;
+                }
+            }
+        }
+    }
 
 
     private void drawOverWorldUI(int posX, int posY)
@@ -385,6 +425,7 @@ public class WorldMap extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.overWorldUI, relativeX, relativeY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
     }
+
 
     public WorldMap(Game game, TiledMap TiledMap)
     {
@@ -502,10 +543,16 @@ public class WorldMap extends Screen
                 {
                     selectedVehicle = isVehicleTouched(event);
                 }
-                if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
-                {//checks if the inventory button has been selected
+
+                if (inBoundaryCheck(event.x, event.y, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight)) {//checks if the inventory button has been selected
                     updateInventory(touchEvents);
                 }
+
+                if(selectedVehicle)
+                {
+                    updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
+                }
+             
             }
 
             if(event.type == TouchEvent.TOUCH_DRAGGED)
