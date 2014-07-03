@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.EnumMap;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.text.method.Touch;
 import android.view.MotionEvent;
 
@@ -119,6 +120,18 @@ public class WorldMap extends Screen
     public int AvatarY = 0;
     public int Rand_pos = 0;
     private boolean selectedVehicle = false;
+
+    int fuel = 0;
+    int food = 0;
+    int ammo = 0;
+    int guns = 0;
+    int tires = 0;
+    int medicalSupplies = 0;
+    int antitoxins = 0;
+    int vehicles = 0;
+    int people = 0;
+
+    boolean drawScreen = false;
 
     TacticalCombatWorld tcWorld;
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
@@ -335,15 +348,21 @@ public class WorldMap extends Screen
 
             if (event.type == TouchEvent.TOUCH_UP)
             {
+                int tileWidth = 128;
+                int tileHeight = 128;
                 if (!event.wasDragged)
                 {
                     selectedVehicle = isVehicleTouched(event);
+                }
+                if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
+                {//checks if the inventory button has been selected
+                    updateInventory(touchEvents);
                 }
             }
 
             if(event.type == TouchEvent.TOUCH_DRAGGED)
             {
-
+                drawScreen = false;
                 // Calculate the distance moved
                 final float dx = x - mLastTouchx;
                 final float dy = y - mLastTouchy;
@@ -459,10 +478,15 @@ public class WorldMap extends Screen
         g.clear(0);
         drawWorld(Assets.tmOverWorld);
         drawAvatar();
+        drawInventoryButton();
 
         if(selectedVehicle)
         {
             drawOverWorldUI(AvatarX,AvatarY);
+        }
+        if(drawScreen)
+        {
+            drawInventoryScreen();
         }
     }
 
@@ -531,4 +555,117 @@ public class WorldMap extends Screen
     {
 
     }
+
+    private void drawInventoryButton()
+    {
+        Graphics g = game.getGraphics();
+        int tileWidth = 128;
+        int tileHeight = 128;
+        int index = 59;
+        int numColumns = 4;
+        int srcX, srcY;
+
+        srcX = (index % numColumns) * tileHeight;
+        srcY = (index++ / numColumns) * tileWidth;
+        g.drawPixmap(Assets.roadTileSheet, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, srcX, srcY, tileWidth, tileHeight);            //skip
+    }
+
+    private void updateInventory(List<Input.TouchEvent> touchEvents)
+    {
+        Graphics g = game.getGraphics();
+        int tileWidth = 128;
+        int tileHeight = 128;
+
+        int len = touchEvents.size();
+
+        for(int i = 0; i < len; i++)
+        {
+            Input.TouchEvent event = touchEvents.get(i);
+            if(event.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+
+            }
+            if(event.type == Input.TouchEvent.TOUCH_UP)
+            {
+                if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
+                {
+                    drawScreen = true;
+                    touchEvents.remove(i);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void drawInventoryScreen()
+    {
+        //used to tell what crew each player vehicle has
+        Graphics g = game.getGraphics();
+        int fontSize = 72;
+        int rectWidth = 800;
+        int rectHeight = fontSize * 12;
+        int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
+        int yPos = (int)((g.getHeight() * 0.5) - (rectHeight * 0.5));
+        int line = 0;
+        String text;
+
+        g.drawRect(xPos, yPos, rectWidth, rectHeight, Color.BLACK);
+
+        xPos += fontSize * 1.5;
+
+
+        line += 3;
+        yPos = line * fontSize;
+
+        text = "Inventory";
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Fuel: " + fuel;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "food: " + food;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Ammo: " + ammo;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Guns: " + guns;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Tires: " + tires;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Medical Supplies: " + medicalSupplies;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Antitoxins: " + antitoxins;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "Vehicles: " + vehicles;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+
+        text = "People: " + people;
+        yPos = line * fontSize;
+        g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+        ++line;
+    }
+
 }
