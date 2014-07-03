@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.SystemClock;
 
 import com.framework.Game;
 import com.framework.Graphics;
@@ -74,6 +75,10 @@ public class TacticalCombatScreen extends Screen
     private int currentBulletsSpeed;
     private Vector bulletsEndPos;
 
+    private Vector velocityScreen;
+    private Vector dragPosStart;
+    private float timeDragStart;
+
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld, TiledMap tacticalMap)
 	{
 		super(game);
@@ -81,6 +86,9 @@ public class TacticalCombatScreen extends Screen
         tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
+        velocityScreen = new Vector();
+        dragPosStart = new Vector();
+        //dragPosEnd = new Vector();
 	}
 
     /*public boolean attackPhase()
@@ -103,8 +111,6 @@ public class TacticalCombatScreen extends Screen
         Graphics g = game.getGraphics();
         List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
         game.getInput().getKeyEvents();
-        int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
-        int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
         float x, y;
         if(selectedVehicle != null)
         {
@@ -147,56 +153,44 @@ public class TacticalCombatScreen extends Screen
                 Input.TouchEvent event = touchEvents.get(i);
                 x = event.x;
                 y = event.y;
-                if (event.type == Input.TouchEvent.TOUCH_DOWN) {
+                if (event.type == Input.TouchEvent.TOUCH_DOWN)
+                {
                     previousTouchX = x;
                     previousTouchY = y;
                     pointerId = event.pointer;
+                    timeDragStart = System.nanoTime() / 1000000000.0f;
+                    dragPosStart.x = event.x;
+                    dragPosStart.y = event.y;
                 }
 
-                if (event.type == Input.TouchEvent.TOUCH_UP) {
-                    if (!event.wasDragged) {
+                if (event.type == Input.TouchEvent.TOUCH_UP)
+                {
+                    if (!event.wasDragged)
+                    {
                         selectedVehicle = isVehicleTouched(event);
+                    }
+                    else
+                    {
+                        float timeDragEnd = (System.nanoTime() / 1000000000.0f) - timeDragStart;
+                        Vector dragPosEnd = new Vector(event.x, event.y);
+                        int distX = dragPosEnd.x - dragPosStart.x;
+                        int distY = dragPosEnd.y - dragPosStart.y;
+                        velocityScreen.x = (int)(distX / timeDragEnd);
+                        velocityScreen.y = (int)(distY / timeDragEnd);
                     }
                 }
 
-                if (event.type == Input.TouchEvent.TOUCH_DRAGGED) {
-                    if (event.pointer != pointerId) {
+                if (event.type == Input.TouchEvent.TOUCH_DRAGGED)
+                {
+                    if (event.pointer != pointerId)
+                    {
                         continue;
                     }
 
-                    float dispX = x - previousTouchX;
-                    float dispY = y - previousTouchY;
+                    //float dispX = x - previousTouchX;
+                    //float dispY = y - previousTouchY;
+                    setCameraPosition(x - previousTouchX, y - previousTouchY);
 
-                    cameraX -= Math.round(dispX);
-                    if (cameraX < 0) {
-                        cameraX = 0;
-                    }
-                    if (cameraX > maxCameraX) {
-                        cameraX = maxCameraX;
-                    }
-
-                    cameraY -= Math.round(dispY);
-                    if (cameraY < 0) {
-                        cameraY = 0;
-                    }
-                    if (cameraY > maxCameraY) {
-                        cameraY = maxCameraY;
-                    }
-
-                    cameraLeftCol = cameraX / tcWorld.tmBattleGround.tileWidth;
-                    tileOffsetX = -(cameraX % tcWorld.tmBattleGround.tileWidth);
-                    cameraTopRow = cameraY / tcWorld.tmBattleGround.tileHeight;
-                    tileOffsetY = -(cameraY % tcWorld.tmBattleGround.tileWidth);
-
-                    numRows = g.getHeight() / tcWorld.tmBattleGround.tileHeight;
-                    numRows += (tileOffsetY < 0) ? 1 : 0;
-                    //numRows = (int)Math.ceil(g.getHeight() / (double)tcWorld.tmBattleGround.tileHeight);
-                    //numRows += ((tcWorld.tmBattleGround.height - numRows) >= numRows) ? 1 : 0;
-
-                    numCols = g.getWidth() / tcWorld.tmBattleGround.tileWidth;
-                    numCols += (tileOffsetX < 0) ? 1 : 0;
-                    //numCols = (int)Math.ceil(g.getWidth() / (double)tcWorld.tmBattleGround.tileWidth);
-                    //numCols += ((tcWorld.tmBattleGround.width - numCols) >= numCols) ? 1 : 0;
 
                 /*cameraTopRow += cameraOffsetY / tcWorld.tmBattleGround.tileHeight;
                 cameraOffsetY %= tcWorld.tmBattleGround.tileHeight;
@@ -218,6 +212,11 @@ public class TacticalCombatScreen extends Screen
             }*/
             //updateSelectAreaToAttack(touchEvents, (selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
         }
+        if (velocityScreen.x != 0)
+        {
+
+        }
+
         if ((pState == PhaseStates.Moving) && tcWorld.allPlayerVehiclesMoved())
         {
             for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
@@ -236,6 +235,48 @@ public class TacticalCombatScreen extends Screen
             game.setScreen(new WorldMap(game, Assets.tmOverWorld));
         }
 	}
+
+    private void setCameraPosition (float dispX, float dispY)
+    {
+        Graphics g = game.getGraphics();
+        int maxCameraX = (tcWorld.tmBattleGround.width * tcWorld.tmBattleGround.tileWidth) - g.getWidth();
+        int maxCameraY = (tcWorld.tmBattleGround.height * tcWorld.tmBattleGround.tileHeight) - g.getHeight();
+
+        cameraX -= Math.round(dispX);
+        if (cameraX < 0)
+        {
+            cameraX = 0;
+        }
+        if (cameraX > maxCameraX)
+        {
+            cameraX = maxCameraX;
+        }
+
+        cameraY -= Math.round(dispY);
+        if (cameraY < 0)
+        {
+            cameraY = 0;
+        }
+        if (cameraY > maxCameraY)
+        {
+            cameraY = maxCameraY;
+        }
+
+        cameraLeftCol = cameraX / tcWorld.tmBattleGround.tileWidth;
+        tileOffsetX = -(cameraX % tcWorld.tmBattleGround.tileWidth);
+        cameraTopRow = cameraY / tcWorld.tmBattleGround.tileHeight;
+        tileOffsetY = -(cameraY % tcWorld.tmBattleGround.tileWidth);
+
+        numRows = g.getHeight() / tcWorld.tmBattleGround.tileHeight;
+        numRows += (tileOffsetY < 0) ? 1 : 0;
+        //numRows = (int)Math.ceil(g.getHeight() / (double)tcWorld.tmBattleGround.tileHeight);
+        //numRows += ((tcWorld.tmBattleGround.height - numRows) >= numRows) ? 1 : 0;
+
+        numCols = g.getWidth() / tcWorld.tmBattleGround.tileWidth;
+        numCols += (tileOffsetX < 0) ? 1 : 0;
+        //numCols = (int)Math.ceil(g.getWidth() / (double)tcWorld.tmBattleGround.tileWidth);
+        //numCols += ((tcWorld.tmBattleGround.width - numCols) >= numCols) ? 1 : 0;
+    }
 
     private void switchToAttackPhase ()
     {

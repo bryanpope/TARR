@@ -530,9 +530,14 @@ public class WorldMap extends Screen
             {
                 int tileWidth = 128;
                 int tileHeight = 128;
-                if (!event.wasDragged)
+                if (!event.wasDragged  && !selectedVehicle)
                 {
                     selectedVehicle = isVehicleTouched(event);
+                    if (selectedVehicle)
+                    {
+                        touchEvents.remove(i);
+                        break;
+                    }
                 }
 
                 if (inBoundaryCheck(event.x, event.y, g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight)) {//checks if the inventory button has been selected
@@ -636,18 +641,14 @@ public class WorldMap extends Screen
         // Remember where we started
         int len = touchEvents.size();
 
-        if (selectedVehicle)
+        for (int i = 0; i < len; i++)
         {
-
-            for (int i = 0; i < len; i++)
-            {
-                Input.TouchEvent event = touchEvents.get(i);
-                Node Avatar_Node = new Node((AvatarY / world.tileHeight), (AvatarX / world.tileWidth), 0, 0, null, null);
-                Node Destination_Node = new Node((event.x + cameraY) / world.tileHeight, (event.y + cameraX) / world.tileWidth, 0, 0, null, null);
-                Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
-                touchEvents.remove(i);
-                break;
-            }
+            Input.TouchEvent event = touchEvents.get(i);
+            Node Avatar_Node = new Node((AvatarY / world.tileHeight), (AvatarX / world.tileWidth), 0, 0, null, null);
+            Node Destination_Node = new Node((event.y + cameraY) / world.tileHeight, (event.x + cameraX) / world.tileWidth, 0, 0, null, null);
+            Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
+            touchEvents.remove(i);
+            break;
         }
     }
 
