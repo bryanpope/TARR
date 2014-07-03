@@ -4,7 +4,6 @@ package com.totalannihilationroadrage;
  * Created by Lord_Oni on 6/11/2014.
  */
 
-import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -89,6 +88,7 @@ public class WorldMap extends Screen
     }
 
     int [] Have_Inventory = new int[Inventory.values().length];
+    int [] Roster = new int[People.values().length];
     List <int[]> CityArray = new ArrayList<int[]>();
     List<Node> Path = new ArrayList<Node>();
     int PathCounter = 0;
@@ -138,7 +138,7 @@ public class WorldMap extends Screen
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
     List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
 
-    int totalVechicles = + Have_Inventory[Inventory.Bus.ordinal()]
+    int totalVehicles = + Have_Inventory[Inventory.Bus.ordinal()]
             + Have_Inventory[Inventory.Compact_Convertible.ordinal()]
             + Have_Inventory[Inventory.Compact_HardTop.ordinal()]
             + Have_Inventory[Inventory.Construction_Vehicle.ordinal()]
@@ -163,15 +163,13 @@ public class WorldMap extends Screen
         Random rand = new Random();
 
         int AL = rand.nextInt(2) + 1;
-        int quantity = 0;
 
         switch (AL)
         {
             case '1': randomLoot();
                 break;
 
-            case '2': //randomPeople();
-                quantity = rand.nextInt(5) + 1;
+            case '2': randomPeople();
                 break;
         }
     }
@@ -245,6 +243,124 @@ public class WorldMap extends Screen
         Have_Inventory[RL] += quantity;
     }
 
+    private void randomPeople()
+    {
+        Random rand = new Random();
+
+        int RP = rand.nextInt(16);
+        int quantity = 0;
+        switch(RP)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            {
+                quantity = rand.nextInt(2);
+                break;
+            }
+
+        }
+
+        Roster[RP] += quantity;
+    }
+
+
+    private void searchLoot()
+    {
+        Random rand = new Random();
+
+        int SL = rand.nextInt(6);
+        int quantity = 0;
+        switch(SL)
+        {
+            case 0:
+            case 2:
+            {
+                quantity = rand.nextInt(200) + 1;
+                break;
+            }
+
+            case 1:
+            {
+                quantity = rand.nextInt(900) + 1;
+                break;
+            }
+
+            case 3:
+            case 4:
+            case 6:
+            {
+                quantity = rand.nextInt(30) + 1;
+                break;
+            }
+
+            case 5:
+            {
+                quantity = rand.nextInt(75) + 1;
+                break;
+            }
+        }
+
+        Have_Inventory[SL] += quantity;
+    }
+
+    private void searchVehicle()
+    {
+        Random rand = new Random();
+
+        int SV = rand.nextInt(26)+ 7;
+        int quantity = 0;
+        switch(SV)
+        {
+            case 7:
+            case 8:
+            {
+                quantity = rand.nextInt(4) + 1;
+                break;
+            }
+
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            {
+                quantity = rand.nextInt(2);
+                break;
+            }
+        }
+
+        Have_Inventory[SV] += quantity;
+    }
+
+
+
     private void drawOverWorldUI(int posX, int posY)
     {
         Graphics g = game.getGraphics();
@@ -279,7 +395,10 @@ public class WorldMap extends Screen
         numCols = (game.getGraphics().getWidth() / world.tileWidth) + 1;
 
         for (int r = 0; r < 20; r++)
+        {
             randomLoot();
+            randomPeople();
+        }
 
         for (int i = 0; i < 10; ++i)
         {
@@ -328,8 +447,8 @@ public class WorldMap extends Screen
         AvatarX = CityArray.get(Rand_pos)[0];
         AvatarY = CityArray.get(Rand_pos)[1];
 
-        cameraX = (AvatarX * world.tileWidth) - g.getWidth()/2;
-        cameraY = (AvatarY * world.tileHeight) - g.getHeight()/2;
+        cameraX = (AvatarX) - g.getWidth()/2;
+        cameraY = (AvatarY) - g.getHeight()/2;
     }
 
     public boolean inBoundaryCheck(int touchXPos, int touchYPos, int boxX, int boxY, int boxWidth, int boxHeight)
@@ -433,11 +552,36 @@ public class WorldMap extends Screen
             mLastTouchx = x;
             mLastTouchy = y;
 
-
-
-
         }
 
+        if (cameraX < 0)
+        {
+            cameraX = 0;
+        }
+        if (cameraX > maxCameraX)
+        {
+            cameraX = maxCameraX;
+        }
+
+        if (cameraY < 0)
+        {
+            cameraY = 0;
+        }
+        if (cameraY > maxCameraY)
+        {
+            cameraY = maxCameraY;
+        }
+
+        camera_leftcol = cameraX / world.tileWidth;
+        camera_offsetx = -(cameraX % world.tileWidth);
+        camera_toprow = cameraY /world.tileHeight;
+        camera_offsety = -(cameraY % world.tileWidth);
+
+        numRows = g.getHeight() / world.tileHeight;
+        numRows += (camera_offsety < 0) ? 1 : 0;
+
+        numCols = g.getWidth() / world.tileWidth;
+        numCols += (camera_offsetx < 0) ? 1 : 0;
 
         if ((Path != null) && (Path.size()) != 0)
         {
@@ -554,7 +698,7 @@ public class WorldMap extends Screen
     {
         Graphics g = game.getGraphics();
 
-        g.drawPixmap(world.image.pmImage, (AvatarX * world.tileWidth) - cameraX, (AvatarY * world.tileHeight)  - cameraY, 1, 1, world.tileWidth, world.tileHeight);
+        g.drawPixmap(world.image.pmImage, (AvatarX) - cameraX, (AvatarY)  - cameraY, 1, 1, world.tileWidth, world.tileHeight);
     }
 
     public boolean isVehicleTouched(Input.TouchEvent event)
@@ -637,7 +781,7 @@ public class WorldMap extends Screen
         //used to tell what crew each player vehicle has
         Graphics g = game.getGraphics();
         int fontSize = 72;
-        int rectWidth = 850;
+        int rectWidth = 800;
         int rectHeight = fontSize * 12;
         int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
         int yPos = (int)((g.getHeight() * 0.5) - (rectHeight * 0.5));
@@ -648,6 +792,7 @@ public class WorldMap extends Screen
 
         xPos += fontSize * 1.5;
 
+
         line += 3;
         yPos = line * fontSize;
 
@@ -655,48 +800,47 @@ public class WorldMap extends Screen
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Fuel: " + Have_Inventory[Inventory.Fuel.ordinal()];
+        text = "Fuel: " + fuel;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Food: " + Have_Inventory[Inventory.Food.ordinal()];
+        text = "Food: " + food;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Ammo: " + Have_Inventory[Inventory.Ammo.ordinal()];
+        text = "Ammo: " + ammo;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Guns: " + Have_Inventory[Inventory.Guns.ordinal()];
+        text = "Guns: " + guns;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Tires: " + Have_Inventory[Inventory.Tires.ordinal()];
+        text = "Tires: " + tires;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Medical Supplies: " + Have_Inventory[Inventory.Medical_Supplies.ordinal()];
+        text = "Medical Supplies: " + medicalSupplies;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Antitoxins: " + Have_Inventory[Inventory.Antitoxins.ordinal()];
+        text = "Antitoxins: " + antitoxins;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Vehicles: " + totalVechicles;
-
+        text = "Vehicles: " + vehicles;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "People: " ;
+        text = "People: " + people;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
