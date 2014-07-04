@@ -28,6 +28,7 @@ public class TacticalCombatVehicle
     boolean isMoved = false;
     boolean isAttacked = false;
     boolean isDead = false;
+    List<TacticalCombatVehicle> alive = new ArrayList<TacticalCombatVehicle>();
     List<Node> thePath = new ArrayList<Node>();
     int target;
     public List< TacticalCombatVehicle > enemiesInRange;

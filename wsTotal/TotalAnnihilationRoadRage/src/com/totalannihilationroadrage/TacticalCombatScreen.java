@@ -221,7 +221,7 @@ public class TacticalCombatScreen extends Screen
         {
             for(int i = 0; i < tcWorld.tcvsEnemy.size(); ++i)
             {
-                //tcWorld.generatePath();
+                tcWorld.generatePath();
             }
             switchToAttackPhase();
         }
@@ -410,6 +410,7 @@ public class TacticalCombatScreen extends Screen
 			int t_element =  vehicles.get(i).isDead ? Assets.vehicleStats.INDEX_DESTROYED_CAR_TILES + 1 : vehicles.get(i).vehicle.statsBase.type.ordinal() + Assets.vehicleStats.INDEX_START_CAR_TILES;
 			srcY = (t_element / tileSheetCol) * tMap.tileset.tileWidth;
 			srcX = (t_element % tileSheetCol) * tMap.tileset.tileHeight;
+            vehicles.get(i).alive.add(vehicles.get(i));
             if (isEnemy)
             {
                 tileColour = Color.RED;

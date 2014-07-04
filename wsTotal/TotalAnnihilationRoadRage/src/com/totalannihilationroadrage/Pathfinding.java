@@ -1,75 +1,86 @@
 package com.totalannihilationroadrage;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
-
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Pathfinding
 {
-    List<Node> closedList = new ArrayList<Node>();
+    //List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
+    Set<Node> closedList = new HashSet<Node>();
+    //SortedSet<Node> openList = new TreeSet<Node>();
+
     Direction directionLeft;
     Direction directionRight;
 
     public List<Node> IAmAPathAndILikeCheese(TiledMap tiles, Node start, Node goal)
     {
-        Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null, start.facing);
         closedList.clear();
         openList.clear();
+        Node currentNode = new Node(start.row, start.col, start.gCost, start.fCost, null, start.facing);
+        int row;
+        int col;
+        Node tempChildNode;
+
+        if(currentNode == goal)
+        {
+            return null;
+        }
 
         while (!catchMeIfYouCan(currentNode, goal))
         {
-            if(currentNode == goal)
-            {
-                return null;
-            }
-
-            int row = currentNode.row;
-            int col = currentNode.col;
+            row = currentNode.row;
+            col = currentNode.col;
+            tempChildNode = new Node(row, col, currentNode.gCost, currentNode.fCost, currentNode, null);
 
             //right child
-            col++;
-            addChild(row, col, tiles, currentNode, goal, Direction.EAST);
+            tempChildNode.col++;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.EAST);
 
             //left child
-            col -= 2;
-            addChild(row, col, tiles, currentNode, goal, Direction.WEST);
+            tempChildNode.col -= 2;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.WEST);
 
             //top child
-            col++;
-            row--;
-            addChild(row, col, tiles, currentNode, goal, Direction.NORTH);
+            tempChildNode.col++;
+            tempChildNode.row--;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.NORTH);
 
             //bottom child
-            row += 2;
-            addChild(row, col, tiles, currentNode, goal, Direction.SOUTH);
+            tempChildNode.row += 2;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.SOUTH);
 
             //bottom right
-            col++;
-            addChild(row, col, tiles, currentNode, goal, Direction.SOUTHEAST);
+            tempChildNode.col++;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.SOUTHEAST);
 
             //bottom left
-            col -= 2;
-            addChild(row, col, tiles, currentNode, goal, Direction.SOUTHWEST);
+            tempChildNode.col -= 2;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.SOUTHWEST);
 
             //top left
-            row -= 2;
-            addChild(row, col, tiles, currentNode, goal, Direction.NORTHWEST);
+            tempChildNode.row -= 2;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.NORTHWEST);
 
             //top right
-            col += 2;
-            addChild(row, col, tiles, currentNode, goal, Direction.NORTHEAST);
+            tempChildNode.col += 2;
+            addChild(tempChildNode, tiles, currentNode, goal, Direction.NORTHEAST);
 
             //Put currentNode in the closedList
             closedList.add(currentNode);
             //Sort the openList
             Collections.sort(openList);
+            //openList.comparator();
             //Assign currentNode to the last element in the List
             if(openList.size() > 0)
             {
+                //currentNode = openList.first();
                 currentNode = openList.remove(openList.size() - 1);
             }
             else
@@ -85,6 +96,7 @@ public class Pathfinding
             currentNode = currentNode.parentNode;
         }
         Collections.reverse(path);
+
         return path;
     }
 
@@ -94,44 +106,67 @@ public class Pathfinding
         return (currentNode.col == goalNode.col) && (currentNode.row == goalNode.row);
     }
 
-    public boolean isNodeClosed(double row, double col)
+    public boolean isClosed(Node n, Set<Node> closed)
     {
-        for (int i = 0; i < closedList.size(); ++i)
-        {
-            if (closedList.get(i).col == col && closedList.get(i).row == row)
-            {
-                return true;
-            }
-        }
-        return false;
+        return closed.contains(n);
     }
 
-    public Node getChildFromOpen(double row, double col)
+    public boolean isOpen(Node n)
     {
-        for (int i = 0; i < openList.size(); ++i)
+        return openList.contains(n);
+        /*if(openList.contains(n))
         {
-            if (openList.get(i).col == col && openList.get(i).row == row)
+            return n;
+        }
+        else
+        {
+            return null;
+        }*/
+    }
+
+    /*public Node getChildFromOpen(double row, double col)
+    {
+        for(int i = 0; i < openList.size(); ++i)
+        {
+            if(openList.get(i).col == col && openList.get(i).row == row)
             {
                 return openList.get(i);
             }
         }
         return null;
-    }
+    }*/
 
-    public void addChild(int row, int col, TiledMap tiles, Node currentNode, Node goal, Direction facing)
+    public void addChild(Node child, TiledMap tiles, Node currentNode, Node goal, Direction facing)
     {
-        if((row >= 0 && col >= 0) && (row <= tiles.height && col <= tiles.width))
+        if((child.row >= 0 && child.col >= 0) && (child.row <= tiles.height && child.col <= tiles.width))
         {
-            if (tiles.isPassable(row, col))
+            if (tiles.isPassable(child.row, child.col))
             {
-                if (!isNodeClosed(row, col))
+                //neighbourList.add(child);
+                if (!isClosed(child, closedList))
                 {
-                    Node tempChildNode = new Node(row, col, currentNode.gCost, currentNode.fCost, currentNode, facing);
-                    double g = currentNode.gCost + getDistanceWithFacing(tempChildNode, currentNode);
-                    double f = g + getDistance(row, col, currentNode);
-                    Node child = getChildFromOpen(row, col);
+                    child.facing = facing;
+                    double g = currentNode.gCost + getDistanceFromParent(child, currentNode);
+                    double f = g + getDistance(child.row, child.col, goal);
 
-                    if (child == null)
+                    if(isOpen(child))
+                    {
+                        if(child.gCost > g)
+                        {
+                            child.fCost = f;
+                            child.gCost = g;
+                            child.parentNode = currentNode;
+                        }
+                    }
+                    else
+                    {
+                        child = new Node(child.row, child.col, g, f, currentNode, facing);
+
+                         openList.add(child);
+                    }
+                    //Node child = getChildFromOpen(row, col);
+
+                    /*if (child == null)
                     {
                         child = new Node(row, col, g, f, currentNode, facing);
 
@@ -142,7 +177,7 @@ public class Pathfinding
                         child.fCost = f;
                         child.gCost = g;
                         child.parentNode = currentNode;
-                    }
+                    }*/
                 }
             }
         }
@@ -153,18 +188,21 @@ public class Pathfinding
         The goal is to have the AI only be able to go three directions. The way they are facing,
         turning to the right of that direction, or turning to the left of that direction.
      */
-    public double getDistanceWithFacing(Node tempChildNode, Node parent)
+    public double getDistanceFromParent(Node childNode, Node parent)
     {
-        directionLeft = Direction.turnLeft(tempChildNode.facing);
-        directionRight = Direction.turnRight(tempChildNode.facing);
+        directionLeft = Direction.turnLeft(parent.facing);
+        directionRight = Direction.turnRight(parent.facing);
 
-        if(tempChildNode.facing != parent.facing)
+        if(childNode.facing != parent.facing)
         {
-            if(tempChildNode.facing == directionLeft || tempChildNode.facing == directionRight)
+            if(childNode.facing == directionLeft || childNode.facing == directionRight)
             {
-                return Math.sqrt((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col));
+                return Math.sqrt((childNode.row - parent.row) * (childNode.row - parent.row) + (childNode.col - parent.col) * (childNode.col - parent.col));
             }
-            return ((tempChildNode.row - parent.row) * (tempChildNode.row - parent.row) + (tempChildNode.col - parent.col) * (tempChildNode.col - parent.col)) * 2;
+            else
+            {
+                return 200;
+            }
         }
         return 1;
     }
@@ -172,11 +210,6 @@ public class Pathfinding
     public double getDistance(double row, double col, Node goal)
     {
         return Math.sqrt((goal.row - row) * (goal.row - row) + (goal.col - col) * (goal.col - col));
-    }
-
-    public double getDistanceFromParent(double row, double col, Node parent)
-    {
-        return Math.sqrt((row - parent.row) * (row - parent.row) + (col - parent.col) * (col - parent.col));
     }
 
     public boolean LOSCheck(Node start, Node goal, TiledMap tiles)
@@ -293,22 +326,4 @@ public class Pathfinding
         }
         return true;
     }
-
-    /*public void removeRedundant(Node path, TiledMap tiles)
-    {
-        Node currNode = path.parentNode;
-        //while there is a line of sight  from start to current node, set path parent to node and go to next node
-        while (currNode.parentNode != null)
-        {
-            if (LOSCheck(path, currNode, tiles))
-            {
-                path.parentNode = currNode;
-            }
-            currNode = currNode.parentNode;
-        }
-        if (path.parentNode.parentNode != null)
-        {
-            removeRedundant(path.parentNode, tiles);
-        }
-    }*/
 }

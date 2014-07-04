@@ -102,6 +102,7 @@ public class TacticalCombatWorld
         {
             vehicle.reverse();
             vehicle.die();
+            vehicle.alive.remove(vehicle);
             makeVehicleDestroyedTile(vehicle);
             Assets.explosion.play(1);
         }
@@ -120,6 +121,7 @@ public class TacticalCombatWorld
             {
                 tcvsPlayer.get(i).die();
                 makeVehicleDestroyedTile(tcvsPlayer.get(i));
+                tcvsPlayer.get(i).alive.remove(tcvsPlayer.get(i));
                 Assets.explosion.play(1);
                 return true;
             }
@@ -130,6 +132,7 @@ public class TacticalCombatWorld
             {
                 tcvsEnemy.get(i).die();
                 makeVehicleDestroyedTile(tcvsEnemy.get(i));
+                tcvsEnemy.get(i).alive.remove(tcvsEnemy.get(i));
                 Assets.explosion.play(1);
                 return true;
             }
@@ -299,6 +302,7 @@ public class TacticalCombatWorld
                 {
                     tcvsEnemy.get(enemyCounter).reverse();
                     tcvsEnemy.get(enemyCounter).isDead = true;
+                    tcvsEnemy.get(enemyCounter).alive.remove(tcvsEnemy.get(enemyCounter));
                     Assets.explosion.play(1);
                 }
             }
