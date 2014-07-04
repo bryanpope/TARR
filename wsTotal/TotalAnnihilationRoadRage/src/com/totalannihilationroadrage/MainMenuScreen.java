@@ -10,9 +10,11 @@ import com.framework.Input.TouchEvent;
 import com.framework.Screen;
 
 public class MainMenuScreen extends Screen {
-    public MainMenuScreen(Game game) {
-        super(game);               
-    }   
+    public MainMenuScreen(Game game)
+    {
+        super(game);
+        Assets.music.play(1);
+    }
 
     public void update(float deltaTime) {
         Graphics g = game.getGraphics();

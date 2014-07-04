@@ -17,7 +17,7 @@ public class Assets
     public static Pixmap howToScreen2;
     public static Sound gunShot;
     public static Sound explosion;
-
+    public static Sound music;
     public static OverworldTiledMap tmOverWorld;
     public static Pixmap pmOverWorld;
     public static TacticalCombatTiledMap tmHighway;
