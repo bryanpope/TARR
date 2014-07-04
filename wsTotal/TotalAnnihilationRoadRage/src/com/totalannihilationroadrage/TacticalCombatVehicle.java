@@ -20,11 +20,6 @@ public class TacticalCombatVehicle
     boolean isSpeedChanged = false;
     boolean isAccelerated = false;
     boolean isBraked = false;
-    //boolean isTurnedLeft = true;
-    //boolean isTurnedRight = true;
-    //boolean isStraight = true;
-    //boolean isRight = false;
-    //boolean isLeft = false;
     boolean isMoved = false;
     boolean isAttacked = false;
     boolean isDead = false;
@@ -184,15 +179,8 @@ public class TacticalCombatVehicle
     {
         brake = 0;
         accelerate = 0;
-        //speedCurrent = 30;
-        //maneuverability = vehicle.statsBase.maneuverability;
         isAccelerated = false;
         isBraked = false;
-        //isTurnedLeft = true;
-        //isTurnedRight = true;
-        //isStraight = true;
-        //isRight = false;
-        //isLeft = false;
         isMoved = false;
         isAttacked = false;
         isSpeedChanged = false;
