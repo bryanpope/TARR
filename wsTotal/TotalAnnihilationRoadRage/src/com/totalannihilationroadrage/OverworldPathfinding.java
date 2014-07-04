@@ -32,6 +32,11 @@ public class OverworldPathfinding
             return null;
         }
 
+        if(!tiles.isPassable(goal.row, goal.col))
+        {
+            return null;
+        }
+
         while (!catchMeIfYouCan(currentNode, goal))
         {
             row = currentNode.row;

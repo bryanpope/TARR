@@ -22,6 +22,7 @@ public class OverworldTiledMap extends TiledMap
             case 3:
             case 19:
             case 22:
+            case 24:
                 return true;
             case 4:
             case 5:
