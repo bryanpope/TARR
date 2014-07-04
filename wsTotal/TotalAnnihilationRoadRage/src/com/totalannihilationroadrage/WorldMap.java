@@ -219,7 +219,7 @@ public class WorldMap extends Screen
                 if(selectedVehicle)
                 {
                     updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
-                    updatePath(touchEvents);
+                    //updatePath(touchEvents);
                 }
 
             }
@@ -553,6 +553,7 @@ public class WorldMap extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
                     //Update Loot
                     System.out.println("loot");
+                    selectedVehicle = false;
                     randomLoot();
                     touchEvents.remove(i);
                     break;
@@ -560,6 +561,7 @@ public class WorldMap extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
                     //Update People
                     System.out.println("people");
+                    selectedVehicle = false;
                     randomPeople();
                     touchEvents.remove(i);
                     break;
@@ -567,6 +569,7 @@ public class WorldMap extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX, posY + tileHeight, tileWidth, tileHeight)) {
                     //Update Vehicles
                     System.out.println("vehicles");
+                    selectedVehicle = false;
                     searchVehicle();
                     touchEvents.remove(i);
                     break;
