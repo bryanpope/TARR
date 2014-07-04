@@ -339,7 +339,7 @@ public class WorldMap extends Screen
     int people = 0;
 
     boolean drawScreen = false;
-
+    int highlightBarLine = -1;
     TacticalCombatWorld tcWorld;
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
     List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
@@ -486,7 +486,7 @@ public class WorldMap extends Screen
         }
         if(drawScreen)
         {
-            drawInventoryScreen();
+            drawInventoryScreen(highlightBarLine);
         }
 
         if ((Path != null) && (Path.size()) != 0)
@@ -579,9 +579,10 @@ public class WorldMap extends Screen
         }
 
         Have_Inventory[RL] += quantity;
+
     }
 
-    private void randomPeople()
+    private int randomPeople()
     {
         Random rand = new Random();
 
@@ -613,9 +614,11 @@ public class WorldMap extends Screen
         }
 
         Roster[RP] += quantity;
+        return RP;
     }
 
-    private void searchLoot()
+
+    private int searchLoot()
     {
         Random rand = new Random();
 
@@ -652,9 +655,10 @@ public class WorldMap extends Screen
         }
 
         Have_Inventory[SL] += quantity;
+        return SL;
     }
 
-    private void searchVehicle()
+    private int searchVehicle()
     {
         Random rand = new Random();
 
@@ -694,6 +698,7 @@ public class WorldMap extends Screen
         }
 
         Have_Inventory[SV] += quantity;
+        return SV;
     }
 
     private void updateWorldUI(List<Input.TouchEvent> touchEvents, int posX, int posY)
@@ -704,6 +709,8 @@ public class WorldMap extends Screen
         int tileHeight = 128;
 
         int len = touchEvents.size();
+
+        int inventoryLine;
 
         for(int i = 0; i < len; i++)
         {
@@ -719,7 +726,9 @@ public class WorldMap extends Screen
                     //Update Loot
                     System.out.println("loot");
                     selectedVehicle = false;
-                    searchLoot();
+                    inventoryLine = searchLoot();
+                    highlightBarLine = translateLoot(inventoryLine);
+                    drawScreen = true;
                     touchEvents.remove(i);
                     break;
                 }
@@ -727,7 +736,9 @@ public class WorldMap extends Screen
                     //Update People
                     System.out.println("people");
                     selectedVehicle = false;
-                    randomPeople();
+                    inventoryLine = randomPeople();
+                    highlightBarLine = translateLoot(inventoryLine);
+                    drawScreen = true;
                     touchEvents.remove(i);
                     break;
                 }
@@ -735,13 +746,16 @@ public class WorldMap extends Screen
                     //Update Vehicles
                     System.out.println("vehicles");
                     selectedVehicle = false;
-                    searchVehicle();
+                    inventoryLine = searchVehicle();
+                    highlightBarLine = translateLoot(inventoryLine);
+                    drawScreen = true;
                     touchEvents.remove(i);
                     break;
                 }
             }
         }
     }
+
 
     private void drawOverWorldUI(int posX, int posY)
     {
@@ -767,6 +781,7 @@ public class WorldMap extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.overWorldUI, relativeX, relativeY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
     }
+
 
     public WorldMap(Game game, TiledMap TiledMap)
     {
@@ -845,6 +860,7 @@ public class WorldMap extends Screen
             return false;
 
     }
+
 
     public void updatePath(List<Input.TouchEvent> touchEvents)
     {
@@ -1023,6 +1039,7 @@ public class WorldMap extends Screen
             {
                 if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
                 {
+                    highlightBarLine = -1;
                     drawScreen = true;
                     touchEvents.remove(i);
                     break;
@@ -1031,9 +1048,141 @@ public class WorldMap extends Screen
         }
     }
 
-    private void drawInventoryScreen()
+    private int translateVehicles(int lootType)
     {
-        //used to tell what crew each player vehicle has
+        int ret;
+
+        switch(lootType)
+        {
+            case 7:
+            case 8:
+            {
+                ret = 8;
+                break;
+            }
+
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            {
+                ret = 8;
+                break;
+            }
+        }
+
+        return lootType;
+    }
+
+    private int translatePeople(int lootType)
+    {
+        int ret;
+
+        switch(lootType)
+        {
+            case 7:
+            case 8:
+            {
+                ret = 9;
+                break;
+            }
+
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            {
+                ret = 9;
+                break;
+            }
+        }
+
+        return lootType;
+    }
+
+    private int translateLoot(int lootType)
+    {
+        int ret;
+
+        switch(lootType)
+        {
+            case 0:
+            {
+                ret = 1;
+                break;
+            }
+
+            case 1:
+            {
+                ret = 2;
+                break;
+            }
+
+            case 2:
+            {
+                ret = 3;
+                break;
+            }
+
+            case 3:
+            {
+                ret = 4;
+                break;
+            }
+
+            case 4:
+            {
+                ret = 5;
+                break;
+            }
+
+            case 6:
+            {
+                ret = 6;
+                break;
+            }
+
+            case 5:
+            {
+                ret = 7;
+                break;
+            }
+        }
+
+        return lootType;
+    }
+
+    private void drawInventoryScreen(int highlightBarLine)
+    {
+        //used to tell what inventory the player has
         Graphics g = game.getGraphics();
         int fontSize = 72;
         int rectWidth = 950;
@@ -1045,6 +1194,12 @@ public class WorldMap extends Screen
 
         g.drawRect(xPos, yPos, rectWidth, rectHeight, Color.BLACK);
 
+        if(highlightBarLine >= 0)
+        {
+            yPos = highlightBarLine * fontSize;
+            g.drawRect(xPos, yPos, rectWidth, fontSize, Color.GRAY);
+        }
+        line = 0;
         xPos += fontSize * 1.5;
 
 
