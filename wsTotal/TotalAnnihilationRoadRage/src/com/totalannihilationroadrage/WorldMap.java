@@ -304,9 +304,6 @@ public class WorldMap extends Screen
     List<Node> Path = new ArrayList<Node>();
     int PathCounter = 0;
 
-    //int CityArray_row = 0;
-    //int CityArray_col = 0;
-
     GameState state = GameState.Running;
     TiledMap world;
     Pathfinding pathfinding = new Pathfinding();
@@ -349,44 +346,8 @@ public class WorldMap extends Screen
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
     List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
 
-    int totalVehicles = + Have_Inventory[Inventory.Bus.ordinal()]
-            + Have_Inventory[Inventory.Compact_Convertible.ordinal()]
-            + Have_Inventory[Inventory.Compact_HardTop.ordinal()]
-            + Have_Inventory[Inventory.Construction_Vehicle.ordinal()]
-            + Have_Inventory[Inventory.Flatbed_Truck.ordinal()]
-            + Have_Inventory[Inventory.Limousine.ordinal()]
-            + Have_Inventory[Inventory.Midsize_Convertible.ordinal()]
-            + Have_Inventory[Inventory.Midsize_HardTop.ordinal()]
-            + Have_Inventory[Inventory.Motorcycle.ordinal()]
-            + Have_Inventory[Inventory.Offroad_Convertible.ordinal()]
-            + Have_Inventory[Inventory.Offroad_HardTop.ordinal()]
-            + Have_Inventory[Inventory.Sidecar.ordinal()]
-            + Have_Inventory[Inventory.Pickup_truck.ordinal()]
-            + Have_Inventory[Inventory.Sports_Car_Convertible.ordinal()]
-            + Have_Inventory[Inventory.Sports_Car_HardTop.ordinal()]
-            + Have_Inventory[Inventory.StationWagon.ordinal()]
-            + Have_Inventory[Inventory.Van.ordinal()]
-            + Have_Inventory[Inventory.Tractor.ordinal()]
-            + Have_Inventory[Inventory.Trailer_Truck.ordinal()];
-
-    int totalPeople = Roster[People.Crony_Doctor.ordinal()]
-            + Roster[People.Crony_DrillSergeant.ordinal()]
-            + Roster[People.Crony_Politician.ordinal()]
-            + Roster[People.Agents.ordinal()]
-            + Roster[People.Healers.ordinal()]
-            + Roster[People.FG_Soldiers.ordinal()]
-            + Roster[People.FG_Hoodlums.ordinal()]
-            + Roster[People.FG_HomeGuards.ordinal()]
-            + Roster[People.FG_Civilians.ordinal()]
-            + Roster[People.FG_Cannibals.ordinal()]
-            + Roster[People.Resident_Police.ordinal()]
-            + Roster[People.Resident_Bureaucrats.ordinal()]
-            + Roster[People.Resident_Terrorists.ordinal()]
-            + Roster[People.Resident_Neutrals.ordinal()]
-            + Roster[People.Resident_Mutants.ordinal()]
-            + Roster[People.RG_Terrorists.ordinal()]
-            + Roster[People.RG_Cannibals.ordinal()];
-
+    int totalVehicles = 0;
+    int totalPeople = 0;
 
     public void update(float deltaTime)
     {
@@ -428,7 +389,7 @@ public class WorldMap extends Screen
                 if(selectedVehicle)
                 {
                     updateWorldUI(touchEvents, AvatarX - cameraX, AvatarY - cameraY);
-                    //updatePath(touchEvents);
+                    updatePath(touchEvents);
                 }
 
             }
@@ -508,13 +469,6 @@ public class WorldMap extends Screen
         numCols = g.getWidth() / world.tileWidth;
         numCols += (camera_offsetx < 0) ? 1 : 0;
 
-        if ((Path != null) && (Path.size()) != 0)
-        {
-            MovePlayer();
-        }
-
-
-
     }
 
     @Override
@@ -535,6 +489,11 @@ public class WorldMap extends Screen
         if(drawScreen)
         {
             drawInventoryScreen();
+        }
+
+        if ((Path != null) && (Path.size()) != 0)
+        {
+            MovePlayer();
         }
     }
 
@@ -628,7 +587,7 @@ public class WorldMap extends Screen
     {
         Random rand = new Random();
 
-        int RP = rand.nextInt(16);
+        int RP = rand.nextInt(15);
         int quantity = 0;
         switch(RP)
         {
@@ -763,7 +722,7 @@ public class WorldMap extends Screen
                     //Update Loot
                     System.out.println("loot");
                     selectedVehicle = false;
-                    randomLoot();
+                    searchLoot();
                     touchEvents.remove(i);
                     break;
                 }
@@ -771,7 +730,7 @@ public class WorldMap extends Screen
                     //Update People
                     System.out.println("people");
                     selectedVehicle = false;
-                    //randomPeople();
+                    randomPeople();
                     touchEvents.remove(i);
                     break;
                 }
@@ -779,7 +738,7 @@ public class WorldMap extends Screen
                     //Update Vehicles
                     System.out.println("vehicles");
                     selectedVehicle = false;
-                    //searchVehicle();
+                    searchVehicle();
                     touchEvents.remove(i);
                     break;
                 }
@@ -901,7 +860,7 @@ public class WorldMap extends Screen
         for (int i = 0; i < len; i++)
         {
             Input.TouchEvent event = touchEvents.get(i);
-            Node Avatar_Node = new Node((AvatarY / world.tileHeight), (AvatarX / world.tileWidth), 0, 0, null, null);
+            Node Avatar_Node = new Node((AvatarY / world.tileHeight), (AvatarX / world.tileWidth), 0, 0, null, Direction.EAST);
             Node Destination_Node = new Node((event.y + cameraY) / world.tileHeight, (event.x + cameraX) / world.tileWidth, 0, 0, null, null);
             Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
             touchEvents.remove(i);
@@ -1131,10 +1090,48 @@ public class WorldMap extends Screen
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
+        totalVehicles = + Have_Inventory[Inventory.Bus.ordinal()]
+                + Have_Inventory[Inventory.Compact_Convertible.ordinal()]
+                + Have_Inventory[Inventory.Compact_HardTop.ordinal()]
+                + Have_Inventory[Inventory.Construction_Vehicle.ordinal()]
+                + Have_Inventory[Inventory.Flatbed_Truck.ordinal()]
+                + Have_Inventory[Inventory.Limousine.ordinal()]
+                + Have_Inventory[Inventory.Midsize_Convertible.ordinal()]
+                + Have_Inventory[Inventory.Midsize_HardTop.ordinal()]
+                + Have_Inventory[Inventory.Motorcycle.ordinal()]
+                + Have_Inventory[Inventory.Offroad_Convertible.ordinal()]
+                + Have_Inventory[Inventory.Offroad_HardTop.ordinal()]
+                + Have_Inventory[Inventory.Sidecar.ordinal()]
+                + Have_Inventory[Inventory.Pickup_truck.ordinal()]
+                + Have_Inventory[Inventory.Sports_Car_Convertible.ordinal()]
+                + Have_Inventory[Inventory.Sports_Car_HardTop.ordinal()]
+                + Have_Inventory[Inventory.StationWagon.ordinal()]
+                + Have_Inventory[Inventory.Van.ordinal()]
+                + Have_Inventory[Inventory.Tractor.ordinal()]
+                + Have_Inventory[Inventory.Trailer_Truck.ordinal()];
+
         text = "Vehicles: " + totalVehicles;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
+
+        totalPeople = Roster[People.Crony_Doctor.ordinal()]
+                + Roster[People.Crony_DrillSergeant.ordinal()]
+                + Roster[People.Crony_Politician.ordinal()]
+                + Roster[People.Agents.ordinal()]
+                + Roster[People.Healers.ordinal()]
+                + Roster[People.FG_Soldiers.ordinal()]
+                + Roster[People.FG_Hoodlums.ordinal()]
+                + Roster[People.FG_HomeGuards.ordinal()]
+                + Roster[People.FG_Civilians.ordinal()]
+                + Roster[People.FG_Cannibals.ordinal()]
+                + Roster[People.Resident_Police.ordinal()]
+                + Roster[People.Resident_Bureaucrats.ordinal()]
+                + Roster[People.Resident_Terrorists.ordinal()]
+                + Roster[People.Resident_Neutrals.ordinal()]
+                + Roster[People.Resident_Mutants.ordinal()]
+                + Roster[People.RG_Terrorists.ordinal()]
+                + Roster[People.RG_Cannibals.ordinal()];
 
         text = "People: " + totalPeople;
         yPos = line * fontSize;
