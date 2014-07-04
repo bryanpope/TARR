@@ -662,7 +662,7 @@ public class WorldMap extends Screen
     {
         Random rand = new Random();
 
-        int SV = rand.nextInt(26)+ 7;
+        int SV = rand.nextInt(20)+ 7;
         int quantity = 0;
         switch(SV)
         {
