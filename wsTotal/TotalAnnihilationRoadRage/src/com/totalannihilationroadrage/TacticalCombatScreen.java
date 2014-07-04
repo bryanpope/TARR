@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.SystemClock;
+import android.view.VelocityTracker;
 
 import com.framework.Game;
 import com.framework.Graphics;
@@ -75,9 +76,8 @@ public class TacticalCombatScreen extends Screen
     private int currentBulletsSpeed;
     private Vector bulletsEndPos;
 
-    private Vector velocityScreen;
-    private Vector dragPosStart;
-    private float timeDragStart;
+    private VelocityTracker vTracker;
+    private Vector velocity;
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld, TiledMap tacticalMap)
 	{
@@ -86,9 +86,7 @@ public class TacticalCombatScreen extends Screen
         tMap = tacticalMap;
         numRows = (game.getGraphics().getHeight() / tcWorld.tmBattleGround.tileHeight) + 1;
         numCols = (game.getGraphics().getWidth() / tcWorld.tmBattleGround.tileWidth) + 1;
-        velocityScreen = new Vector();
-        dragPosStart = new Vector();
-        //dragPosEnd = new Vector();
+        velocity = new Vector();
 	}
 
     /*public boolean attackPhase()
@@ -158,26 +156,28 @@ public class TacticalCombatScreen extends Screen
                     previousTouchX = x;
                     previousTouchY = y;
                     pointerId = event.pointer;
-                    timeDragStart = System.nanoTime() / 1000000000.0f;
-                    dragPosStart.x = event.x;
-                    dragPosStart.y = event.y;
+
+                    if (vTracker == null)
+                    {
+                        vTracker = VelocityTracker.obtain();
+                    }
+                    else
+                    {
+                        vTracker.clear();
+                    }
+                    touchEvents.remove(i);
+                    break;
                 }
 
                 if (event.type == Input.TouchEvent.TOUCH_UP)
                 {
-                    if (!event.wasDragged)
-                    {
+                    //if (!event.wasDragged)
+                    //{
                         selectedVehicle = isVehicleTouched(event);
-                    }
-                    else
-                    {
-                        float timeDragEnd = (System.nanoTime() / 1000000000.0f) - timeDragStart;
-                        Vector dragPosEnd = new Vector(event.x, event.y);
-                        int distX = dragPosEnd.x - dragPosStart.x;
-                        int distY = dragPosEnd.y - dragPosStart.y;
-                        velocityScreen.x = (int)(distX / timeDragEnd);
-                        velocityScreen.y = (int)(distY / timeDragEnd);
-                    }
+                    //}
+                    //vTracker.recycle();
+                    touchEvents.remove(i);
+                    break;
                 }
 
                 if (event.type == Input.TouchEvent.TOUCH_DRAGGED)
@@ -187,9 +187,15 @@ public class TacticalCombatScreen extends Screen
                         continue;
                     }
 
+                    vTracker.addMovement(event.mEvent);
+                    vTracker.computeCurrentVelocity(1000);
+                    velocity.x = (int)vTracker.getXVelocity();
+                    velocity.y = (int)vTracker.getYVelocity();
+
                     //float dispX = x - previousTouchX;
                     //float dispY = y - previousTouchY;
-                    setCameraPosition(x - previousTouchX, y - previousTouchY);
+                    //setCameraPosition(x - previousTouchX, y - previousTouchY);
+                    setCameraPosition(velocity.x * deltaTime, velocity.y * deltaTime);
 
 
                 /*cameraTopRow += cameraOffsetY / tcWorld.tmBattleGround.tileHeight;
@@ -200,6 +206,8 @@ public class TacticalCombatScreen extends Screen
                 }
                 previousTouchX = x;
                 previousTouchY = y;
+                touchEvents.remove(i);
+                break;
             }
         }
         if (updateAttackAreaSelection)
@@ -211,10 +219,6 @@ public class TacticalCombatScreen extends Screen
                 updateSelectAreaToAttack(touchEvents, (vEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (vEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
             }*/
             //updateSelectAreaToAttack(touchEvents, (selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
-        }
-        if (velocityScreen.x != 0)
-        {
-
         }
 
         if ((pState == PhaseStates.Moving) && tcWorld.allPlayerVehiclesMoved())
@@ -235,6 +239,28 @@ public class TacticalCombatScreen extends Screen
             game.setScreen(new WorldMap(game, Assets.tmOverWorld));
         }
 	}
+
+    private int moveToZero (int moveValue, int moveBy)
+    {
+        int ret = 0;
+
+        if (moveValue == 0)
+        {
+            return moveValue;
+        }
+        if (moveValue < 0)
+        {
+            ret += moveBy;
+            ret = (ret > 0) ? 0 : moveBy;
+        }
+        else if (moveValue > 0)
+        {
+            ret -= moveBy;
+            ret = (ret < 0) ? 0 : moveBy;
+
+        }
+        return ret;
+    }
 
     private void setCameraPosition (float dispX, float dispY)
     {
