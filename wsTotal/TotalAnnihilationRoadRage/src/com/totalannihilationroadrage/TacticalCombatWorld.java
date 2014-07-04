@@ -14,7 +14,7 @@ public class TacticalCombatWorld
     private boolean fields[][] = new boolean[40][15];
     private Random random = new Random();
     private Random randomTarget = new Random();
-    Pathfinding pathfinding = new Pathfinding();
+    TacticalCombatPathfinding tcPathfinding = new TacticalCombatPathfinding();
     private int enemyCounter = 0;
     public int enemyMoved = 0;
 
@@ -267,7 +267,7 @@ public class TacticalCombatWorld
             Node enemyNode = new Node(tcvsEnemy.get(i).yPos, tcvsEnemy.get(i).xPos, 0, 0, null, tcvsEnemy.get(i).facing);
             Node targetNode = new Node(tcvsPlayer.get(tcvsEnemy.get(i).target).yPos, tcvsPlayer.get(tcvsEnemy.get(i).target).xPos, 0, 0, null, tcvsPlayer.get(tcvsEnemy.get(i).target).facing);
 
-            tcvsEnemy.get(i).thePath = pathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
+            tcvsEnemy.get(i).thePath = tcPathfinding.IAmAPathAndILikeCheese(tmBattleGround, enemyNode, targetNode);
         }
         if(enemyCounter == tcvsEnemy.size())
         {

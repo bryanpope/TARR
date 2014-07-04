@@ -1,12 +1,16 @@
 package com.totalannihilationroadrage;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collections;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-public class Pathfinding
+/**
+ * Created by Andrew on 04/07/2014.
+ */
+
+public class TacticalCombatPathfinding
 {
     List<Node> openList = new ArrayList<Node>();
     Set<Node> closedList = new HashSet<Node>();
@@ -134,7 +138,7 @@ public class Pathfinding
                     {
                         child = new Node(child.row, child.col, g, f, currentNode, facing);
 
-                         openList.add(child);
+                        openList.add(child);
                     }
                 }
             }

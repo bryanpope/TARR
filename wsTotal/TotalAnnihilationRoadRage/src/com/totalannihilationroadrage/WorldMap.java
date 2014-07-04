@@ -228,8 +228,6 @@ import com.framework.Graphics;
 
 import com.framework.Input;
 import com.framework.impl.MultiTouchHandler;
-import com.totalannihilationroadrage.Pathfinding;
-import com.totalannihilationroadrage.Node;
 import com.framework.Input.TouchEvent;
 import com.framework.Pixmap;
 import com.framework.Screen;
@@ -306,7 +304,7 @@ public class WorldMap extends Screen
 
     GameState state = GameState.Running;
     TiledMap world;
-    Pathfinding pathfinding = new Pathfinding();
+    OverworldPathfinding ovPathfinding = new OverworldPathfinding();
 
     public int camera_toprow = 0;
     public int camera_leftcol = 0;
@@ -858,7 +856,7 @@ public class WorldMap extends Screen
             Input.TouchEvent event = touchEvents.get(i);
             Node Avatar_Node = new Node((AvatarY / world.tileHeight), (AvatarX / world.tileWidth), 0, 0, null, Direction.EAST);
             Node Destination_Node = new Node((event.y + cameraY) / world.tileHeight, (event.x + cameraX) / world.tileWidth, 0, 0, null, null);
-            Path = pathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
+            Path = ovPathfinding.IAmAPathAndILikeCheese(world, Avatar_Node, Destination_Node);
             touchEvents.remove(i);
             break;
         }

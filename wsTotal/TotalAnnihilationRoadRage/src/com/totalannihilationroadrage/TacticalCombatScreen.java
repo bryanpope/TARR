@@ -15,7 +15,6 @@ import com.framework.Graphics;
 import com.framework.Input;
 import com.framework.Screen;
 import com.framework.impl.AndroidPixmap;
-import com.totalannihilationroadrage.Pathfinding;
 
 import java.util.ArrayList;
 import java.util.BitSet;
