@@ -1,5 +1,6 @@
 package com.totalannihilationroadrage;
 
+import com.framework.Music;
 import com.framework.Pixmap;
 import com.framework.Sound;
 
@@ -17,7 +18,7 @@ public class Assets
     public static Pixmap howToScreen2;
     public static Sound gunShot;
     public static Sound explosion;
-    public static Sound music;
+    public static Music music;
     public static OverworldTiledMap tmOverWorld;
     public static Pixmap pmOverWorld;
     public static TacticalCombatTiledMap tmHighway;

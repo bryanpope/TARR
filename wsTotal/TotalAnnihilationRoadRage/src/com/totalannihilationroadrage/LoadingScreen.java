@@ -20,7 +20,7 @@ public class LoadingScreen extends Screen {
         Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", PixmapFormat.ARGB8888);
         Assets.gunShot = game.getAudio().newSound("gunShot.wav");
         Assets.explosion = game.getAudio().newSound("explosion.wav");
-        Assets.music = game.getAudio().newSound("Pentakill - The Hex Core.mp3");
+        Assets.music = game.getAudio().newMusic("Pentakill - The Hex Core.mp3");
         Settings.load(game.getFileIO());
 
 

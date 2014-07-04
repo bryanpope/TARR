@@ -13,7 +13,7 @@ public class MainMenuScreen extends Screen {
     public MainMenuScreen(Game game)
     {
         super(game);
-        Assets.music.play(1);
+        Assets.music.play();
     }
 
     public void update(float deltaTime) {
@@ -100,16 +100,20 @@ public class MainMenuScreen extends Screen {
         g.drawPixmap(Assets.mainMenu, 780, 466);
     }
 
-    public void pause() {        
+    public void pause()
+    {
         Settings.save(game.getFileIO());
+        Assets.music.pause();
     }
 
-    public void resume() {
-
+    public void resume()
+    {
+        Assets.music.play();
     }
 
-    public void dispose() {
-
+    public void dispose()
+    {
+        Assets.music.stop();
     }
 }
 
