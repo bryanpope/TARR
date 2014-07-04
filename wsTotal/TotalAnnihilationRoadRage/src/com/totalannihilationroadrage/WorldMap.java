@@ -617,7 +617,6 @@ public class WorldMap extends Screen
         Roster[RP] += quantity;
     }
 
-
     private void searchLoot()
     {
         Random rand = new Random();
@@ -746,7 +745,6 @@ public class WorldMap extends Screen
         }
     }
 
-
     private void drawOverWorldUI(int posX, int posY)
     {
         Graphics g = game.getGraphics();
@@ -771,7 +769,6 @@ public class WorldMap extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.overWorldUI, relativeX, relativeY + tileHeight, srcX, srcY, tileWidth, tileHeight);           //Vehicles
     }
-
 
     public WorldMap(Game game, TiledMap TiledMap)
     {
@@ -851,7 +848,6 @@ public class WorldMap extends Screen
 
     }
 
-
     public void updatePath(List<Input.TouchEvent> touchEvents)
     {
         // Remember where we started
@@ -873,13 +869,19 @@ public class WorldMap extends Screen
 
         if(PathCounter < Path.size())
         {
-            AvatarX = Path.get(PathCounter).col;
-            AvatarY = Path.get(PathCounter).row;
-            PathCounter++;
+            if (Path.get(PathCounter).parentNode != null)
+            {
+
+                AvatarX = Path.get(PathCounter).col * world.tileWidth;
+                AvatarY = Path.get(PathCounter).row * world.tileHeight;
+                PathCounter++;
+            }
+
         }
         else
         {
             PathCounter = 0;
+            Path.clear();
             AutoLoot();
 
             Random rand = new Random();
