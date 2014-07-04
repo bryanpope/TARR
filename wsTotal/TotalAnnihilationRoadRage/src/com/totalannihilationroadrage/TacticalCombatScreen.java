@@ -157,14 +157,14 @@ public class TacticalCombatScreen extends Screen
                     previousTouchY = y;
                     pointerId = event.pointer;
 
-                    if (vTracker == null)
+                    /*if (vTracker == null)
                     {
                         vTracker = VelocityTracker.obtain();
                     }
                     else
                     {
                         vTracker.clear();
-                    }
+                    }*/
                     touchEvents.remove(i);
                     break;
                 }
@@ -187,15 +187,15 @@ public class TacticalCombatScreen extends Screen
                         continue;
                     }
 
-                    vTracker.addMovement(event.mEvent);
+                    /*vTracker.addMovement(event.mEvent);
                     vTracker.computeCurrentVelocity(1000);
                     velocity.x = (int)vTracker.getXVelocity();
-                    velocity.y = (int)vTracker.getYVelocity();
+                    velocity.y = (int)vTracker.getYVelocity();*/
 
-                    //float dispX = x - previousTouchX;
-                    //float dispY = y - previousTouchY;
-                    //setCameraPosition(x - previousTouchX, y - previousTouchY);
-                    setCameraPosition(velocity.x * deltaTime, velocity.y * deltaTime);
+                    float dispX = x - previousTouchX;
+                    float dispY = y - previousTouchY;
+                    setCameraPosition(x - previousTouchX, y - previousTouchY);
+                    //setCameraPosition(velocity.x * deltaTime, velocity.y * deltaTime);
 
 
                 /*cameraTopRow += cameraOffsetY / tcWorld.tmBattleGround.tileHeight;
