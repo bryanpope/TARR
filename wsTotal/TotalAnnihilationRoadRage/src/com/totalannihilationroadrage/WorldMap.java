@@ -903,7 +903,7 @@ public class WorldMap extends Screen
 
             if (TC < 5)
             {
-                //startTacticalCombat();
+                startTacticalCombat();
             }
 
             selectedVehicle = false;
@@ -1097,7 +1097,7 @@ public class WorldMap extends Screen
             case 7:
             case 8:
             {
-                ret = 9;
+                ret = 7;
                 break;
             }
 
@@ -1120,7 +1120,7 @@ public class WorldMap extends Screen
             case 25:
             case 26:
             {
-                ret = 9;
+                ret = 7;
                 break;
             }
         }
@@ -1196,6 +1196,7 @@ public class WorldMap extends Screen
 
         if(highlightBarLine >= 0)
         {
+            highlightBarLine += 3;
             yPos = highlightBarLine * fontSize;
             g.drawRect(xPos, yPos, rectWidth, fontSize, Color.GRAY);
         }

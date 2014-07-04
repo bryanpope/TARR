@@ -49,7 +49,7 @@ public class TacticalCombatScreen extends Screen
     PhaseStates pState = PhaseStates.Moving;
     StateCombatReport stateCombatReport = StateCombatReport.DefenderDeaths;
     Direction dir = Direction.EAST;
-	TacticalCombatWorld tcWorld;
+    TacticalCombatWorld tcWorld;
     TiledMap tMap;
     PhaseStates prevState;
     private CombinedGangMembers killList;
@@ -1276,6 +1276,11 @@ public class TacticalCombatScreen extends Screen
                     System.out.println("selected inside of vehicles");
                     updateAttackAreaSelection = false;
                     playGunSound();
+                    executeCombat(selectedVehicle, selectedVehicleEnemy);
+                    selectedVehicle.isAttacked = true;
+                    prevState = PhaseStates.Attack;
+                    pState = PhaseStates.DisplayCasualties;
+
                     // *ALL* touch events need to be removed here to get rid of a dragged.
                     touchEvents.clear();
                     break;
@@ -1285,6 +1290,10 @@ public class TacticalCombatScreen extends Screen
                     System.out.println("selected tires");
                     updateAttackAreaSelection = false;
                     playGunSound();
+                    executeCombat(selectedVehicle, selectedVehicleEnemy);
+                    selectedVehicle.isAttacked = true;
+                    prevState = PhaseStates.Attack;
+
                     // *ALL* touch events need to be removed here to get rid of a dragged.
                     touchEvents.clear();
                     break;
