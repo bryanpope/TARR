@@ -4,8 +4,6 @@ import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Screen;
 import com.framework.Graphics.PixmapFormat;
-import com.framework.Sound;
-import com.framework.Pixmap;
 
 public class LoadingScreen extends Screen {
     public LoadingScreen(Game game) {

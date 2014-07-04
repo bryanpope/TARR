@@ -45,5 +45,6 @@ public class OverworldTiledMap extends TiledMap
     public void setDestroyedVehicle (int row, int col)
     {
         // WHAT ARE YOU LOOKING AT?!!
+        //CATERPILLARS
     }
 }

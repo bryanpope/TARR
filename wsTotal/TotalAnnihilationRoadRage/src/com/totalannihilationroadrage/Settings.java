@@ -22,9 +22,7 @@ public class Settings {
                 highscores[i] = Integer.parseInt(in.readLine());
             }
         } catch (IOException e) {
-            // :( It's ok we have defaults
         } catch (NumberFormatException e) {
-            // :/ It's ok, defaults save our day
         } finally {
             try {
                 if (in != null)

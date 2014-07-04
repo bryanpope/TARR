@@ -7,10 +7,7 @@ import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Input;
 import com.framework.Screen;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Brandon on 2014-06-27.
@@ -104,14 +101,3 @@ public class HowToScreen2 extends Screen {
 
     }
 }
-
-/*
-
-Select one of your vehicles to bring up your
-" +
-                "\n" +
-                " \n" +
-                "  \n" +
-                " ";
- */
-

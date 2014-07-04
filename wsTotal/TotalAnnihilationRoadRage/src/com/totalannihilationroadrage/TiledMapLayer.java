@@ -29,16 +29,4 @@ public class TiledMapLayer
     {
         data.set((row * width) + col, tileIndex + 1);
     }
-
-    /*public boolean isPassable (int row, int col)
-    {
-        int tile = getTile(row, col);
-
-        if (tile == 2)
-        {
-            return false;
-        }
-        return true;
-    }
-    */
 }

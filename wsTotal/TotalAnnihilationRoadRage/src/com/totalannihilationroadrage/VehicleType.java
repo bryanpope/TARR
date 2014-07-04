@@ -1,7 +1,5 @@
 package com.totalannihilationroadrage;
 
-import junit.framework.Assert;
-
 public enum VehicleType
 {
 	MOTORCYCLE,

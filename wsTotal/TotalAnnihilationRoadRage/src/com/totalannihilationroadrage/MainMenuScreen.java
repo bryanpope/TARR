@@ -57,9 +57,7 @@ public class MainMenuScreen extends Screen {
         for (int i = 0; i < 10; ++i)
         {
             tcvPlayer.add(setupVehicle(true));
-            //tcvPlayer.get(i).facing = Direction.SOUTHWEST;
             tcvEnemy.add(setupVehicle(false));
-            //tcvEnemy.get(i).facing = Direction.NORTHEAST;
         }
 
         tcWorld = new TacticalCombatWorld(Assets.tmHighway, tcvPlayer, tcvEnemy);
@@ -99,14 +97,7 @@ public class MainMenuScreen extends Screen {
         Graphics g = game.getGraphics();
         
         g.drawPixmap(Assets.background, 0, 0);
-//        g.drawPixmap(Assets.logo, 32, 20);
         g.drawPixmap(Assets.mainMenu, 780, 466);
-        /*
-        if(Settings.soundEnabled)
-            g.drawPixmap(Assets.buttons, 0, 416, 0, 0, 64, 64);
-        else
-            g.drawPixmap(Assets.buttons, 0, 416, 64, 0, 64, 64);
-            */
     }
 
     public void pause() {        

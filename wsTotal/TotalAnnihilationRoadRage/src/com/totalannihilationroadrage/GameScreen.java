@@ -1,13 +1,9 @@
 package com.totalannihilationroadrage;
 
 import java.util.List;
-
-import android.graphics.Color;
-
 import com.framework.Game;
 import com.framework.Graphics;
 import com.framework.Input.TouchEvent;
-import com.framework.Pixmap;
 import com.framework.Screen;
 
 public class GameScreen extends Screen {

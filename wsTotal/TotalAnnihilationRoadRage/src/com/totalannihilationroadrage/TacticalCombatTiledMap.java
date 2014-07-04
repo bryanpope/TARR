@@ -15,7 +15,6 @@ public class TacticalCombatTiledMap extends TiledMap
 
     public void setDestroyedVehicle (int row, int col)
     {
-        //layers.get(0).setTile(row, col, 55);
         layers.get(1).setTile(row, col, 55);
     }
 

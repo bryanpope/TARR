@@ -63,7 +63,7 @@ public class Credits extends Screen {
         g.drawPixmap(Assets.roadTileSheet, 77, 950, srcX, srcY, tileWidth, tileHeight);
 
         text = "Bryan Pope - Lead Programmer\n\n" +
-               "Andrew Best - Pathfinding\n\n" +
+               "Andrew Best - Pathfinding and AI\n\n" +
                "Brandon Coulthard - UI and Art\n\n" +
                "Neilson Leslie - Overworld programmer\n\n" +
                "Carson Braun - Lead Artist";
