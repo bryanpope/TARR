@@ -344,8 +344,8 @@ public class WorldMap extends Screen
     List< TacticalCombatVehicle > tcvPlayer = new ArrayList< TacticalCombatVehicle >();
     List< TacticalCombatVehicle > tcvEnemy = new ArrayList< TacticalCombatVehicle >();
 
-    int totalVehicles = 1;
-    int totalPeople = 1;
+    int totalVehicles = 0;
+    int totalPeople = 0;
 
     public void update(float deltaTime)
     {
