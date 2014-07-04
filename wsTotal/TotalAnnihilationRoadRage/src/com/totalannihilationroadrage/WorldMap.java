@@ -87,6 +87,8 @@ public class WorldMap extends Screen
         RG_Cannibals
     }
 
+
+
     int [] Have_Inventory = new int[Inventory.values().length];
     int [] Roster = new int[People.values().length];
     List <int[]> CityArray = new ArrayList<int[]>();
@@ -157,6 +159,25 @@ public class WorldMap extends Screen
             + Have_Inventory[Inventory.Van.ordinal()]
             + Have_Inventory[Inventory.Tractor.ordinal()]
             + Have_Inventory[Inventory.Trailer_Truck.ordinal()];
+
+    int totalPeople = Roster[People.Crony_Doctor.ordinal()]
+            + Roster[People.Crony_DrillSergeant.ordinal()]
+            + Roster[People.Crony_Politician.ordinal()]
+            + Roster[People.Agents.ordinal()]
+            + Roster[People.Healers.ordinal()]
+            + Roster[People.FG_Soldiers.ordinal()]
+            + Roster[People.FG_Hoodlums.ordinal()]
+            + Roster[People.FG_HomeGuards.ordinal()]
+            + Roster[People.FG_Civilians.ordinal()]
+            + Roster[People.FG_Cannibals.ordinal()]
+            + Roster[People.Resident_Police.ordinal()]
+            + Roster[People.Resident_Bureaucrats.ordinal()]
+            + Roster[People.Resident_Terrorists.ordinal()]
+            + Roster[People.Resident_Neutrals.ordinal()]
+            + Roster[People.Resident_Mutants.ordinal()]
+            + Roster[People.RG_Terrorists.ordinal()]
+            + Roster[People.RG_Cannibals.ordinal()];
+
 
     public void update(float deltaTime)
     {
@@ -532,18 +553,21 @@ public class WorldMap extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
                     //Update Loot
                     System.out.println("loot");
+                    randomLoot();
                     touchEvents.remove(i);
                     break;
                 }
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
                     //Update People
                     System.out.println("people");
+                    randomPeople();
                     touchEvents.remove(i);
                     break;
                 }
                 if (inBoundaryCheck(event.x, event.y, posX, posY + tileHeight, tileWidth, tileHeight)) {
                     //Update Vehicles
                     System.out.println("vehicles");
+                    searchVehicle();
                     touchEvents.remove(i);
                     break;
                 }
@@ -692,7 +716,7 @@ public class WorldMap extends Screen
 
             if (TC < 5)
             {
-                startTacticalCombat();
+                //startTacticalCombat();
             }
 
             selectedVehicle = false;
@@ -841,7 +865,7 @@ public class WorldMap extends Screen
         //used to tell what crew each player vehicle has
         Graphics g = game.getGraphics();
         int fontSize = 72;
-        int rectWidth = 800;
+        int rectWidth = 850;
         int rectHeight = fontSize * 12;
         int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
         int yPos = (int)((g.getHeight() * 0.5) - (rectHeight * 0.5));
@@ -860,47 +884,47 @@ public class WorldMap extends Screen
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Fuel: " + fuel;
+        text = "Fuel: " + Have_Inventory[Inventory.Fuel.ordinal()];;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Food: " + food;
+        text = "Food: " + Have_Inventory[Inventory.Food.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Ammo: " + ammo;
+        text = "Ammo: " + Have_Inventory[Inventory.Ammo.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Guns: " + guns;
+        text = "Guns: " + Have_Inventory[Inventory.Guns.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Tires: " + tires;
+        text = "Tires: " + Have_Inventory[Inventory.Tires.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Medical Supplies: " + medicalSupplies;
+        text = "Medical Supplies: " + Have_Inventory[Inventory.Medical_Supplies.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Antitoxins: " + antitoxins;
+        text = "Antitoxins: " +  Have_Inventory[Inventory.Antitoxins.ordinal()];
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "Vehicles: " + vehicles;
+        text = "Vehicles: " + totalVehicles;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
 
-        text = "People: " + people;
+        text = "People: " + totalPeople;
         yPos = line * fontSize;
         g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
         ++line;
