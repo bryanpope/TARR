@@ -562,7 +562,7 @@ public class WorldMap extends Screen
                     //Update People
                     System.out.println("people");
                     selectedVehicle = false;
-                    randomPeople();
+                    //randomPeople();
                     touchEvents.remove(i);
                     break;
                 }
@@ -570,7 +570,7 @@ public class WorldMap extends Screen
                     //Update Vehicles
                     System.out.println("vehicles");
                     selectedVehicle = false;
-                    searchVehicle();
+                    //searchVehicle();
                     touchEvents.remove(i);
                     break;
                 }
@@ -868,7 +868,7 @@ public class WorldMap extends Screen
         //used to tell what crew each player vehicle has
         Graphics g = game.getGraphics();
         int fontSize = 72;
-        int rectWidth = 850;
+        int rectWidth = 950;
         int rectHeight = fontSize * 12;
         int xPos = (int)((g.getWidth() * 0.5) - (rectWidth * 0.5));
         int yPos = (int)((g.getHeight() * 0.5) - (rectHeight * 0.5));
