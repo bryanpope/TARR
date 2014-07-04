@@ -586,7 +586,7 @@ public class WorldMap extends Screen
     {
         Random rand = new Random();
 
-        int RP = rand.nextInt(15);
+        int RP = rand.nextInt(16);
         int quantity = 0;
         switch(RP)
         {
