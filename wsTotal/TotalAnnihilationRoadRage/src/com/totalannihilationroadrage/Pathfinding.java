@@ -1,20 +1,15 @@
 package com.totalannihilationroadrage;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 public class Pathfinding
 {
-    //List<Node> closedList = new ArrayList<Node>();
     List<Node> openList = new ArrayList<Node>();
     Set<Node> closedList = new HashSet<Node>();
-    //SortedSet<Node> openList = new TreeSet<Node>();
 
     Direction directionLeft;
     Direction directionRight;
@@ -76,11 +71,9 @@ public class Pathfinding
             closedList.add(currentNode);
             //Sort the openList
             Collections.sort(openList);
-            //openList.comparator();
             //Assign currentNode to the last element in the List
             if(openList.size() > 0)
             {
-                //currentNode = openList.first();
                 currentNode = openList.remove(openList.size() - 1);
             }
             else
@@ -114,27 +107,7 @@ public class Pathfinding
     public boolean isOpen(Node n)
     {
         return openList.contains(n);
-        /*if(openList.contains(n))
-        {
-            return n;
-        }
-        else
-        {
-            return null;
-        }*/
     }
-
-    /*public Node getChildFromOpen(double row, double col)
-    {
-        for(int i = 0; i < openList.size(); ++i)
-        {
-            if(openList.get(i).col == col && openList.get(i).row == row)
-            {
-                return openList.get(i);
-            }
-        }
-        return null;
-    }*/
 
     public void addChild(Node child, TiledMap tiles, Node currentNode, Node goal, Direction facing)
     {
@@ -142,7 +115,6 @@ public class Pathfinding
         {
             if (tiles.isPassable(child.row, child.col))
             {
-                //neighbourList.add(child);
                 if (!isClosed(child, closedList))
                 {
                     child.facing = facing;
@@ -164,20 +136,6 @@ public class Pathfinding
 
                          openList.add(child);
                     }
-                    //Node child = getChildFromOpen(row, col);
-
-                    /*if (child == null)
-                    {
-                        child = new Node(row, col, g, f, currentNode, facing);
-
-                        openList.add(child);
-                    }
-                    else if(child.gCost > g)
-                    {
-                        child.fCost = f;
-                        child.gCost = g;
-                        child.parentNode = currentNode;
-                    }*/
                 }
             }
         }
