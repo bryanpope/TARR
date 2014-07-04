@@ -39,15 +39,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.totalannihilationroadrage" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457e598a-178c-4a9d-a854-8cb52a77d87f" name="Default" comment="It works now.  Vehicle on Overmap and doesn't move when camera is scrolled.">
+    <list default="true" id="457e598a-178c-4a9d-a854-8cb52a77d87f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/build/generated/source/buildConfig/debug/com/totalannihilationroadrage/BuildConfig.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/build/generated/source/buildConfig/debug/com/totalannihilationroadrage/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/debug/android/support/v7/appcompat/BuildConfig.java" afterPath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/debug/android/support/v7/appcompat/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/release/android/support/v7/appcompat/BuildConfig.java" afterPath="$PROJECT_DIR$/appcompat_v7/build/generated/source/buildConfig/release/android/support/v7/appcompat/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/TotalAnnihilationRoadRage.iml" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/TotalAnnihilationRoadRage.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java" afterPath="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v11/abc_action_bar_decor.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout-v11/abc_action_bar_decor.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_include.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/abc_action_bar_decor_include.xml" />
@@ -99,7 +93,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_holo_light.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_dark.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_dark.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_light.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/drawable/abc_textfield_searchview_right_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/support_simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/layout/support_simple_spinner_dropdown_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values/values.xml" />
@@ -171,7 +164,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rTW/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zh-rTW/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zu/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/wsTotal/appcompat_v7/unspecified/res/values-zu/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsTotal.iml" afterPath="$PROJECT_DIR$/wsTotal.iml" />
     </list>
     <ignored path="wsTotal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -194,52 +186,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TacticalCombatScreen.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0380739" vertical-offset="16039" max-vertical-offset="21216">
-              <caret line="1016" column="66" selection-start-line="1016" selection-start-column="66" selection-end-line="1016" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenuScreen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="2159">
-              <caret line="26" column="73" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TacticalCombatWorld.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="7650">
-              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TacticalCombatVehicle.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="3961">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorldMap.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WorldMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6757" max-vertical-offset="9163">
-              <caret line="437" column="50" selection-start-line="437" selection-start-column="50" selection-end-line="437" selection-end-column="50" />
-              <folding />
+            <state vertical-scroll-proportion="0.37855947" vertical-offset="4432" max-vertical-offset="17306">
+              <caret line="293" column="20" selection-start-line="293" selection-start-column="20" selection-end-line="293" selection-end-column="20" />
+              <folding>
+                <element signature="e#43340#43365#0" expanded="true" />
+                <element signature="method#present#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#AutoLoot#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#randomPeople#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#searchLoot#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#searchVehicle#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#updateWorldUI#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#drawOverWorldUI#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#updatePath#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#MovePlayer#0;class#WorldMap#0" expanded="false" />
+                <element signature="method#startTacticalCombat#0;class#WorldMap#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1529,7 +1493,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5616783193714" />
+        <entry key="$PROJECT_DIR$" value="5611939410147" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1784,9 +1748,9 @@
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMapVehicle.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/framework/impl/AndroidGraphics.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java" />
-        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java" />
         <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java" />
+        <option value="$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java" />
       </list>
     </option>
   </component>
@@ -1794,7 +1758,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1822,8 +1786,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1940,6 +1902,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1952,8 +1916,8 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="b256b08c" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_Galaxy_Nexus" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="421" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -1965,6 +1929,119 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.totalannihilationroadrage" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/OverworldPathfinding.java</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/OverworldTiledMap.java</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with property conflicts" />
+          <option name="myStatusName" value="Will be merged with property conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
   </component>
   <component name="RunManager" selected="Android Application.TotalAnnihilationRoadRage">
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -2222,38 +2299,42 @@
       <created>1404329245923</created>
       <updated>1404329245923</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Avatar moves on WorldMap without disappearing.&#10;&#10;~LordOni Rocks!!">
+      <created>1404500017805</created>
+      <updated>1404500017805</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32247558" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32681867" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760474" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760474" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32867885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.330076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4353963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49624062" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32247558" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2300885" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2292,11 +2373,20 @@
     <MESSAGE value="memory issue stuf" />
     <MESSAGE value="turningCounter now properly reset at the end of a phase" />
     <MESSAGE value="enemy vehicles not deploying on wrong proper side" />
-    <option name="LAST_COMMIT_MESSAGE" value="enemy vehicles not deploying on wrong proper side" />
+    <MESSAGE value="Avatar moves on WorldMap without disappearing.&#10;&#10;~LordOni Rocks!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avatar moves on WorldMap without disappearing.&#10;&#10;~LordOni Rocks!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java</url>
+          <line>1023</line>
+          <properties />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="28" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -2393,23 +2483,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/res/layout/activity_tarrgame.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="238">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/res/layout-land/activity_tarrgame.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/res/layout-land/activity_tarrgame.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17801048" vertical-offset="0" max-vertical-offset="764">
           <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/framework/Screen.java">
@@ -2576,7 +2666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3807391" vertical-offset="0" max-vertical-offset="893">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2598,39 +2687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07614782" vertical-offset="0" max-vertical-offset="893">
           <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3876">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6757" max-vertical-offset="9163">
-          <caret line="437" column="50" selection-start-line="437" selection-start-column="50" selection-end-line="437" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7497">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
-          <caret line="26" column="73" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2655,18 +2711,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/framework/impl/AndroidFastRenderView.java">
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/MainMenuScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27659574" vertical-offset="161" max-vertical-offset="1054">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
+          <caret line="26" column="73" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatVehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3876">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.455161" vertical-offset="7093" max-vertical-offset="8704">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/TacticalCombatScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0380739" vertical-offset="16039" max-vertical-offset="21216">
-          <caret line="1016" column="66" selection-start-line="1016" selection-start-column="66" selection-end-line="1016" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="23120">
+          <caret line="1015" column="5" selection-start-line="1015" selection-start-column="5" selection-end-line="1015" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/framework/impl/AndroidFastRenderView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="1054">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TotalAnnihilationRoadRage/src/com/totalannihilationroadrage/WorldMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37855947" vertical-offset="4432" max-vertical-offset="17306">
+          <caret line="293" column="20" selection-start-line="293" selection-start-column="20" selection-end-line="293" selection-end-column="20" />
+          <folding>
+            <element signature="e#43340#43365#0" expanded="true" />
+            <element signature="method#present#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#AutoLoot#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#randomPeople#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#searchLoot#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#searchVehicle#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#updateWorldUI#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#drawOverWorldUI#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#updatePath#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#MovePlayer#0;class#WorldMap#0" expanded="false" />
+            <element signature="method#startTacticalCombat#0;class#WorldMap#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
