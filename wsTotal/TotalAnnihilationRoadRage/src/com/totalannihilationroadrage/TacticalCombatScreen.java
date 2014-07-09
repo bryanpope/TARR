@@ -22,6 +22,9 @@ import java.util.List;
 
 public class TacticalCombatScreen extends Screen
 {
+    private final float TIME_BUTTON_FLASH_TOTAL = 1.0f;
+    private final float TIME_BUTTON_FLASH_ON_OFF = 0.1f;
+
 	enum GameState
 	{
 		Ready,
@@ -77,6 +80,12 @@ public class TacticalCombatScreen extends Screen
 
     private VelocityTracker vTracker;
     private Vector velocity;
+
+    private boolean isButtonFlashing = false;
+    private boolean isButtonDisplayed = true;
+    private float timeButtonFlashTotal = 0.0f;
+    private float timeButtonFlashOnOff = 0.0f;
+
 
 	public TacticalCombatScreen(Game game, TacticalCombatWorld tacticalCombatWorld, TiledMap tacticalMap)
 	{
@@ -237,6 +246,8 @@ public class TacticalCombatScreen extends Screen
         {
             game.setScreen(new WorldMap(game, Assets.tmOverWorld));
         }
+
+        updateButtonAnimation(deltaTime);
 	}
 
     private int moveToZero (int moveValue, int moveBy)
@@ -943,6 +954,10 @@ public class TacticalCombatScreen extends Screen
 
     private void drawMoveAll()
     {
+        if (!isButtonDisplayed)
+        {
+            return;
+        }
         Graphics g = game.getGraphics();
         int tileWidth = 128;
         int tileHeight = 128;
@@ -978,6 +993,7 @@ public class TacticalCombatScreen extends Screen
                 {
                     System.out.println("move all");
                     touchEvents.remove(i);
+                    isButtonFlashing = true;
                     tcWorld.moveAllVehicles();
                     break;
                 }
@@ -1297,6 +1313,30 @@ public class TacticalCombatScreen extends Screen
                     // *ALL* touch events need to be removed here to get rid of a dragged.
                     touchEvents.clear();
                     break;
+                }
+            }
+        }
+    }
+
+    private void updateButtonAnimation (float deltaTime)
+    {
+        if (isButtonFlashing)
+        {
+            timeButtonFlashTotal += deltaTime;
+            if (timeButtonFlashTotal >= TIME_BUTTON_FLASH_TOTAL)
+            {
+                isButtonFlashing = false;
+                isButtonDisplayed = true;
+                timeButtonFlashTotal = 0.0f;
+                timeButtonFlashOnOff = 0.0f;
+            }
+            else
+            {
+                timeButtonFlashOnOff += deltaTime;
+                if (timeButtonFlashOnOff >= TIME_BUTTON_FLASH_ON_OFF)
+                {
+                    timeButtonFlashOnOff = 0.0f;
+                    isButtonDisplayed = !isButtonDisplayed;
                 }
             }
         }
