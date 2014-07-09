@@ -18,6 +18,7 @@ public class LoadingScreen extends Screen {
         Assets.overWorldUI = g.newPixmap("OverworldUI.png", PixmapFormat.ARGB8888);
         Assets.howToScreen = g.newPixmap("screen.jpg", PixmapFormat.ARGB8888);
         Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", PixmapFormat.ARGB8888);
+        Assets.spark = g.newPixmap("spark.png", PixmapFormat.ARGB8888);
         Assets.gunShot = game.getAudio().newSound("gunShot.wav");
         Assets.explosion = game.getAudio().newSound("explosion.wav");
         Assets.music = game.getAudio().newMusic("Pentakill - The Hex Core.mp3");

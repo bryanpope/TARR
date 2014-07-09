@@ -23,6 +23,7 @@ public class Assets
     public static Pixmap pmOverWorld;
     public static TacticalCombatTiledMap tmHighway;
     public static Pixmap pmHighway;
+    public static Pixmap spark;
 
     public static VehicleStatsBaseAll vehicleStats;
 

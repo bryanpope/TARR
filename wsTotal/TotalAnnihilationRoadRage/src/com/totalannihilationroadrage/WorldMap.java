@@ -662,7 +662,7 @@ public class WorldMap extends Screen
     {
         Random rand = new Random();
 
-        int SV = rand.nextInt(20)+ 7;
+        int SV = rand.nextInt(20)+ 6;
         int quantity = 0;
         switch(SV)
         {
@@ -690,11 +690,11 @@ public class WorldMap extends Screen
             case 23:
             case 24:
             case 25:
-            case 26:
             {
                 quantity = rand.nextInt(2);
                 break;
             }
+
         }
 
         Have_Inventory[SV] += quantity;
@@ -737,7 +737,7 @@ public class WorldMap extends Screen
                     System.out.println("people");
                     selectedVehicle = false;
                     inventoryLine = randomPeople();
-                    highlightBarLine = translateLoot(inventoryLine);
+                    highlightBarLine = translatePeople(inventoryLine);
                     drawScreen = true;
                     touchEvents.remove(i);
                     break;
@@ -1078,7 +1078,6 @@ public class WorldMap extends Screen
             case 23:
             case 24:
             case 25:
-            case 26:
             {
                 ret = 8;
                 break;
@@ -1094,13 +1093,15 @@ public class WorldMap extends Screen
 
         switch(lootType)
         {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
             case 7:
             case 8:
-            {
-                ret = 7;
-                break;
-            }
-
             case 9:
             case 10:
             case 11:
@@ -1108,19 +1109,8 @@ public class WorldMap extends Screen
             case 13:
             case 14:
             case 15:
-            case 16:
-            case 17:
-            case 18:
-            case 19:
-            case 20:
-            case 21:
-            case 22:
-            case 23:
-            case 24:
-            case 25:
-            case 26:
             {
-                ret = 7;
+                ret = 11;
                 break;
             }
         }
