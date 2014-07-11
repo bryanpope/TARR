@@ -60,6 +60,9 @@ public class TacticalCombatScreen extends Screen
     boolean updateAttackAreaSelection = false;
     boolean drawSpark = false;
     boolean enemyHasAttacked = false;
+    boolean isTouched = false;
+    boolean isTouched2 = false;
+    boolean isTouched3 = false;
 
     private int cameraTopRow = 0;     // For scrolling purposes, the start column in the tile map to display from
     private int cameraLeftCol = 0;
@@ -350,8 +353,20 @@ public class TacticalCombatScreen extends Screen
             }
             else if (pState == PhaseStates.Attack)
             {
-                drawUIPhaseFire((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
 
+                if(isTouched)
+                {
+                    g.drawRect((selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX - 128, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.GREEN);
+                }
+                if(isTouched2)
+                {
+                    g.drawRect((selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY - 128, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.GREEN);
+                }
+                if(isTouched3)
+                {
+                    g.drawRect((selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX + 128, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, tMap.tileset.tileWidth, tMap.tileset.tileHeight, Color.GREEN);
+                }
+                drawUIPhaseFire((selectedVehicle.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicle.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY, selectedVehicle.facing);
                 if(updateAttackAreaSelection)
                 {
                     //TacticalCombatVehicle vEnemy;
@@ -359,7 +374,8 @@ public class TacticalCombatScreen extends Screen
                     //{
                         //vEnemy = tcWorld.tcvsEnemy.get(i);
                         //drawSelectAreaToAttack(vEnemy.xPos - cameraX, vEnemy.yPos - cameraY);
-                        drawSelectAreaToAttack((selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
+
+                    drawSelectAreaToAttack((selectedVehicleEnemy.xPos * tcWorld.tmBattleGround.tileWidth) - cameraX, (selectedVehicleEnemy.yPos * tcWorld.tmBattleGround.tileHeight) - cameraY);
                     //}
                 }
             }
@@ -818,6 +834,9 @@ public class TacticalCombatScreen extends Screen
                         //pState = PhaseStates.DisplayCasualties;
                         selectedVehicleEnemy = vEnemy;
                         updateAttackAreaSelection = true;
+                        isTouched = false;
+                        isTouched2 = false;
+                        isTouched3 = false;
                         touchEvents.remove(i);
                         break;
                     }
@@ -1006,6 +1025,9 @@ public class TacticalCombatScreen extends Screen
                 if(inBoundaryCheck(event.x, event.y,  g.getWidth() - tileWidth - 10, g.getHeight() - tileHeight - 10, tileWidth, tileHeight))
                 {
                     System.out.println("move all");
+                    isTouched = false;
+                    isTouched2 = false;
+                    isTouched3 = false;
                     touchEvents.remove(i);
                     isButtonFlashing = true;
                     tcWorld.moveAllVehicles();
@@ -1289,9 +1311,59 @@ public class TacticalCombatScreen extends Screen
 
         for (int i = 0; i < len; i++) {
             Input.TouchEvent event = touchEvents.get(i);
+            if (event.type == Input.TouchEvent.TOUCH_DRAGGED)
+            {
+                if (inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight)) {
+                    //attack left
+                    isTouched = true;
+                    isTouched2 = false;
+                    isTouched3 = false;
+                    touchEvents.clear();
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
+                    //attack up
+                    isTouched2 = true;
+                    isTouched = false;
+                    isTouched3 = false;
+                    touchEvents.clear();
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
+                    //attack right
+                    isTouched3 = true;
+                    isTouched = false;
+                    isTouched2 = false;
+                    touchEvents.clear();
+                    break;
+                }
+            }
             if (event.type == Input.TouchEvent.TOUCH_DOWN)
             {
-
+                if (inBoundaryCheck(event.x, event.y, posX - tileWidth, posY, tileWidth, tileHeight)) {
+                    //attack left
+                    isTouched = true;
+                    isTouched2 = false;
+                    isTouched3 = false;
+                    touchEvents.clear();
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
+                    //attack up
+                    isTouched2 = true;
+                    isTouched = false;
+                    isTouched3 = false;
+                    touchEvents.clear();
+                    break;
+                }
+                if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
+                    //attack right
+                    isTouched3 = true;
+                    isTouched = false;
+                    isTouched2 = false;
+                    touchEvents.clear();
+                    break;
+                }
             }
             if (event.type == Input.TouchEvent.TOUCH_UP)
             {
@@ -1299,8 +1371,10 @@ public class TacticalCombatScreen extends Screen
                     //attack up is selected
                     System.out.println("selected outside of vehicle");
                     updateAttackAreaSelection = false;
+                    isTouched = false;
                     playGunSound();
                     executeCombat(selectedVehicle, selectedVehicleEnemy);
+                    isButtonFlashing = true;
                     selectedVehicle.isAttacked = true;
                     prevState = PhaseStates.Attack;
                     pState = PhaseStates.DisplayCasualties;
@@ -1313,6 +1387,8 @@ public class TacticalCombatScreen extends Screen
                     //attack right is selected
                     System.out.println("selected inside of vehicles");
                     updateAttackAreaSelection = false;
+                    isTouched2 = false;
+                    isButtonFlashing = true;
                     playGunSound();
                     executeCombat(selectedVehicle, selectedVehicleEnemy);
                     selectedVehicle.isAttacked = true;
@@ -1326,7 +1402,9 @@ public class TacticalCombatScreen extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX + tileWidth, posY, tileWidth, tileHeight)) {
                     //attack down is selected
                     System.out.println("selected tires");
+                    isButtonFlashing = true;
                     updateAttackAreaSelection = false;
+                    isTouched3 = false;
                     playGunSound();
                     executeCombat(selectedVehicle, selectedVehicleEnemy);
                     selectedVehicle.isAttacked = true;
