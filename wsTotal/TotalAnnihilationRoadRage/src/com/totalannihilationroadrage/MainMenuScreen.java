@@ -26,7 +26,7 @@ public class MainMenuScreen extends Screen {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
                 if(inBounds(event, 861, 466, 393, 112) ) {
-                    game.setScreen(new WorldMap(game, Assets.tmOverWorld));
+                    startTacticalCombat();
                     return;
                 }
 
@@ -37,11 +37,6 @@ public class MainMenuScreen extends Screen {
                 if(inBounds(event, 861, 466 + 224, 393, 112) )
                 {
                     game.setScreen((new Credits(game)));
-                    return;
-                }
-                if(inBounds(event, 861, 466 + 336, 393, 112) )
-                {
-                    startTacticalCombat();
                     return;
                 }
             }

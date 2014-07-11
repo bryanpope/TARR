@@ -65,7 +65,6 @@ public class Credits extends Screen {
         text = "Bryan Pope - Lead Programmer\n\n" +
                "Andrew Best - Pathfinding and AI\n\n" +
                "Brandon Coulthard - UI/Graphics and Sound\n\n" +
-               "Neilson Leslie - Overworld programmer\n\n" +
                "Carson Braun - Lead Artist";
 
         g.drawText(text, 970, 400, Color.WHITE, fontSize, Paint.Align.CENTER);
