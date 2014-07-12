@@ -401,7 +401,7 @@ public class TacticalCombatScreen extends Screen
             drawMoveAll();
             if(selectedVehicle != null)
             {
-                drawPlayerReport();
+               drawPlayerReport();
             }
         }
         if(pState == PhaseStates.Attack)
@@ -410,8 +410,7 @@ public class TacticalCombatScreen extends Screen
         }
         if (pState == PhaseStates.DisplayCasualties)
         {
-            drawCombatReport();
-
+             drawCombatReport();
         }
         if(enemyHasAttacked)
         {
@@ -999,7 +998,7 @@ public class TacticalCombatScreen extends Screen
 
     private void drawMoveAll()
     {
-        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashMoveAll)
+        if (!isButtonDisplayed && flashingButton == FlashingButton.FlashMoveAll)
         {
             return;
         }
@@ -1296,7 +1295,7 @@ public class TacticalCombatScreen extends Screen
         int numColumns = 4;
         int srcX, srcY;
 
-        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashAttackOutside)
+        if (!isButtonDisplayed && flashingButton == FlashingButton.FlashAttackOutside)
         {
             return;
         }
@@ -1304,7 +1303,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //outside of vehicle
 
-        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashAttackInside)
+        if (!isButtonDisplayed && flashingButton == FlashingButton.FlashAttackInside)
         {
             return;
         }
@@ -1312,7 +1311,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);            //inside of vehicle
 
-        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashAttackTires)
+        if (!isButtonDisplayed && flashingButton == FlashingButton.FlashAttackTires)
         {
             return;
         }
