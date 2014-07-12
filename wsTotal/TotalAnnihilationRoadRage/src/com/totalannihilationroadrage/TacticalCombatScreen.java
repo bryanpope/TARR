@@ -50,17 +50,19 @@ public class TacticalCombatScreen extends Screen
 
     enum FlashingButton
     {
+        NotActive,
         FlashMoveAll,
         FlashAttackOutside,
         FlashAttackInside,
         FlashAttackTires;
     }
 
-    private int currentValue = 0;
+    private FlashingButton currentFlashingButtonValue;
 
 	GameState state = GameState.Running;
     PhaseStates pState = PhaseStates.Moving;
     StateCombatReport stateCombatReport = StateCombatReport.DefenderDeaths;
+    FlashingButton flashingButton = FlashingButton.NotActive;
     Direction dir = Direction.EAST;
     TacticalCombatWorld tcWorld;
     TiledMap tMap;
@@ -997,7 +999,7 @@ public class TacticalCombatScreen extends Screen
 
     private void drawMoveAll()
     {
-        if (!isButtonDisplayed && currentValue != 0)
+        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashMoveAll)
         {
             return;
         }
@@ -1040,7 +1042,7 @@ public class TacticalCombatScreen extends Screen
                     isTouched3 = false;
                     touchEvents.remove(i);
                     isButtonFlashing = true;
-                    currentValue = 0;
+                    flashingButton = FlashingButton.FlashMoveAll;
                     tcWorld.moveAllVehicles();
                     break;
                 }
@@ -1294,7 +1296,7 @@ public class TacticalCombatScreen extends Screen
         int numColumns = 4;
         int srcX, srcY;
 
-        if (!isButtonDisplayed && currentValue != 1)
+        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashAttackOutside)
         {
             return;
         }
@@ -1302,7 +1304,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX - tileWidth, posY, srcX, srcY, tileWidth, tileHeight);            //outside of vehicle
 
-        if (!isButtonDisplayed && currentValue != 2)
+        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashAttackInside)
         {
             return;
         }
@@ -1310,7 +1312,7 @@ public class TacticalCombatScreen extends Screen
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, posX, posY - tileHeight, srcX, srcY, tileWidth, tileHeight);            //inside of vehicle
 
-        if (!isButtonDisplayed && currentValue != 3)
+        if (!isButtonDisplayed && flashingButton != FlashingButton.FlashAttackTires)
         {
             return;
         }
@@ -1368,8 +1370,6 @@ public class TacticalCombatScreen extends Screen
                     isTouched = true;
                     isTouched2 = false;
                     isTouched3 = false;
-                    isButtonFlashing = true;
-                    currentValue = 1;
                     touchEvents.clear();
                     break;
                 }
@@ -1378,8 +1378,6 @@ public class TacticalCombatScreen extends Screen
                     isTouched2 = true;
                     isTouched = false;
                     isTouched3 = false;
-                    isButtonFlashing = true;
-                    currentValue = 2;
                     touchEvents.clear();
                     break;
                 }
@@ -1388,8 +1386,6 @@ public class TacticalCombatScreen extends Screen
                     isTouched3 = true;
                     isTouched = false;
                     isTouched2 = false;
-                    isButtonFlashing = true;
-                    currentValue = 3;
                     touchEvents.clear();
                     break;
                 }
@@ -1400,7 +1396,9 @@ public class TacticalCombatScreen extends Screen
                     //attack up is selected
                     System.out.println("selected outside of vehicle");
                     updateAttackAreaSelection = false;
+                    isButtonFlashing = true;
                     isTouched = false;
+                    flashingButton = FlashingButton.FlashAttackOutside;
                     playGunSound();
                     executeCombat(selectedVehicle, selectedVehicleEnemy);
                     selectedVehicle.isAttacked = true;
@@ -1414,7 +1412,9 @@ public class TacticalCombatScreen extends Screen
                 if (inBoundaryCheck(event.x, event.y, posX, posY - tileHeight, tileWidth, tileHeight)) {
                     //attack right is selected
                     System.out.println("selected inside of vehicles");
+                    flashingButton = FlashingButton.FlashAttackInside;
                     updateAttackAreaSelection = false;
+                    isButtonFlashing = true;
                     isTouched2 = false;
                     playGunSound();
                     executeCombat(selectedVehicle, selectedVehicleEnemy);
@@ -1430,6 +1430,8 @@ public class TacticalCombatScreen extends Screen
                     //attack down is selected
                     System.out.println("selected tires");
                     updateAttackAreaSelection = false;
+                    flashingButton = FlashingButton.FlashAttackTires;
+                    isButtonFlashing = true;
                     isTouched3 = false;
                     playGunSound();
                     executeCombat(selectedVehicle, selectedVehicleEnemy);
