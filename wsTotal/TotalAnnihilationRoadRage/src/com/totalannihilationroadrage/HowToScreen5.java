@@ -11,10 +11,10 @@ import com.framework.Screen;
 import java.util.List;
 
 /**
- * Created by Brandon on 2014-06-29.
+ * Created by Brandon on 2014-07-13.
  */
-public class HowToScreen3 extends Screen {
-    public HowToScreen3(Game game) {
+public class HowToScreen5 extends Screen {
+    public HowToScreen5(Game game) {
         super(game);
     }
 
@@ -24,16 +24,16 @@ public class HowToScreen3 extends Screen {
         game.getInput().getKeyEvents();
 
         int len = touchEvents.size();
-        for(int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) {
             Input.TouchEvent event = touchEvents.get(i);
-            if(event.type == Input.TouchEvent.TOUCH_UP) {
-                if(inBounds(event, 77, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen2(game));
+            if (event.type == Input.TouchEvent.TOUCH_UP) {
+                if (inBounds(event, 77, 950, 200, 200)) {
+                    game.setScreen(new HowToScreen4(game));
                     return;
                 }
 
-                if(inBounds(event, 1730, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen4(game));
+                if (inBounds(event, 1730, 950, 200, 200)) {
+                    game.setScreen(new HowToScreen6(game));
                     return;
                 }
 
@@ -42,7 +42,7 @@ public class HowToScreen3 extends Screen {
     }
 
     private boolean inBounds(Input.TouchEvent event, int x, int y, int width, int height) {
-        if(event.x > x && event.x < x + width - 1 &&
+        if (event.x > x && event.x < x + width - 1 &&
                 event.y > y && event.y < y + height - 1)
             return true;
         else
@@ -73,16 +73,13 @@ public class HowToScreen3 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
         //      " TARR is a tactical combat simulator where you take \n" +
-        text =  "     All vehicles will have a yellow box around them\n" +
-                "     showing you they are free to make an action. After\n" +
-                "     a vehicle has moved it will have a cream colour box\n" +
-                "     to indicate the vehicle has moved. For quick movement\n" +
-                "     you can select the move all button which will move\n" +
-                "     all vehicles in the current direction the are facing.\n" +
-                "     Once all of your vehicles have moved the enemy forces\n" +
-                "     will move, then it will switch back to the movement\n" +
-                "     phase unless one of your vehicles are within range\n" +
-                "     to attack a vehicle.";
+        text =  "     To the left of the vehicle is the attack exterior \n" +
+                "     of the vehicle, above is attack interior of the \n" +
+                "     vehicle, and attack the tires which is drawn \n" +
+                "     to the right of the vehicle. After sliding your \n"+
+                "     finger to the button you wish to select, release \n" +
+                "     and tap on that button. \n";
+
 
         g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 
@@ -105,3 +102,4 @@ public class HowToScreen3 extends Screen {
 
     }
 }
+

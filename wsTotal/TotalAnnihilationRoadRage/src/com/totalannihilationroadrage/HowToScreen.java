@@ -71,13 +71,13 @@ public class HowToScreen extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text = " Move around the over world map in order to scavenge \n" +
-                " supplies for your crew. Touch a spot on the world to move \n" +
-                " to that position,  and touch your avatar to bring up your\n" +
-                " HUD. Pick one of the three options available in order to \n" +
-                " gain supplies. You have a random chance to gain all\n" +
-                " supplies, as well there is a chance you will encounter\n" +
-                " a random gang meaning you will enter tactical combat.";
+        text =  "     TARR is a tactical combat simulator where you take \n" +
+                "     control of a random number of ally vehicles against\n" +
+                "     a random number of enemy vehicles. Your goal is to \n" +
+                "     destroy the opposing forces, and bring victory to \n" +
+                "     your gang. When the game starts you have the ability \n" +
+                "     to select any of your vehicles, and when you select \n" +
+                "     a vehicle a movement UI will appear around it. ";
 
         g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 

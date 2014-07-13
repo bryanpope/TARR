@@ -11,15 +11,15 @@ import com.framework.Screen;
 import java.util.List;
 
 /**
- * Created by Brandon on 2014-06-29.
+ * Created by Brandon on 2014-07-13.
  */
-public class HowToScreen3 extends Screen {
-    public HowToScreen3(Game game) {
+public class HowToScreen4 extends Screen {
+    public HowToScreen4(Game game) {
         super(game);
     }
 
-    @Override
     public void update(float deltaTime) {
+        Graphics g = game.getGraphics();
         List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
         game.getInput().getKeyEvents();
 
@@ -28,12 +28,12 @@ public class HowToScreen3 extends Screen {
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP) {
                 if(inBounds(event, 77, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen2(game));
+                    game.setScreen(new HowToScreen3(game));
                     return;
                 }
 
                 if(inBounds(event, 1730, 950, 200, 200) ) {
-                    game.setScreen(new HowToScreen4(game));
+                    game.setScreen(new HowToScreen5(game));
                     return;
                 }
 
@@ -72,17 +72,17 @@ public class HowToScreen3 extends Screen {
         srcX = (index % numColumns) * tileHeight;
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
-        //      " TARR is a tactical combat simulator where you take \n" +
-        text =  "     All vehicles will have a yellow box around them\n" +
-                "     showing you they are free to make an action. After\n" +
-                "     a vehicle has moved it will have a cream colour box\n" +
-                "     to indicate the vehicle has moved. For quick movement\n" +
-                "     you can select the move all button which will move\n" +
-                "     all vehicles in the current direction the are facing.\n" +
-                "     Once all of your vehicles have moved the enemy forces\n" +
-                "     will move, then it will switch back to the movement\n" +
-                "     phase unless one of your vehicles are within range\n" +
-                "     to attack a vehicle.";
+//              "     All vehicles will have a yellow box around them\n" +
+        text =  "     When in the attack phase select a vehicle that\n" +
+                "     has a yellow box around it, any friendly vehicle\n" +
+                "     that is not within range will have a cream colour\n" +
+                "     box around them, while the in range vehicles will\n" +
+                "     have a yellow box around them. When you select one\n" +
+                "     of your vehicles that are within range, any enemy\n" +
+                "     within your range will change from pink to bright\n" +
+                "     red showing you who you can attack. Press down on\n" +
+                "     a vehicle you wish to attack, then slide your finger\n" +
+                "     to one of the three buttons drawn.";
 
         g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 
@@ -90,17 +90,14 @@ public class HowToScreen3 extends Screen {
         g.drawText(title, 970, 190, Color.rgb(252, 165, 15), titleSize, Paint.Align.CENTER);
     }
 
-    @Override
     public void pause() {
-
+        Settings.save(game.getFileIO());
     }
 
-    @Override
     public void resume() {
 
     }
 
-    @Override
     public void dispose() {
 
     }

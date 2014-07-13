@@ -73,15 +73,13 @@ public class HowToScreen2 extends Screen {
         srcY = (index++ / numColumns) * tileWidth;
         g.drawPixmap(Assets.roadTileSheet, 1730, 950, srcX, srcY, tileWidth, tileHeight);
 
-        text =  " In tactical combat select one of your vehicles to bring up \n" +
-                " your HUD and select which direction you want to move. \n" +
-                " Acceleration and breaking will affect your maneuverability \n" +
-                " meaning how many times your vehicle can turn. For quick \n" +
-                " movement use move all. If you’re within range of an enemy \n" +
-                " the colour around your vehicle will change to bright yellow \n" +
-                " indicating that you can attack a vehicle in your line of sight.\n" +
-                " Enemy vehicles will turn bright red if they are within line of \n"+
-                " sight of one of your vehicles";
+        text =  "     You can move forward, turn left or right based on \n" +
+                "     the amount of maneuverability available for that \n" +
+                "     vehicle, break and acceleration which will adjust \n" +
+                "     your speed which will affect your maneuverability. \n" +
+                "     When a friendly vehicle is selected a gang inventory \n" +
+                "     bar will appear at the bottom of the screen showing \n" +
+                "     you what your crew for that vehicle looks like. ";
 
         g.drawText(text, 0, 315, Color.WHITE, fontSize, Paint.Align.LEFT);
 
