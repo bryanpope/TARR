@@ -29,7 +29,7 @@ public class WinLossScreen extends Screen
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP)
             {
-                if(inBounds(event, 861, 466, 393, 112) ) {
+                if(inBounds(event, 871, 985, 393, 112) ) {
                     game.setScreen(new MainMenuScreen(game));
                     return;
                 }
@@ -51,12 +51,12 @@ public class WinLossScreen extends Screen
         if (mPlayerWon)
         {
             g.drawPixmap(Assets.background, 0, 0);
-            g.drawPixmap(Assets.mainMenu, 780, 466);
+            g.drawPixmap(Assets.mainMenu, 871, 985);
         }
         else
         {
-            g.drawPixmap(Assets.background, 0, 0);
-            g.drawPixmap(Assets.mainMenu, 780, 466);
+            g.drawPixmap(Assets.gameOver, 0, 0);
+            g.drawPixmap(Assets.menu, 871, 985);
         }
     }
 

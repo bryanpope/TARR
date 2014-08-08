@@ -15,6 +15,8 @@ public class LoadingScreen extends Screen {
 
         Assets.background = g.newPixmap("Titlescreen1920x1080.jpg", PixmapFormat.ARGB8888);
         Assets.mainMenu = g.newPixmap("buttons2.png", PixmapFormat.ARGB4444);
+        Assets.gameOver = g.newPixmap("gameover.png", PixmapFormat.ARGB4444);
+        Assets.menu = g.newPixmap("mainMenu.png", PixmapFormat.ARGB4444);
         Assets.overWorldUI = g.newPixmap("OverworldUI.png", PixmapFormat.ARGB8888);
         Assets.howToScreen = g.newPixmap("screen.jpg", PixmapFormat.ARGB8888);
         Assets.roadTileSheet = g.newPixmap("roadTileSheet.png", PixmapFormat.ARGB8888);
