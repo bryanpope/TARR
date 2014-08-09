@@ -50,7 +50,7 @@ public class WinLossScreen extends Screen
         
         if (mPlayerWon)
         {
-            g.drawPixmap(Assets.background, 0, 0);
+            g.drawPixmap(Assets.victory, 0, 0);
             g.drawPixmap(Assets.mainMenu, 871, 985);
         }
         else
