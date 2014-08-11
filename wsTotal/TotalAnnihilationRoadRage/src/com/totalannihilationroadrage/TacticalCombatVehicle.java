@@ -201,7 +201,7 @@ public class TacticalCombatVehicle
 
     void checkIfDead ()
     {
-        if (interior.allDead())
+        if (interior.allDead() || (vehicle.tires <= 0))
         {
             die();
         }

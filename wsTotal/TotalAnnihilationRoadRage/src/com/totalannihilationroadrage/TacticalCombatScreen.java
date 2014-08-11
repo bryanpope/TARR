@@ -45,7 +45,8 @@ public class TacticalCombatScreen extends Screen
     enum StateCombatReport
     {
         DefenderDeaths,
-        AttackerDeaths
+        AttackerDeaths,
+        TireDeaths
     }
 
     enum FlashingButton
@@ -68,6 +69,7 @@ public class TacticalCombatScreen extends Screen
     TiledMap tMap;
     PhaseStates prevState;
     private CombinedGangMembers killList;
+    private int mTiresLeft;
 
     boolean updateAttackAreaSelection = false;
     boolean drawSpark = false;
@@ -261,7 +263,7 @@ public class TacticalCombatScreen extends Screen
 
         if (tcWorld.allPlayersDead() || tcWorld.allEnemiesDead())
         {
-            game.setScreen(new WorldMap(game, Assets.tmOverWorld));
+            game.setScreen(new WinLossScreen(game, !tcWorld.allPlayersDead()));
         }
 
         updateButtonAnimation(deltaTime);
@@ -899,9 +901,27 @@ public class TacticalCombatScreen extends Screen
             {
                 gumbyFive = tcWorld.randInt(0, tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.size() - 1);
                 enemyHasAttacked = true;
-                executeCombat(tcWorld.tcvsEnemy.get(enemyAttackCounter), tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.get(gumbyFive));
+                TacticalCombatWorld.ShootingAt shotDest;
+                int shotLoc = TacticalCombatWorld.randInt(1, 100);
+                if (shotLoc > 25)
+                {
+                    shotDest = TacticalCombatWorld.ShootingAt.Interior;
+                }
+                else if (shotLoc > 5)
+                {
+                    shotDest = TacticalCombatWorld.ShootingAt.Exterior;
+                }
+                else
+                {
+                    shotDest = TacticalCombatWorld.ShootingAt.Tires;
+                }
+                executeCombat(tcWorld.tcvsEnemy.get(enemyAttackCounter), tcWorld.tcvsEnemy.get(enemyAttackCounter).enemiesInRange.get(gumbyFive), shotDest);
                 prevState = PhaseStates.EnemyAttack;
                 pState = PhaseStates.DisplayCasualties;
+                if(shotDest == TacticalCombatWorld.ShootingAt.Tires)
+                {
+                    stateCombatReport = StateCombatReport.TireDeaths;
+                }
                 enemyAttackCounter++;
             }
         }
@@ -928,7 +948,7 @@ public class TacticalCombatScreen extends Screen
         }
     }
 
-    private void executeCombat (TacticalCombatVehicle attacker, TacticalCombatVehicle defender)
+    private void executeCombat (TacticalCombatVehicle attacker, TacticalCombatVehicle defender, TacticalCombatWorld.ShootingAt shotDest)
     {
         Vector start = new Vector();
         Vector goal = new Vector();
@@ -938,9 +958,24 @@ public class TacticalCombatScreen extends Screen
         goal.y = defender.yPos;
         int distanceAway = (int)Math.round(attacker.getDistanceFromGoal(start, goal));
 
-        killList = tcWorld.shootRound(attacker.interior, defender.interior, distanceAway, false);
+        switch (shotDest)
+        {
+            case Interior:
+                killList = tcWorld.shootRound(attacker.interior, defender.interior, defender.vehicle, distanceAway, false, 1, false);
+                break;
+
+            case Exterior:
+                killList = tcWorld.shootRound(attacker.interior, defender.exterior, defender.vehicle, distanceAway, false, 3, false);
+                break;
+
+            case Tires:
+                killList = tcWorld.shootRound(attacker.interior, defender.exterior, defender.vehicle, distanceAway, false, -1, true);
+                break;
+        }
+
         attacker.checkIfDead();
         defender.checkIfDead();
+        mTiresLeft = defender.vehicle.tires;
         if(selectedVehicleEnemy != null)
         {
             if (selectedVehicleEnemy.isDead)
@@ -1236,6 +1271,20 @@ public class TacticalCombatScreen extends Screen
             g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
             ++line;
         }
+        if (stateCombatReport == StateCombatReport.TireDeaths)
+        {
+            line += 5;
+            yPos = line * fontSize;
+
+            text = "Tires Left";
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+
+            text = "" + mTiresLeft;
+            yPos = line * fontSize;
+            g.drawText(text, xPos, yPos, Color.WHITE, fontSize, Paint.Align.LEFT);
+            ++line;
+        }
     }
 
     private void updateCombatReport(List<Input.TouchEvent> touchEvents)
@@ -1248,7 +1297,7 @@ public class TacticalCombatScreen extends Screen
             Input.TouchEvent event = touchEvents.get(i);
             if(event.type == Input.TouchEvent.TOUCH_UP)
             {
-                if (stateCombatReport == StateCombatReport.DefenderDeaths)
+                if ((stateCombatReport == StateCombatReport.DefenderDeaths) || (stateCombatReport == StateCombatReport.TireDeaths))
                 {
                     stateCombatReport = StateCombatReport.AttackerDeaths;
                     touchEvents.remove(i);
@@ -1399,7 +1448,7 @@ public class TacticalCombatScreen extends Screen
                     isTouched = false;
                     flashingButton = FlashingButton.FlashAttackOutside;
                     playGunSound();
-                    executeCombat(selectedVehicle, selectedVehicleEnemy);
+                    executeCombat(selectedVehicle, selectedVehicleEnemy, TacticalCombatWorld.ShootingAt.Exterior);
                     selectedVehicle.isAttacked = true;
                     prevState = PhaseStates.Attack;
                     pState = PhaseStates.DisplayCasualties;
@@ -1416,7 +1465,7 @@ public class TacticalCombatScreen extends Screen
                     isButtonFlashing = true;
                     isTouched2 = false;
                     playGunSound();
-                    executeCombat(selectedVehicle, selectedVehicleEnemy);
+                    executeCombat(selectedVehicle, selectedVehicleEnemy, TacticalCombatWorld.ShootingAt.Interior);
                     selectedVehicle.isAttacked = true;
                     prevState = PhaseStates.Attack;
                     pState = PhaseStates.DisplayCasualties;
@@ -1433,9 +1482,10 @@ public class TacticalCombatScreen extends Screen
                     isButtonFlashing = true;
                     isTouched3 = false;
                     playGunSound();
-                    executeCombat(selectedVehicle, selectedVehicleEnemy);
+                    executeCombat(selectedVehicle, selectedVehicleEnemy, TacticalCombatWorld.ShootingAt.Tires);
                     selectedVehicle.isAttacked = true;
                     prevState = PhaseStates.Attack;
+                    pState = PhaseStates.DisplayCasualties;
                     drawSpark = true;
                     // *ALL* touch events need to be removed here to get rid of a dragged.
                     touchEvents.clear();

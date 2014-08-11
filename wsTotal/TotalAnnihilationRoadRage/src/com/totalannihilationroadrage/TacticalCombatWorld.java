@@ -5,7 +5,14 @@ import java.util.Random;
 
 public class TacticalCombatWorld 
 {
-	private int roundsPlayer;
+    enum ShootingAt
+    {
+        Interior,
+        Exterior,
+        Tires
+    }
+
+    private int roundsPlayer;
     private int roundsEnemy;
     public List< TacticalCombatVehicle > tcvsPlayer;
     public List< TacticalCombatVehicle > tcvsEnemy;
@@ -397,11 +404,29 @@ public class TacticalCombatWorld
         }
     }
 
-    public CombinedGangMembers shootRound(GangMembers gmAttacking, GangMembers gmDefending, int distance, boolean isCrossbows)
+    private int calculateTiresHit (int numAttackers, int attackBonus)
+    {
+        int numTiresHit, attackRoll;
+
+        numTiresHit = 0;
+        for (int i = 0; i < numAttackers; ++i)
+        {
+            attackRoll = randInt (1, 20);
+            if ((attackRoll + attackBonus) > (10 + 5))
+            {
+                ++numTiresHit;
+            }
+        }
+
+        return numTiresHit;
+    }
+
+    public CombinedGangMembers shootRound(GangMembers gmAttacking, GangMembers gmDefending, VehicleStatsCurrent defVehicle, int distance, boolean isCrossbows, int attackModifier, boolean attackTires)
     {
         CombinedGangMembers gangs = new CombinedGangMembers();
         int rangePenalty = 0;
         GangMembers defenderAdjust = new GangMembers(gmDefending);
+        int tiresShot = 0;
 
         if (isCrossbows)
         {
@@ -417,24 +442,40 @@ public class TacticalCombatWorld
 
         if (!isCrossbows || (isCrossbows && (distance < 6)))
         {
-            calculateDeaths (gmAttacking.armsmasters, 2 + rangePenalty, gangs.defender);
-            calculateDeaths (gmAttacking.bodyguards, 1 + rangePenalty, gangs.defender);
-            calculateDeaths (gmAttacking.commandos, 0 + rangePenalty, gangs.defender);
-            calculateDeaths (gmAttacking.dragoons, -1 + rangePenalty, gangs.defender);
-            calculateDeaths (gmAttacking.escorts, -2 + rangePenalty, gangs.defender);
+            if (attackTires)
+            {
+                tiresShot = calculateTiresHit (gmAttacking.armsmasters, 2 + attackModifier + rangePenalty);
+                tiresShot += calculateTiresHit (gmAttacking.bodyguards, 1 + attackModifier + rangePenalty);
+                tiresShot += calculateTiresHit (gmAttacking.commandos, 0 + attackModifier + rangePenalty);
+                tiresShot += calculateTiresHit (gmAttacking.dragoons, -1 + attackModifier + rangePenalty);
+                tiresShot += calculateTiresHit (gmAttacking.escorts, -2 + attackModifier + rangePenalty);
+            }
+            else
+            {
+                calculateDeaths (gmAttacking.armsmasters, 2 + attackModifier + rangePenalty, gangs.defender);
+                calculateDeaths (gmAttacking.bodyguards, 1 + attackModifier + rangePenalty, gangs.defender);
+                calculateDeaths (gmAttacking.commandos, 0 + attackModifier + rangePenalty, gangs.defender);
+                calculateDeaths (gmAttacking.dragoons, -1 + attackModifier + rangePenalty, gangs.defender);
+                calculateDeaths (gmAttacking.escorts, -2 + attackModifier + rangePenalty, gangs.defender);
 
-            defenderAdjust.armsmasters -= gangs.defender.armsmasters;
-            defenderAdjust.bodyguards -= gangs.defender.bodyguards;
-            defenderAdjust.commandos -= gangs.defender.commandos;
-            defenderAdjust.dragoons -= gangs.defender.dragoons;
-            defenderAdjust.escorts -= gangs.defender.escorts;
+                defenderAdjust.armsmasters -= gangs.defender.armsmasters;
+                defenderAdjust.bodyguards -= gangs.defender.bodyguards;
+                defenderAdjust.commandos -= gangs.defender.commandos;
+                defenderAdjust.dragoons -= gangs.defender.dragoons;
+                defenderAdjust.escorts -= gangs.defender.escorts;
+            }
 
-            calculateDeaths (defenderAdjust.armsmasters, 2 + rangePenalty, gangs.attacker);
-            calculateDeaths (defenderAdjust.bodyguards, 1 + rangePenalty, gangs.attacker);
-            calculateDeaths (defenderAdjust.commandos, 0 + rangePenalty, gangs.attacker);
-            calculateDeaths (defenderAdjust.dragoons, -1 + rangePenalty, gangs.attacker);
-            calculateDeaths (defenderAdjust.escorts, -2 + rangePenalty, gangs.attacker);
+            if (tiresShot < defVehicle.tires)
+            {
+                calculateDeaths (defenderAdjust.armsmasters, 2 + attackModifier + rangePenalty, gangs.attacker);
+                calculateDeaths (defenderAdjust.bodyguards, 1 + attackModifier + rangePenalty, gangs.attacker);
+                calculateDeaths (defenderAdjust.commandos, 0 + attackModifier + rangePenalty, gangs.attacker);
+                calculateDeaths (defenderAdjust.dragoons, -1 + attackModifier + rangePenalty, gangs.attacker);
+                calculateDeaths (defenderAdjust.escorts, -2 + attackModifier + rangePenalty, gangs.attacker);
+            }
         }
+
+        defVehicle.tires = stopAtZero(defVehicle.tires - tiresShot);
 
         gmAttacking.armsmasters = stopAtZero(gmAttacking.armsmasters - gangs.attacker.armsmasters);
         gmAttacking.bodyguards = stopAtZero(gmAttacking.bodyguards - gangs.attacker.bodyguards);
